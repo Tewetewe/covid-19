@@ -16,6 +16,38 @@ CREATE DATABASE /*!32312 IF NOT EXISTS*/`covid` /*!40100 DEFAULT CHARACTER SET l
 
 USE `covid`;
 
+/*Table structure for table `country` */
+
+DROP TABLE IF EXISTS `country`;
+
+CREATE TABLE `country` (
+  `OBJECTID` int(11) NOT NULL,
+  `Country_Region` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`OBJECTID`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+/*Data for the table `country` */
+
+/*Table structure for table `global_data` */
+
+DROP TABLE IF EXISTS `global_data`;
+
+CREATE TABLE `global_data` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `Last_Update` varchar(255) DEFAULT NULL,
+  `Lat` double DEFAULT NULL,
+  `Long_` double DEFAULT NULL,
+  `Confirmed` int(11) DEFAULT NULL,
+  `Deaths` int(11) DEFAULT NULL,
+  `Recovered` int(11) DEFAULT NULL,
+  `Active` int(11) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `OBJECTID` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+/*Data for the table `global_data` */
+
 /*Table structure for table `migrations` */
 
 DROP TABLE IF EXISTS `migrations`;
@@ -28,6 +60,35 @@ CREATE TABLE `migrations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 /*Data for the table `migrations` */
+
+/*Table structure for table `provinsi` */
+
+DROP TABLE IF EXISTS `provinsi`;
+
+CREATE TABLE `provinsi` (
+  `FID` int(11) NOT NULL,
+  `Kode_Provi` int(11) DEFAULT NULL,
+  `Provinsi` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`FID`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+/*Data for the table `provinsi` */
+
+/*Table structure for table `provinsi_data` */
+
+DROP TABLE IF EXISTS `provinsi_data`;
+
+CREATE TABLE `provinsi_data` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `FID` int(11) DEFAULT NULL,
+  `Kasus_Posi` int(11) DEFAULT NULL,
+  `Kasus_Semb` int(11) DEFAULT NULL,
+  `Kasus_Meni` int(11) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+/*Data for the table `provinsi_data` */
 
 /*Table structure for table `users` */
 
