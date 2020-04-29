@@ -6,6 +6,7 @@ use App\Provinsi;
 use App\ProvinsiData;
 use App\Country;
 use App\GlobalData;
+use App\RekapIndo;
 
 class HomeController extends Controller
 {
@@ -32,7 +33,20 @@ class HomeController extends Controller
         $global = Country::select('Country_Region', 'Confirmed', 'Deaths', 'Recovered', 'created_at')
         ->join('global_data', 'country.OBJECTID','=','global_data.OBJECTID')
         ->orderBy('country.Country_Region', 'ASC')->whereDate('created_at', '=', date('Y-m-d'))->get();
-        return view('dashboard', compact('provinsi', 'global'));
+
+        $dataRekapIndo = RekapIndo::get();   
+        $positif = RekapIndo::orderBy('id', 'desc')->take(1)->value('positif');
+        $sembuh = RekapIndo::orderBy('id', 'desc')->take(1)->value('sembuh');
+        $meninggal = RekapIndo::orderBy('id', 'desc')->take(1)->value('meninggal');
+        $dataPositif = array();
+        $positifDate = array();
+
+        for ($i=0; $i < count($dataRekapIndo); $i++) {
+            array_push($positifDate, $dataRekapIndo[$i]->created_at);
+            array_push($dataPositif, $dataRekapIndo[$i]->positif);
+        }
+
+        return view('dashboard', compact('provinsi', 'global', 'dataRekapIndo', 'dataPositif','positifDate','positif','sembuh','meninggal'));
     
     }
 

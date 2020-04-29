@@ -15,18 +15,18 @@
                             </div>
                             <div class="col">
                                 <ul class="nav nav-pills justify-content-end">
-                                    <li class="nav-item mr-2 mr-md-0" data-toggle="chart" data-target="#chart-sales" data-update='{"data":{"datasets":[{"data":[0, 20, 10, 30, 15, 40, 20, 60, 60]}]}}' data-prefix="$" data-suffix="k">
+                                    <li class="nav-item mr-2 mr-md-0" data-toggle="chart" data-target="#chart-saless" data-update='{"data":{"datasets":[{"data":{!! json_encode($dataPositif) !!}}]}}' data-prefix="$" data-suffix="k">
                                         <a href="#" class="nav-link py-2 px-3 active" data-toggle="tab">
                                             <span class="d-none d-md-block">Month</span>
                                             <span class="d-md-none">M</span>
                                         </a>
                                     </li>
-                                    <li class="nav-item" data-toggle="chart" data-target="#chart-sales" data-update='{"data":{"datasets":[{"data":[0, 20, 5, 25, 10, 30, 15, 40, 40]}]}}' data-prefix="$" data-suffix="k">
+                                    <!-- <li class="nav-item" data-toggle="chart" data-target="#chart-sales" data-update='{"data":{"datasets":[{"data":[0, 20, 5, 25, 10, 30, 15, 40, 40]}]}}' data-prefix="$" data-suffix="k">
                                         <a href="#" class="nav-link py-2 px-3" data-toggle="tab">
                                             <span class="d-none d-md-block">Week</span>
                                             <span class="d-md-none">W</span>
                                         </a>
-                                    </li>
+                                    </li> -->
                                 </ul>
                             </div>
                         </div>
@@ -35,7 +35,7 @@
                         <!-- Chart -->
                         <div class="chart">
                             <!-- Chart wrapper -->
-                            <canvas id="chart-sales" class="chart-canvas"></canvas>
+                            <canvas id="chart-saless" class="chart-canvas"></canvas>
                         </div>
                     </div>
                 </div>
@@ -147,4 +147,78 @@
 @push('js')
     <script src="{{ asset('argon') }}/vendor/chart.js/dist/Chart.min.js"></script>
     <script src="{{ asset('argon') }}/vendor/chart.js/dist/Chart.extension.js"></script>
+    <script src="/argon/js/argon.js"></script>
+    <script>
+        'use strict';
+        
+        var SalesChart = (function() {
+
+        // Variables
+
+        var $chart = $('#chart-saless');
+
+
+        // Methods
+
+        function init($chart) {
+
+            var salesChart = new Chart($chart, {
+                type: 'line',
+                options: {
+                    scales: {
+                        yAxes: [{
+                            gridLines: {
+                                color: Charts.colors.gray[900],
+                                zeroLineColor: Charts.colors.gray[900]
+                            },
+                            ticks: {
+                                callback: function(value) {
+                                    if (!(value % 10)) {
+                                        return value;
+                                    }
+                                }
+                            }
+                        }]
+                    },
+                    tooltips: {
+                        callbacks: {
+                            label: function(item, data) {
+                                var label = data.datasets[item.datasetIndex].label || '';
+                                var yLabel = item.yLabel;
+                                var content = '';
+
+                                if (data.datasets.length > 1) {
+                                    content += '<span class="popover-body-label mr-auto">' + label + '</span>';
+                                }
+
+                                content += yLabel ;
+                                return content;
+                            }
+                        }
+                    }
+                },
+                data: {
+                    labels: {!! json_encode($positifDate) !!},
+                    datasets: [{
+                        label: 'permormance',
+                        data: {!! json_encode($dataPositif) !!}
+                    }]
+                }
+            });
+
+            // Save to jQuery object
+
+            $chart.data('chart', salesChart);
+
+        };
+
+
+        // Events
+
+        if ($chart.length) {
+            init($chart);
+        }
+
+        })();
+    </script>
 @endpush
