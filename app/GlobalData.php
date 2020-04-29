@@ -8,6 +8,8 @@ class GlobalData extends Model
 {
     protected $table = 'global_data';
     protected $primaryKey = 'id';
+    public $timestamps = false;
+
 
     public function country()
     {

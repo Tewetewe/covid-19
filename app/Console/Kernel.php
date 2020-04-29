@@ -4,6 +4,11 @@ namespace App\Console;
 
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
+use Illuminate\Support\Facades\Http;
+use App\Provinsi;
+use App\ProvinsiData;
+use App\Country;
+use App\GlobalData;
 
 class Kernel extends ConsoleKernel
 {
@@ -13,7 +18,7 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        //
+        Commands\LoadData::class,
     ];
 
     /**
@@ -24,7 +29,7 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')->hourly();
+        $schedule->command('load:data')->timezone('Asia/Jakarta')->dailyAt('12:30')->sendOutputTo( base_path().'/app/console/log.txt');
     }
 
     /**

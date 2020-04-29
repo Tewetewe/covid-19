@@ -8,6 +8,8 @@ class Provinsi extends Model
 {
     protected $table = 'provinsi';
     public $timestamps = false;
+    protected $primarykey = 'FID';
+
 
     public function provinsidata()
     {

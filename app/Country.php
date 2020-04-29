@@ -8,6 +8,8 @@ class Country extends Model
 {
     protected $table = 'country';
     public $timestamps = false;
+    protected $primaryKey = 'OBJECTID';
+
 
     public function globaldata()
     {
