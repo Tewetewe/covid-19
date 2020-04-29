@@ -8,6 +8,8 @@ use App\Provinsi;
 use App\ProvinsiData;
 use App\Country;
 use App\GlobalData;
+use App\RekapGlobal;
+use App\RekapIndo;
 use Carbon\Carbon;
 
 class LoadData extends Command
@@ -47,7 +49,14 @@ class LoadData extends Command
         $newResponseIndo = json_decode($responseIndo, TRUE);
         $responseGlobal = Http::get('https://api.kawalcorona.com/');
         $newResponseGlobal = json_decode($responseGlobal, TRUE);
-        
+        $positifGlobal = Http::get('https://api.kawalcorona.com/positif');
+        $newpositifGlobal = json_decode($positifGlobal, TRUE);
+        $sembuhGlobal = Http::get('https://api.kawalcorona.com/sembuh');
+        $newsembuhGlobal = json_decode($sembuhGlobal, TRUE);
+        $meninggalGlobal = Http::get('https://api.kawalcorona.com/meninggal');
+        $newmeninggalGlobal = json_decode($meninggalGlobal, TRUE);
+        $indoRekap = Http::get('https://api.kawalcorona.com/indonesia');
+        $newindoRekap = json_decode($indoRekap, TRUE);
         // $provInsert = [];
         // foreach ($newResponse as $item){
         //     $provinsi = new Provinsi();
@@ -59,6 +68,7 @@ class LoadData extends Command
         // Provinsi::insert($provInsert);
         $provDataInsert = [];
         $globalDataInsert = [];
+        $rekapIndoInsert = [];
         foreach ($newResponseIndo as $item){
             $provinsiData = new ProvinsiData();
             $provinsiData->FID = $item['attributes']['FID'];
@@ -77,14 +87,30 @@ class LoadData extends Command
             $globalData->Long_ = $item['attributes']['Long_'];
             $globalData->Confirmed = $item['attributes']['Confirmed'];
             $globalData->Deaths = $item['attributes']['Deaths'];
-            $globalData->Recovered = $item['attributes']['Deaths'];
+            $globalData->Recovered = $item['attributes']['Recovered'];
             $globalData->Active = $item['attributes']['Active'];
             $globalData->created_at = date('Y-m-d H:i:s');
             $globalData->updated_at = date('Y-m-d H:i:s');
             $globalDataInsert[] = $globalData->attributesToArray();
         }
+        
+        foreach($newindoRekap as $item){
+            $rekapIndo = new RekapIndo();
+            $rekapIndo->positif = $item['positif'];
+            $rekapIndo->sembuh = $item['sembuh'];
+            $rekapIndo->meninggal = $item['meninggal'];
+            $rekapIndo->created_at = date('Y-m-d H:i:s');
+            $rekapIndoInsert[] = $rekapIndo->attributesToArray();
+        }
+        $rekapGlobal = new RekapGlobal;
+        $rekapGlobal->positif = $newpositifGlobal['value'];
+        $rekapGlobal->sembuh = $newsembuhGlobal['value'];
+        $rekapGlobal->meninggal = $newmeninggalGlobal['value'];
+        $rekapGlobal->created_at = date('Y-m-d H:i:s');
+        $rekapGlobal->save();
         ProvinsiData::insert($provDataInsert);
         GlobalData::insert($globalDataInsert);
+        RekapIndo::insert($rekapIndoInsert);
         $this->info('Data Berhasil Disimpan');
     }
 }

@@ -26,11 +26,13 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $nowDate = date('Y-m-d');
         $provinsi = Provinsi::select('Kode_Provi', 'Provinsi', 'Kasus_Posi', 'Kasus_Semb', 'Kasus_Meni', 'created_at')
         ->join('provinsi_data', 'provinsi.FID','=','provinsi_data.FID')
         ->orderBy('provinsi.Provinsi', 'ASC')->whereDate('created_at', '=', date('Y-m-d'))->get();
-        return view('dashboard', compact('provinsi'));
+        $global = Country::select('Country_Region', 'Confirmed', 'Deaths', 'Recovered', 'created_at')
+        ->join('global_data', 'country.OBJECTID','=','global_data.OBJECTID')
+        ->orderBy('country.Country_Region', 'ASC')->whereDate('created_at', '=', date('Y-m-d'))->get();
+        return view('dashboard', compact('provinsi', 'global'));
     
     }
 
