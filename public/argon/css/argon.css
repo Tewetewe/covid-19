@@ -9453,6 +9453,29 @@ button.bg-darker:focus
     box-shadow: 0 0 .5rem rgba(136, 152, 170, .075) !important;
 }
 
+
+#profileImage {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: #512DA8;
+    font-size: 35px;
+    color: #fff;
+    text-align: center;
+    line-height: 150px;
+}
+
+#profileImage-icon {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background: #17a3c0;
+    font-size: 12px;
+    color: #fff;
+    text-align: center;
+    line-height: 35px;
+}
+
 .shadow,
 .card-profile-image img
 {
@@ -17397,6 +17420,23 @@ a.btn-icon-only
     border-radius: .375rem;
 }
 .card-profile-image img:hover
+{
+    transform: translate(-50%, -33%);
+}
+
+.card-profile-image div
+{
+    position: absolute;
+    left: 50%;
+
+    max-width: 180px;
+
+    transition: all .15s ease; 
+    transform: translate(-50%, -30%);
+
+    border-radius: .375rem;
+}
+.card-profile-image div:hover
 {
     transform: translate(-50%, -33%);
 }
