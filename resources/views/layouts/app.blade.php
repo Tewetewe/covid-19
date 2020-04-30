@@ -17,6 +17,8 @@
         <link href="{{ asset('argon') }}/vendor/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
         <!-- Argon CSS -->
         <link type="text/css" href="{{ asset('argon') }}/css/argon.css?v=1.0.0" rel="stylesheet">
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     </head>
     <body class="{{ $class ?? '' }}">
         @auth()
@@ -24,11 +26,24 @@
                 @csrf
             </form>
             @include('layouts.navbars.sidebar')
+            <script>
+
+                $(document).ready(function(){
+                    var firstName = "{{auth()->user()->name}}";
+                    var intials = firstName.charAt(0);
+                    var profileImage = $('#profileImage').text(intials);
+                    var profileImageicon = $('#profileImage-icon').text(intials);
+                    var profileImageicondrop = $('#profileImage-icon-dropdown').text(intials);
+    
+                });    
+                
+            </script>  
         @endauth
         
         <div class="main-content">
             @include('layouts.navbars.navbar')
             @yield('content')
+            
         </div>
 
         @guest()
@@ -37,19 +52,7 @@
 
         <script src="{{ asset('argon') }}/vendor/jquery/dist/jquery.min.js"></script>
         <script src="{{ asset('argon') }}/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
         @stack('js')
-
-        <script>
-
-            $(document).ready(function(){
-                var firstName = "{{auth()->user()->name}}";
-                var intials = firstName.charAt(0);
-                var profileImage = $('#profileImage').text(intials);
-                var profileImageicon = $('#profileImage-icon').text(intials);
-            });    
-            
-        </script>  
         
         <!-- Argon JS -->
         <script src="{{ asset('argon') }}/js/argon.js?v=1.0.0"></script>

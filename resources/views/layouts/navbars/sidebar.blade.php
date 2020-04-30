@@ -18,8 +18,8 @@
             <li class="nav-item dropdown">
                 <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <div class="media align-items-center">
-                        <span class="avatar avatar-sm rounded-circle">
-                        <img alt="Image placeholder" src="{{ asset('argon') }}/img/theme/user.png">
+                        <span class="avatar avatar-sm rounded-circle" id="profileImage-icon-dropdown">
+                            {{-- <img alt="Image placeholder" src="{{ asset('argon') }}/img/theme/user.png"> --}}
                         </span>
                     </div>
                 </a>

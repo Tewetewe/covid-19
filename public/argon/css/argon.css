@@ -9476,6 +9476,17 @@ button.bg-darker:focus
     line-height: 35px;
 }
 
+#profileImage-icon-dropdown {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background: #17a3c0;
+    font-size: 12px;
+    color: #fff;
+    text-align: center;
+    line-height: 35px;
+}
+
 .shadow,
 .card-profile-image img
 {
