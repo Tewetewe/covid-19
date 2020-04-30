@@ -1929,6 +1929,7 @@ pre code
 .table thead th
 {
     vertical-align: bottom;
+    
 
     border-bottom: 2px solid #e9ecef;
 }
@@ -2210,8 +2211,10 @@ pre code
 
 .table .thead-light th
 {
+    position: sticky;
+    top: 0px;
     color: #8898aa;
-    border-color: #e9ecef; 
+    border-color: #e9ecef;
     background-color: #f6f9fc;
 }
 
@@ -20906,6 +20909,8 @@ textarea[resize='horizontal']
 
 .table .thead-light th
 {
+    top: 0px;
+    position: sticky;
     color: #8898aa; 
     background-color: #f6f9fc;
 }
