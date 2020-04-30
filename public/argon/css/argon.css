@@ -14852,6 +14852,13 @@ main
     overflow: hidden;
 }
 
+
+
+.bg-black
+{
+    background-color: #565656 !important;
+}
+
 .bg-blue
 {
     background-color: #5e72e4 !important;
@@ -15049,7 +15056,7 @@ button.bg-lighter:focus
 
 .bg-gradient-primary
 {
-    background: linear-gradient(87deg, #5e72e4 0, #825ee4 100%) !important;
+    /* background: linear-gradient(87deg, #5e72e4 0, #825ee4 100%) !important; */
 
 }
 
@@ -15402,6 +15409,12 @@ button.section-darker:hover,
 button.section-darker:focus
 {
     background-color: black !important;
+}
+
+.bg-background
+{
+    background-image: url("{{ asset('argon') }}/img/brand/12.png");
+    /* background-color: #cccccc; */
 }
 
 .bg-gradient-primary

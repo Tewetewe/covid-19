@@ -1,4 +1,10 @@
-<div class="header bg-gradient-primary pb-8 pt-5 pt-md-8">
+<style> 
+.body {
+    background-image: url("{{ asset('argon') }}/img/brand/12.png");
+    
+}
+</style>
+<div class="header body pb-8 pt-5 pt-md-8">
     <div class="container-fluid">
         <div class="header-body">
             <!-- Card stats -->
@@ -13,7 +19,7 @@
                                 </div>
                                 <div class="col-auto">
                                     <div class="icon icon-shape bg-danger text-white rounded-circle shadow">
-                                        <i class="fas fa-chart-bar"></i>
+                                        <img height="30" widht="30" src="{{ asset('argon') }}/img/brand/emoticon-sad.png" alt="...">
                                     </div>
                                 </div>
                             </div>
@@ -33,8 +39,8 @@
                                     <span class="h2 font-weight-bold mb-0">{{ $sembuh }}</span>
                                 </div>
                                 <div class="col-auto">
-                                    <div class="icon icon-shape bg-warning text-white rounded-circle shadow">
-                                        <i class="fas fa-chart-pie"></i>
+                                    <div class="icon icon-shape bg-green text-white rounded-circle shadow">
+                                        <img height="30" widht="30" src="{{ asset('argon') }}/img/brand/emoticon-happy.png" alt="...">
                                     </div>
                                 </div>
                             </div>
@@ -54,13 +60,13 @@
                                     <span class="h2 font-weight-bold mb-0">{{ $meninggal }}</span>
                                 </div>
                                 <div class="col-auto">
-                                    <div class="icon icon-shape bg-yellow text-white rounded-circle shadow">
-                                        <i class="fas fa-users"></i>
+                                    <div class="icon icon-shape bg-black text-white rounded-circle shadow">
+                                        <img height="30" widht="30" src="{{ asset('argon') }}/img/brand/emoticon-cry.png" alt="...">
                                     </div>
                                 </div>
                             </div>
                             <p class="mt-3 mb-0 text-muted text-sm">
-                                <span class="text-danger mr-2"><i class="fa fa-arrow-up"></i> +{{ $diffMeninggal }}</span>
+                                <span class="text-black mr-2"><i class="fa fa-arrow-up"></i> +{{ $diffMeninggal }}</span>
                                 <span class="text-nowrap">Dari kemarin</span>
                             </p>
                         </div>
