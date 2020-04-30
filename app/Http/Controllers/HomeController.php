@@ -38,15 +38,25 @@ class HomeController extends Controller
         $positif = RekapIndo::orderBy('id', 'desc')->take(1)->value('positif');
         $sembuh = RekapIndo::orderBy('id', 'desc')->take(1)->value('sembuh');
         $meninggal = RekapIndo::orderBy('id', 'desc')->take(1)->value('meninggal');
+        $Diff = RekapIndo::orderBy('id', 'desc')->take(2)->get();
         $dataPositif = array();
         $positifDate = array();
 
         for ($i=0; $i < count($dataRekapIndo); $i++) {
-            array_push($positifDate, $dataRekapIndo[$i]->created_at);
+            array_push($positifDate, date('d-F', strtotime($dataRekapIndo[$i]->created_at)));
             array_push($dataPositif, $dataRekapIndo[$i]->positif);
         }
 
-        return view('dashboard', compact('provinsi', 'global', 'dataRekapIndo', 'dataPositif','positifDate','positif','sembuh','meninggal'));
+        for ($i=0; $i < count($Diff); $i++) {
+            $data1[$i] = $Diff[$i]->positif;
+            $data2[$i] = $Diff[$i]->sembuh;
+            $data3[$i] = $Diff[$i]->meninggal;
+        }
+        $diffPositif = $data1[0] - $data1[1];
+        $diffSembuh = $data2[0] - $data2[1];
+        $diffMeninggal = $data3[0] - $data3[1];
+
+        return view('dashboard', compact('diffMeninggal','diffPositif','diffSembuh','provinsi', 'global', 'dataRekapIndo', 'dataPositif','positifDate','positif','sembuh','meninggal'));
     
     }
 

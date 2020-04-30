@@ -8,7 +8,7 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col">
-                                    <h5 class="card-title text-uppercase text-muted mb-0">Terkonfirmasi Positif</h5>
+                                    <h5 class="card-title text-uppercase text-muted mb-0">Terkonfirmasi</h5>
                                     <span class="h2 font-weight-bold mb-0">{{ $positif }}</span>
                                 </div>
                                 <div class="col-auto">
@@ -18,8 +18,8 @@
                                 </div>
                             </div>
                             <p class="mt-3 mb-0 text-muted text-sm">
-                                <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> 3.48%</span>
-                                <span class="text-nowrap">Since last month</span>
+                                <span class="text-warning mr-2"><i class="fa fa-arrow-up"></i> +{{ $diffPositif }}</span>
+                                <span class="text-nowrap">Dari Kemarin</span>
                             </p>
                         </div>
                     </div>
@@ -39,8 +39,8 @@
                                 </div>
                             </div>
                             <p class="mt-3 mb-0 text-muted text-sm">
-                                <span class="text-danger mr-2"><i class="fas fa-arrow-down"></i> 3.48%</span>
-                                <span class="text-nowrap">Since last week</span>
+                                <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> +{{ $diffSembuh }}</span>
+                                <span class="text-nowrap">Dari Kemarin</span>
                             </p>
                         </div>
                     </div>
@@ -60,8 +60,8 @@
                                 </div>
                             </div>
                             <p class="mt-3 mb-0 text-muted text-sm">
-                                <span class="text-warning mr-2"><i class="fas fa-arrow-down"></i> 1.10%</span>
-                                <span class="text-nowrap">Since yesterday</span>
+                                <span class="text-danger mr-2"><i class="fa fa-arrow-up"></i> +{{ $diffMeninggal }}</span>
+                                <span class="text-nowrap">Dari kemarin</span>
                             </p>
                         </div>
                     </div>
