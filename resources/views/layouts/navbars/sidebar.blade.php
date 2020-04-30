@@ -8,7 +8,7 @@
 
         <!-- Brand -->
         <a class="navbar-brand pt-0" href="{{ route('home') }}">
-            <img src="{{ asset('argon') }}/img/brand/blue.png" class="navbar-brand-img" alt="...">
+            <img src="{{ asset('argon') }}/img/brand/covid-19.png" class="navbar-brand-img" alt="...">
         </a>
 
         
@@ -58,7 +58,7 @@
                 <div class="row">
                     <div class="col-6 collapse-brand">
                         <a href="{{ route('home') }}">
-                            <img src="{{ asset('argon') }}/img/brand/blue.png">
+                            <img src="{{ asset('argon') }}/img/brand/covid-19.png">
                         </a>
                     </div>
                     <div class="col-6 collapse-close">

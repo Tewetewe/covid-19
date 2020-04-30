@@ -7,7 +7,7 @@
 
     <title>{{ config('app.name', 'Argon Dashboard') }}</title>
     <!-- Favicon -->
-    <link href="{{ asset('argon') }}/img/brand/favicon.png" rel="icon" type="image/png">
+    <link href="{{ asset('argon') }}/img/brand/covid-19.png" rel="icon" type="image/png">
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
     <!-- Icons -->
@@ -32,7 +32,7 @@
         </button>
         <!-- Brand -->
         <a class="navbar-brand pt-0" href="{{ route('home') }}">
-            <img src="{{ asset('argon') }}/img/brand/blue.png" class="navbar-brand-img" alt="...">
+            <img src="{{ asset('argon') }}/img/brand/covid-19.png" class="navbar-brand-img" alt="...">
         </a>
         <!-- User -->
         <ul class="nav align-items-center d-md-none">
@@ -40,7 +40,7 @@
                 <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <div class="media align-items-center">
                         <span class="avatar avatar-sm rounded-circle">
-                        <img alt="Image placeholder" src="{{ asset('argon') }}/img/theme/team-1-800x800.jpg">
+                        <img alt="Image placeholder" src="{{ asset('argon') }}/img/theme/team-4-800x800.jpg">
                         </span>
                     </div>
                 </a>
@@ -80,7 +80,7 @@
                 <div class="row">
                     <div class="col-6 collapse-brand">
                         <a  href="{{ route('home') }}">
-                            <img src="{{ asset('argon') }}/img/brand/blue.png">
+                            <img src="{{ asset('argon') }}/img/brand/covid-19.png">
                         </a>
                     </div>
                     <div class="col-6 collapse-close">
@@ -315,8 +315,9 @@
         </li>
     </ul> -->
 </div>
-</nav>    
-            <div class="header bg-gradient-primary pb-8 pt-5 pt-md-8">
+</nav>   
+
+<div class="header bg-gradient-primary pb-8 pt-5 pt-md-8 ">
 <div class="container-fluid">
     <div class="alert alert-danger" role="alert">
         <strong>This is a PRO feature!</strong>
