@@ -55,8 +55,8 @@ class LoadData extends Command
         $newsembuhGlobal = json_decode($sembuhGlobal, TRUE);
         $meninggalGlobal = Http::get('https://api.kawalcorona.com/meninggal');
         $newmeninggalGlobal = json_decode($meninggalGlobal, TRUE);
-        $indoRekap = Http::get('https://api.kawalcorona.com/indonesia');
-        $newindoRekap = json_decode($indoRekap, TRUE);
+        // $indoRekap = Http::get('https://api.kawalcorona.com/indonesia');
+        // $newindoRekap = json_decode($indoRekap, TRUE);
         // $provInsert = [];
         // foreach ($newResponse as $item){
         //     $provinsi = new Provinsi();
@@ -65,7 +65,7 @@ class LoadData extends Command
         //     $provinsi->Provinsi = $item['attributes']['Provinsi'];
         //     $provInsert[] = $provinsi->attributesToArray();
         // }
-        // Provinsi::insert($provInsert);
+        Provinsi::insert($provInsert);
         $provDataInsert = [];
         $globalDataInsert = [];
         $rekapIndoInsert = [];
@@ -96,16 +96,16 @@ class LoadData extends Command
         
         foreach($newindoRekap as $item){
             $rekapIndo = new RekapIndo();
-            $rekapIndo->positif = $item['positif'];
-            $rekapIndo->sembuh = $item['sembuh'];
-            $rekapIndo->meninggal = $item['meninggal'];
+            $rekapIndo->positif = str_replace( ',', '', $item['positif']);
+            $rekapIndo->sembuh = str_replace( ',', '', $item['sembuh']);
+            $rekapIndo->meninggal = str_replace( ',', '', $item['meninggal']);
             $rekapIndo->created_at = date('Y-m-d H:i:s');
             $rekapIndoInsert[] = $rekapIndo->attributesToArray();
-        }
+        }   
         $rekapGlobal = new RekapGlobal;
-        $rekapGlobal->positif = $newpositifGlobal['value'];
-        $rekapGlobal->sembuh = $newsembuhGlobal['value'];
-        $rekapGlobal->meninggal = $newmeninggalGlobal['value'];
+        $rekapGlobal->positif = str_replace( ',', '', $newpositifGlobal['value']);
+        $rekapGlobal->sembuh = str_replace( ',', '', $newsembuhGlobal['value']);
+        $rekapGlobal->meninggal =  str_replace( ',', '', $newmeninggalGlobal['value'] );
         $rekapGlobal->created_at = date('Y-m-d H:i:s');
         $rekapGlobal->save();
         ProvinsiData::insert($provDataInsert);
