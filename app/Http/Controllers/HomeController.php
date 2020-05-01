@@ -7,6 +7,7 @@ use App\ProvinsiData;
 use App\Country;
 use App\GlobalData;
 use App\RekapIndo;
+use App\RekapGlobal;
 
 class HomeController extends Controller
 {
@@ -29,15 +30,16 @@ class HomeController extends Controller
     {
         $provinsi = Provinsi::select('Kode_Provi', 'Provinsi', 'Kasus_Posi', 'Kasus_Semb', 'Kasus_Meni', 'created_at')
         ->join('provinsi_data', 'provinsi.FID','=','provinsi_data.FID')
-        ->orderBy('provinsi.Provinsi', 'ASC')->whereDate('created_at', '=', date('Y-m-d'))->get();
+        ->orderBy('provinsi_data.Kasus_Posi', 'DESC')->whereDate('created_at', '=', date('Y-m-d'))->get();
         $global = Country::select('Country_Region', 'Confirmed', 'Deaths', 'Recovered', 'created_at')
         ->join('global_data', 'country.OBJECTID','=','global_data.OBJECTID')
-        ->orderBy('country.Country_Region', 'ASC')->whereDate('created_at', '=', date('Y-m-d'))->get();
+        ->orderBy('global_data.Confirmed', 'ASC')->whereDate('created_at', '=', date('Y-m-d'))->get();
 
         $dataRekapIndo = RekapIndo::get();   
-        $positif = RekapIndo::orderBy('id', 'desc')->take(1)->value('positif');
-        $sembuh = RekapIndo::orderBy('id', 'desc')->take(1)->value('sembuh');
-        $meninggal = RekapIndo::orderBy('id', 'desc')->take(1)->value('meninggal');
+        $positif = number_format(RekapIndo::orderBy('id', 'desc')->take(1)->value('positif'));
+        $sembuh = number_format(RekapIndo::orderBy('id', 'desc')->take(1)->value('sembuh'));
+        $meninggal = number_format(RekapIndo::orderBy('id', 'desc')->take(1)->value('meninggal'));
+
         $Diff = RekapIndo::orderBy('id', 'desc')->take(2)->get();
         $dataPositif = array();
         $positifDate = array();
@@ -56,8 +58,32 @@ class HomeController extends Controller
         $diffSembuh = $data2[0] - $data2[1];
         $diffMeninggal = $data3[0] - $data3[1];
 
-        return view('dashboard', compact('diffMeninggal','diffPositif','diffSembuh','provinsi', 'global', 'dataRekapIndo', 'dataPositif','positifDate','positif','sembuh','meninggal'));
-    
+        $dataRekapGlobal = RekapGlobal::get();   
+        $positifGlobal = number_format(RekapGlobal::orderBy('id', 'desc')->take(1)->value('positif'));
+        $sembuhGlobal = number_format(RekapGlobal::orderBy('id', 'desc')->take(1)->value('sembuh'));
+        $meninggalGlobal = number_format(RekapGlobal::orderBy('id', 'desc')->take(1)->value('meninggal'));
+        $DiffGlobal = RekapGlobal::orderBy('id', 'desc')->take(2)->get();
+        $dataPositifGlobal = array();
+        $positifDateGlobal = array();
+
+        for ($i=0; $i < count($dataRekapGlobal); $i++) {
+            array_push($positifDateGlobal, date('d-F', strtotime($dataRekapGlobal[$i]->created_at)));
+            array_push($dataPositifGlobal, $dataRekapGlobal[$i]->positif);
+        }
+
+        for ($i=0; $i < count($DiffGlobal); $i++) {
+            $data1Global[$i] = $DiffGlobal[$i]->positif;
+            $data2Global[$i] = $DiffGlobal[$i]->sembuh;
+            $data3Global[$i] = $DiffGlobal[$i]->meninggal;
+        }
+        $diffPositifGlobal = $data1Global[0] - $data1Global[1];
+        $diffSembuhGlobal = $data2Global[0] - $data2Global[1];
+        $diffMeninggalGlobal = $data3Global[0] - $data3Global[1];
+
+        return view('dashboard', compact('diffMeninggal','diffPositif','diffSembuh','provinsi',
+        'global', 'dataRekapIndo', 'dataPositif','positifDate','diffMeninggalGlobal','diffPositifGlobal',
+        'diffSembuhGlobal','dataRekapIndo', 'dataPositifGlobal','positifDateGlobal', 'positif','sembuh','meninggal', 'positifGlobal','sembuhGlobal','meninggalGlobal'));
+
     }
 
 }
