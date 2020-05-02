@@ -73,12 +73,14 @@
                     </div>
                 </div>
                 <div class="col-xl-3 col-lg-6">
-                    <div class="card card-stats mb-4 mb-xl-0">
+                    <div class="card card-stats mb-0 mb-xl-0">
                         <div class="card-body">
                             <div class="row">
                                 <div class="col">
                                     <h5 class="card-title text-uppercase text-muted mb-0">Dunia</h5>
-                                    <span class="h2 font-weight-bold-new mb-0">{{ $positifGlobal }} POSITIF <br> {{ $sembuhGlobal }} SEMBUH <br>{{ $meninggalGlobal }} MENINGGAL</span>
+                                    <span class="h2 font-weight-bold-new mb-0">{{ $positifGlobal }} POSITIF <span class="text-warning mr-2"><i class="fas fa-arrow-up"></i> +{{ $diffPositifGlobal }} </span>
+                                    <br> {{ $sembuhGlobal }} SEMBUH <span class="text-success mr-2"><i class="fas fa-arrow-up"></i> +{{ $diffSembuhGlobal }}</span>
+                                    <br>{{ $meninggalGlobal }} MENINGGAL <span class="text-black mr-2"><i class="fas fa-arrow-up"></i> +{{ $diffMeninggalGlobal }}</span> </span>
                                     
                                 </div>
                                 <div class="col-auto">
@@ -87,12 +89,9 @@
                                     </div>
                                 </div>
                             </div>
-                            <!-- <p class="mt-4 mb-0 text-muted text-sm">
-                                <span class="text-warning mr-2"><i class="fas fa-arrow-up"></i> +{{ $diffPositifGlobal }} </span>
-                                <span class="text-success mr-2"><i class="fas fa-arrow-up"></i> +{{ $diffSembuhGlobal }}</span>
-                                <span class="text-black mr-2"><i class="fas fa-arrow-up"></i> +{{ $diffMeninggalGlobal }}</span>
+                            {{-- <p class="mt-0 mb-0 text-muted text-sm">
                                 <span class="text-nowrap">Dari Kemarin</span>
-                            </p> -->
+                            </p> --}}
                         </div>
                     </div>
                 </div> 

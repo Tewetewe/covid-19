@@ -6,7 +6,7 @@
             <div class="header-body text-center mt-7 mb-7">
                 <div class="row justify-content-center">
                     <div class="col-lg-5 col-md-6">
-                        <h1 class="text-white">{{ __('Welcome to Argon Dashboard Kawal COVID-19.') }}</h1>
+                        <h1 class="text-white">{{ __('Selamat Datang di Website Kawal COVID-19 Bali.') }}</h1>
                     </div>
                 </div>
             </div>

@@ -31,18 +31,6 @@
                         <i class="ni ni-single-02"></i>
                         <span>{{ __('My profile') }}</span>
                     </a>
-                    <a href="#" class="dropdown-item">
-                        <i class="ni ni-settings-gear-65"></i>
-                        <span>{{ __('Settings') }}</span>
-                    </a>
-                    <a href="#" class="dropdown-item">
-                        <i class="ni ni-calendar-grid-58"></i>
-                        <span>{{ __('Activity') }}</span>
-                    </a>
-                    <a href="#" class="dropdown-item">
-                        <i class="ni ni-support-16"></i>
-                        <span>{{ __('Support') }}</span>
-                    </a>
                     <div class="dropdown-divider"></div>
                     <a href="{{ route('logout') }}" class="dropdown-item" onclick="event.preventDefault();
                     document.getElementById('logout-form').submit();">
@@ -128,13 +116,14 @@
                             {{ __('User profile') }}
                     </a>
                 </li> -->
-
+                @if( auth()->user()->role == "admin" )
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('user.index') }}" style="color: #565656;">
                         <i class="ni ni-circle-08" style="color: #565656;"></i>
                              {{ __('Import XLS') }}
                     </a>
                 </li>
+                @endif
 
                 <!-- <li class="nav-item">
                     <a class="nav-link" href="#">
@@ -182,7 +171,7 @@
                                 <i class="ni ni-single-02"></i>
                                 <span>{{ __('My profile') }}</span>
                             </a>
-                            <a href="#" class="dropdown-item">
+                            {{-- <a href="#" class="dropdown-item">
                                 <i class="ni ni-settings-gear-65"></i>
                                 <span>{{ __('Settings') }}</span>
                             </a>
@@ -193,7 +182,7 @@
                             <a href="#" class="dropdown-item">
                                 <i class="ni ni-support-16"></i>
                                 <span>{{ __('Support') }}</span>
-                            </a>
+                            </a> --}}
                             <div class="dropdown-divider"></div>
                             <a href="{{ route('logout') }}" class="dropdown-item" onclick="event.preventDefault();
                             document.getElementById('logout-form').submit();">
