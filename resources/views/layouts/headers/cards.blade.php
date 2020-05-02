@@ -23,7 +23,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <p class="mt-3 mb-0 text-muted text-sm">
+                            <p class="mt-4 mb-0 text-muted text-sm">
                                 <span class="text-warning mr-2"><i class="fa fa-arrow-up"></i> +{{ $diffPositif }}</span>
                                 <span class="text-nowrap">Dari Kemarin</span>
                             </p>
@@ -44,7 +44,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <p class="mt-3 mb-0 text-muted text-sm">
+                            <p class="mt-4 mb-0 text-muted text-sm">
                                 <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> +{{ $diffSembuh }} </span>
                                 <span class="text-nowrap">Dari Kemarin</span>
                             </p>
@@ -65,7 +65,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <p class="mt-3 mb-0 text-muted text-sm">
+                            <p class="mt-4 mb-0 text-muted text-sm">
                                 <span class="text-black mr-2"><i class="fa fa-arrow-up"></i> +{{ $diffMeninggal }}</span>
                                 <span class="text-nowrap">Dari kemarin</span>
                             </p>
@@ -78,8 +78,8 @@
                             <div class="row">
                                 <div class="col">
                                     <h5 class="card-title text-uppercase text-muted mb-0">Dunia</h5>
-                                    <span class="h2 font-weight-bold mb-0"> Positif : {{ $positifGlobal }} Orang  <br> Sembuh : {{ $sembuhGlobal }} Orang <br> Meninggal : {{ $meninggalGlobal }} Orang</span>
-                                    {{-- <p class="text-white mb-0"><b>10,118</b> POSITIF, <b>1,522</b> <br>SEMBUH, <b>792</b> MENINGGAL</p> --}}
+                                    <span class="h2 font-weight-bold-new mb-0">{{ $positifGlobal }} POSITIF <br> {{ $sembuhGlobal }} SEMBUH <br>{{ $meninggalGlobal }} MENINGGAL</span>
+                                    
                                 </div>
                                 <div class="col-auto">
                                     <div class="icon icon-shape bg-info text-white rounded-circle shadow">
@@ -87,12 +87,12 @@
                                     </div>
                                 </div>
                             </div>
-                            <p class="mt-3 mb-0 text-muted text-sm">
+                            <!-- <p class="mt-4 mb-0 text-muted text-sm">
                                 <span class="text-warning mr-2"><i class="fas fa-arrow-up"></i> +{{ $diffPositifGlobal }} </span>
                                 <span class="text-success mr-2"><i class="fas fa-arrow-up"></i> +{{ $diffSembuhGlobal }}</span>
                                 <span class="text-black mr-2"><i class="fas fa-arrow-up"></i> +{{ $diffMeninggalGlobal }}</span>
                                 <span class="text-nowrap">Dari Kemarin</span>
-                            </p>
+                            </p> -->
                         </div>
                     </div>
                 </div> 

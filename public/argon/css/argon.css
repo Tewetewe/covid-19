@@ -13529,6 +13529,7 @@ button.bg-darker:focus
     .mx-xl-0
     {
         margin-right: 0 !important;
+        height: 150px;
     }
     .mb-xl-0,
     .my-xl-0
@@ -14585,6 +14586,13 @@ button.bg-darker:focus
 {
     font-weight: 600 !important;
 }
+
+.font-weight-bold-new
+{
+    font-weight: 600 !important;
+    font-size: 11.4px;
+}
+
 
 .font-italic
 {
