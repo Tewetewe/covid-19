@@ -132,10 +132,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('user.index') }}" style="color: #565656;">
                         <i class="ni ni-circle-08" style="color: #565656;"></i>
-                             {{ __('User Management') }}
+                             {{ __('Import XLS') }}
                     </a>
                 </li>
-
 
                 <!-- <li class="nav-item">
                     <a class="nav-link" href="#">
