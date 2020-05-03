@@ -36,8 +36,12 @@ class HomeController extends Controller
         ->join('global_data', 'country.OBJECTID','=','global_data.OBJECTID')
         ->orderBy('global_data.Confirmed', 'ASC')->whereDate('created_at', '=', date('Y-m-d'))->get();
 
+        $tanggal = BaliData::select('Tanggal')
+        ->groupBy('Tanggal')->get();
         $baliData = BaliData::get();
         $countBali = $baliData->groupBy('Tanggal')->count();
+        $tanggalBaliAja = BaliData::select('Tanggal')->orderBy('Tanggal', 'ASC')->get();
+        $arrayPositif = array();
         // $positifGlobal = number_format(RekapGlobal::orderBy('id', 'desc')->take(1)->value('positif'));
         // $sembuhGlobal = number_format(RekapGlobal::orderBy('id', 'desc')->take(1)->value('sembuh'));
         // $meninggalGlobal = number_format(RekapGlobal::orderBy('id', 'desc')->take(1)->value('meninggal'));
@@ -45,9 +49,22 @@ class HomeController extends Controller
         $dataPositifBali = array();
         $positifDateBali = array();
 
-        for ($i=0; $i < count($baliData); $i++) {
-            array_push($positifDateBali, date('d-F', strtotime($baliData[$i]->Tanggal)));
+        for ($i=0; $i < count($tanggal); $i++) {
+            array_push($positifDateBali, date('d-F', strtotime($tanggal[$i]->Tanggal)));
             array_push($dataPositifBali, $countBali);
+        }
+        
+        $sumPositif = 0;
+        for ($i=0; $i < count($tanggal); $i++) {
+            $tgl1 = strtotime($tanggal[$i]->Tanggal);
+            for ($j=0; $j < count($tanggalBaliAja); $j++) { 
+                $tgl2 = strtotime($tanggalBaliAja[$j]->Tanggal);
+                if($tgl1 == $tgl2){
+                    $sumPositif++;
+                }  
+                
+            }
+            array_push($arrayPositif, $sumPositif);    
         }
 
 
@@ -95,10 +112,15 @@ class HomeController extends Controller
         $diffPositifGlobal = $data1Global[0] - $data1Global[1];
         $diffSembuhGlobal = $data2Global[0] - $data2Global[1];
         $diffMeninggalGlobal = $data3Global[0] - $data3Global[1];
-
+        
+        
+        
+        
+        
         return view('dashboard', compact('diffMeninggal','diffPositif','diffSembuh','provinsi','baliData',
         'global', 'dataRekapIndo', 'dataPositif','positifDate','diffMeninggalGlobal','diffPositifGlobal',
-        'diffSembuhGlobal','dataRekapIndo','dataPositifBali','positifDateBali', 'dataPositifGlobal','positifDateGlobal', 'positif','sembuh','meninggal', 'positifGlobal','sembuhGlobal','meninggalGlobal'));
+        'diffSembuhGlobal','dataRekapIndo','dataPositifBali','positifDateBali', 'dataPositifGlobal','positifDateGlobal', 
+        'positif','sembuh','meninggal', 'positifGlobal','sembuhGlobal','meninggalGlobal','tanggal','arrayPositif'));
 
     }
 

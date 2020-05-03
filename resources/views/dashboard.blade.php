@@ -543,7 +543,7 @@
                     labels: {!! json_encode($positifDateBali) !!},
                     datasets: [{
                         label: 'performance',
-                        data: {!! json_encode($dataPositifBali) !!}
+                        data: {!! json_encode($arrayPositif) !!}
                     }]
                 }
             });
