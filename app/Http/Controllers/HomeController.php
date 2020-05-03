@@ -8,6 +8,7 @@ use App\Country;
 use App\GlobalData;
 use App\RekapIndo;
 use App\RekapGlobal;
+use App\BaliData;
 
 class HomeController extends Controller
 {
@@ -34,6 +35,21 @@ class HomeController extends Controller
         $global = Country::select('Country_Region', 'Confirmed', 'Deaths', 'Recovered', 'created_at')
         ->join('global_data', 'country.OBJECTID','=','global_data.OBJECTID')
         ->orderBy('global_data.Confirmed', 'ASC')->whereDate('created_at', '=', date('Y-m-d'))->get();
+
+        $baliData = BaliData::get();
+        $countBali = $baliData->groupBy('Tanggal')->count();
+        // $positifGlobal = number_format(RekapGlobal::orderBy('id', 'desc')->take(1)->value('positif'));
+        // $sembuhGlobal = number_format(RekapGlobal::orderBy('id', 'desc')->take(1)->value('sembuh'));
+        // $meninggalGlobal = number_format(RekapGlobal::orderBy('id', 'desc')->take(1)->value('meninggal'));
+        // $DiffGlobal = RekapGlobal::orderBy('id', 'desc')->take(2)->get();
+        $dataPositifBali = array();
+        $positifDateBali = array();
+
+        for ($i=0; $i < count($baliData); $i++) {
+            array_push($positifDateBali, date('d-F', strtotime($baliData[$i]->Tanggal)));
+            array_push($dataPositifBali, $countBali);
+        }
+
 
         $dataRekapIndo = RekapIndo::get();   
         $positif = number_format(RekapIndo::orderBy('id', 'desc')->take(1)->value('positif'));
@@ -80,9 +96,9 @@ class HomeController extends Controller
         $diffSembuhGlobal = $data2Global[0] - $data2Global[1];
         $diffMeninggalGlobal = $data3Global[0] - $data3Global[1];
 
-        return view('dashboard', compact('diffMeninggal','diffPositif','diffSembuh','provinsi',
+        return view('dashboard', compact('diffMeninggal','diffPositif','diffSembuh','provinsi','baliData',
         'global', 'dataRekapIndo', 'dataPositif','positifDate','diffMeninggalGlobal','diffPositifGlobal',
-        'diffSembuhGlobal','dataRekapIndo', 'dataPositifGlobal','positifDateGlobal', 'positif','sembuh','meninggal', 'positifGlobal','sembuhGlobal','meninggalGlobal'));
+        'diffSembuhGlobal','dataRekapIndo','dataPositifBali','positifDateBali', 'dataPositifGlobal','positifDateGlobal', 'positif','sembuh','meninggal', 'positifGlobal','sembuhGlobal','meninggalGlobal'));
 
     }
 
