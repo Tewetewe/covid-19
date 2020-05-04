@@ -34,7 +34,7 @@ class HomeController extends Controller
         ->orderBy('provinsi_data.Kasus_Posi', 'DESC')->whereDate('created_at', '=', date('Y-m-d'))->get();
         $global = Country::select('Country_Region', 'Confirmed', 'Deaths', 'Recovered', 'created_at')
         ->join('global_data', 'country.OBJECTID','=','global_data.OBJECTID')
-        ->orderBy('global_data.Confirmed', 'ASC')->whereDate('created_at', '=', date('Y-m-d'))->get();
+        ->orderBy('global_data.Confirmed', 'DESC')->whereDate('created_at', '=', date('Y-m-d'))->get();
 
         $tanggal = BaliData::select('Tanggal')
         ->groupBy('Tanggal')->get();
