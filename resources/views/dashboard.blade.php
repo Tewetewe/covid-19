@@ -109,7 +109,7 @@
                         </div>
                 </div>
             </div>
-            <div class="col-xl-12 mb-5 mt-5 mb-xl-2">
+            <div class="col-xl-12 mb-5 mb-xl-2">
                 <div class="card bg-gradient-default shadow">
                     <div class="card-header bg-transparent">
                         <div class="row align-items-center">
@@ -255,7 +255,7 @@
                     <div class="card-header border-0">
                         <div class="row align-items-center">
                             <div class="col">
-                                <h3 class="mb-0">Data COVID-19 Indonesia</h3>
+                                <h3 class="mb-0">Data COVID-19 Bali</h3>
                             </div>
                             {{-- <div class="col text-right">
                                 <a href="#!" class="btn btn-sm btn-primary">See all</a>
@@ -264,73 +264,76 @@
                     </div>
                     <div class="table-responsive" style="height:350px;overflow:auto;">
                         <!-- Projects table -->
-                        <table class="table align-items-center table-flush">
-                            <thead class="thead-light">
-                                <tr>
-                                    <th scope="col">No.</th>
-                                    <th scope="col">Resiko</th>
-                                    <th scope="col">Paparan</th>
-                                    <th scope="col">Bantu</th>
-                                    <th scope="col">No Baru</th>
-                                    <th scope="col">No Kemarin</th>
-                                    <th scope="col">Tanggal</th>
-                                    <th scope="col">status</th>
-                                    <th scope="col">Nama</th>
-                                    <th scope="col">Penularan</th>
-                                    <th scope="col">Negara</th>
-                                    <th scope="col">Jenis Kelamin</th>
-                                    <th scope="col">Umur</th>
-                                    <th scope="col">Alamat</th>
-                                    <th scope="col">Desa</th>
-                                    <th scope="col">Kecamatan</th>
-                                    <th scope="col">Kabupaten</th>
-                                    <th scope="col">Faskes</th>
-                                    <th scope="col">ket</th>
-                                    <th scope="col">Kondisi</th>
-                                    <th scope="col">Kelompok Umur</th>
-                                    <th scope="col">Kategori Kasus</th>
-                                    <th scope="col">Hubungan</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @for ($i = 1; $i <= sizeof($baliData); $i++)
+                            <table class="table align-items-center table-flush">
+                                <thead class="thead-light">
                                     <tr>
-                                        <td>{{$i}}</td>
-                                        <td>{{ $baliData[$i-1]->Paparan}}</td>
-                                        <td>{{ $baliData[$i-1]->Bantu}}</td>
-                                        <td>{{ $baliData[$i-1]->No_Baru}}</td>
-                                        <td>{{ $baliData[$i-1]->No_kemarin}}</td>
-                                        <td>{{ $baliData[$i-1]->Tanggal}}</td>
-                                        <td>{{ $baliData[$i-1]->Status}}</td>
-                                        <td>{{ $baliData[$i-1]->Nama}}</td>
-                                        <td>{{ $baliData[$i-1]->Penularan}}</td>
-                                        <td>{{ $baliData[$i-1]->Negara}}</td>
-                                        <td>{{ $baliData[$i-1]->Jenis_Kelamin}}</td>
-                                        <td>{{ $baliData[$i-1]->Umur}}</td>
-                                        <td>{{ $baliData[$i-1]->Alamat}}</td>
-                                        <td>{{ $baliData[$i-1]->Desa}}</td>
-                                        <td>{{ $baliData[$i-1]->Kecamatan}}</td>
-                                        <td>{{ $baliData[$i-1]->Kabupaten}}</td>
-                                        <td>{{ $baliData[$i-1]->Faskes}}</td>
-                                        <td>{{ $baliData[$i-1]->Keterangan}}</td>
-                                        <td>{{ $baliData[$i-1]->Kondisi}}</td>
-                                        <td>{{ $baliData[$i-1]->Kelompok_Umur}}</td>
-                                        <td>{{ $baliData[$i-1]->Kategori_Kasus}}</td>
-                                        <td>{{ $baliData[$i-1]->Hubungan}}</td>
-                                        <!-- <td class="text-right">
-                                            <div class="dropdown">
-                                                <a class="btn btn-sm btn-icon-only text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                    <i class="fas fa-ellipsis-v"></i>
-                                                </a>
-                                                <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-                                                                                                            <a class="dropdown-item" href="">Edit</a>
-                                                                                                    </div>
-                                            </div>
-                                        </td> -->
+                                        <th scope="col">No.</th>
+                                        <th scope="col">Tanggal Import</th>
+                                        <th scope="col">Resiko</th>
+                                        <th scope="col">Paparan</th>
+                                        <th scope="col">Bantu</th>
+                                        <th scope="col">No Baru</th>
+                                        <th scope="col">No Kemarin</th>
+                                        <th scope="col">Tanggal</th>
+                                        <th scope="col">status</th>
+                                        <th scope="col">Nama</th>
+                                        <th scope="col">Penularan</th>
+                                        <th scope="col">Negara</th>
+                                        <th scope="col">Jenis Kelamin</th>
+                                        <th scope="col">Umur</th>
+                                        <th scope="col">Alamat</th>
+                                        <th scope="col">Desa</th>
+                                        <th scope="col">Kecamatan</th>
+                                        <th scope="col">Kabupaten</th>
+                                        <th scope="col">Faskes</th>
+                                        <th scope="col">ket</th>
+                                        <th scope="col">Kondisi</th>
+                                        <th scope="col">Kelompok Umur</th>
+                                        <th scope="col">Kategori Kasus</th>
+                                        <th scope="col">Hubungan</th>
                                     </tr>
-                                @endfor
-                            </tbody>
-                        </table>
+                                </thead>
+                                <tbody>
+                                    @for ($i = 1; $i <= sizeof($baliData); $i++)
+                                        <tr>
+                                            <td>{{$i}}</td>
+                                            <td>{{ $baliData[$i-1]->Tanggal_Import}}</td>
+                                            <td>{{ $baliData[$i-1]->Resiko}}</td>
+                                            <td>{{ $baliData[$i-1]->Paparan}}</td>
+                                            <td>{{ $baliData[$i-1]->Bantu}}</td>
+                                            <td>{{ $baliData[$i-1]->No_Baru}}</td>
+                                            <td>{{ $baliData[$i-1]->No_kemarin}}</td>
+                                            <td>{{ $baliData[$i-1]->Tanggal}}</td>
+                                            <td>{{ $baliData[$i-1]->Status}}</td>
+                                            <td>{{ $baliData[$i-1]->Nama}}</td>
+                                            <td>{{ $baliData[$i-1]->Penularan}}</td>
+                                            <td>{{ $baliData[$i-1]->Negara}}</td>
+                                            <td>{{ $baliData[$i-1]->Jenis_Kelamin}}</td>
+                                            <td>{{ $baliData[$i-1]->Umur}}</td>
+                                            <td>{{ $baliData[$i-1]->Alamat}}</td>
+                                            <td>{{ $baliData[$i-1]->Desa}}</td>
+                                            <td>{{ $baliData[$i-1]->Kecamatan}}</td>
+                                            <td>{{ $baliData[$i-1]->Kabupaten}}</td>
+                                            <td>{{ $baliData[$i-1]->Faskes}}</td>
+                                            <td>{{ $baliData[$i-1]->Keterangan}}</td>
+                                            <td>{{ $baliData[$i-1]->Kondisi}}</td>
+                                            <td>{{ $baliData[$i-1]->Kelompok_Umur}}</td>
+                                            <td>{{ $baliData[$i-1]->Kategori_Kasus}}</td>
+                                            <td>{{ $baliData[$i-1]->Hubungan}}</td>
+                                            <!-- <td class="text-right">
+                                                <div class="dropdown">
+                                                    <a class="btn btn-sm btn-icon-only text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                        <i class="fas fa-ellipsis-v"></i>
+                                                    </a>
+                                                    <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
+                                                                                                                <a class="dropdown-item" href="">Edit</a>
+                                                                                                        </div>
+                                                </div>
+                                            </td> -->
+                                        </tr>
+                                    @endfor
+                                </tbody>
+                            </table>
                     </div>
                 </div>
             </div>

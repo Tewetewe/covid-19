@@ -112,9 +112,7 @@ class HomeController extends Controller
         $diffPositifGlobal = $data1Global[0] - $data1Global[1];
         $diffSembuhGlobal = $data2Global[0] - $data2Global[1];
         $diffMeninggalGlobal = $data3Global[0] - $data3Global[1];
-        
-        
-        
+
         
         
         return view('dashboard', compact('diffMeninggal','diffPositif','diffSembuh','provinsi','baliData',
