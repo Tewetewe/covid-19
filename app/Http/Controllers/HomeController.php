@@ -31,10 +31,10 @@ class HomeController extends Controller
     {
         $provinsi = Provinsi::select('Kode_Provi', 'Provinsi', 'Kasus_Posi', 'Kasus_Semb', 'Kasus_Meni', 'created_at')
         ->join('provinsi_data', 'provinsi.FID','=','provinsi_data.FID')
-        ->orderBy('provinsi_data.Kasus_Posi', 'DESC')->whereDate('created_at', '=', date('Y-m-d'))->get();
+        ->orderBy('provinsi_data.Kasus_Posi', 'DESC')->where('created_at', ProvinsiData::max('created_at'))->get();
         $global = Country::select('Country_Region', 'Confirmed', 'Deaths', 'Recovered', 'created_at')
         ->join('global_data', 'country.OBJECTID','=','global_data.OBJECTID')
-        ->orderBy('global_data.Confirmed', 'DESC')->whereDate('created_at', '=', date('Y-m-d'))->get();
+        ->orderBy('global_data.Confirmed', 'DESC')->where('created_at', GlobalData::max('created_at'))->get();
 
         $tanggal = BaliData::select('Tanggal')
         ->groupBy('Tanggal')->get();
