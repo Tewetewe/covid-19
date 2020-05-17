@@ -24,7 +24,11 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::post('/ProvinsiData/import_excel', 'ProvinsiDataController@import_excel');
 Route::post('/BaliData/import_excel', 'BaliDataController@import_excel');
+
+
+Route::get('/ProvinsiData', 'UserController@index2')->name('provinsi');
 
 Route::group(['middleware' => 'auth'], function () {
 	Route::resource('user', 'UserController', ['except' => ['show']]);

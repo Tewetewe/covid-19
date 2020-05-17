@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\User;
 use App\BaliData;
+use App\ProvinsiData;
 use App\Http\Requests\UserRequest;
 use Illuminate\Support\Facades\Hash;
 
@@ -19,5 +20,11 @@ class UserController extends Controller
     {
         $baliData = BaliData::get();
         return view('users.index',compact('baliData'));
+    }
+
+    public function index2(User $model)
+    {
+        $provinsiData = ProvinsiData::get();
+        return view('users.indexProvinsi',compact('provinsiData'));
     }
 }

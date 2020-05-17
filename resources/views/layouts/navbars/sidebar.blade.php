@@ -120,7 +120,13 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('user.index') }}" style="color: #565656;">
                         <i class="ni ni-circle-08" style="color: #565656;"></i>
-                             {{ __('Import XLS') }}
+                             {{ __('Import XLS Bali') }}
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('provinsi') }}" style="color: #565656;">
+                        <i class="ni ni-circle-08" style="color: #565656;"></i>
+                             {{ __('Import XLS Province') }}
                     </a>
                 </li>
                 @endif
