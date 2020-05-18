@@ -10,9 +10,4 @@ class Provinsi extends Model
     public $timestamps = false;
     protected $primarykey = 'FID';
 
-
-    public function provinsidata()
-    {
-        return $this->hasMany('App\ProvinsiData','FID','FID');
-    }
 }

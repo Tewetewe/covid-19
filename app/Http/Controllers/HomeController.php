@@ -29,13 +29,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $provinsi = Provinsi::select('Kode_Provi', 'Provinsi', 'Kasus_Posi', 'Kasus_Semb', 'Kasus_Meni', 'created_at')
-        ->join('provinsi_data', 'provinsi.FID','=','provinsi_data.FID')
+        $provinsi = ProvinsiData::select('FID', 'Kasus_Posi', 'Kasus_Semb', 'Kasus_Meni', 'created_at')
         ->orderBy('provinsi_data.Kasus_Posi', 'DESC')->where('created_at', ProvinsiData::max('created_at'))->get();
-        $global = Country::select('Country_Region', 'Confirmed', 'Deaths', 'Recovered', 'created_at')
-        ->join('global_data', 'country.OBJECTID','=','global_data.OBJECTID')
+        $global = GlobalData::select('OBJECTID', 'Confirmed', 'Deaths', 'Recovered', 'created_at')
         ->orderBy('global_data.Confirmed', 'DESC')->where('created_at', GlobalData::max('created_at'))->get();
-
         $tanggal = BaliData::select('Tanggal')
         ->groupBy('Tanggal')->get();
         $baliData = BaliData::get();

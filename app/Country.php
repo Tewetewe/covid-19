@@ -10,9 +10,4 @@ class Country extends Model
     public $timestamps = false;
     protected $primaryKey = 'OBJECTID';
 
-
-    public function globaldata()
-    {
-        return $this->hasMany('App\GlobalData','OBJECTID','OBJECTID');
-    }
 }

@@ -200,7 +200,7 @@
                                 @for ($i = 1; $i <= sizeof($global); $i++)
                                     <tr>
                                         <td>{{ $i }}</td>
-                                        <td>{{ $global[$i-1]->Country_Region }}</td>
+                                        <td>{{ $global[$i-1]->OBJECTID }}</td>
                                         <td>{{ $global[$i-1]->Confirmed }}</td>
                                         <td>{{ $global[$i-1]->Recovered }}</td>
                                         <td>{{ $global[$i-1]->Deaths }}</td>
@@ -239,7 +239,7 @@
                                 @for ($i = 1; $i <= sizeof($provinsi); $i++)
                                     <tr>
                                         <td>{{ $i }}</td>
-                                        <td>{{ $provinsi[$i-1]->Provinsi }}</td>
+                                        <td>{{ $provinsi[$i-1]->FID }}</td>
                                         <td>{{ $provinsi[$i-1]->Kasus_Posi }}</td>
                                         <td>{{ $provinsi[$i-1]->Kasus_Semb }}</td>
                                         <td>{{ $provinsi[$i-1]->Kasus_Meni }}</td>
