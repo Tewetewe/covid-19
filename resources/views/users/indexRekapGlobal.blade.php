@@ -356,7 +356,7 @@
                         <!-- Import Excel -->
                             <div class="modal fade" id="importExcel" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog" role="document">
-                                    <form method="post" action="/ProvinsiData/import_excel" enctype="multipart/form-data">
+                                    <form method="post" action="/RekapGlobalData/import_excel" enctype="multipart/form-data">
                                         <div class="modal-content">
                                             <div class="modal-header">
                                                 <h5 class="modal-title" id="exampleModalLabel">Import Excel</h5>
@@ -384,27 +384,27 @@
 
                 
                 
-
+                <div class="col-12">
+                </div>
 
                 <div class="table-responsive">
                     <table class="table align-items-center table-flush">
                         <thead class="thead-light">
                             <tr>
                                 <th scope="col">No.</th>
-                                <th scope="col">Provinsi</th>
-                                <th scope="col">Kasus Positif</th>
-                                <th scope="col">Kasus Sembuh</th>
-                                <th scope="col">Kasus Meninggal</th>
+                                <th scope="col">Positif</th>
+                                <th scope="col">Sembuh</th>
+                                <th scope="col">Meninggal</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @for ($i = 1; $i <= sizeof($provinsiData); $i++)
+                            @for ($i = 1; $i <= sizeof($rekapGlobalData); $i++)
                                 <tr>
                                     <td>{{$i}}</td>
-                                    <td>{{ $provinsiData[$i-1]->provinsi->Provinsi}}</td>
-                                    <td>{{ $provinsiData[$i-1]->Kasus_Posi}}</td>
-                                    <td>{{ $provinsiData[$i-1]->Kasus_Semb}}</td>
-                                    <td>{{ $provinsiData[$i-1]->Kasus_Meni}}</td>
+                                    <td>{{ $rekapGlobalData[$i-1]->positif}}</td>
+                                    <td>{{ $rekapGlobalData[$i-1]->sembuh}}</td>
+                                    <td>{{ $rekapGlobalData[$i-1]->meninggal}}</td>
+                                    
                                     <!-- <td class="text-right">
                                         <div class="dropdown">
                                             <a class="btn btn-sm btn-icon-only text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

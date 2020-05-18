@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\User;
 use App\BaliData;
 use App\ProvinsiData;
+use App\RekapGlobal;
 use App\Http\Requests\UserRequest;
 use Illuminate\Support\Facades\Hash;
 
@@ -26,5 +27,10 @@ class UserController extends Controller
     {
         $provinsiData = ProvinsiData::get();
         return view('users.indexProvinsi',compact('provinsiData'));
+    }
+
+    public function index3(){
+        $rekapGlobalData = RekapGlobal::get();
+        return view('users.indexRekapGlobal',compact('rekapGlobalData'));
     }
 }

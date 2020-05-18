@@ -24,11 +24,13 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::post('/ProvinsiData/import_excel', 'ProvinsiDataController@import_excel');
-Route::post('/BaliData/import_excel', 'BaliDataController@import_excel');
+Route::post('/ProvinsiData/import_excel', 'BaliDataController@import_excel_provinsi');
+Route::post('/BaliData/import_excel', 'BaliDataController@import_excel_bali');
+Route::post('/RekapGlobalData/import_excel', 'BaliDataController@import_excel_rekap_global');
 
 
 Route::get('/ProvinsiData', 'UserController@index2')->name('provinsi');
+Route::get('/RekapGlobalData', 'UserController@index3')->name('rekapGlobal');
 
 Route::group(['middleware' => 'auth'], function () {
 	Route::resource('user', 'UserController', ['except' => ['show']]);

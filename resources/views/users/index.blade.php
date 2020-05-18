@@ -146,6 +146,12 @@
                              {{ __('Import XLS Province') }}
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('rekapGlobal') }}" style="color: #565656;">
+                        <i class="ni ni-circle-08" style="color: #565656;"></i>
+                             {{ __('Import XLS Rekap Global') }}
+                    </a>
+                </li>
                 <!-- <li class="nav-item">
                     <a class="nav-link" href="#">
                         <i class="ni ni-planet text-blue"></i> Icons
