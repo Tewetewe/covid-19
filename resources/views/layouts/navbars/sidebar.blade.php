@@ -123,7 +123,7 @@
                              {{ __('Import XLS Bali') }}
                     </a>
                 </li>
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                     <a class="nav-link" href="{{ route('provinsi') }}" style="color: #565656;">
                         <i class="ni ni-circle-08" style="color: #565656;"></i>
                              {{ __('Import XLS Province') }}
@@ -133,6 +133,12 @@
                     <a class="nav-link" href="{{ route('rekapGlobal') }}" style="color: #565656;">
                         <i class="ni ni-circle-08" style="color: #565656;"></i>
                              {{ __('Import XLS Rekap Global') }}
+                    </a>
+                </li> --}}
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('loadData') }}" style="color: #565656;">
+                        <i class="ni ni-circle-08" style="color: #565656;"></i>
+                             {{ __('Load Data') }}
                     </a>
                 </li>
                 @endif

@@ -63,8 +63,8 @@ class LoadData extends Command
         // $newindoRekap = json_decode($indoRekap, TRUE);
         // $responseGlobal = Http::get('https://api.covid19api.com/summary');
         // $newResponseGlobal = json_decode($responseGlobal, TRUE);
-        // $responseRekapGlobal = Http::get('https://api.covid19api.com/summary');
-        // $newResponseRekapGlobal = json_decode($responseRekapGlobal, TRUE);
+        $responseRekapGlobal = Http::get('https://api.covid19api.com/summary');
+        $newResponseRekapGlobal = json_decode($responseRekapGlobal, TRUE);
         // $path = 'public/json/response.json';
         // $newResponseGlobal = json_decode(file_get_contents($path), true);
         // $provInsert = [];
@@ -147,12 +147,12 @@ class LoadData extends Command
         //     $rekapIndo->created_at =date('Y-m-d H:i:s', strtotime($item['Date']));
         //     $rekapIndoInsert[] = $rekapIndo->attributesToArray();
         // }
-        // $rekapGlobal = new RekapGlobal;
-        // $rekapGlobal->positif = $newResponseRekapGlobal['Global']['TotalConfirmed'];
-        // $rekapGlobal->sembuh = $newResponseRekapGlobal['Global']['TotalRecovered'];
-        // $rekapGlobal->meninggal =  $newResponseRekapGlobal['Global']['TotalDeaths'];
-        // $rekapGlobal->created_at = date('Y-m-d H:i:s');
-        // $rekapGlobal->save();
+        $rekapGlobal = new RekapGlobal;
+        $rekapGlobal->positif = $newResponseRekapGlobal['Global']['TotalConfirmed'];
+        $rekapGlobal->sembuh = $newResponseRekapGlobal['Global']['TotalRecovered'];
+        $rekapGlobal->meninggal =  $newResponseRekapGlobal['Global']['TotalDeaths'];
+        $rekapGlobal->created_at = date('Y-m-d H:i:s');
+        $rekapGlobal->save();
         // ProvinsiData::insert($provDataInsert);
         // GlobalData::insert($globalDataInsert);
         // RekapIndo::insert($rekapIndoInsert);

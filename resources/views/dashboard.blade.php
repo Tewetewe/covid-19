@@ -194,6 +194,8 @@
                                     <th scope="col">Positif</th>
                                     <th scope="col">Sembuh</th>
                                     <th scope="col">Meninggal</th>
+                                    <th scope="col">Provinsi</th>
+                                    <th scope="col">Kota</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -204,6 +206,8 @@
                                         <td>{{ $global[$i-1]->Confirmed }}</td>
                                         <td>{{ $global[$i-1]->Recovered }}</td>
                                         <td>{{ $global[$i-1]->Deaths }}</td>
+                                        <td>{{ $global[$i-1]->Province }}</td>
+                                        <td>{{ $global[$i-1]->City }}</td>
                                     </tr>
                                 @endfor
                             </tbody>

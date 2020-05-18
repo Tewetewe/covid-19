@@ -31,8 +31,8 @@ class HomeController extends Controller
     {
         $provinsi = ProvinsiData::select('FID', 'Kasus_Posi', 'Kasus_Semb', 'Kasus_Meni', 'created_at')
         ->orderBy('provinsi_data.Kasus_Posi', 'DESC')->where('created_at', ProvinsiData::max('created_at'))->get();
-        $global = GlobalData::select('OBJECTID', 'Confirmed', 'Deaths', 'Recovered', 'created_at')
-        ->orderBy('global_data.Confirmed', 'DESC')->where('created_at', GlobalData::max('created_at'))->get();
+        $global = GlobalData::select('OBJECTID', 'Confirmed', 'Deaths', 'Recovered', 'created_at', 'City', 'Province')
+        ->orderBy('global_data.Confirmed', 'DESC')->where('created_at', GlobalData::max('created_at'))->where('Province','=',NULL)->get();
         $tanggal = BaliData::select('Tanggal')
         ->groupBy('Tanggal')->get();
         $baliData = BaliData::get();

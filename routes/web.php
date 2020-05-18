@@ -31,6 +31,7 @@ Route::post('/RekapGlobalData/import_excel', 'BaliDataController@import_excel_re
 
 Route::get('/ProvinsiData', 'UserController@index2')->name('provinsi');
 Route::get('/RekapGlobalData', 'UserController@index3')->name('rekapGlobal');
+Route::get('/loadData', 'UserController@loadData')->name('loadData');
 
 Route::group(['middleware' => 'auth'], function () {
 	Route::resource('user', 'UserController', ['except' => ['show']]);

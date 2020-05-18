@@ -47,9 +47,9 @@ class ProvinsiDataImport implements ToCollection, WithHeadingRow, WithCalculated
             if($row->filter()->isNotEmpty()){
             $provinsiData = new ProvinsiData();
             $provinsiData->FID = $row['provinsi'];
-            $provinsiData->Kasus_Posi  = $row['penambahan_harian_kasus_terkonf'];
-            $provinsiData->Kasus_Semb = $row['penambahan_harian_kasus_sembuh'];
-            $provinsiData->Kasus_meni = $row['penambahan_harian_kasus_meningg'];
+            $provinsiData->Kasus_Posi  = $row['kasus_terkonfirmasi_akumulatif'];
+            $provinsiData->Kasus_Semb = $row['kasus_sembuh_akumulatif'];
+            $provinsiData->Kasus_meni = $row['kasus_meninggal_akumulatif'];
             $provinsiData->created_at = date('Y-m-d H:i:s', strtotime($row['tanggal']));
             $provinsiData->updated_at = date('Y-m-d H:i:s');
             $provinsiDataInsert[] = $provinsiData->attributesToArray();

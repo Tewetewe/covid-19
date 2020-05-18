@@ -401,7 +401,7 @@
                             @for ($i = 1; $i <= sizeof($provinsiData); $i++)
                                 <tr>
                                     <td>{{$i}}</td>
-                                    <td>{{ $provinsiData[$i-1]->provinsi->Provinsi}}</td>
+                                    <td>{{ $provinsiData[$i-1]->FID}}</td>
                                     <td>{{ $provinsiData[$i-1]->Kasus_Posi}}</td>
                                     <td>{{ $provinsiData[$i-1]->Kasus_Semb}}</td>
                                     <td>{{ $provinsiData[$i-1]->Kasus_Meni}}</td>
