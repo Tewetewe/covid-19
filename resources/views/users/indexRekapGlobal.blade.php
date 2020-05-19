@@ -134,24 +134,44 @@
                             {{ __('User profile') }}
                     </a>
                 </li> -->
+                @if( auth()->user()->role == "admin" )
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('user.index') }}" style="color: #565656;">
                         <i class="ni ni-circle-08" style="color: #565656;"></i>
-                            {{ __('Import XLS') }}
+                             {{ __('Import XLS Bali') }}
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('provinsi') }}" style="color: #565656;">
                         <i class="ni ni-circle-08" style="color: #565656;"></i>
-                             {{ __('Import XLS Province') }}
+                             {{ __('Data Provinsi') }}
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('rekapIndo') }}" style="color: #565656;">
+                        <i class="ni ni-circle-08" style="color: #565656;"></i>
+                             {{ __('Rekap Indo') }}
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('globalData') }}" style="color: #565656;">
+                        <i class="ni ni-circle-08" style="color: #565656;"></i>
+                             {{ __('Data Global') }}
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('rekapGlobal') }}" style="color: #565656;">
                         <i class="ni ni-circle-08" style="color: #565656;"></i>
-                             {{ __('Import XLS Rekap Global') }}
+                             {{ __('RekapGlobal') }}
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('loadData') }}" style="color: #565656;">
+                        <i class="ni ni-circle-08" style="color: #565656;"></i>
+                             {{ __('Load Data') }}
+                    </a>
+                </li>
+                @endif
                 <!-- <li class="nav-item">
                     <a class="nav-link" href="#">
                         <i class="ni ni-planet text-blue"></i> Icons
@@ -346,15 +366,13 @@
                 <div class="card-header border-0">
                     <div class="row align-items-center">
                         <div class="col-8">
-                            <h3 class="mb-0">Users</h3>
+                            <h3 class="mb-0">Rekapitulasi Data Dunia</h3>
                         </div>
                         <div class="col-4 text-right">
-                            <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#importExcel">
-                            Import Data
-                            </button>
+                            <a href="/RekapGlobalData/export" class="btn btn-success my-3" target="_blank">EXPORT EXCEL</a>
                         </div>
                         <!-- Import Excel -->
-                            <div class="modal fade" id="importExcel" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            {{-- <div class="modal fade" id="importExcel" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog" role="document">
                                     <form method="post" action="/RekapGlobalData/import_excel" enctype="multipart/form-data">
                                         <div class="modal-content">
@@ -378,7 +396,7 @@
                                         </div>
                                     </form>
                                 </div>
-                            </div>
+                            </div> --}}
                     </div>
                 </div>
 

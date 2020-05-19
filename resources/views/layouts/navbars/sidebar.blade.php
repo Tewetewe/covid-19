@@ -123,18 +123,30 @@
                              {{ __('Import XLS Bali') }}
                     </a>
                 </li>
-                {{-- <li class="nav-item">
+                <li class="nav-item">
                     <a class="nav-link" href="{{ route('provinsi') }}" style="color: #565656;">
                         <i class="ni ni-circle-08" style="color: #565656;"></i>
-                             {{ __('Import XLS Province') }}
+                             {{ __('Data Provinsi') }}
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('rekapIndo') }}" style="color: #565656;">
+                        <i class="ni ni-circle-08" style="color: #565656;"></i>
+                             {{ __('Rekap Indonesia') }}
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('provinsi') }}" style="color: #565656;">
+                        <i class="ni ni-circle-08" style="color: #565656;"></i>
+                             {{ __('Data Provinsi') }}
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('rekapGlobal') }}" style="color: #565656;">
                         <i class="ni ni-circle-08" style="color: #565656;"></i>
-                             {{ __('Import XLS Rekap Global') }}
+                             {{ __('Data Global') }}
                     </a>
-                </li> --}}
+                </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('loadData') }}" style="color: #565656;">
                         <i class="ni ni-circle-08" style="color: #565656;"></i>

@@ -138,7 +138,31 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('user.index') }}" style="color: #565656;">
                         <i class="ni ni-circle-08" style="color: #565656;"></i>
-                            {{ __('Import XLS') }}
+                             {{ __('Import XLS Bali') }}
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('provinsi') }}" style="color: #565656;">
+                        <i class="ni ni-circle-08" style="color: #565656;"></i>
+                             {{ __('Data Provinsi') }}
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('rekapIndo') }}" style="color: #565656;">
+                        <i class="ni ni-circle-08" style="color: #565656;"></i>
+                             {{ __('Rekap Indo') }}
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('globalData') }}" style="color: #565656;">
+                        <i class="ni ni-circle-08" style="color: #565656;"></i>
+                             {{ __('Data Global') }}
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('rekapGlobal') }}" style="color: #565656;">
+                        <i class="ni ni-circle-08" style="color: #565656;"></i>
+                             {{ __('RekapGlobal') }}
                     </a>
                 </li>
                 <li class="nav-item">
@@ -147,6 +171,7 @@
                              {{ __('Load Data') }}
                     </a>
                 </li>
+                @endif
                 {{-- <li class="nav-item">
                     <a class="nav-link" href="{{ route('provinsi') }}" style="color: #565656;">
                         <i class="ni ni-circle-08" style="color: #565656;"></i>
@@ -160,7 +185,6 @@
                     </a>
                 </li> --}}
 
-                @endif
                 <!-- <li class="nav-item">
                     <a class="nav-link" href="#">
                         <i class="ni ni-planet text-blue"></i> Icons
@@ -355,7 +379,7 @@
                 <div class="card-header border-0">
                     <div class="row align-items-center">
                         <div class="col-8">
-                            <h3 class="mb-0">Users</h3>
+                            <h3 class="mb-0">BALI DATA</h3>
                         </div>
                         <div class="col-4 text-right">
                             <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#importExcel">

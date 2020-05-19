@@ -27,10 +27,15 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::post('/ProvinsiData/import_excel', 'BaliDataController@import_excel_provinsi');
 Route::post('/BaliData/import_excel', 'BaliDataController@import_excel_bali');
 Route::post('/RekapGlobalData/import_excel', 'BaliDataController@import_excel_rekap_global');
-
+Route::get('/ProvinsiData/export', 'BaliDataController@exportProvinsiData');
+Route::get('/RekapGlobalData/export', 'BaliDataController@exportRekapGlobal');
+Route::get('/RekapIndo/export', 'BaliDataController@exportRekapIndo');
+Route::get('/GlobalData/export', 'BaliDataController@exportGlobalData')->name('globalDataExport');
 
 Route::get('/ProvinsiData', 'UserController@index2')->name('provinsi');
 Route::get('/RekapGlobalData', 'UserController@index3')->name('rekapGlobal');
+Route::get('/RekapIndo', 'UserController@rekapIndo')->name('rekapIndo');
+Route::get('/GlobalData', 'UserController@globalData')->name('globalData');
 Route::get('/loadData', 'UserController@loadData')->name('loadData');
 
 Route::group(['middleware' => 'auth'], function () {

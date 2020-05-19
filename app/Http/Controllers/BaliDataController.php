@@ -5,10 +5,14 @@ namespace App\Http\Controllers;
 use App\BaliData;
 use App\ProvinsiData;
 use App\RekapGlobal;
+use App\GlobalData;
 use Illuminate\Http\Request;
-
+use Rap2hpoutre\FastExcel\FastExcel;
 use Session;
-
+use App\Exports\ProvinsiDataExport;
+use App\Exports\RekapIndoExport;
+use App\Exports\RekapGlobalExport;
+use App\Exports\GlobalDataExport;
 use App\Imports\BaliDataImport;
 use App\Imports\ProvinsiDataImport;
 use App\Imports\RekapGlobalDataImport;
@@ -17,6 +21,7 @@ use App\Http\Controllers\Controller;
 
 class BaliDataController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *
@@ -151,6 +156,32 @@ class BaliDataController extends Controller
     public function create()
     {
         //
+    }
+    public function exportProvinsiData()
+    {
+        $nama_file = 'laporan_provinsi_data_'.date('Y-m-d_H-i-s').'.xlsx';
+        return Excel::download(new ProvinsiDataExport, $nama_file);
+    }
+    public function exportRekapIndo()
+    {
+        $nama_file = 'laporan_rekap_indonesia_'.date('Y-m-d_H-i-s').'.xlsx';
+        return Excel::download(new RekapIndoExport, $nama_file);
+    }
+    public function exportGlobalData()
+    {
+        function globalDataGenerator() {
+            $globalDatas = GlobalData::all();
+            foreach($globalDatas as $globalData) {
+                yield $globalData;
+            }
+        }
+        $nama_file = 'laporan_data_global_'.date('Y-m-d_H-i-s').'.xlsx';
+        return (new FastExcel(globalDataGenerator()))->download($nama_file);
+    }
+    public function exportRekapGlobal()
+    {
+        $nama_file = 'laporan_rekap_global_'.date('Y-m-d_H-i-s').'.xlsx';
+        return Excel::download(new RekapGlobalExport, $nama_file);
     }
 
     /**

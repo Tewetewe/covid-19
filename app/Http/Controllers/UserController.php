@@ -38,6 +38,14 @@ class UserController extends Controller
         $rekapGlobalData = RekapGlobal::get();
         return view('users.indexRekapGlobal',compact('rekapGlobalData'));
     }
+    public function rekapIndo(){
+        $rekapIndo = RekapIndo::get();
+        return view('users.indexRekapIndo',compact('rekapIndo'));
+    }
+    public function globalData(){
+        $globalData = GlobalData::where('created_at', date('Y-m-d'))->get();
+        return view('users.indexGlobalData',compact('globalData'));
+    }
     public function loadData(){
         $responseIndo = Http::get('https://api.kawalcorona.com/indonesia/provinsi');
         $newResponseIndo = json_decode($responseIndo, TRUE);
