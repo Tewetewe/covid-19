@@ -169,6 +169,8 @@ class BaliDataController extends Controller
     }
     public function exportGlobalData()
     {
+        ini_set('max_execution_time', -1);
+        set_time_limit(0);
         function globalDataGenerator() {
             $globalDatas = GlobalData::all();
             foreach($globalDatas as $globalData) {

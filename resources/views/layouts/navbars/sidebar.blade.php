@@ -132,19 +132,19 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('rekapIndo') }}" style="color: #565656;">
                         <i class="ni ni-circle-08" style="color: #565656;"></i>
-                             {{ __('Rekap Indonesia') }}
+                             {{ __('Rekap Indo') }}
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('provinsi') }}" style="color: #565656;">
+                    <a class="nav-link" href="{{ route('globalData') }}" style="color: #565656;">
                         <i class="ni ni-circle-08" style="color: #565656;"></i>
-                             {{ __('Data Provinsi') }}
+                             {{ __('Data Global') }}
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('rekapGlobal') }}" style="color: #565656;">
                         <i class="ni ni-circle-08" style="color: #565656;"></i>
-                             {{ __('Data Global') }}
+                             {{ __('RekapGlobal') }}
                     </a>
                 </li>
                 <li class="nav-item">
