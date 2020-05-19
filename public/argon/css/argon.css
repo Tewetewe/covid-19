@@ -927,9 +927,15 @@ pre code
 
 .col-4
 {
-    max-width: 33.33333%; 
 
-    flex: 0 0 33.33333%;
+    max-width: 35%; 
+    flex: 0 0 35%;
+    margin-left: 10px;
+    margin-top: 3px;
+    margin-bottom: 3px;
+    /* max-width: 33.33333%; 
+
+    flex: 0 0 33.33333%; */
 }
 
 .col-5

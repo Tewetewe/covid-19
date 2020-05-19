@@ -184,6 +184,35 @@
                             </div> --}}
                         </div>
                     </div>
+
+
+                    <!-- Form Cari Data Dunia -->
+                    <div class="p-4 bg-secondary">
+                        <form>
+                        <div class="form-group">
+                            <label for="exampleFormControlSelect1">Filter Negara</label>
+                            <select class="form-control" id="exampleFormControlSelect1">
+                            <option>Indonesia</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group input-group-alternative">
+                                <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="ni ni-calendar-grid-58"></i></span>
+                        </div>
+                        <input class="form-control datepicker" placeholder="Select date" type="text" value="06/20/2020">
+                         </div>
+                        </div>
+                        </form>
+                        <button type="button" class="btn btn-success">Cari Data</button>
+                    </div>
+                    <!-- Form Cari Data Dunia -->
+                    
+
                     <div class="table-responsive" style="height:350px;overflow:auto;">
                         <!-- Projects table -->
                         <table class="table align-items-center table-flush">
@@ -227,6 +256,34 @@
                             </div> --}}
                         </div>
                     </div>
+
+                    <!-- Form Cari Data Indonesia -->
+                    <div class="p-4 bg-secondary">
+                        <form>
+                        <div class="form-group">
+                            <label for="exampleFormControlSelect1">Filter Provinsi</label>
+                            <select class="form-control" id="exampleFormControlSelect1">
+                            <option>Bali</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group input-group-alternative">
+                                <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="ni ni-calendar-grid-58"></i></span>
+                        </div>
+                        <input class="form-control datepicker" placeholder="Select date" type="text" value="06/20/2020">
+                         </div>
+                        </div>
+                        </form>
+                        <button type="button" class="btn btn-success">Cari Data</button>
+                    </div>
+                    <!-- Form Cari Data Indonesia -->
+
+
                     <div class="table-responsive" style="height:350px;overflow:auto;">
                         <!-- Projects table -->
                         <table class="table align-items-center table-flush">
@@ -236,7 +293,7 @@
                                     <th scope="col">Provinsi</th>
                                     <th scope="col">Positif</th>
                                     <th scope="col">Sembuh</th>
-                                    <th scope="col">Meninggal</th>
+                                    <th scope="col">Meninggal1</th>
                                 </tr>
                             </thead>
                             <tbody>
