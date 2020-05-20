@@ -93,17 +93,18 @@ class UserController extends Controller
         $startDate = $request->startDate;
         $endDate = $request->endDate;
 
-        $query = GlobalData::query();
+        $query = GlobalData::query()->where('Province', NULL);
         if(!empty($nama)){
-            $query->where('OBJECTID', 'like', "%".$nama."%")->where('Province','')->orWhere('Province', NULL);
+            $query->where('OBJECTID', 'like', "%".$nama."%");
         }
         if(!empty($startDate) && ($endDate)){
             $start = Carbon::parse($startDate);
             $end = Carbon::parse($endDate);
             $query->whereDate('created_at','<=',$end->format('Y-m-d'))
             ->whereDate('created_at','>=',$start->format('Y-m-d'));
+          
         }
-        $globalData = $query->select('id','OBJECTID', 'Confirmed', 'Recovered','Deaths','created_at')->get();
+        $globalData = $query->get();
         Session::put('namaGlobal', $nama);
         Session::put('startDateGlobal', $startDate);
         Session::put('endDateGlobal', $endDate);

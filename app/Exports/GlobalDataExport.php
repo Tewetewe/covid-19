@@ -16,10 +16,10 @@ class GlobalDataExport implements FromQuery, WithHeadings
     }
     public function query()
     {
-        $query = GlobalData::query();
+        $query = GlobalData::query()->where('Province', NULL);
 
         if(!empty($this->nama)){
-            $query->where('OBJECTID', 'like', "%".$this->nama."%")->where('Province','')->orWhere('Province', NULL);
+            $query->where('OBJECTID', 'like', "%".$this->nama."%");
         }
         if(!empty($this->startDate) && ($this->endDate)){
             $start = Carbon::parse($this->startDate);
