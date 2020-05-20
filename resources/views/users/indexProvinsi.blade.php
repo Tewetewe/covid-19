@@ -405,7 +405,7 @@
                                     <input type="text" name="nama" class="form-control" placeholder="Provinsi" value="{{ old('nama') }}">
                                 </div>
                                 <div class="input-daterange datepicker row align-items-center">
-                                    <div class="col">
+                                    <div class="col-12">
                                         <div class="form-group">
                                             <label for="exampleFormControlSelect1">Start Date (Maksimal input dimulai dari 2 Maret 2020)</label>
                                             <div class="input-group">
@@ -416,7 +416,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col">
+                                    <div class="col-12">
                                         <div class="form-group">
                                             <label for="exampleFormControlSelect1">End Date (Maksimal input tanggal hari ini )</label>
                                             <div class="input-group">
