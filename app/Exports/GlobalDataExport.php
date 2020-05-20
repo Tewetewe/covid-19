@@ -2,11 +2,11 @@
 
 namespace App\Exports;
 
-use App\ProvinsiData;
+use App\GlobalData;
 use Maatwebsite\Excel\Concerns\WithHeadings;
 use Maatwebsite\Excel\Concerns\FromQuery;
 use Carbon\Carbon;
-class ProvinsiDataExport implements FromQuery, WithHeadings
+class GlobalDataExport implements FromQuery, WithHeadings
 {
     public function __construct($nama, $startDate, $endDate)
     {
@@ -16,16 +16,16 @@ class ProvinsiDataExport implements FromQuery, WithHeadings
     }
     public function query()
     {
-        $query = ProvinsiData::query();
+        $query = GlobalData::query();
 
         if(!empty($this->nama)){
-            $query->where('FID', 'like', "%".$this->nama."%");
+            $query->where('OBJECTID', 'like', "%".$this->nama."%")->where('Province','')->orWhere('Province', NULL);
         }
         if(!empty($this->startDate) && ($this->endDate)){
             $start = Carbon::parse($this->startDate);
             $end = Carbon::parse($this->endDate);
             $query->whereDate('created_at','<=',$end->format('Y-m-d'))
-            ->whereDate('created_at','>=',$start->format('Y-m-d'))->select('id','FID', 'Kasus_Posi', 'Kasus_Semb', 'Kasus_Meni', 'created_at');
+            ->whereDate('created_at','>=',$start->format('Y-m-d'))->select('id','OBJECTID', 'Confirmed', 'Recovered','Deaths','created_at');
         }
         return $query;
     }
@@ -34,7 +34,7 @@ class ProvinsiDataExport implements FromQuery, WithHeadings
     {
         return [
             'id',
-            'Provinsi',
+            'Negara',
             'Kasus_Positif',
             'Kasus_Sembuh',
             'Kasus_Meninggal',

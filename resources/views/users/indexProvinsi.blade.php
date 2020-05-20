@@ -361,16 +361,13 @@
 </div>
 <div class="container-fluid mt--7">
     <div class="row">
-        <div class="col">
+        <div class="col mb-5">
             <div class="card shadow">
                 <div class="card-header border-0">
                     <div class="row align-items-center">
                         <div class="col-8">
                             <h3 class="mb-0">Data Harian Provinsi di Indonesia</h3>
                         </div>
-                        <div class="col-4 text-right">
-                                <a href="/ProvinsiData/export" class="btn btn-sm btn-primary" data-toggle="modal" target="_blank">EXPORT EXCEL</a>
-                            </div>
                        
                         <!-- Import Excel -->
                             {{-- <div class="modal fade" id="importExcel" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -400,14 +397,54 @@
                             </div> --}}
                     </div>
                 </div>
+                       <!-- Form Cari Data Dunia -->
+                       <div class="p-4 bg-secondary">
+                            <form action="/ProvinsiData/filter" method="GET">
+                                <div class="form-group">
+                                    <label for="exampleFormControlSelect1">Nama Provinsi (Kosongkan untuk mendapat data seluruh provinsi)</label>
+                                    <input type="text" name="nama" class="form-control" placeholder="Provinsi" value="{{ old('nama') }}">
+                                </div>
+                                <div class="input-daterange datepicker row align-items-center">
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label for="exampleFormControlSelect1">Start Date (Maksimal input dimulai dari 2 Maret 2020)</label>
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text"><i class="ni ni-calendar-grid-58"></i></span>
+                                                </div>
+                                                <input class="form-control datepicker" placeholder="Start date" type="text" name="startDate" value="03/02/2020">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label for="exampleFormControlSelect1">End Date (Maksimal input tanggal hari ini )</label>
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text"><i class="ni ni-calendar-grid-58"></i></span>
+                                                </div>
+                                                <input class="form-control datepicker" placeholder="End date" type="text" name="endDate" value="03/05/2020">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <input type="submit" class="btn btn-outline-success" value="CARI DATA">
+                                <a href="/ProvinsiData/export" class="btn btn-success my-3" target="_blank">EXPORT EXCEL</a>
+
+                            </form>
+                        </div>
+
+                 
+                    <!-- Form Cari Data Dunia -->
 
                 
                 
 
 
-                <div class="table-responsive">
-                    <table class="table align-items-center table-flush">
-                        <thead class="thead-light">
+                    <div class="table-responsive" style="height:500px;overflow:auto;">
+                        <!-- Projects table -->
+                        <table class="table align-items-center table-flush">
+                            <thead class="thead-light">
                             <tr>
                                 <th scope="col">No.</th>
                                 <th scope="col">Provinsi</th>
@@ -489,4 +526,13 @@
             
     <!-- Argon JS -->
     <script src="{{ asset('argon') }}/js/argon.js?v=1.0.0"></script>
+    <script src="{{ asset('argon') }}/vendor/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+    
+    <script>
+        jQuery(document).ready(function($) {
+            $('.datepicker').datepicker({
+
+            });
+        });
+    </script>
 </body></html>

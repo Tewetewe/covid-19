@@ -367,10 +367,13 @@
                     <div class="row align-items-center">
                         <div class="col-8">
                             <h3 class="mb-0">Rekapitulasi Data Indonesia</h3>
+                          
                         </div>
-                        <div class="col-4 text-right">
+                        <div class="col-10 text-right">
                             <a href="/RekapIndo/export" class="btn btn-success my-3" target="_blank">EXPORT EXCEL</a>
                         </div>
+
+                        
                         <!-- Import Excel -->
                             {{-- <div class="modal fade" id="importExcel" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog" role="document">
@@ -399,12 +402,14 @@
                             </div> --}}
                     </div>
                 </div>
+                
 
                 
                 
 
 
-                <div class="table-responsive">
+                <div class="table-responsive" style="height:500px;overflow:auto;">
+                    <!-- Projects table -->
                     <table class="table align-items-center table-flush">
                         <thead class="thead-light">
                             <tr>

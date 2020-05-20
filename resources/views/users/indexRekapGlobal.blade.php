@@ -368,7 +368,7 @@
                         <div class="col-8">
                             <h3 class="mb-0">Rekapitulasi Data Dunia</h3>
                         </div>
-                        <div class="col-4 text-right">
+                        <div class="col-10 text-right">
                             <a href="/RekapGlobalData/export" class="btn btn-success my-3" target="_blank">EXPORT EXCEL</a>
                         </div>
                         <!-- Import Excel -->
@@ -405,7 +405,8 @@
                 <div class="col-12">
                 </div>
 
-                <div class="table-responsive">
+                <div class="table-responsive" style="height:500px;overflow:auto;">
+                    <!-- Projects table -->
                     <table class="table align-items-center table-flush">
                         <thead class="thead-light">
                             <tr>

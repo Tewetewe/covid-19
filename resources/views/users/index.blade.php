@@ -382,8 +382,12 @@
                             <h3 class="mb-0">BALI DATA</h3>
                         </div>
                         <div class="col-4 text-right">
+                           
+                        </div>
+                        <div class="col-12 text-right">
+                            <a href="/BaliData/export" class="btn-sm btn-success my-3" target="_blank">EXPORT EXCEL</a>
                             <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#importExcel">
-                            Import Data
+                                Import Data
                             </button>
                         </div>
                         <!-- Import Excel -->
@@ -395,7 +399,6 @@
                                                 <h5 class="modal-title" id="exampleModalLabel">Import Excel</h5>
                                             </div>
                                             <div class="modal-body">
-                    
                                                 {{ csrf_field() }}
                     
                                                 <label>Pilih file excel</label>
@@ -420,7 +423,7 @@
                 <div class="col-12">
                 </div>
 
-                <div class="table-responsive">
+                <div class="table-responsive" style="height:500px;overflow:auto;">
                     <table class="table align-items-center table-flush">
                         <thead class="thead-light">
                             <tr>

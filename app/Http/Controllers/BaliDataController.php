@@ -11,6 +11,7 @@ use Rap2hpoutre\FastExcel\FastExcel;
 use Session;
 use App\Exports\ProvinsiDataExport;
 use App\Exports\RekapIndoExport;
+use App\Exports\BaliDataExport;
 use App\Exports\RekapGlobalExport;
 use App\Exports\GlobalDataExport;
 use App\Imports\BaliDataImport;
@@ -157,10 +158,10 @@ class BaliDataController extends Controller
     {
         //
     }
-    public function exportProvinsiData()
+    public function exportProvinsiData(Request $request)
     {
         $nama_file = 'laporan_provinsi_data_'.date('Y-m-d_H-i-s').'.xlsx';
-        return Excel::download(new ProvinsiDataExport, $nama_file);
+        return Excel::download(new ProvinsiDataExport($nama, $startDate, $endDate), $nama_file);
     }
     public function exportRekapIndo()
     {
@@ -184,6 +185,11 @@ class BaliDataController extends Controller
     {
         $nama_file = 'laporan_rekap_global_'.date('Y-m-d_H-i-s').'.xlsx';
         return Excel::download(new RekapGlobalExport, $nama_file);
+    }
+    public function exportBaliData()
+    {
+        $nama_file = 'laporan_bali_data_'.date('Y-m-d_H-i-s').'.xlsx';
+        return Excel::download(new BaliDataExport, $nama_file);
     }
 
     /**
