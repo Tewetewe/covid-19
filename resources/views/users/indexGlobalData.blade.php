@@ -165,6 +165,8 @@
                              {{ __('RekapGlobal') }}
                     </a>
                 </li>
+                @endif
+                @if( auth()->user()->role == "superadmin" )
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('loadData') }}" style="color: #565656;">
                         <i class="ni ni-circle-08" style="color: #565656;"></i>
@@ -401,7 +403,7 @@
                 <div class="p-4 bg-secondary">
                     <form action="/GlobalData/filter" method="GET">
                         <div class="form-group">
-                            <label for="exampleFormControlSelect1">Nama Negara (Kosongkan untuk mendapat data seluruh provinsi)</label>
+                            <label for="exampleFormControlSelect1">Nama Negara (Kosongkan untuk mendapat data seluruh negara)</label>
                             <input type="text" name="nama" class="form-control" placeholder="Negara" value="{{ old('nama') }}">
                         </div>
                         <div class="input-daterange datepicker row align-items-center">
