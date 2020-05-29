@@ -35,7 +35,8 @@
                         <!-- Chart -->
                         <div class="chart">
                             <!-- Chart wrapper -->
-                            <canvas id="chart-saless" class="chart-canvas"></canvas>
+                            <!-- <canvas id="chart-saless" class="chart-canvas"></canvas> -->
+                            <canvas id="chart-orderss" class="chart-canvas"></canvas>
                         </div>
                     </div>
                     
@@ -44,6 +45,7 @@
                         <div class="chart">
                             <!-- Chart wrapper -->
                             <canvas id="chart-saless-global" class="chart-canvas"></canvas>
+                            
                         </div>
                     </div> --}}
                 </div>
@@ -104,7 +106,8 @@
                             <!-- Chart -->
                             <div class="chart">
                                 <!-- Chart wrapper -->
-                                <canvas id="chart-saless-global" class="chart-canvas"></canvas>
+                                <!-- <canvas id="chart-saless-global" class="chart-canvas"></canvas> -->
+                                <canvas id="chart-orderss-global" class="chart-canvas"></canvas>
                             </div>
                         </div>
                 </div>
@@ -147,7 +150,8 @@
                             <!-- Chart -->
                             <div class="chart">
                                 <!-- Chart wrapper -->
-                                <canvas id="chart-saless-bali" class="chart-canvas"></canvas>
+                                <!-- <canvas id="chart-saless-bali" class="chart-canvas"></canvas> -->
+                                <canvas id="chart-orderss-bali" class="chart-canvas"></canvas>
                             </div>
                         </div>
                 </div>
@@ -578,4 +582,215 @@
 
         })();
     </script>
+
+    <script>
+        var OrdersChart = (function() {
+
+        var $chart = $('#chart-orderss');
+        var $ordersSelect = $('[name="ordersSelect"]');
+
+
+        //
+        // Methods
+        //
+
+        // Init chart
+        function initChart($chart) {
+
+            // Create chart
+            var ordersChart = new Chart($chart, {
+                type: 'bar',
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                callback: function(value) {
+                                    if (!(value % 10)) {
+                                        //return '$' + value + 'k'
+                                        return value
+                                    }
+                                }
+                            }
+                        }]
+                    },
+                    tooltips: {
+                        callbacks: {
+                            label: function(item, data) {
+                                var label = data.datasets[item.datasetIndex].label || '';
+                                var yLabel = item.yLabel;
+                                var content = '';
+
+                                if (data.datasets.length > 1) {
+                                    content += '<span class="popover-body-label mr-auto">' + label + '</span>';
+                                }
+
+                                content += '<span class="popover-body-value">' + yLabel + '</span>';
+                                
+                                return content;
+                            }
+                        }
+                    }
+                },
+                data: {
+                    labels: {!! json_encode($positifDate) !!},
+                    datasets: [{
+                        label: 'permormance',
+                        data: {!! json_encode($dataPositif) !!}
+                    }]
+                }
+            });
+
+            // Save to jQuery object
+            $chart.data('chart', ordersChart);
+        }
+
+
+        // Init chart
+        if ($chart.length) {
+            initChart($chart);
+        }
+
+        })();
+    </script>
+
+    <script>
+        var OrdersChart = (function() {
+
+        var $chart = $('#chart-orderss-global');
+        var $ordersSelect = $('[name="ordersSelect"]');
+
+
+        //
+        // Methods
+        //
+
+        // Init chart
+        function initChart($chart) {
+
+            // Create chart
+            var ordersChart = new Chart($chart, {
+                type: 'bar',
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                callback: function(value) {
+                                    if (!(value % 10)) {
+                                        //return '$' + value + 'k'
+                                        return value
+                                    }
+                                }
+                            }
+                        }]
+                    },
+                    tooltips: {
+                        callbacks: {
+                            label: function(item, data) {
+                                var label = data.datasets[item.datasetIndex].label || '';
+                                var yLabel = item.yLabel;
+                                var content = '';
+
+                                if (data.datasets.length > 1) {
+                                    content += '<span class="popover-body-label mr-auto">' + label + '</span>';
+                                }
+
+                                content += '<span class="popover-body-value">' + yLabel + '</span>';
+                                
+                                return content;
+                            }
+                        }
+                    }
+                },
+                data: {
+                    labels: {!! json_encode($positifDateGlobal) !!},
+                    datasets: [{
+                        label: 'performance',
+                        data: {!! json_encode($dataPositifGlobal) !!}
+                    }]
+                }
+            });
+
+            // Save to jQuery object
+            $chart.data('chart', ordersChart);
+        }
+
+
+        // Init chart
+        if ($chart.length) {
+            initChart($chart);
+        }
+
+        })();
+    </script>
+
+<script>
+        var OrdersChart = (function() {
+
+        var $chart = $('#chart-orderss-bali');
+        var $ordersSelect = $('[name="ordersSelect"]');
+
+
+        //
+        // Methods
+        //
+
+        // Init chart
+        function initChart($chart) {
+
+            // Create chart
+            var ordersChart = new Chart($chart, {
+                type: 'bar',
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                callback: function(value) {
+                                    if (!(value % 10)) {
+                                        //return '$' + value + 'k'
+                                        return value
+                                    }
+                                }
+                            }
+                        }]
+                    },
+                    tooltips: {
+                        callbacks: {
+                            label: function(item, data) {
+                                var label = data.datasets[item.datasetIndex].label || '';
+                                var yLabel = item.yLabel;
+                                var content = '';
+
+                                if (data.datasets.length > 1) {
+                                    content += '<span class="popover-body-label mr-auto">' + label + '</span>';
+                                }
+
+                                content += '<span class="popover-body-value">' + yLabel + '</span>';
+                                
+                                return content;
+                            }
+                        }
+                    }
+                },
+                data: {
+                    labels: {!! json_encode($positifDateBali) !!},
+                    datasets: [{
+                        label: 'performance',
+                        data: {!! json_encode($arrayPositif) !!}
+                    }]
+                }
+            });
+
+            // Save to jQuery object
+            $chart.data('chart', ordersChart);
+        }
+
+
+        // Init chart
+        if ($chart.length) {
+            initChart($chart);
+        }
+
+        })();
+    </script>
+
 @endpush
