@@ -10,8 +10,8 @@
                     <div class="card-header bg-transparent">
                         <div class="row align-items-center">
                             <div class="col">
-                                <h6 class="text-uppercase text-light ls-1 mb-1">Overview</h6>
-                                <h2 class="text-white mb-0">Statistik Positif COVID-19 Indonesia</h2>
+                                <h6 class="text-uppercase text-light ls-1 mb-1">Statistik Positif COVID-19</h6>
+                                <h2 class="text-white mb-0">Indonesia</h2>
                             </div>
                             {{-- <div class="col">
                                 <ul class="nav nav-pills justify-content-end">
@@ -73,8 +73,8 @@
                     <div class="card-header bg-transparent">
                         <div class="row align-items-center">
                             <div class="col">
-                                <h6 class="text-uppercase text-light ls-1 mb-1">Overview</h6>
-                                <h2 class="text-white mb-0">Statistik Positif COVID-19 Dunia</h2>
+                                <h6 class="text-uppercase text-light ls-1 mb-1">Statistik Positif COVID-19</h6>
+                                <h2 class="text-white mb-0">Dunia</h2>
                             </div>
                             {{-- <div class="col">
                                 <ul class="nav nav-pills justify-content-end">
@@ -112,13 +112,65 @@
                         </div>
                 </div>
             </div>
-            <div class="col-xl-12 mb-5 mb-xl-2">
+            <div class="col-xl-6 mb-5 mb-xl-2">
                 <div class="card bg-gradient-default shadow">
                     <div class="card-header bg-transparent">
                         <div class="row align-items-center">
                             <div class="col">
-                                <h6 class="text-uppercase text-light ls-1 mb-1">Overview</h6>
-                                <h2 class="text-white mb-0">Statistik Positif COVID-19 Bali</h2>
+                                <h6 class="text-uppercase text-light ls-1 mb-1">Statistik Positif COVID-19</h6>
+                                <h2 class="text-white mb-0">Bali</h2>
+                            </div>
+                            {{-- <div class="col">
+                                <ul class="nav nav-pills justify-content-end">
+                                  <li class="nav-item mr-2 mr-md-0" data-toggle="chart" data-target="#chart-saless" data-update="#chart-saless-global">
+                                        <a href="#" class="nav-link py-2 px-3 active" data-toggle="tab">
+                                            <span class="d-none d-md-block">Global</span>
+                                            <span class="d-md-none">M</span>
+                                        </a>
+                                    </li>
+                                     <li class="nav-item" data-toggle="chart" data-target="#chart-saless" data-update="#chart-saless">
+                                        <a href="#" class="nav-link py-2 px-3" data-toggle="tab">
+                                            <span class="d-none d-md-block">Indonesia</span>
+                                            <span class="d-md-none">W</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div> --}}
+                        </div>
+                    </div>
+                    {{-- <div class="card-body">
+                        <!-- Chart -->
+                        <div class="chart">
+                            <!-- Chart wrapper -->
+                            <canvas id="chart-saless" class="chart-canvas"></canvas>
+                        </div>
+                    </div> --}}
+                    
+                        <div class="card-body">
+                            <!-- Chart -->
+                            <div class="chart">
+                                <!-- Chart wrapper -->
+                                <!-- <canvas id="chart-saless-bali" class="chart-canvas"></canvas> -->
+                                <canvas id="chart-orderss-bali" class="chart-canvas"></canvas>
+                            </div>
+                        </div>
+                </div>
+            </div>
+            <div class="col-xl-6 mb-5 mb-xl-2">
+                <div class="card bg-gradient-default shadow">
+                    <div class="card-header bg-transparent">
+                        <div class="row align-items-center">
+                            <div class="col">
+                                <h6 class="text-uppercase text-light ls-1 mb-1">Statistik Positif COVID-19</h6>
+                                <div class="row">
+                                    <h2 class="text-white mb-0" style="margin-left: 14px;">Kabupaten di Bali</h2>
+                                    <div class="form-group col-sm-3" style="margin-bottom: 0;">
+                                        <select class="form-control" style="padding: 7px;height: 35px;"id="exampleFormControlSelect1">
+                                        <option>Badung</option>
+                                        <option>Bangli</option>
+                                        </select>
+                                    </div>
+                                </div>
                             </div>
                             {{-- <div class="col">
                                 <ul class="nav nav-pills justify-content-end">
@@ -175,8 +227,8 @@
                 </div>
             </div> --}}
         </div>
-        <div class="row mt-5">
-            <div class="col-xl-6 mb-5">
+        <div class="row mt-3">
+            <div class="col-xl-6 mb-3">
                 <div class="card shadow">
                     <div class="card-header border-0">
                         <div class="row align-items-center">
@@ -223,7 +275,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-xl-6 mb-5 mb-xl-0">
+            <div class="col-xl-6 mb-3 mb-xl-0">
                 <div class="card shadow">
                     <div class="card-header border-0">
                         <div class="row align-items-center">
@@ -266,7 +318,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-xl-12 mt-5 mb-xl-0">
+            <div class="col-xl-12 mb-3 mb-xl-0">
                 <div class="card shadow">
                     <div class="card-header border-0">
                         <div class="row align-items-center">
