@@ -322,8 +322,16 @@
                     <div class="card-header bg-transparent">
                         <div class="row align-items-center">
                             <div class="col">
-                                <h6 class="text-uppercase text-light ls-1 mb-1">Overview</h6>
-                                <h2 class="text-white mb-0">Statistik Positif COVID-19 Bali</h2>
+                                <h6 class="text-uppercase text-light ls-1 mb-1">Statistik Positif COVID-19</h6>
+                                <div class="row">
+                                    <h2 class="text-white mb-0" style="margin-left: 14px;">Kabupaten di Bali</h2>
+                                    <div class="form-group col-sm-3" style="margin-bottom: 0;">
+                                        <select class="form-control" style="padding: 7px;height: 35px;"id="exampleFormControlSelect1">
+                                        <option>Badung</option>
+                                        <option>Bangli</option>
+                                        </select>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
