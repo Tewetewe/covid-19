@@ -23,6 +23,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/ProvGraph/filter', 'HomeController@filter');
+
 
 Route::post('/ProvinsiData/import_excel', 'BaliDataController@import_excel_provinsi');
 Route::post('/BaliData/import_excel', 'BaliDataController@import_excel_bali');
@@ -40,6 +42,7 @@ Route::get('/RekapGlobalData', 'UserController@index3')->name('rekapGlobal');
 Route::get('/RekapIndo', 'UserController@rekapIndo')->name('rekapIndo');
 Route::get('/GlobalData', 'UserController@globalData')->name('globalData');
 Route::get('/loadData', 'UserController@loadData')->name('loadData');
+
 
 Route::group(['middleware' => 'auth'], function () {
 	Route::resource('user', 'UserController', ['except' => ['show']]);

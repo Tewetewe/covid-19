@@ -73,6 +73,27 @@
                     </div>
                 </div>
                 <div class="col-xl-3 col-lg-6">
+                    <div class="card card-stats mb-4 mb-xl-0">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col">
+                                    <h5 class="card-title text-uppercase text-muted mb-0">Meninggal</h5>
+                                    <span class="h2 font-weight-bold mb-0">{{ $meninggal }} Orang</span>
+                                </div>
+                                <div class="col-auto">
+                                    <div class="icon icon-shape bg-black text-white rounded-circle shadow">
+                                        <img height="30" widht="30" src="{{ asset('argon') }}/img/brand/emoticon-cry.png" alt="...">
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="mt-4 mb-0 text-muted text-sm">
+                                <span class="text-black mr-2"><i class="fa fa-arrow-up"></i> +{{ $diffMeninggal }}</span>
+                                <span class="text-nowrap">Dari kemarin</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                {{-- <div class="col-xl-3 col-lg-6">
                     <div class="card card-stats mb-0 mb-xl-0">
                         <div class="card-body">
                             <div class="row">
@@ -89,11 +110,8 @@
                                     </div>
                                 </div>
                             </div>
-                            {{-- <p class="mt-0 mb-0 text-muted text-sm">
-                                <span class="text-nowrap">Dari Kemarin</span>
-                            </p> --}}
                         </div>
-                    </div>
+                    </div> --}}
                 </div> 
             </div>
         </div>
