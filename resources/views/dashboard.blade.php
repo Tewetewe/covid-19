@@ -327,12 +327,13 @@
                             </div>
                         </div>
                     </div>
-                    <div class="card-body">
-                        <!-- Chart -->
-                        <div class="chart">
-                            <canvas id="chart-orderss-bali" class="chart-canvas"></canvas>
+                        <div class="card-body">
+                            <!-- Chart -->
+                            <div class="chart">
+                                <!-- Chart wrapper -->
+                                <canvas id="chart-orderss-bali" class="chart-canvas"></canvas>
+                            </div>
                         </div>
-                    </div>
                 </div>
             </div>
             <div class="row mb-xl-4">
@@ -533,7 +534,84 @@
                         </div>
                     </div>
                 </div>
-                
+                <div class="col-xl-12 mt-5 mb-xl-0">
+                    <div class="card shadow">
+                        <div class="card-header border-0">
+                            <div class="row align-items-center">
+                                <div class="col">
+                                    <h3 class="mb-0">Data COVID-19 Bali</h3>
+                                </div>
+                                {{-- <div class="col text-right">
+                                    <a href="#!" class="btn btn-sm btn-primary">See all</a>
+                                </div> --}}
+                            </div>
+                        </div>
+                        <div class="table-responsive" style="height:350px;overflow:auto;">
+                            <!-- Projects table -->
+                                <table class="table align-items-center table-flush">
+                                    <thead class="thead-light">
+                                        <tr>
+                                            <th scope="col">No.</th>
+                                            <th scope="col">Tanggal Import</th>
+                                            <th scope="col">Resiko</th>
+                                            <th scope="col">Paparan</th>
+                                            <th scope="col">Bantu</th>
+                                            <th scope="col">No Baru</th>
+                                            <th scope="col">No Kemarin</th>
+                                            <th scope="col">Tanggal</th>
+                                            <th scope="col">status</th>
+                                            <th scope="col">Nama</th>
+                                            <th scope="col">Penularan</th>
+                                            <th scope="col">Negara</th>
+                                            <th scope="col">Jenis Kelamin</th>
+                                            <th scope="col">Umur</th>
+                                            <th scope="col">Alamat</th>
+                                            <th scope="col">Desa</th>
+                                            <th scope="col">Kecamatan</th>
+                                            <th scope="col">Kabupaten</th>
+                                            <th scope="col">Faskes</th>
+                                            <th scope="col">ket</th>
+                                            <th scope="col">Kondisi</th>
+                                            <th scope="col">Kelompok Umur</th>
+                                            <th scope="col">Kategori Kasus</th>
+                                            <th scope="col">Hubungan</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @for ($i = 1; $i <= sizeof($baliData); $i++)
+                                            <tr>
+                                                <td>{{$i}}</td>
+                                                <td>{{ $baliData[$i-1]->Tanggal_Import}}</td>
+                                                <td>{{ $baliData[$i-1]->Resiko}}</td>
+                                                <td>{{ $baliData[$i-1]->Paparan}}</td>
+                                                <td>{{ $baliData[$i-1]->Bantu}}</td>    
+                                                <td>{{ $baliData[$i-1]->No_Baru}}</td>
+                                                <td>{{ $baliData[$i-1]->No_kemarin}}</td>
+                                                <td>{{ $baliData[$i-1]->Tanggal}}</td>
+                                                <td>{{ $baliData[$i-1]->Status}}</td>
+                                                <td>{{ $baliData[$i-1]->Nama}}</td>
+                                                <td>{{ $baliData[$i-1]->Penularan}}</td>
+                                                <td>{{ $baliData[$i-1]->Negara}}</td>
+                                                <td>{{ $baliData[$i-1]->Jenis_Kelamin}}</td>
+                                                <td>{{ $baliData[$i-1]->Umur}}</td>
+                                                <td>{{ $baliData[$i-1]->Alamat}}</td>
+                                                <td>{{ $baliData[$i-1]->Desa}}</td>
+                                                <td>{{ $baliData[$i-1]->Kecamatan}}</td>
+                                                <td>{{ $baliData[$i-1]->Kabupaten}}</td>
+                                                <td>{{ $baliData[$i-1]->Faskes}}</td>
+                                                <td>{{ $baliData[$i-1]->Keterangan}}</td>
+                                                <td>{{ $baliData[$i-1]->Kondisi}}</td>
+                                                <td>{{ $baliData[$i-1]->Kelompok_Umur}}</td>
+                                                <td>{{ $baliData[$i-1]->Kategori_Kasus}}</td>
+                                                <td>{{ $baliData[$i-1]->Hubungan}}</td>
+                                       
+                                            </tr>
+                                        @endfor
+                                    </tbody>
+                                </table>
+                        </div>
+                    </div>
+                </div>
             </div>
             
         </div>
