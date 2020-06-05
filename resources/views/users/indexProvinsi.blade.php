@@ -404,7 +404,12 @@
                             <form action="/ProvinsiData/filter" method="GET">
                                 <div class="form-group">
                                     <label for="exampleFormControlSelect1">Nama Provinsi (Kosongkan untuk mendapat data seluruh provinsi)</label>
-                                    <input type="text" name="nama" class="form-control" placeholder="Provinsi" value="{{ old('nama') }}">
+                                    <select class="form-control" id="drop" name="nama">
+                                        <option value="">Pilih Provinsi</option>
+                                            @foreach ($namaProvinsi as $item)
+                                                <option value="{{$item->FID}}">{{ucfirst($item->FID)}}</option>      
+                                            @endforeach
+                                        </select>
                                 </div>
                                 <div class="input-daterange datepicker row align-items-center">
                                     <div class="col-12">
@@ -414,7 +419,7 @@
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-text"><i class="ni ni-calendar-grid-58"></i></span>
                                                 </div>
-                                                <input class="form-control datepicker" placeholder="Start date" type="text" name="startDate" value="03/02/2020">
+                                                <input class="form-control datepicker" placeholder="Start date" type="text" name="startDate" value="06/02/2020">
                                             </div>
                                         </div>
                                     </div>
@@ -425,7 +430,7 @@
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-text"><i class="ni ni-calendar-grid-58"></i></span>
                                                 </div>
-                                                <input class="form-control datepicker" placeholder="End date" type="text" name="endDate" value="03/05/2020">
+                                                <input class="form-control datepicker" placeholder="End date" type="text" name="endDate" value="06/04/2020">
                                             </div>
                                         </div>
                                     </div>
@@ -437,12 +442,7 @@
                         </div>
 
                  
-                    <!-- Form Cari Data Dunia -->
-
-                
-                
-
-
+ 
                     <div class="table-responsive" style="height:500px;overflow:auto;">
                         <!-- Projects table -->
                         <table class="table align-items-center table-flush">
@@ -529,7 +529,16 @@
     <!-- Argon JS -->
     <script src="{{ asset('argon') }}/js/argon.js?v=1.0.0"></script>
     <script src="{{ asset('argon') }}/vendor/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
-    
+    <style>
+        .drop {
+            min-height:190px; 
+            overflow-y :auto; 
+            overflow-x:hidden; 
+            position:absolute;
+            width:300px;
+            display: contents;
+            }
+    </style>
     <script>
         jQuery(document).ready(function($) {
             $('.datepicker').datepicker({

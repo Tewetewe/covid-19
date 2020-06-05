@@ -39,7 +39,9 @@ class UserController extends Controller
     public function index2()
     {
         $provinsiData = ProvinsiData::where('created_at', ProvinsiData::max('created_at'))->get();
-        return view('users.indexProvinsi',compact('provinsiData'));
+        $namaProvinsi = ProvinsiData::select('FID')
+        ->orderBy('provinsi_data.Kasus_Posi', 'DESC')->where('created_at', ProvinsiData::max('created_at'))->get();
+        return view('users.indexProvinsi',compact('provinsiData','namaProvinsi'));
     }
     public function filterProvinsi(Request $request)
     {
@@ -59,10 +61,12 @@ class UserController extends Controller
           
         }
         $provinsiData = $query->get();
+        $namaProvinsi = ProvinsiData::select('FID')
+        ->orderBy('provinsi_data.Kasus_Posi', 'DESC')->where('created_at', ProvinsiData::max('created_at'))->get();
         Session::put('nama', $nama);
         Session::put('startDate', $startDate);
         Session::put('endDate', $endDate);
-        return view('users.indexProvinsi',compact('provinsiData'));
+        return view('users.indexProvinsi',compact('provinsiData','namaProvinsi'));
         // return Excel::download(new ProvinsiDataExport($nama, $startDate, $endDate), $nama_file);
 
     }
@@ -85,7 +89,9 @@ class UserController extends Controller
     }
     public function globalData(){
         $globalData = GlobalData::where('created_at', GlobalData::max('created_at'))->get();
-        return view('users.indexGlobalData',compact('globalData'));
+        $namaNegara = GlobalData::select('OBJECTID')
+        ->orderBy('Confirmed', 'DESC')->where('created_at', GlobalData::max('created_at'))->get();
+        return view('users.indexGlobalData',compact('globalData','namaNegara'));
     }
     public function filterGlobal(Request $request)
     {
@@ -104,11 +110,13 @@ class UserController extends Controller
             ->whereDate('created_at','>=',$start->format('Y-m-d'));
           
         }
+        $namaNegara = GlobalData::select('OBJECTID')
+        ->orderBy('Confirmed', 'DESC')->where('created_at', GlobalData::max('created_at'))->get();
         $globalData = $query->get();
         Session::put('namaGlobal', $nama);
         Session::put('startDateGlobal', $startDate);
         Session::put('endDateGlobal', $endDate);
-        return view('users.indexGlobalData', compact('globalData'));
+        return view('users.indexGlobalData', compact('globalData','namaNegara'));
         // return Excel::download(new ProvinsiDataExport($nama, $startDate, $endDate), $nama_file);
 
     }

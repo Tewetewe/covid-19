@@ -404,7 +404,12 @@
                     <form action="/GlobalData/filter" method="GET">
                         <div class="form-group">
                             <label for="exampleFormControlSelect1">Nama Negara (Kosongkan untuk mendapat data seluruh negara)</label>
-                            <input type="text" name="nama" class="form-control" placeholder="Negara" value="{{ old('nama') }}">
+                            <select class="form-control" id="drop" name="nama">
+                                <option value="">Pilih Negara</option>
+                                    @foreach ($namaNegara as $item)
+                                        <option value="{{$item->OBJECTID}}">{{ucfirst($item->OBJECTID)}}</option>      
+                                    @endforeach
+                            </select>
                         </div>
                         <div class="input-daterange datepicker row align-items-center">
                             <div class="col-12">
@@ -521,7 +526,16 @@
     <!-- Argon JS -->
     <script src="{{ asset('argon') }}/js/argon.js?v=1.0.0"></script>
     <script src="{{ asset('argon') }}/vendor/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
-    
+    <style>
+        .drop {
+        min-height:190px; 
+        overflow-y :auto; 
+        overflow-x:hidden; 
+        position:absolute;
+        width:300px;
+        display: contents;
+    }
+    </style>
     <script>
         jQuery(document).ready(function($) {
             $('.datepicker').datepicker({

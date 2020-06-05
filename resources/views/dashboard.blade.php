@@ -22,7 +22,13 @@
                                 </div>
                             </div>
                             <p class="mt-4 mb-0 text-muted text-sm">
-                                <span class="text-warning mr-2"><i class="fa fa-arrow-up"></i> {{ $diffPositifGlobal }}</span>
+                                <span class="text-warning mr-2">
+                                    @if($diffPositifGlobal>=0)
+                                    <i class="fa fa-arrow-up">
+                                    @else
+                                    <i class="fa fa-arrow-down">
+                                    @endif
+                                    </i> {{ $diffPositifGlobal }}</span>
                                 <span class="text-nowrap">Dari Kemarin</span>
                             </p>
                         </div>
@@ -44,7 +50,13 @@
                                 </div>
                             </div>
                             <p class="mt-4 mb-0 text-muted text-sm">
-                                <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> {{ $diffSembuhGlobal }} </span>
+                                <span class="text-success mr-2">
+                                    @if($diffSembuhGlobal>=0)
+                                    <i class="fa fa-arrow-up">
+                                    @else
+                                    <i class="fa fa-arrow-down">
+                                    @endif
+                                    </i> {{ $diffSembuhGlobal }}</span>
                                 <span class="text-nowrap">Dari Kemarin</span>
                             </p>
                         </div>
@@ -67,7 +79,13 @@
                                 </div>
                             </div>
                             <p class="mt-4 mb-0 text-muted text-sm">
-                                <span class="text-black mr-2"><i class="fa fa-arrow-up"></i> {{ $diffMeninggalGlobal }}</span>
+                                <span class="text-black mr-2">
+                                    @if($diffMeninggalGlobal>=0)
+                                    <i class="fa fa-arrow-up">
+                                    @else
+                                    <i class="fa fa-arrow-down">
+                                    @endif
+                                    </i> {{ $diffMeninggalGlobal }}</span>
                                 <span class="text-nowrap">Dari kemarin</span>
                             </p>
                         </div>
@@ -90,7 +108,13 @@
                                 </div>
                             </div>
                             <p class="mt-4 mb-0 text-muted text-sm">
-                                <span class="text-blue mr-2"><i class="fa fa-arrow-up"></i> {{ $diffDirawatGlobal }}</span>
+                                <span class="text-blue mr-2">
+                                    @if($diffDirawatGlobal>=0)
+                                    <i class="fa fa-arrow-up">
+                                    @else
+                                    <i class="fa fa-arrow-down">
+                                    @endif
+                                    </i> {{ $diffDirawatGlobal }}</span>
                                 <span class="text-nowrap">Dari kemarin</span>
                             </p>
                         </div>
@@ -136,7 +160,13 @@
                                 </div>
                             </div>
                             <p class="mt-4 mb-0 text-muted text-sm">
-                                <span class="text-warning mr-2"><i class="fa fa-arrow-up"></i> {{ $diffPositif }}</span>
+                                <span class="text-warning mr-2">
+                                    @if($diffPositif>=0)
+                                    <i class="fa fa-arrow-up">
+                                    @else
+                                    <i class="fa fa-arrow-down">
+                                    @endif
+                                    </i> {{ $diffPositif }}</span>
                                 <span class="text-nowrap">Dari Kemarin</span>
                             </p>
                         </div>
@@ -159,7 +189,13 @@
                                 </div>
                             </div>
                             <p class="mt-4 mb-0 text-muted text-sm">
-                                <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> {{ $diffSembuh }} </span>
+                                <span class="text-success mr-2">
+                                    @if($diffSembuh>=0)
+                                    <i class="fa fa-arrow-up">
+                                    @else
+                                    <i class="fa fa-arrow-down">
+                                    @endif
+                                    </i> {{ $diffSembuh }}</span>
                                 <span class="text-nowrap">Dari Kemarin</span>
                             </p>
                         </div>
@@ -181,7 +217,13 @@
                                 </div>
                             </div>
                             <p class="mt-4 mb-0 text-muted text-sm">
-                                <span class="text-black mr-2"><i class="fa fa-arrow-up"></i> {{ $diffMeninggal }}</span>
+                                <span class="text-black mr-2">
+                                    @if($diffMeninggal>=0)
+                                    <i class="fa fa-arrow-up">
+                                    @else
+                                    <i class="fa fa-arrow-down">
+                                    @endif
+                                    </i> {{ $diffMeninggal }}</span>
                                 <span class="text-nowrap">Dari kemarin</span>
                             </p>
                         </div>
@@ -203,7 +245,13 @@
                                 </div>
                             </div>
                             <p class="mt-4 mb-0 text-muted text-sm">
-                                <span class="text-blue mr-2"><i class="fa fa-arrow-up"></i> {{ $diffDirawat }}</span>
+                                <span class="text-blue mr-2">
+                                    @if($diffDirawat>=0)
+                                    <i class="fa fa-arrow-up">
+                                    @else
+                                    <i class="fa fa-arrow-down">
+                                    @endif
+                                    </i> {{ $diffDirawat }}</span>
                                 <span class="text-nowrap">Dari kemarin</span>
                             </p>
                         </div>
@@ -244,7 +292,14 @@
                                 </div>
                             </div>
                             <p class="mt-4 mb-0 text-muted text-sm">
-                                <span class="text-warning mr-2"><i class="fa fa-arrow-up"></i> {{ $diffPositifBali }}</span>
+                                <span class="text-warning mr-2">
+                                    @if($diffPositifBali>=0)
+                                    <i class="fa fa-arrow-up">
+                                    @else
+                                    <i class="fa fa-arrow-down">
+                                    @endif
+                                    </i> {{ $diffPositifBali }}</span>
+                                </span>
                                 <span class="text-nowrap">Dari Kemarin</span>
                             </p>
                         </div>
@@ -266,7 +321,13 @@
                                 </div>
                             </div>
                             <p class="mt-4 mb-0 text-muted text-sm">
-                                <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> {{ $diffSembuhBali }} </span>
+                                <span class="text-success mr-2">
+                                    @if($diffSembuhBali>=0)
+                                    <i class="fa fa-arrow-up">
+                                    @else
+                                    <i class="fa fa-arrow-down">
+                                    @endif
+                                    </i> {{ $diffSembuhBali }}</span>
                                 <span class="text-nowrap">Dari Kemarin</span>
                             </p>
                         </div>
@@ -288,7 +349,13 @@
                                 </div>
                             </div>
                             <p class="mt-4 mb-0 text-muted text-sm">
-                                <span class="text-black mr-2"><i class="fa fa-arrow-up"></i> {{ $diffMeninggalBali }}</span>
+                                <span class="text-black mr-2">
+                                    @if($diffMeninggalBali>=0)
+                                    <i class="fa fa-arrow-up">
+                                    @else
+                                    <i class="fa fa-arrow-down">
+                                    @endif
+                                    </i> {{ $diffMeninggalBali }}</span>
                                 <span class="text-nowrap">Dari kemarin</span>
                             </p>
                         </div>
@@ -310,7 +377,13 @@
                                 </div>
                             </div>
                             <p class="mt-4 mb-0 text-muted text-sm">
-                                <span class="text-blue mr-2"><i class="fa fa-arrow-up"></i> {{ $diffDirawatBali }}</span>
+                                <span class="text-blue mr-2">
+                                    @if($diffDirawatBali>=0)
+                                    <i class="fa fa-arrow-up">
+                                    @else
+                                    <i class="fa fa-arrow-down">
+                                    @endif
+                                    </i> {{ $diffDirawatBali }}</span>
                                 <span class="text-nowrap">Dari kemarin</span>
                             </p>
                         </div>
@@ -352,7 +425,13 @@
                                 </div>
                             </div>
                             <p class="mt-4 mb-0 text-muted text-sm">
-                                <span class="text-warning mr-2"><i class="fa fa-arrow-up"></i> {{ $diffPositifProv}}</span>
+                                <span class="text-warning mr-2">
+                                    @if($diffPositifProv>=0)
+                                    <i class="fa fa-arrow-up">
+                                    @else
+                                    <i class="fa fa-arrow-down">
+                                    @endif
+                                    </i> {{ $diffPositifProv}}</span>
                                 <span class="text-nowrap">Dari Kemarin</span>
                             </p>
                         </div>
@@ -374,7 +453,13 @@
                                 </div>
                             </div>
                             <p class="mt-4 mb-0 text-muted text-sm">
-                                <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> {{ $diffSembuhProv }} </span>
+                                <span class="text-success mr-2">
+                                    @if($diffSembuhProv>=0)
+                                    <i class="fa fa-arrow-up">
+                                    @else
+                                    <i class="fa fa-arrow-down">
+                                    @endif
+                                    </i> {{ $diffSembuhProv }}</span>
                                 <span class="text-nowrap">Dari Kemarin</span>
                             </p>
                         </div>
@@ -396,7 +481,13 @@
                                 </div>
                             </div>
                             <p class="mt-4 mb-0 text-muted text-sm">
-                                <span class="text-black mr-2"><i class="fa fa-arrow-up"></i> {{ $diffMeninggalProv }}</span>
+                                <span class="text-black mr-2">
+                                    @if($diffMeninggalProv>=0)
+                                    <i class="fa fa-arrow-up">
+                                    @else
+                                    <i class="fa fa-arrow-down">
+                                    @endif
+                                    </i> {{ $diffMeninggalProv }}</span>
                                 <span class="text-nowrap">Dari kemarin</span>
                             </p>
                         </div>
@@ -418,7 +509,13 @@
                                 </div>
                             </div>
                             <p class="mt-4 mb-0 text-muted text-sm">
-                                <span class="text-blue mr-2"><i class="fa fa-arrow-up"></i> {{ $diffDirawatProv }}</span>
+                                <span class="text-blue mr-2">
+                                    @if($diffDirawatProv>=0)
+                                    <i class="fa fa-arrow-up">
+                                    @else
+                                    <i class="fa fa-arrow-down">
+                                    @endif
+                                    </i> {{ $diffDirawatProv }}</span>
                                 <span class="text-nowrap">Dari kemarin</span>
                             </p>
                         </div>
@@ -470,7 +567,6 @@
                                 </div>
                             </div>
                         </div>
-    
                         <div class="table-responsive" style="height:350px;overflow:auto;">
                             <!-- Projects table -->
                             <table class="table align-items-center table-flush">
