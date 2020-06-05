@@ -16,12 +16,12 @@
     <!-- Argon CSS -->
     <link type="text/css" href="{{ asset('argon') }}/css/argon.css?v=1.0.0" rel="stylesheet">
 
-<style> 
+<!-- <style> 
 .body {
     background-image: url("{{ asset('argon') }}/img/brand/12.png");
     
 }
-</style>
+</style> -->
 </head>
 <body class="clickup-chrome-ext_installed">
     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -117,7 +117,7 @@
                     </a>
                 </li>
                 
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                     <a class="nav-link active" href="#navbar-examples" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="navbar-examples">
                         <i class="ni ni-mobile-button" style="color: #565656;"></i>
                         <span class="nav-link-text" style="color: #565656;">Hotline</span>
@@ -127,7 +127,7 @@
                         <ul class="nav nav-sm flex-column">
                         </ul>
                     </div>
-                </li>
+                </li> -->
 
                 <!-- <li class="nav-item">
                     <a class="nav-link" href="{{ route('profile.edit') }}">
@@ -137,32 +137,32 @@
                 @if( auth()->user()->role == "admin" )
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('user.index') }}" style="color: #565656;">
-                        <i class="ni ni-circle-08" style="color: #565656;"></i>
+                        <i class="ni ni-single-copy-04" style="color: #565656;"></i>
                              {{ __('Import XLS Bali') }}
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('provinsi') }}" style="color: #565656;">
-                        <i class="ni ni-circle-08" style="color: #565656;"></i>
+                        <i class="ni ni-book-bookmark" style="color: #565656;"></i>
                              {{ __('Data Provinsi') }}
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('rekapIndo') }}" style="color: #565656;">
-                        <i class="ni ni-circle-08" style="color: #565656;"></i>
+                        <i class="ni ni-chart-bar-32" style="color: #565656;"></i>
                              {{ __('Rekap Indo') }}
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('globalData') }}" style="color: #565656;">
-                        <i class="ni ni-circle-08" style="color: #565656;"></i>
+                        <i class="ni ni-book-bookmark" style="color: #565656;"></i>
                              {{ __('Data Global') }}
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('rekapGlobal') }}" style="color: #565656;">
-                        <i class="ni ni-circle-08" style="color: #565656;"></i>
-                             {{ __('RekapGlobal') }}
+                        <i class="ni ni-chart-bar-32" style="color: #565656;"></i>
+                             {{ __('Rekap Global') }}
                     </a>
                 </li>
                 @endif
@@ -356,22 +356,23 @@
 </div>
 </nav>   
 
-<div class="header body pb-8 pt-5 pt-md-8 " >
+<div class="header body pb-1 pt-3 pt-md-5 " >
 <div class="container-fluid">
         <!-- Card stats -->
 </div>
 </div>
-<div class="container-fluid mt--7">
+<div class="container-fluid mt-0">
     <div class="row">
         <div class="col">
             <div class="card shadow">
                 <div class="card-header border-0">
                     <div class="row align-items-center">
-                        <div class="col-8">
-                            <h3 class="mb-0">Rekapitulasi Data Dunia</h3>
+                        <div class="col-10">
+                            <h2 class="mb-0">Rekapitulasi Data Dunia</h2>
+                            
                         </div>
-                        <div class="col-10 text-right">
-                            <a href="/RekapGlobalData/export" class="btn btn-success my-3" target="_blank">EXPORT EXCEL</a>
+                        <div class="col-10 text-left">
+                            <a href="/RekapGlobalData/export" class="btn btn-success my-3" target="_blank">Export Excel</a>
                         </div>
                         <!-- Import Excel -->
                             {{-- <div class="modal fade" id="importExcel" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -441,7 +442,7 @@
                         </tbody>
                     </table>
                 </div>
-                <div class="card-footer py-4">
+                <div class="card-footer py-0">
                     <nav class="d-flex justify-content-end" aria-label="...">
                         
                     </nav>

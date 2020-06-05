@@ -1,9 +1,9 @@
-<style> 
+<!-- <style> 
 .body {
     background-image: url("{{ asset('argon') }}/img/brand/12.png");
     
 }
-</style>
+</style> -->
 <div class="header body pb-8 pt-5 pt-md-8">
     <div class="container-fluid">
         <div class="header-body">
