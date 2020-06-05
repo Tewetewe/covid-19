@@ -386,7 +386,7 @@
                                     <h6><span class="h2 font-weight-bold text-white mb-2">{{ $persenDirawatBali}}% </span></h6>
                                 </div>
                                 <div class="col-auto">
-                                        <img height="55" widht="55" src="{{ asset('argon') }}/img/brand/emoticon-happy.png" alt="...">
+                                        <img height="55" widht="55" src="{{ asset('argon') }}/img/brand/emoticon-sick.png" alt="...">
                                 </div>
                             </div>
                             <p class="mt-4 mb-0 text-white text-sm">
@@ -524,7 +524,7 @@
                                 </div>
                                 <div class="col-auto">
                                     <!-- <div class="icon icon-shape bg-blue text-white rounded-circle shadow"> -->
-                                        <img height="55" widht="55" src="{{ asset('argon') }}/img/brand/emoticon-happy.png" alt="...">
+                                        <img height="55" widht="55" src="{{ asset('argon') }}/img/brand/emoticon-sick.png" alt="...">
                                     <!-- </div> -->
                                 </div>
                             </div>
