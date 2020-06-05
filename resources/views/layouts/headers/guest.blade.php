@@ -13,8 +13,8 @@
     </div>
 </div>
 <style> 
-.body {
+/* .body {
     background-image: url("{{ asset('argon') }}/img/brand/cover.png");
     
 }
-</style>
+</style> */

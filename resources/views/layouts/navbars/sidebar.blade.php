@@ -1,6 +1,6 @@
 
 <nav class="navbar navbar-horizontal fixed-left navbar-expand-md navbar-light bg-white" id="sidenav-main">
-    <div class="container-fluid">
+    <div class="shadow container-fluid">
         <!-- Toggler -->
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#sidenav-collapse-main" aria-controls="sidenav-main" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -85,11 +85,11 @@
                         <i class="ni ni-tv-2 style="color: #565656;></i> {{ __('Dashboard') }}
                     </a>
                 </li>
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                     <a class="nav-link active" href="#navbar-examples" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="navbar-examples">
                         <i class="ni ni-mobile-button" style="color: #565656;"></i>
                         <span class="nav-link-text" style="color: #565656;">{{ __('Hotline') }}</span>
-                    </a>
+                    </a> -->
 
                     <!-- <div class="collapse show" id="navbar-examples">
                         <ul class="nav nav-sm flex-column"> -->
@@ -108,7 +108,7 @@
 
                         <!-- </ul>
                     </div> -->
-                </li>
+                <!-- </li> -->
 
                 
                 <!-- <li class="nav-item">
@@ -119,31 +119,31 @@
                 @if( auth()->user()->role == "admin" )
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('user.index') }}" style="color: #565656;">
-                        <i class="ni ni-circle-08" style="color: #565656;"></i>
+                        <i class="ni ni-single-copy-04" style="color: #565656;"></i>
                              {{ __('Import XLS Bali') }}
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('provinsi') }}" style="color: #565656;">
-                        <i class="ni ni-circle-08" style="color: #565656;"></i>
+                        <i class="ni ni-book-bookmark" style="color: #565656;"></i>
                              {{ __('Data Provinsi') }}
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('rekapIndo') }}" style="color: #565656;">
-                        <i class="ni ni-circle-08" style="color: #565656;"></i>
+                        <i class="ni ni-chart-bar-32" style="color: #565656;"></i>
                              {{ __('Rekap Indo') }}
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('globalData') }}" style="color: #565656;">
-                        <i class="ni ni-circle-08" style="color: #565656;"></i>
+                        <i class="ni ni-book-bookmark" style="color: #565656;"></i>
                              {{ __('Data Global') }}
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('rekapGlobal') }}" style="color: #565656;">
-                        <i class="ni ni-circle-08" style="color: #565656;"></i>
+                        <i class="ni ni-chart-bar-32" style="color: #565656;"></i>
                              {{ __('RekapGlobal') }}
                     </a>
                 </li>

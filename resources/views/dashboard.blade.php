@@ -2,96 +2,101 @@
 
 @section('content')
 
-<div class="header body pb-8 pt-5 pt-md-8">
+
+<div class="header  pb-8 pt-5 pt-md-5">
     <div class="container-fluid">
         <div class="header-body">
+            <div class="shadow alert alert-white text-muted" role="alert">
+                <h2><b>Rekapitulasi Data Penyebaran COVID-19 Dunia</b></h2>
+             </div>
             <!-- Card stats -->
             <div class="row">
                 <div class="col-xl-3 col-lg-6">
-                    <div class="card card-stats mb-4 mb-xl-0">
-                        <div class="card-body">
+                    <div class="shadow card bg-gradient-danger card-stats mb-4 mb-xl-0">
+                        <div class="shadow card-body">
                             <div class="row">
                                 <div class="col">
-                                    <h5 class="card-title text-uppercase text-muted mb-0">Terkonfirmasi</h5>
-                                    <span class="h2 font-weight-bold mb-0">{{ $positifGlobal }} Orang</span>
+                                    <h5 class="card-title text-uppercase text-white mb-0">Terkonfirmasi</h5>
+                                    <span class="h2 font-weight-bold text-white mb-0">{{ $positifGlobal }} Orang</span>
+                                    <h6><span class="h2 font-weight-bold text-white mb-0"></span></h6>
                                 </div>
                                 <div class="col-auto">
-                                    <div class="icon icon-shape bg-danger text-white rounded-circle shadow">
-                                        <img height="30" widht="30" src="{{ asset('argon') }}/img/brand/emoticon-sad.png" alt="...">
-                                    </div>
+                                    <!-- <div class="icon icon-shape bg-danger text-white rounded-circle shadow"> -->
+                                        <img height="55" widht="55" src="{{ asset('argon') }}/img/brand/emoticon-sad.png" alt="...">
+                                    <!-- </div> -->
                                 </div>
                             </div>
-                            <p class="mt-4 mb-0 text-muted text-sm">
-                                <span class="text-warning mr-2"><i class="fa fa-arrow-up"></i> {{ $diffPositifGlobal }}</span>
-                                <span class="text-nowrap">Dari Kemarin</span>
+                            <p class="mt-5 mb-0 text-white text-sm">
+                                <span class="text-white mr-2"><i class="fa fa-arrow-up"></i> {{ $diffPositifGlobal }}</span>
+                                <span class="text-white">Dari Kemarin</span>
                             </p>
                         </div>
                     </div>
                 </div>
                 <div class="col-xl-3 col-lg-6">
-                    <div class="card card-stats mb-4 mb-xl-0">
-                        <div class="card-body">
+                    <div class="shadow card bg-gradient-success card-stats mb-4 mb-xl-0">
+                        <div class="shadow card-body">
                             <div class="row">
                                 <div class="col">
-                                    <h5 class="card-title text-uppercase text-muted mb-0">Sembuh</h5>
-                                    <span class="h2 font-weight-bold mb-0">{{ $sembuhGlobal }} Orang</span>
+                                    <h5 class="card-title text-uppercase text-white mb-0">Sembuh</h5>
+                                    <span class="h2 font-weight-bold text-white mb-0">{{ $sembuhGlobal }} Orang</span>
+                                    <h6><span class="h2 font-weight-bold text-white mb-0 ">{{ $persenSembuhGlobal}}% </span></h6>
                                 </div>
                                 <div class="col-auto">
-                                    <span class="h2 font-weight-bold mb-2">{{ $persenSembuhGlobal}}% </span>
-                                    <div class="icon icon-shape bg-green text-white rounded-circle shadow">
-                                        <img height="30" widht="30" src="{{ asset('argon') }}/img/brand/emoticon-happy.png" alt="...">
-                                    </div>
+                                    <!-- <div class="icon icon-shape bg-green text-white rounded-circle shadow"> -->
+                                        <img height="55" widht="55" src="{{ asset('argon') }}/img/brand/emoticon-happy.png" alt="...">
+                                    <!-- </div> -->
                                 </div>
                             </div>
-                            <p class="mt-4 mb-0 text-muted text-sm">
-                                <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> {{ $diffSembuhGlobal }} </span>
-                                <span class="text-nowrap">Dari Kemarin</span>
+                            <p class="mt-4 mb-0 text-white text-sm">
+                                <span class="text-white mr-2"><i class="fa fa-arrow-up"></i> {{ $diffSembuhGlobal }} </span>
+                                <span class="text-white">Dari Kemarin</span>
                             </p>
                         </div>
                     </div>
                 </div>
                 <div class="col-xl-3 col-lg-6">
-                    <div class="card card-stats mb-4 mb-xl-0">
-                        <div class="card-body">
+                    <div class="shadow card bg-gradient-gray-dark card-stats mb-4 mb-xl-0">
+                        <div class="shadow card-body">
                             <div class="row">
                                 <div class="col">
-                                    <h5 class="card-title text-uppercase text-muted mb-0">Meninggal</h5>
-                                    <span class="h2 font-weight-bold mb-0">{{ $meninggalGlobal }} Orang</span>
+                                    <h5 class="card-title text-uppercase text-white mb-0">Meninggal</h5>
+                                    <span class="h2 font-weight-bold text-white mb-0">{{ $meninggalGlobal }} Orang</span>
+                                    <h6><span class="h2 font-weight-bold text-white mb-0">{{ $persenMeninggalGlobal}}% </span></h6>
                                 </div>
                                 <div class="col-auto">
-                                    <span class="h2 font-weight-bold mb-2">{{ $persenMeninggalGlobal}}% </span>
 
-                                    <div class="icon icon-shape bg-black text-white rounded-circle shadow">
-                                        <img height="30" widht="30" src="{{ asset('argon') }}/img/brand/emoticon-cry.png" alt="...">
-                                    </div>
+                                    <!-- <div class="icon icon-shape bg-black text-white rounded-circle shadow"> -->
+                                        <img height="55" widht="55" src="{{ asset('argon') }}/img/brand/emoticon-cry.png" alt="...">
+                                    <!-- </div> -->
                                 </div>
                             </div>
-                            <p class="mt-4 mb-0 text-muted text-sm">
-                                <span class="text-black mr-2"><i class="fa fa-arrow-up"></i> {{ $diffMeninggalGlobal }}</span>
-                                <span class="text-nowrap">Dari kemarin</span>
+                            <p class="mt-4 mb-0 text-white text-sm">
+                                <span class="text-white mr-2"><i class="fa fa-arrow-up"></i> {{ $diffMeninggalGlobal }}</span>
+                                <span class="text-white">Dari kemarin</span>
                             </p>
                         </div>
                     </div>
                 </div>
                 <div class="col-xl-3 col-lg-6">
-                    <div class="card card-stats mb-4 mb-xl-0">
-                        <div class="card-body">
+                    <div class="shadow card bg-gradient-warning card-stats mb-4 mb-xl-0">
+                        <div class="shadow card-body">
                             <div class="row">
                                 <div class="col">
-                                    <h5 class="card-title text-uppercase text-muted mb-0">Dirawat</h5>
-                                    <span class="h2 font-weight-bold mb-0">{{ $dirawatGlobal }} Orang</span>
+                                    <h5 class="card-title text-uppercase text-white mb-0">Dirawat</h5>
+                                    <span class="h2 font-weight-bold text-white mb-0">{{ $dirawatGlobal }} Orang</span>
+                                    <h6><span class="h2 font-weight-bold text-white mb-0">{{ $persenDirawatGlobal}}% </span></h6>
                                 </div>
                                 <div class="col-auto">
-                                    <span class="h2 font-weight-bold mb-2">{{ $persenDirawatGlobal}}% </span>
 
-                                    <div class="icon icon-shape bg-blue text-white rounded-circle shadow">
-                                        <img height="30" widht="30" src="{{ asset('argon') }}/img/brand/emoticon-happy.png" alt="...">
-                                    </div>
+                                    <!-- <div class="icon icon-shape bg-blue text-white rounded-circle shadow"> -->
+                                        <img height="55" widht="55" src="{{ asset('argon') }}/img/brand/emoticon-sick.png" alt="...">
+                                    <!-- </div> -->
                                 </div>
                             </div>
-                            <p class="mt-4 mb-0 text-muted text-sm">
-                                <span class="text-blue mr-2"><i class="fa fa-arrow-up"></i> {{ $diffDirawatGlobal }}</span>
-                                <span class="text-nowrap">Dari kemarin</span>
+                            <p class="mt-4 mb-0 text-white text-sm">
+                                <span class="text-white mr-2"><i class="fa fa-arrow-up"></i> {{ $diffDirawatGlobal }}</span>
+                                <span class="text-white">Dari kemarin</span>
                             </p>
                         </div>
                     </div>
@@ -101,7 +106,7 @@
     </div>
 </div>
     
-    <div class="container-fluid mt--7 body">
+    <div class="container-fluid mt--7 ">
             <div class="col-xl-14 mb-5 mb-xl-4">
                 <div class="card bg-gradient-default shadow">
                     <div class="card-header bg-transparent">
@@ -120,91 +125,96 @@
                         </div>
                 </div>
             </div>
+            <hr>
+
+            <div class="shadow alert alert-white text-muted" role="alert">
+                <h2><b>Rekapitulasi Data Penyebaran COVID-19 Indonesia</b></h2>
+             </div>
             <div class="row mb-xl-4">
                 <div class="col-xl-3 col-lg-6">
-                    <div class="card card-stats mb-4 mb-xl-0">
-                        <div class="card-body">
+                    <div class="shadow card card-stats bg-gradient-danger mb-4 mb-xl-0">
+                        <div class="shadow card-body">
                             <div class="row">
                                 <div class="col">
-                                    <h5 class="card-title text-uppercase text-muted mb-0">Terkonfirmasi</h5>
-                                    <span class="h2 font-weight-bold mb-0">{{ $positif }} Orang</span>
+                                    <h5 class="card-title text-uppercase text-white mb-0">Terkonfirmasi</h5>
+                                    <span class="h2 font-weight-bold text-white mb-0">{{ $positif }} Orang</span>
+                                    <h6><span class="h2 font-weight-bold text-white mb-0"></span></h6>
                                 </div>
                                 <div class="col-auto">
-                                    <div class="icon icon-shape bg-danger text-white rounded-circle shadow">
-                                        <img height="30" widht="30" src="{{ asset('argon') }}/img/brand/emoticon-sad.png" alt="...">
-                                    </div>
+                                    <!-- <div class="icon icon-shape bg-danger text-white rounded-circle shadow"> -->
+                                        <img height="55" widht="55" src="{{ asset('argon') }}/img/brand/emoticon-sad.png" alt="...">
+                                    <!-- </div> -->
                                 </div>
                             </div>
-                            <p class="mt-4 mb-0 text-muted text-sm">
-                                <span class="text-warning mr-2"><i class="fa fa-arrow-up"></i> {{ $diffPositif }}</span>
-                                <span class="text-nowrap">Dari Kemarin</span>
+                            <p class="mt-5 mb-0 text-white text-sm">
+                                <span class="text-white mr-2"><i class="fa fa-arrow-up"></i> {{ $diffPositif }}</span>
+                                <span class="text-white">Dari Kemarin</span>
                             </p>
                         </div>
                     </div>
                 </div>
                 <div class="col-xl-3 col-lg-6">
-                    <div class="card card-stats mb-4 mb-xl-0">
-                        <div class="card-body">
+                    <div class="shadow card bg-gradient-success card-stats mb-4 mb-xl-0">
+                        <div class="shadow card-body">
                             <div class="row">
                                 <div class="col">
-                                    <h5 class="card-title text-uppercase text-muted mb-0">Sembuh</h5>
-                                <span class="h2 font-weight-bold mb-0">{{ $sembuh }} Orang </span>
+                                    <h5 class="card-title text-uppercase text-white mb-0">Sembuh</h5>
+                                    <span class="h2 font-weight-bold text-white mb-0">{{ $sembuh }} Orang </span>
+                                    <h6><span class="h2 font-weight-bold text-white mb-0">{{ $persenSembuh }}% </span></h6>
                                 </div>
                                 <div class="col-auto">
-                                    <span class="h2 font-weight-bold mb-2">{{ $persenSembuh }}% </span>
-
-                                    <div class="icon icon-shape bg-green text-white rounded-circle shadow">
-                                        <img height="30" widht="30" src="{{ asset('argon') }}/img/brand/emoticon-happy.png" alt="...">
-                                    </div>
+                                     <!-- <div class="icon icon-shape bg-green text-white rounded-circle shadow"> -->
+                                        <img height="55" widht="55" src="{{ asset('argon') }}/img/brand/emoticon-happy.png" alt="...">
+                                    <!-- </div> -->
                                 </div>
                             </div>
-                            <p class="mt-4 mb-0 text-muted text-sm">
-                                <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> {{ $diffSembuh }} </span>
-                                <span class="text-nowrap">Dari Kemarin</span>
+                            <p class="mt-4 mb-0 text-white text-sm">
+                                <span class="text-white mr-2"><i class="fa fa-arrow-up"></i> {{ $diffSembuh }} </span>
+                                <span class="text-white">Dari Kemarin</span>
                             </p>
                         </div>
                     </div>
                 </div>
                 <div class="col-xl-3 col-lg-6">
-                    <div class="card card-stats mb-4 mb-xl-0">
-                        <div class="card-body">
+                    <div class="shadow card bg-gradient-gray-dark card-stats mb-4 mb-xl-0">
+                        <div class="shadow card-body">
                             <div class="row">
                                 <div class="col">
-                                    <h5 class="card-title text-uppercase text-muted mb-0">Meninggal</h5>
-                                    <span class="h2 font-weight-bold mb-0">{{ $meninggal }} Orang</span>
+                                    <h5 class="card-title text-uppercase text-white mb-0">Meninggal</h5>
+                                    <span class="h2 font-weight-bold text-white mb-0">{{ $meninggal }} Orang</span>
+                                    <h6><span class="h2 font-weight-bold text-white mb-0">{{ $persenMeninggal }}% </span></h6>
                                 </div>
                                 <div class="col-auto">
-                                    <span class="h2 font-weight-bold mb-2">{{ $persenMeninggal }}% </span>
-                                    <div class="icon icon-shape bg-black text-white rounded-circle shadow">
-                                        <img height="30" widht="30" src="{{ asset('argon') }}/img/brand/emoticon-cry.png" alt="...">
-                                    </div>
+                                    <!-- <div class="icon icon-shape bg-black text-white rounded-circle shadow"> -->
+                                        <img height="55" widht="55" src="{{ asset('argon') }}/img/brand/emoticon-cry.png" alt="...">
+                                    <!-- </div> -->
                                 </div>
                             </div>
-                            <p class="mt-4 mb-0 text-muted text-sm">
-                                <span class="text-black mr-2"><i class="fa fa-arrow-up"></i> {{ $diffMeninggal }}</span>
-                                <span class="text-nowrap">Dari kemarin</span>
+                            <p class="mt-4 mb-0 text-white text-sm">
+                                <span class="text-white mr-2"><i class="fa fa-arrow-up"></i> {{ $diffMeninggal }}</span>
+                                <span class="text-white">Dari kemarin</span>
                             </p>
                         </div>
                     </div>
                 </div>
                 <div class="col-xl-3 col-lg-6">
-                    <div class="card card-stats mb-4 mb-xl-0">
-                        <div class="card-body">
+                    <div class="shadow card bg-gradient-warning card-stats mb-4 mb-xl-0">
+                        <div class="shadow card-body">
                             <div class="row">
                                 <div class="col">
-                                    <h5 class="card-title text-uppercase text-muted mb-0">Dirawat</h5>
-                                    <span class="h2 font-weight-bold mb-0">{{ $dirawat }} Orang</span>
+                                    <h5 class="card-title text-uppercase text-white mb-0">Dirawat</h5>
+                                    <span class="h2 font-weight-bold text-white mb-0">{{ $dirawat }} Orang</span>
+                                    <h6><span class="h2 font-weight-bold text-white mb-0">{{ $persenDirawat }}% </span></h6>
                                 </div>
                                 <div class="col-auto">
-                                    <span class="h2 font-weight-bold mb-2">{{ $persenDirawat }}% </span>
-                                    <div class="icon icon-shape bg-blue text-white rounded-circle shadow">
-                                        <img height="30" widht="30" src="{{ asset('argon') }}/img/brand/emoticon-happy.png" alt="...">
-                                    </div>
+                                    <!-- <div class="icon icon-shape bg-blue text-white rounded-circle shadow"> -->
+                                        <img height="55" widht="55" src="{{ asset('argon') }}/img/brand/emoticon-sick.png" alt="...">
+                                    <!-- </div> -->
                                 </div>
                             </div>
-                            <p class="mt-4 mb-0 text-muted text-sm">
-                                <span class="text-blue mr-2"><i class="fa fa-arrow-up"></i> {{ $diffDirawat }}</span>
-                                <span class="text-nowrap">Dari kemarin</span>
+                            <p class="mt-4 mb-0 text-white text-sm">
+                                <span class="text-white mr-2"><i class="fa fa-arrow-up"></i> {{ $diffDirawat }}</span>
+                                <span class="text-white">Dari kemarin</span>
                             </p>
                         </div>
                     </div>
@@ -228,90 +238,94 @@
                     </div>
                 </div>
             </div>
+            <hr>
+
+            <div class="shadow alert alert-white text-muted" role="alert">
+                <h2><b>Rekapitulasi Data Penyebaran COVID-19 Bali</b></h2>
+             </div>
             <div class="row mb-xl-4">
                 <div class="col-xl-3 col-lg-6">
-                    <div class="card card-stats mb-4 mb-xl-0">
-                        <div class="card-body">
+                    <div class="shadow card bg-gradient-danger card-stats mb-4 mb-xl-0">
+                        <div class="shadow card-body">
                             <div class="row">
                                 <div class="col">
-                                    <h5 class="card-title text-uppercase text-muted mb-0">Terkonfirmasi</h5>
-                                    <span class="h2 font-weight-bold mb-0">{{ $positifBali }} Orang</span>
+                                    <h5 class="card-title text-uppercase text-white mb-0">Terkonfirmasi</h5>
+                                    <span class="h2 font-weight-bold text-white mb-0">{{ $positifBali }} Orang</span>
+                                    <h6><span class="h2 font-weight-bold text-white mb-0"></span></h6>
                                 </div>
                                 <div class="col-auto">
-                                    <div class="icon icon-shape bg-danger text-white rounded-circle shadow">
-                                        <img height="30" widht="30" src="{{ asset('argon') }}/img/brand/emoticon-sad.png" alt="...">
-                                    </div>
+                                    <!-- <div class="icon icon-shape bg-danger text-white rounded-circle shadow"> -->
+                                        <img height="55" widht="55" src="{{ asset('argon') }}/img/brand/emoticon-sad.png" alt="...">
+                                    <!-- </div> -->
                                 </div>
                             </div>
-                            <p class="mt-4 mb-0 text-muted text-sm">
-                                <span class="text-warning mr-2"><i class="fa fa-arrow-up"></i> {{ $diffPositifBali }}</span>
-                                <span class="text-nowrap">Dari Kemarin</span>
+                            <p class="mt-5 mb-0 text-white text-sm">
+                                <span class="text-white mr-2"><i class="fa fa-arrow-up"></i> {{ $diffPositifBali }}</span>
+                                <span class="text-white">Dari Kemarin</span>
                             </p>
                         </div>
                     </div>
                 </div>
                 <div class="col-xl-3 col-lg-6">
-                    <div class="card card-stats mb-4 mb-xl-0">
-                        <div class="card-body">
+                    <div class="shadow card bg-gradient-success card-stats mb-4 mb-xl-0">
+                        <div class="shadow card-body">
                             <div class="row">
                                 <div class="col">
-                                    <h5 class="card-title text-uppercase text-muted mb-0">Sembuh</h5>
-                                    <span class="h2 font-weight-bold mb-0">{{ $sembuhBali }} Orang</span>
+                                    <h5 class="card-title text-uppercase text-white mb-0">Sembuh</h5>
+                                    <span class="h2 font-weight-bold text-white mb-0">{{ $sembuhBali }} Orang</span>
+                                    <h6><span class="h2 font-weight-bold text-white mb-0">{{ $persenSembuhBali}}% </span></h6>
                                 </div>
                                 <div class="col-auto">
-                                    <span class="h2 font-weight-bold mb-2">{{ $persenSembuhBali}}% </span>
-                                    <div class="icon icon-shape bg-green text-white rounded-circle shadow">
-                                        <img height="30" widht="30" src="{{ asset('argon') }}/img/brand/emoticon-happy.png" alt="...">
-                                    </div>
+                                    <!-- <div class="icon icon-shape bg-green text-white rounded-circle shadow"> -->
+                                        <img height="55" widht="55" src="{{ asset('argon') }}/img/brand/emoticon-happy.png" alt="...">
+                                    <!-- </div> -->
                                 </div>
                             </div>
-                            <p class="mt-4 mb-0 text-muted text-sm">
-                                <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> {{ $diffSembuhBali }} </span>
-                                <span class="text-nowrap">Dari Kemarin</span>
+                            <p class="mt-4 mb-0 text-white text-sm">
+                                <span class="text-white mr-2"><i class="fa fa-arrow-up"></i> {{ $diffSembuhBali }} </span>
+                                <span class="text-white">Dari Kemarin</span>
                             </p>
                         </div>
                     </div>
                 </div>
                 <div class="col-xl-3 col-lg-6">
-                    <div class="card card-stats mb-4 mb-xl-0">
-                        <div class="card-body">
+                    <div class="shadow card bg-gradient-gray-dark card-stats mb-4 mb-xl-0">
+                        <div class="shadow card-body">
                             <div class="row">
                                 <div class="col">
-                                    <h5 class="card-title text-uppercase text-muted mb-0">Meninggal</h5>
-                                    <span class="h2 font-weight-bold mb-0">{{ $meninggalBali }} Orang</span>
+                                    <h5 class="card-title text-uppercase text-white mb-0">Meninggal</h5>
+                                    <span class="h2 font-weight-bold text-white mb-0">{{ $meninggalBali }} Orang</span>
+                                    <h6><span class="h2 font-weight-bold text-white mb-0">{{ $persenMeninggalBali}}% </span></h6>
                                 </div>
                                 <div class="col-auto">
-                                    <span class="h2 font-weight-bold mb-2">{{ $persenMeninggalBali}}% </span>
-                                    <div class="icon icon-shape bg-black text-white rounded-circle shadow">
-                                        <img height="30" widht="30" src="{{ asset('argon') }}/img/brand/emoticon-cry.png" alt="...">
-                                    </div>
+                                    <!-- <div class="icon icon-shape bg-black text-white rounded-circle shadow"> -->
+                                        <img height="55" widht="55" src="{{ asset('argon') }}/img/brand/emoticon-cry.png" alt="...">
+                                    <!-- </div> -->
                                 </div>
                             </div>
-                            <p class="mt-4 mb-0 text-muted text-sm">
-                                <span class="text-black mr-2"><i class="fa fa-arrow-up"></i> {{ $diffMeninggalBali }}</span>
-                                <span class="text-nowrap">Dari kemarin</span>
+                            <p class="mt-4 mb-0 text-white text-sm">
+                                <span class="text-white mr-2"><i class="fa fa-arrow-up"></i> {{ $diffMeninggalBali }}</span>
+                                <span class="text-white">Dari kemarin</span>
                             </p>
                         </div>
                     </div>
                 </div>
                 <div class="col-xl-3 col-lg-6">
-                    <div class="card card-stats mb-4 mb-xl-0">
-                        <div class="card-body">
+                    <div class="shadow card bg-gradient-warning card-stats mb-4 mb-xl-0">
+                        <div class="shadow card-body">
                             <div class="row">
                                 <div class="col">
-                                    <h5 class="card-title text-uppercase text-muted mb-0">Dirawat</h5>
-                                    <span class="h2 font-weight-bold mb-0">{{ $dirawatBali }} Orang</span>
+                                    <h5 class="card-title text-uppercase text-white mb-0">Dirawat</h5>
+                                    <span class="h2 font-weight-bold text-white mb-0">{{ $dirawatBali }} Orang</span>
+                                    <h6><span class="h2 font-weight-bold text-white mb-2">{{ $persenDirawatBali}}% </span></h6>
                                 </div>
                                 <div class="col-auto">
-                                    <span class="h2 font-weight-bold mb-2">{{ $persenDirawatBali}}% </span>
-                                    <div class="icon icon-shape bg-blue text-white rounded-circle shadow">
-                                        <img height="30" widht="30" src="{{ asset('argon') }}/img/brand/emoticon-happy.png" alt="...">
-                                    </div>
+                                        <img height="55" widht="55" src="{{ asset('argon') }}/img/brand/emoticon-happy.png" alt="...">
                                 </div>
                             </div>
-                            <p class="mt-4 mb-0 text-muted text-sm">
-                                <span class="text-blue mr-2"><i class="fa fa-arrow-up"></i> {{ $diffDirawatBali }}</span>
-                                <span class="text-nowrap">Dari kemarin</span>
+                            <p class="mt-4 mb-0 text-white text-sm">
+                                <span class="text-white mr-2"><i class="fa fa-arrow-up"></i> {{ $diffDirawatBali }}</span>
+                                <span class="text-white">Dari kemarin</span>
                             </p>
                         </div>
                     </div>
@@ -336,90 +350,97 @@
                         </div>
                 </div>
             </div>
+            <hr>
+
+            <div class="shadow alert alert-white text-muted" role="alert">
+                <h2><b>Rekapitulasi Data Penyebaran COVID-19 Provinsi di Indonesia</b></h2>
+             </div>
+
             <div class="row mb-xl-4">
                 <div class="col-xl-3 col-lg-6">
-                    <div class="card card-stats mb-4 mb-xl-0">
-                        <div class="card-body">
+                    <div class="shadow card bg-gradient-danger card-stats mb-4 mb-xl-0">
+                        <div class="shadow card-body">
                             <div class="row">
                                 <div class="col">
-                                    <h5 class="card-title text-uppercase text-muted mb-0">Terkonfirmasi</h5>
-                                    <span class="h2 font-weight-bold mb-0">{{ $positifProv }} Orang</span>
+                                    <h5 class="card-title text-uppercase text-white mb-0">Terkonfirmasi</h5>
+                                    <span class="h2 font-weight-bold text-white mb-0">{{ $positifProv }} Orang</span>
+                                    <h6><span class="h2 font-weight-bold text-white mb-0"></span></h6>
                                 </div>
                                 <div class="col-auto">
-                                    <div class="icon icon-shape bg-danger text-white rounded-circle shadow">
-                                        <img height="30" widht="30" src="{{ asset('argon') }}/img/brand/emoticon-sad.png" alt="...">
-                                    </div>
+                                    <!-- <div class="icon icon-shape bg-danger text-white rounded-circle shadow"> -->
+                                        <img height="55" widht="55" src="{{ asset('argon') }}/img/brand/emoticon-sad.png" alt="...">
+                                    <!-- </div> -->
                                 </div>
                             </div>
-                            <p class="mt-4 mb-0 text-muted text-sm">
-                                <span class="text-warning mr-2"><i class="fa fa-arrow-up"></i> {{ $diffPositifProv}}</span>
-                                <span class="text-nowrap">Dari Kemarin</span>
+                            <p class="mt-5 mb-0 text-white text-sm">
+                                <span class="text-white mr-2"><i class="fa fa-arrow-up"></i> {{ $diffPositifProv}}</span>
+                                <span class="text-white">Dari Kemarin</span>
                             </p>
                         </div>
                     </div>
                 </div>
                 <div class="col-xl-3 col-lg-6">
-                    <div class="card card-stats mb-4 mb-xl-0">
-                        <div class="card-body">
+                    <div class="shadow card bg-gradient-success card-stats mb-4 mb-xl-0">
+                        <div class="shadow card-body">
                             <div class="row">
                                 <div class="col">
-                                    <h5 class="card-title text-uppercase text-muted mb-0">Sembuh</h5>
-                                    <span class="h2 font-weight-bold mb-0">{{ $sembuhProv }} Orang</span>
+                                    <h5 class="card-title text-uppercase text-white mb-0">Sembuh</h5>
+                                    <span class="h2 font-weight-bold text-white mb-0">{{ $sembuhProv }} Orang</span>
+                                    <h6><span class="h2 font-weight-bold text-white mb-0">{{ $persenSembuhProv}}% </span></h6>
                                 </div>
                                 <div class="col-auto">
-                                    <span class="h2 font-weight-bold mb-2">{{ $persenSembuhProv}}% </span>
-                                    <div class="icon icon-shape bg-green text-white rounded-circle shadow">
-                                        <img height="30" widht="30" src="{{ asset('argon') }}/img/brand/emoticon-happy.png" alt="...">
-                                    </div>
+                                    <!-- <div class="icon icon-shape bg-green text-white rounded-circle shadow"> -->
+                                        <img height="55" widht="55" src="{{ asset('argon') }}/img/brand/emoticon-happy.png" alt="...">
+                                    <!-- </div> -->
                                 </div>
                             </div>
-                            <p class="mt-4 mb-0 text-muted text-sm">
-                                <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> {{ $diffSembuhProv }} </span>
-                                <span class="text-nowrap">Dari Kemarin</span>
+                            <p class="mt-4 mb-0 text-white text-sm">
+                                <span class="text-white mr-2"><i class="fa fa-arrow-up"></i> {{ $diffSembuhProv }} </span>
+                                <span class="text-white">Dari Kemarin</span>
                             </p>
                         </div>
                     </div>
                 </div>
                 <div class="col-xl-3 col-lg-6">
-                    <div class="card card-stats mb-4 mb-xl-0">
-                        <div class="card-body">
+                    <div class="shadow card bg-gradient-gray-dark card-stats mb-4 mb-xl-0">
+                        <div class="shadow card-body">
                             <div class="row">
                                 <div class="col">
-                                    <h5 class="card-title text-uppercase text-muted mb-0">Meninggal</h5>
-                                    <span class="h2 font-weight-bold mb-0">{{ $meninggalProv }} Orang</span>
+                                    <h5 class="card-title text-uppercase text-white mb-0">Meninggal</h5>
+                                    <span class="h2 font-weight-bold text-white mb-0">{{ $meninggalProv }} Orang</span>
+                                    <h6><span class="h2 font-weight-bold text-white mb-0">{{ $persenMeninggalProv}}% </span></h6>
                                 </div>
                                 <div class="col-auto">
-                                    <span class="h2 font-weight-bold mb-2">{{ $persenMeninggalProv}}% </span>
-                                    <div class="icon icon-shape bg-black text-white rounded-circle shadow">
-                                        <img height="30" widht="30" src="{{ asset('argon') }}/img/brand/emoticon-cry.png" alt="...">
-                                    </div>
+                                    <!-- <div class="icon icon-shape bg-black text-white rounded-circle shadow"> -->
+                                        <img height="55" widht="55" src="{{ asset('argon') }}/img/brand/emoticon-cry.png" alt="...">
+                                    <!-- </div> -->
                                 </div>
                             </div>
-                            <p class="mt-4 mb-0 text-muted text-sm">
-                                <span class="text-black mr-2"><i class="fa fa-arrow-up"></i> {{ $diffMeninggalProv }}</span>
-                                <span class="text-nowrap">Dari kemarin</span>
+                            <p class="mt-4 mb-0 text-white text-sm">
+                                <span class="text-white mr-2"><i class="fa fa-arrow-up"></i> {{ $diffMeninggalProv }}</span>
+                                <span class="text-white">Dari kemarin</span>
                             </p>
                         </div>
                     </div>
                 </div>
                 <div class="col-xl-3 col-lg-6">
-                    <div class="card card-stats mb-4 mb-xl-0">
-                        <div class="card-body">
+                    <div class="shadow card bg-gradient-warning card-stats mb-4 mb-xl-0">
+                        <div class="shadow card-body">
                             <div class="row">
                                 <div class="col">
-                                    <h5 class="card-title text-uppercase text-muted mb-0">Dirawat</h5>
-                                    <span class="h2 font-weight-bold mb-0">{{ $dirawatProv }} Orang</span>
+                                    <h5 class="card-title text-uppercase text-white mb-0">Dirawat</h5>
+                                    <span class="h2 font-weight-bold text-white mb-0">{{ $dirawatProv }} Orang</span>
+                                    <h6><span class="h2 font-weight-bold text-white mb-0">{{ $persenDirawatProv}}% </span></h6>
                                 </div>
                                 <div class="col-auto">
-                                    <span class="h2 font-weight-bold mb-2">{{ $persenDirawatProv}}% </span>
-                                    <div class="icon icon-shape bg-blue text-white rounded-circle shadow">
-                                        <img height="30" widht="30" src="{{ asset('argon') }}/img/brand/emoticon-happy.png" alt="...">
-                                    </div>
+                                    <!-- <div class="icon icon-shape bg-blue text-white rounded-circle shadow"> -->
+                                        <img height="55" widht="55" src="{{ asset('argon') }}/img/brand/emoticon-happy.png" alt="...">
+                                    <!-- </div> -->
                                 </div>
                             </div>
-                            <p class="mt-4 mb-0 text-muted text-sm">
-                                <span class="text-blue mr-2"><i class="fa fa-arrow-up"></i> {{ $diffDirawatProv }}</span>
-                                <span class="text-nowrap">Dari kemarin</span>
+                            <p class="mt-4 mb-0 text-white text-sm">
+                                <span class="text-white mr-2"><i class="fa fa-arrow-up"></i> {{ $diffDirawatProv }}</span>
+                                <span class="text-white">Dari kemarin</span>
                             </p>
                         </div>
                     </div>
@@ -542,12 +563,12 @@
         @include('layouts.footers.auth')
     </div>
 @endsection
-<style> 
+<!-- <style> 
     .body {
         background-image: url("{{ asset('argon') }}/img/brand/12.png");
         
     }
-</style>
+</style> -->
 <style>
     .scrollable-menu {
     height: auto;

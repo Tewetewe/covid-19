@@ -16,12 +16,12 @@
     <!-- Argon CSS -->
     <link type="text/css" href="{{ asset('argon') }}/css/argon.css?v=1.0.0" rel="stylesheet">
 
-<style> 
+<!-- <style> 
 .body {
     background-image: url("{{ asset('argon') }}/img/brand/12.png");
     
 }
-</style>
+</style> -->
 </head>
 <body class="clickup-chrome-ext_installed">
     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -32,7 +32,7 @@
 
 
 <nav class="navbar navbar-horizontal fixed-left navbar-expand-md navbar-light bg-white" id="sidenav-main">
-    <div class="container-fluid">
+    <div class="shadow container-fluid">
         <!-- Toggler -->
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#sidenav-collapse-main" aria-controls="sidenav-main" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -117,7 +117,7 @@
                     </a>
                 </li>
                 
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                     <a class="nav-link active" href="#navbar-examples" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="navbar-examples">
                         <i class="ni ni-mobile-button" style="color: #565656;"></i>
                         <span class="nav-link-text" style="color: #565656;">Hotline</span>
@@ -127,7 +127,7 @@
                         <ul class="nav nav-sm flex-column">
                         </ul>
                     </div>
-                </li>
+                </li> -->
 
                 <!-- <li class="nav-item">
                     <a class="nav-link" href="{{ route('profile.edit') }}">
@@ -137,32 +137,32 @@
                 @if( auth()->user()->role == "admin" )
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('user.index') }}" style="color: #565656;">
-                        <i class="ni ni-circle-08" style="color: #565656;"></i>
+                        <i class="ni ni-single-copy-04" style="color: #565656;"></i>
                              {{ __('Import XLS Bali') }}
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('provinsi') }}" style="color: #565656;">
-                        <i class="ni ni-circle-08" style="color: #565656;"></i>
+                        <i class="ni ni-book-bookmark" style="color: #565656;"></i>
                              {{ __('Data Provinsi') }}
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('rekapIndo') }}" style="color: #565656;">
-                        <i class="ni ni-circle-08" style="color: #565656;"></i>
+                        <i class="ni ni-chart-bar-32" style="color: #565656;"></i>
                              {{ __('Rekap Indo') }}
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('globalData') }}" style="color: #565656;">
-                        <i class="ni ni-circle-08" style="color: #565656;"></i>
+                        <i class="ni ni-book-bookmark" style="color: #565656;"></i>
                              {{ __('Data Global') }}
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('rekapGlobal') }}" style="color: #565656;">
-                        <i class="ni ni-circle-08" style="color: #565656;"></i>
-                             {{ __('RekapGlobal') }}
+                        <i class="ni ni-chart-bar-32" style="color: #565656;"></i>
+                             {{ __('Rekap Global') }}
                     </a>
                 </li>
                 @endif
@@ -369,26 +369,26 @@
 </div>
 </nav>   
 
-<div class="header body pb-8 pt-5 pt-md-8 " >
+<div class="header body pb-1 pt-3 pt-md-5 " >
 <div class="container-fluid">
         <!-- Card stats -->
 </div>
 </div>
-<div class="container-fluid mt--7">
+<div class="container-fluid mt-0">
     <div class="row">
         <div class="col">
             <div class="card shadow">
                 <div class="card-header border-0">
                     <div class="row align-items-center">
                         <div class="col-8">
-                            <h3 class="mb-0">BALI DATA</h3>
+                            <h2 class="mb-3">Rekapitulasi Data Provinsi Bali</h2>
                         </div>
-                        <div class="col-4 text-right">
+                        <div class="col-4 text-left">
                            
                         </div>
-                        <div class="col-12 text-right">
-                            <a href="/BaliData/export" class="btn-sm btn-success my-3" target="_blank">EXPORT EXCEL</a>
-                            <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#importExcel">
+                        <div class="col-12 text-left">
+                            <a href="/BaliData/export" class="btn btn-outline-success" target="_blank">Export Excel</a>
+                            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#importExcel">
                                 Import Data
                             </button>
                         </div>
@@ -398,7 +398,7 @@
                                     <form method="post" action="/BaliData/import_excel" enctype="multipart/form-data">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalLabel">Import Excel</h5>
+                                                <h5 class="modal-title"  id="exampleModalLabel">Import Excel</h5>
                                             </div>
                                             <div class="modal-body">
                                                 {{ csrf_field() }}
@@ -497,7 +497,7 @@
                         </tbody>
                     </table>
                 </div>
-                <div class="card-footer py-4">
+                <div class="card-footer py-0">
                     <nav class="d-flex justify-content-end" aria-label="...">
                         
                     </nav>
