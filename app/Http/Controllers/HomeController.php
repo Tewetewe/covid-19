@@ -152,7 +152,14 @@ class HomeController extends Controller
         $DiffProv = ProvinsiData::where('FID','DKI Jakarta')->orderBy('created_at', 'desc')->take(2)->get();
         $dataPositifProv = array();
         $positifDateProv = array();
+        $dataPositifProvDiff = array();
+        $positifDateProvDiff = array();
 
+        for ($i=1; $i < count($dataProvinsi); $i++) {
+            $selisih = (($dataProvinsi[$i]->Kasus_Posi)-($dataProvinsi[$i-1]->Kasus_Posi));
+            array_push($positifDateProvDiff, date('d-F', strtotime($dataProvinsi[$i]->created_at)));
+            array_push($dataPositifProvDiff, $selisih);
+        }
         for ($i=0; $i < count($dataProvinsi); $i++) {
             array_push($positifDateProv, date('d-F', strtotime($dataProvinsi[$i]->created_at)));
             array_push($dataPositifProv, $dataProvinsi[$i]->Kasus_Posi);
@@ -207,7 +214,7 @@ class HomeController extends Controller
         
         return view('dashboard', compact('diffMeninggal','diffPositif','diffSembuh','provinsi','baliData',
         'global', 'dataRekapIndo', 'dataPositif','positifDate','diffMeninggalGlobal','diffPositifGlobal',
-        'diffSembuhGlobal','dataRekapIndo','dataPositifBali','positifDateBali', 'dataPositifGlobal','positifDateGlobal', 
+        'diffSembuhGlobal','dataRekapIndo','dataPositifBali','positifDateBali', 'dataPositifGlobal','positifDateGlobal', 'dataPositifProvDiff','positifDateProvDiff',
         'positif','sembuh','meninggal', 'positifGlobal','sembuhGlobal','meninggalGlobal','tanggal','arrayPositif','dataPositifProv','positifDateProv', 'diffMeninggalProv','diffPositifProv',
         'diffSembuhProv', 'positifBali', 'sembuhBali', 'meninggalBali', 'positifProv', 'sembuhProv', 'meninggalProv','dirawatGlobal','diffDirawatGlobal','dirawat','diffDirawat','dirawatProv',
         'diffDirawatProv','dirawatBali','diffDirawatBali', 'diffPositifBali', 'diffMeninggalBali', 'diffSembuhBali', 'persenSembuh', 'persenMeninggal', 'persenDirawat', 'persenSembuhGlobal',
@@ -370,12 +377,20 @@ class HomeController extends Controller
         $DiffProv = ProvinsiData::where('FID',$nama)->orderBy('created_at', 'desc')->take(2)->get();
         $dataPositifProv = array();
         $positifDateProv = array();
+        $dataPositifProvDiff = array();
+        $positifDateProvDiff = array();
+
+        for ($i=1; $i < count($dataProvinsi); $i++) {
+            $selisih = (($dataProvinsi[$i]->Kasus_Posi)-($dataProvinsi[$i-1]->Kasus_Posi));
+            array_push($positifDateProvDiff, date('d-F', strtotime($dataProvinsi[$i]->created_at)));
+            array_push($dataPositifProvDiff, $selisih);
+        }
 
         for ($i=0; $i < count($dataProvinsi); $i++) {
             array_push($positifDateProv, date('d-F', strtotime($dataProvinsi[$i]->created_at)));
             array_push($dataPositifProv, $dataProvinsi[$i]->Kasus_Posi);
         }
-
+   
         for ($i=0; $i < count($DiffProv); $i++) {
             $data1Prov[$i] = $DiffProv[$i]->Kasus_Posi;
             $data2Prov[$i] = $DiffProv[$i]->Kasus_Semb;
@@ -392,7 +407,7 @@ class HomeController extends Controller
         'positif','sembuh','meninggal', 'positifGlobal','sembuhGlobal','meninggalGlobal','tanggal','arrayPositif','dataPositifProv','positifDateProv', 'diffMeninggalProv','diffPositifProv',
         'diffSembuhProv', 'positifBali', 'sembuhBali', 'meninggalBali', 'positifProv', 'sembuhProv', 'meninggalProv','dirawatGlobal','diffDirawatGlobal','dirawat','diffDirawat','dirawatProv',
         'diffDirawatProv','dirawatBali','diffDirawatBali', 'diffPositifBali', 'diffMeninggalBali', 'diffSembuhBali', 'persenSembuh', 'persenMeninggal', 'persenDirawat', 'persenSembuhGlobal',
-         'persenMeninggalGlobal', 'persenDirawatGlobal','persenSembuhProv', 'persenMeninggalProv', 'persenDirawatProv','persenSembuhBali', 'persenMeninggalBali', 'persenDirawatBali','namaProvinsi','nama'));
+         'persenMeninggalGlobal', 'persenDirawatGlobal','persenSembuhProv', 'persenMeninggalProv', 'persenDirawatProv','persenSembuhBali', 'persenMeninggalBali', 'persenDirawatBali','namaProvinsi','nama','dataPositifProvDiff','positifDateProvDiff'));
     }
 
 

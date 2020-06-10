@@ -551,6 +551,29 @@
                                     <h6 class="text-uppercase text-light ls-1 mb-1">Overview</h6>
                                     <h2 class="text-white mb-0">Statistik Positif COVID-19 Provinsi di Indonesia</h2>
                                 </div>
+                                {{-- <button id="btn1">
+                                    Option 1
+                                    </button>
+                                    <button id="btn2">
+                                    Option 2
+                                    </button> --}}
+                      
+                                <div class="col">
+                                    <ul class="nav nav-pills justify-content-end">
+                                        <li class="nav-item mr-2 mr-md-0" id="btn1">
+                                            <a href="#" class="nav-link py-2 px-3 active show" data-toggle="tab" id="btn1">
+                                                <span class="d-none d-md-block">Month</span>
+                                                <span class="d-md-none">M</span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item" id="btn2">
+                                            <a href="#" class="nav-link py-2 px-3" data-toggle="tab" id="btn2">
+                                                <span class="d-none d-md-block">Week</span>
+                                                <span class="d-md-none">W</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
                               
                         </div>
                         <form action="/ProvGraph/filter" method="GET">
@@ -567,7 +590,9 @@
                                     </button>
                                 </div>
                             </div>
+                            
                         </form>
+                        
                     </div>
                     <div class="card-body">
                         <!-- Chart -->
@@ -1247,18 +1272,79 @@
                     }]
                 }
             });
+           
+                // Save to jQuery object
+            function removeData(chart) {
+                chart.destroy();
+            }
 
-            // Save to jQuery object
+            function addData(chart, label, data) {
+                chart = new Chart($chart, {
+                type: 'bar',
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                callback: function(value) {
+                                    if (!(value % 10)) {
+                                        //return '$' + value + 'k'
+                                        return value
+                                    }
+                                }
+                            }
+                        }]
+                    },
+                    tooltips: {
+                        callbacks: {
+                            label: function(item, data) {
+                                var label = data.datasets[item.datasetIndex].label || '';
+                                var yLabel = item.yLabel;
+                                var content = '';
+
+                                if (data.datasets.length > 1) {
+                                    content += '<span class="popover-body-label mr-auto">' + label + '</span>';
+                                }
+
+                                content += '<span class="popover-body-value">' + yLabel + '</span>';
+                                
+                                return content;
+                            }
+                        }
+                    }
+                },
+                data: {
+                    labels: label,
+                    datasets: [{
+                        label: 'performance',
+                        data: data
+                    }]
+                }
+            });
+            chart.update();
+            }
+        $("#btn1").on("click", function() {
+            removeData(ordersChart);
+            addData (ordersChart, {!! json_encode($positifDateProv) !!}, {!! json_encode($dataPositifProv) !!});
+
+        });
+        $("#btn2").on("click", function() {
+            removeData(ordersChart);
+            addData (ordersChart, {!! json_encode($positifDateProvDiff) !!}, {!! json_encode($dataPositifProvDiff) !!});
+        });
             $chart.data('chart', ordersChart);
+            
         }
-
-
+        
         // Init chart
         if ($chart.length) {
             initChart($chart);
         }
-
         })();
+        
+      
+
+
+
     </script>
 
 @endpush
