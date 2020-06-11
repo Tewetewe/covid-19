@@ -562,14 +562,14 @@
                                     <ul class="nav nav-pills justify-content-end">
                                         <li class="nav-item mr-2 mr-md-0" id="btn1">
                                             <a href="#" class="nav-link py-2 px-3 active show" data-toggle="tab" id="btn1">
-                                                <span class="d-none d-md-block">Month</span>
-                                                <span class="d-md-none">M</span>
+                                                <span class="d-none d-md-block">Akumulasi</span>
+                                                <span class="d-md-none">A</span>
                                             </a>
                                         </li>
                                         <li class="nav-item" id="btn2">
                                             <a href="#" class="nav-link py-2 px-3" data-toggle="tab" id="btn2">
-                                                <span class="d-none d-md-block">Week</span>
-                                                <span class="d-md-none">W</span>
+                                                <span class="d-none d-md-block">Laju</span>
+                                                <span class="d-md-none">L</span>
                                             </a>
                                         </li>
                                     </ul>
