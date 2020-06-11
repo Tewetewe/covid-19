@@ -7,7 +7,7 @@
 
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>COVID-19 BALI</title>
+        <title>Kawal COVID-19</title>
         <!-- Favicon -->
         <link href="{{ asset('argon') }}/img/brand/kawal-covid-19.png" rel="icon" type="image/png">
         <!-- Fonts -->

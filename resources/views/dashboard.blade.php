@@ -426,7 +426,24 @@
 
             <div class="shadow alert alert-white text-muted" role="alert">
                 <h2><b>Rekapitulasi Data Penyebaran COVID-19 Provinsi di Indonesia</b></h2>
-             </div>
+            </div>
+            <form action="/ProvGraph/filter" method="GET">
+                <div class="form-group">
+                        <div class="input-group">
+                            <select class="form-control" id="drop" name="nama">
+                            <option value="">{{$nama}}</option>
+                                 @foreach ($namaProvinsi as $item)
+                                    <option value="{{$item->FID}}">{{ucfirst($item->FID)}}</option>      
+                                 @endforeach
+                            </select>
+                            <button class="btn btn-icon btn-success" type="submit">
+                                <span class="btn-inner--icon"><i class="ni ni-send"></i></span>
+                            </button>
+                        </div>
+                </div>
+                            
+            </form>
+
 
             <div class="row mb-xl-4">
                 <div class="col-xl-3 col-lg-6">
@@ -546,10 +563,9 @@
                 <div class="card bg-gradient-default shadow">
                     <div class="card-header bg-transparent">
                         <div class="row align-items-center">
-                            <div class="row align-items-right">
-                                <div class="col-xl-10">
-                                    <h6 class="text-uppercase text-light ls-1 mb-1">Overview</h6>
-                                    <h2 class="text-white mb-0">Statistik Positif COVID-19 Provinsi di Indonesia</h2>
+                            <div class="col">
+                                <h6 class="text-uppercase text-light ls-1 mb-1">Overview</h6>
+                                <h2 class="text-white mb-0">Statistik Positif COVID-19 Provinsi {{$nama}}</h2>
                                 </div>
                                 {{-- <button id="btn1">
                                     Option 1
@@ -563,20 +579,20 @@
                                         <li class="nav-item mr-2 mr-md-0" id="btn1">
                                             <a href="#" class="nav-link py-2 px-3 active show" data-toggle="tab" id="btn1">
                                                 <span class="d-none d-md-block">Akumulasi</span>
-                                                <span class="d-md-none">A</span>
+                                                <span class="d-md-none">Akumulasi</span>
                                             </a>
                                         </li>
                                         <li class="nav-item" id="btn2">
                                             <a href="#" class="nav-link py-2 px-3" data-toggle="tab" id="btn2">
                                                 <span class="d-none d-md-block">Laju</span>
-                                                <span class="d-md-none">L</span>
+                                                <span class="d-md-none">Laju</span>
                                             </a>
                                         </li>
                                     </ul>
                                 </div>
                               
                         </div>
-                        <form action="/ProvGraph/filter" method="GET">
+                        <!-- <form action="/ProvGraph/filter" method="GET">
                             <div class="form-group">
                                 <div class="input-group">
                                     <select class="form-control" id="drop" name="nama">
@@ -591,7 +607,7 @@
                                 </div>
                             </div>
                             
-                        </form>
+                        </form> -->
                         
                     </div>
                     <div class="card-body">
@@ -676,11 +692,10 @@
                     </div>
                 </div>
             </div>
+            @include('layouts.footers.auth')
             
         </div>
-       
 
-        @include('layouts.footers.auth')
     </div>
 @endsection
 <!-- <style> 

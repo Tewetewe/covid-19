@@ -5,9 +5,9 @@
 
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Argon Dashboard') }}</title>
+    <title>Kawal COVID-19</title>
     <!-- Favicon -->
-    <link href="{{ asset('argon') }}/img/brand/covid-19.png" rel="icon" type="image/png">
+    <link href="{{ asset('argon') }}/img/brand/kawal-covid-19.png" rel="icon" type="image/png">
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
     <!-- Icons -->
