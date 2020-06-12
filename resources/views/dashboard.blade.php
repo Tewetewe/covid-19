@@ -139,23 +139,24 @@
                                 <h6 class="text-uppercase text-light ls-1 mb-1">Overview</h6>
                                 <h2 class="text-white mb-0">Statistik Positif COVID-19 Dunia</h2>
                             </div>
+                            <div class="col">
+                                <ul class="nav nav-pills justify-content-end">
+                                    <li class="nav-item mr-2 mr-md-0" id="btn1Global">
+                                        <a href="#" class="nav-link py-2 px-3 active show" data-toggle="tab" id="btn1Global">
+                                            <span class="d-none d-md-block">Akumulasi</span>
+                                            <span class="d-md-none">Akumulasi</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item" id="btn2Global">
+                                        <a href="#" class="nav-link py-2 px-3" data-toggle="tab" id="btn2Global">
+                                            <span class="d-none d-md-block">Laju</span>
+                                            <span class="d-md-none">Laju</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
-                        <div class="col">
-                            <ul class="nav nav-pills justify-content-end">
-                                <li class="nav-item mr-2 mr-md-0" id="btn1Global">
-                                    <a href="#" class="nav-link py-2 px-3 active show" data-toggle="tab" id="btn1Global">
-                                        <span class="d-none d-md-block">Akumulasi</span>
-                                        <span class="d-md-none">Akumulasi</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item" id="btn2Global">
-                                    <a href="#" class="nav-link py-2 px-3" data-toggle="tab" id="btn2Global">
-                                        <span class="d-none d-md-block">Laju</span>
-                                        <span class="d-md-none">Laju</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
+
                     </div>
                         <div class="card-body">
                             <!-- Chart -->

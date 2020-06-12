@@ -306,6 +306,7 @@ class HomeController extends Controller
             $selisihIndo = (($dataRekapIndo[$i]->positif)-($dataRekapIndo[$i-1]->positif));
             array_push($positifDateDiff, date('d-F', strtotime($dataRekapIndo[$i]->created_at)));
             array_push($dataPositifDiff, $selisihIndo);
+        }
 
         for ($i=0; $i < count($dataRekapIndo); $i++) {
             array_push($positifDate, date('d-F', strtotime($dataRekapIndo[$i]->created_at)));
@@ -454,7 +455,7 @@ class HomeController extends Controller
         'diffSembuhProv', 'positifBali', 'sembuhBali', 'meninggalBali', 'positifProv', 'sembuhProv', 'meninggalProv','dirawatGlobal','diffDirawatGlobal','dirawat','diffDirawat','dirawatProv',
         'diffDirawatProv','dirawatBali','diffDirawatBali', 'diffPositifBali', 'diffMeninggalBali', 'diffSembuhBali', 'persenSembuh', 'persenMeninggal', 'persenDirawat', 'persenSembuhGlobal',
          'persenMeninggalGlobal', 'persenDirawatGlobal','persenSembuhProv', 'persenMeninggalProv', 'persenDirawatProv','persenSembuhBali', 'persenMeninggalBali', 'persenDirawatBali','namaProvinsi','nama','dataPositifProvDiff','positifDateProvDiff'));
-        }
+        
     }
 }
         
