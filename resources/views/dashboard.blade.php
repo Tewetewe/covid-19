@@ -1246,7 +1246,9 @@
         function initChart($chart) {
 
             // Create chart
-            var ordersChart = new Chart($chart, {
+            var ctx = document.getElementById('chart-orderss-prov').getContext('2d');
+
+            window.ordersChart = new Chart(ctx, {
                 type: 'bar',
                 options: {
                     scales: {
@@ -1294,7 +1296,27 @@
             }
 
             function addData(chart, label, data) {
-                chart = new Chart($chart, {
+                
+            }
+        $("#btn1").on("click", function() {
+            // var chart = ordersChart
+            // var label = {!! json_encode($positifDateProv) !!}
+            // var data = {!! json_encode($dataPositifProv) !!}
+
+            // chart.data.labels.pop();
+            // chart.data.datasets.forEach((dataset) => {
+            //     dataset.data.pop();
+            // });
+            // chart.update();
+
+            if(window.ordersChart && window.ordersChart !== null){
+            window.ordersChart.destroy();
+            }
+
+            var label = {!! json_encode($positifDateProv) !!}
+            var data = {!! json_encode($dataPositifProv) !!}
+
+            window.ordersChart = new Chart(ctx, {
                 type: 'bar',
                 options: {
                     scales: {
@@ -1335,16 +1357,59 @@
                     }]
                 }
             });
-            chart.update();
-            }
-        $("#btn1").on("click", function() {
-            removeData(ordersChart);
-            addData (ordersChart, {!! json_encode($positifDateProv) !!}, {!! json_encode($dataPositifProv) !!});
-
+            ordersChart.update();
         });
         $("#btn2").on("click", function() {
-            removeData(ordersChart);
-            addData (ordersChart, {!! json_encode($positifDateProvDiff) !!}, {!! json_encode($dataPositifProvDiff) !!});
+
+            if(window.ordersChart && window.ordersChart !== null){
+            window.ordersChart.destroy();
+            }
+
+            var label = {!! json_encode($positifDateProvDiff) !!}
+            var data = {!! json_encode($dataPositifProvDiff) !!}
+
+            window.ordersChart = new Chart(ctx, {
+                type: 'bar',
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                callback: function(value) {
+                                    if (!(value % 10)) {
+                                        //return '$' + value + 'k'
+                                        return value
+                                    }
+                                }
+                            }
+                        }]
+                    },
+                    tooltips: {
+                        callbacks: {
+                            label: function(item, data) {
+                                var label = data.datasets[item.datasetIndex].label || '';
+                                var yLabel = item.yLabel;
+                                var content = '';
+
+                                if (data.datasets.length > 1) {
+                                    content += '<span class="popover-body-label mr-auto">' + label + '</span>';
+                                }
+
+                                content += '<span class="popover-body-value">' + yLabel + '</span>';
+                                
+                                return content;
+                            }
+                        }
+                    }
+                },
+                data: {
+                    labels: label,
+                    datasets: [{
+                        label: 'performance',
+                        data: data
+                    }]
+                }
+            });
+            ordersChart.update();
         });
             $chart.data('chart', ordersChart);
             
