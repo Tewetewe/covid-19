@@ -693,9 +693,9 @@
                                         <tr>
                                             <td>{{ $i }}</td>
                                             <td>{{ $global[$i-1]->OBJECTID }}</td>
-                                            <td>{{ number_format($global[$i-1]->Confirmed,0,",",".") }}</td>
-                                            <td>{{ number_format($global[$i-1]->Recovered,0,",",".") }}</td>
-                                            <td>{{ number_format($global[$i-1]->Deaths,0,",",".") }}</td>
+                                            <td>{{ number_format($global[$i-1]->Confirmed,0,",",",") }}</td>
+                                            <td>{{ number_format($global[$i-1]->Recovered,0,",",",") }}</td>
+                                            <td>{{ number_format($global[$i-1]->Deaths,0,",",",") }}</td>
                                         </tr>
                                     @endfor
                                 </tbody>
@@ -729,9 +729,9 @@
                                         <tr>
                                             <td>{{ $i }}</td>
                                             <td>{{ $provinsi[$i-1]->FID }}</td>
-                                            <td>{{ number_format($provinsi[$i-1]->Kasus_Posi,0,",",".") }}</td>
-                                            <td>{{ number_format($provinsi[$i-1]->Kasus_Semb,0,",",".") }}</td>
-                                            <td>{{ number_format($provinsi[$i-1]->Kasus_Meni,0,",",".") }}</td>
+                                            <td>{{ number_format($provinsi[$i-1]->Kasus_Posi,0,",",",") }}</td>
+                                            <td>{{ number_format($provinsi[$i-1]->Kasus_Semb,0,",",",") }}</td>
+                                            <td>{{ number_format($provinsi[$i-1]->Kasus_Meni,0,",",",") }}</td>
                                         </tr>
                                     @endfor
                                 </tbody>
