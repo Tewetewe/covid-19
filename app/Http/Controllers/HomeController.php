@@ -90,6 +90,14 @@ class HomeController extends Controller
             array_push($positifDate, date('d-F', strtotime($dataRekapIndo[$i]->created_at)));
             array_push($dataPositif, $dataRekapIndo[$i]->positif);
         }
+        $dataPositifDiff = array();
+        $positifDateDiff = array();
+
+        for ($i=1; $i < count($dataRekapIndo); $i++) {
+            $selisihIndo = (($dataRekapIndo[$i]->positif)-($dataRekapIndo[$i-1]->positif));
+            array_push($positifDateDiff, date('d-F', strtotime($dataRekapIndo[$i]->created_at)));
+            array_push($dataPositifDiff, $selisihIndo);
+        }
 
         for ($i=0; $i < count($Diff); $i++) {
             $data1[$i] = $Diff[$i]->positif;
@@ -122,6 +130,14 @@ class HomeController extends Controller
         for ($i=0; $i < count($dataRekapGlobal); $i++) {
             array_push($positifDateGlobal, date('d-F', strtotime($dataRekapGlobal[$i]->created_at)));
             array_push($dataPositifGlobal, $dataRekapGlobal[$i]->positif);
+        }
+        $dataPositifGlobalDiff = array();
+        $positifDateGlobalDiff = array();
+
+        for ($i=1; $i < count($dataRekapGlobal); $i++) {
+            $selisihGlobal = (($dataRekapGlobal[$i]->positif)-($dataRekapGlobal[$i-1]->positif));
+            array_push($positifDateGlobalDiff, date('d-F', strtotime($dataRekapGlobal[$i]->created_at)));
+            array_push($dataPositifGlobalDiff, $selisihGlobal);
         }
 
         for ($i=0; $i < count($DiffGlobal); $i++) {
@@ -192,7 +208,14 @@ class HomeController extends Controller
         $sembuhBali = number_format($sembuhBali);
         $meninggalBali = number_format($meninggalBali);
         $dirawatBali = number_format($dirawatBali);
+        $dataPositifBaliDiff = array();
+        $positifDateBaliDiff = array();
 
+        for ($i=1; $i < count($dataBali); $i++) {
+            $selisihBali = (($dataBali[$i]->Kasus_Posi)-($dataBali[$i-1]->Kasus_Posi));
+            array_push($positifDateBaliDiff, date('d-F', strtotime($dataBali[$i]->created_at)));
+            array_push($dataPositifBaliDiff, $selisihBali);
+        }
 
         for ($i=0; $i < count($dataBali); $i++) {
             array_push($positifDateBali, date('d-F', strtotime($dataBali[$i]->created_at)));
@@ -213,8 +236,8 @@ class HomeController extends Controller
         
         
         return view('dashboard', compact('diffMeninggal','diffPositif','diffSembuh','provinsi','baliData',
-        'global', 'dataRekapIndo', 'dataPositif','positifDate','diffMeninggalGlobal','diffPositifGlobal',
-        'diffSembuhGlobal','dataRekapIndo','dataPositifBali','positifDateBali', 'dataPositifGlobal','positifDateGlobal', 'dataPositifProvDiff','positifDateProvDiff',
+        'global', 'dataRekapIndo', 'dataPositif','positifDate','dataPositifDiff','positifDateDiff','diffMeninggalGlobal','diffPositifGlobal',
+        'diffSembuhGlobal','dataRekapIndo','dataPositifBali','positifDateBali', 'dataPositifBaliDiff','positifDateBaliDiff','dataPositifGlobal','positifDateGlobal', 'dataPositifGlobalDiff','positifDateGlobalDiff', 'dataPositifProvDiff','positifDateProvDiff',
         'positif','sembuh','meninggal', 'positifGlobal','sembuhGlobal','meninggalGlobal','tanggal','arrayPositif','dataPositifProv','positifDateProv', 'diffMeninggalProv','diffPositifProv',
         'diffSembuhProv', 'positifBali', 'sembuhBali', 'meninggalBali', 'positifProv', 'sembuhProv', 'meninggalProv','dirawatGlobal','diffDirawatGlobal','dirawat','diffDirawat','dirawatProv',
         'diffDirawatProv','dirawatBali','diffDirawatBali', 'diffPositifBali', 'diffMeninggalBali', 'diffSembuhBali', 'persenSembuh', 'persenMeninggal', 'persenDirawat', 'persenSembuhGlobal',
@@ -276,6 +299,13 @@ class HomeController extends Controller
         $Diff = RekapIndo::orderBy('created_at', 'desc')->take(2)->get();
         $dataPositif = array();
         $positifDate = array();
+        $dataPositifDiff = array();
+        $positifDateDiff = array();
+
+        for ($i=1; $i < count($dataRekapIndo); $i++) {
+            $selisihIndo = (($dataRekapIndo[$i]->positif)-($dataRekapIndo[$i-1]->positif));
+            array_push($positifDateDiff, date('d-F', strtotime($dataRekapIndo[$i]->created_at)));
+            array_push($dataPositifDiff, $selisihIndo);
 
         for ($i=0; $i < count($dataRekapIndo); $i++) {
             array_push($positifDate, date('d-F', strtotime($dataRekapIndo[$i]->created_at)));
@@ -305,6 +335,13 @@ class HomeController extends Controller
         $sembuhGlobal = number_format($sembuhGlobal);
         $meninggalGlobal = number_format($meninggalGlobal);
         $dirawatGlobal = number_format($dirawatGlobal);
+        $dataPositifGlobal = array();
+        $positifDateGlobal = array();
+
+        for ($i=0; $i < count($dataRekapGlobal); $i++) {
+            array_push($positifDateGlobal, date('d-F', strtotime($dataRekapGlobal[$i]->created_at)));
+            array_push($dataPositifGlobal, $dataRekapGlobal[$i]->positif);
+        }
 
         $DiffGlobal = RekapGlobal::orderBy('created_at', 'desc')->take(2)->get();
         $dataPositifGlobal = array();
@@ -342,6 +379,14 @@ class HomeController extends Controller
         $sembuhBali = number_format($sembuhBali);
         $meninggalBali = number_format($meninggalBali);
         $dirawatBali = number_format($dirawatBali);
+        $dataPositifBaliDiff = array();
+        $positifDateBaliDiff = array();
+
+        for ($i=1; $i < count($dataBali); $i++) {
+            $selisihBali = (($dataBali[$i]->Kasus_Posi)-($dataBali[$i-1]->Kasus_Posi));
+            array_push($positifDateBaliDiff, date('d-F', strtotime($dataBali[$i]->created_at)));
+            array_push($dataPositifBalifDiff, $selisihBali);
+        }
 
 
         for ($i=0; $i < count($dataBali); $i++) {
@@ -402,13 +447,13 @@ class HomeController extends Controller
         $diffDirawatProv = ($data1Prov[0]-$data2Prov[0]-$data3Prov[0])-($data1Prov[1]-$data2Prov[1]-$data3Prov[1]);
 
         return view('dashboard', compact('diffMeninggal','diffPositif','diffSembuh','provinsi','baliData',
-        'global', 'dataRekapIndo', 'dataPositif','positifDate','diffMeninggalGlobal','diffPositifGlobal',
-        'diffSembuhGlobal','dataRekapIndo','dataPositifBali','positifDateBali', 'dataPositifGlobal','positifDateGlobal', 
+        'global', 'dataRekapIndo', 'dataPositif','positifDate','dataPositifDiff','positifDateDiff','diffMeninggalGlobal','diffPositifGlobal',
+        'diffSembuhGlobal','dataRekapIndo','dataPositifBali','positifDateBali','dataPositifBaliDiff','positifDateBaliDiff', 'dataPositifGlobal','positifDateGlobal', 'dataPositifGlobalDiff','positifDateGlobalDiff',
         'positif','sembuh','meninggal', 'positifGlobal','sembuhGlobal','meninggalGlobal','tanggal','arrayPositif','dataPositifProv','positifDateProv', 'diffMeninggalProv','diffPositifProv',
         'diffSembuhProv', 'positifBali', 'sembuhBali', 'meninggalBali', 'positifProv', 'sembuhProv', 'meninggalProv','dirawatGlobal','diffDirawatGlobal','dirawat','diffDirawat','dirawatProv',
         'diffDirawatProv','dirawatBali','diffDirawatBali', 'diffPositifBali', 'diffMeninggalBali', 'diffSembuhBali', 'persenSembuh', 'persenMeninggal', 'persenDirawat', 'persenSembuhGlobal',
          'persenMeninggalGlobal', 'persenDirawatGlobal','persenSembuhProv', 'persenMeninggalProv', 'persenDirawatProv','persenSembuhBali', 'persenMeninggalBali', 'persenDirawatBali','namaProvinsi','nama','dataPositifProvDiff','positifDateProvDiff'));
+        }
     }
-
-
 }
+        

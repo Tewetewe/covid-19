@@ -140,6 +140,22 @@
                                 <h2 class="text-white mb-0">Statistik Positif COVID-19 Dunia</h2>
                             </div>
                         </div>
+                        <div class="col">
+                            <ul class="nav nav-pills justify-content-end">
+                                <li class="nav-item mr-2 mr-md-0" id="btn1">
+                                    <a href="#" class="nav-link py-2 px-3 active show" data-toggle="tab" id="btn1Global">
+                                        <span class="d-none d-md-block">Akumulasi</span>
+                                        <span class="d-md-none">Akumulasi</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item" id="btn2">
+                                    <a href="#" class="nav-link py-2 px-3" data-toggle="tab" id="btn2Global">
+                                        <span class="d-none d-md-block">Laju</span>
+                                        <span class="d-md-none">Laju</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                         <div class="card-body">
                             <!-- Chart -->
@@ -276,6 +292,22 @@
                                 <h6 class="text-uppercase text-light ls-1 mb-1">Overview</h6>
                                 <h2 class="text-white mb-0">Statistik Positif COVID-19 Indonesia</h2>
                             </div>
+                            <div class="col">
+                                <ul class="nav nav-pills justify-content-end">
+                                    <li class="nav-item mr-2 mr-md-0" id="btn1">
+                                        <a href="#" class="nav-link py-2 px-3 active show" data-toggle="tab" id="btn1Indo">
+                                            <span class="d-none d-md-block">Akumulasi</span>
+                                            <span class="d-md-none">Akumulasi</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item" id="btn2">
+                                        <a href="#" class="nav-link py-2 px-3" data-toggle="tab" id="btn2Indo">
+                                            <span class="d-none d-md-block">Laju</span>
+                                            <span class="d-md-none">Laju</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                     <div class="card-body">
@@ -410,6 +442,22 @@
                             <div class="col">
                                 <h6 class="text-uppercase text-light ls-1 mb-1">Overview</h6>
                                 <h2 class="text-white mb-0">Statistik Positif COVID-19 Bali</h2>
+                            </div>
+                            <div class="col">
+                                <ul class="nav nav-pills justify-content-end">
+                                    <li class="nav-item mr-2 mr-md-0" id="btn1">
+                                        <a href="#" class="nav-link py-2 px-3 active show" data-toggle="tab" id="btn1Bali">
+                                            <span class="d-none d-md-block">Akumulasi</span>
+                                            <span class="d-md-none">Akumulasi</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item" id="btn2">
+                                        <a href="#" class="nav-link py-2 px-3" data-toggle="tab" id="btn2Bali">
+                                            <span class="d-none d-md-block">Laju</span>
+                                            <span class="d-md-none">Laju</span>
+                                        </a>
+                                    </li>
+                                </ul>
                             </div>
                         </div>
                     </div>
@@ -1036,7 +1084,9 @@
         function initChart($chart) {
 
             // Create chart
-            var ordersChart = new Chart($chart, {
+            var ctx = document.getElementById('chart-orderss').getContext('2d');
+
+            window.ordersChart = new Chart(ctx, {
                 type: 'bar',
                 options: {
                     scales: {
@@ -1072,41 +1122,39 @@
                 data: {
                     labels: {!! json_encode($positifDate) !!},
                     datasets: [{
-                        label: 'permormance',
+                        label: 'performance',
                         data: {!! json_encode($dataPositif) !!}
                     }]
                 }
             });
+        
+                // Save to jQuery object
+            function removeData(chart) {
+                chart.destroy();
+            }
 
-            // Save to jQuery object
-            $chart.data('chart', ordersChart);
-        }
+            function addData(chart, label, data) {
+                
+            }
+        $("#btn1Indo").on("click", function() {
+            // var chart = ordersChart
+            // var label = {!! json_encode($positifDateProv) !!}
+            // var data = {!! json_encode($dataPositifProv) !!}
 
+            // chart.data.labels.pop();
+            // chart.data.datasets.forEach((dataset) => {
+            //     dataset.data.pop();
+            // });
+            // chart.update();
 
-        // Init chart
-        if ($chart.length) {
-            initChart($chart);
-        }
+            if(window.ordersChart && window.ordersChart !== null){
+            window.ordersChart.destroy();
+            }
 
-        })();
-    </script>
+            var label = {!! json_encode($positifDate) !!}
+            var data = {!! json_encode($dataPositif) !!}
 
-    <script>
-        var OrdersChart = (function() {
-
-        var $chart = $('#chart-orderss-global');
-        var $ordersSelect = $('[name="ordersSelect"]');
-
-
-        //
-        // Methods
-        //
-
-        // Init chart
-        function initChart($chart) {
-
-            // Create chart
-            var ordersChart = new Chart($chart, {
+            window.ordersChart = new Chart(ctx, {
                 type: 'bar',
                 options: {
                     scales: {
@@ -1140,24 +1188,266 @@
                     }
                 },
                 data: {
-                    labels: {!! json_encode($positifDateGlobal) !!},
+                    labels: label,
                     datasets: [{
                         label: 'performance',
-                        data: {!! json_encode($dataPositifGlobal) !!}
+                        data: data
                     }]
                 }
             });
+            ordersChart.update();
+        });
+        $("#btn2Indo").on("click", function() {
 
-            // Save to jQuery object
+            if(window.ordersChart && window.ordersChart !== null){
+            window.ordersChart.destroy();
+            }
+
+            var label = {!! json_encode($positifDateDiff) !!}
+            var data = {!! json_encode($dataPositifDiff) !!}
+
+            window.ordersChart = new Chart(ctx, {
+                type: 'bar',
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                callback: function(value) {
+                                    if (!(value % 10)) {
+                                        //return '$' + value + 'k'
+                                        return value
+                                    }
+                                }
+                            }
+                        }]
+                    },
+                    tooltips: {
+                        callbacks: {
+                            label: function(item, data) {
+                                var label = data.datasets[item.datasetIndex].label || '';
+                                var yLabel = item.yLabel;
+                                var content = '';
+
+                                if (data.datasets.length > 1) {
+                                    content += '<span class="popover-body-label mr-auto">' + label + '</span>';
+                                }
+
+                                content += '<span class="popover-body-value">' + yLabel + '</span>';
+                                
+                                return content;
+                            }
+                        }
+                    }
+                },
+                data: {
+                    labels: label,
+                    datasets: [{
+                        label: 'performance',
+                        data: data
+                    }]
+                }
+            });
+            ordersChart.update();
+        });
             $chart.data('chart', ordersChart);
+            
         }
-
 
         // Init chart
         if ($chart.length) {
             initChart($chart);
         }
+        })();
+            </script>
 
+            <script>
+                var OrdersChart = (function() {
+
+                var $chart = $('#chart-orderss-global');
+                var $ordersSelect = $('[name="ordersSelect"]');
+
+
+                //
+                // Methods
+                //
+
+                // Init chart
+                function initChart($chart) {
+
+                    // Create chart
+                    var ctx = document.getElementById('chart-orderss-global').getContext('2d');
+
+                    window.ordersChart = new Chart(ctx, {
+                        type: 'bar',
+                        options: {
+                            scales: {
+                                yAxes: [{
+                                    ticks: {
+                                        callback: function(value) {
+                                            if (!(value % 10)) {
+                                                //return '$' + value + 'k'
+                                                return value
+                                            }
+                                        }
+                                    }
+                                }]
+                            },
+                            tooltips: {
+                                callbacks: {
+                                    label: function(item, data) {
+                                        var label = data.datasets[item.datasetIndex].label || '';
+                                        var yLabel = item.yLabel;
+                                        var content = '';
+
+                                        if (data.datasets.length > 1) {
+                                            content += '<span class="popover-body-label mr-auto">' + label + '</span>';
+                                        }
+
+                                        content += '<span class="popover-body-value">' + yLabel + '</span>';
+                                        
+                                        return content;
+                                    }
+                                }
+                            }
+                        },
+                        data: {
+                            labels: {!! json_encode($positifDateGlobal) !!},
+                            datasets: [{
+                                label: 'performance',
+                                data: {!! json_encode($dataPositifGlobal) !!}
+                            }]
+                        }
+                    });
+                
+                        // Save to jQuery object
+                    function removeData(chart) {
+                        chart.destroy();
+                    }
+
+                    function addData(chart, label, data) {
+                        
+                    }
+                $("#btn1Global").on("click", function() {
+                    // var chart = ordersChart
+                    // var label = {!! json_encode($positifDateProv) !!}
+                    // var data = {!! json_encode($dataPositifProv) !!}
+
+                    // chart.data.labels.pop();
+                    // chart.data.datasets.forEach((dataset) => {
+                    //     dataset.data.pop();
+                    // });
+                    // chart.update();
+
+                    if(window.ordersChart && window.ordersChart !== null){
+                    window.ordersChart.destroy();
+                    }
+
+                    var label = {!! json_encode($positifDateGlobal) !!}
+                    var data = {!! json_encode($dataPositifGlobal) !!}
+
+                    window.ordersChart = new Chart(ctx, {
+                        type: 'bar',
+                        options: {
+                            scales: {
+                                yAxes: [{
+                                    ticks: {
+                                        callback: function(value) {
+                                            if (!(value % 10)) {
+                                                //return '$' + value + 'k'
+                                                return value
+                                            }
+                                        }
+                                    }
+                                }]
+                            },
+                            tooltips: {
+                                callbacks: {
+                                    label: function(item, data) {
+                                        var label = data.datasets[item.datasetIndex].label || '';
+                                        var yLabel = item.yLabel;
+                                        var content = '';
+
+                                        if (data.datasets.length > 1) {
+                                            content += '<span class="popover-body-label mr-auto">' + label + '</span>';
+                                        }
+
+                                        content += '<span class="popover-body-value">' + yLabel + '</span>';
+                                        
+                                        return content;
+                                    }
+                                }
+                            }
+                        },
+                        data: {
+                            labels: label,
+                            datasets: [{
+                                label: 'performance',
+                                data: data
+                            }]
+                        }
+                    });
+                    ordersChart.update();
+                });
+                $("#btn2Global").on("click", function() {
+
+                    if(window.ordersChart && window.ordersChart !== null){
+                    window.ordersChart.destroy();
+                    }
+
+                    var label = {!! json_encode($positifDateGlobalDiff) !!}
+                    var data = {!! json_encode($dataPositifGlobalDiff) !!}
+
+                    window.ordersChart = new Chart(ctx, {
+                        type: 'bar',
+                        options: {
+                            scales: {
+                                yAxes: [{
+                                    ticks: {
+                                        callback: function(value) {
+                                            if (!(value % 10)) {
+                                                //return '$' + value + 'k'
+                                                return value
+                                            }
+                                        }
+                                    }
+                                }]
+                            },
+                            tooltips: {
+                                callbacks: {
+                                    label: function(item, data) {
+                                        var label = data.datasets[item.datasetIndex].label || '';
+                                        var yLabel = item.yLabel;
+                                        var content = '';
+
+                                        if (data.datasets.length > 1) {
+                                            content += '<span class="popover-body-label mr-auto">' + label + '</span>';
+                                        }
+
+                                        content += '<span class="popover-body-value">' + yLabel + '</span>';
+                                        
+                                        return content;
+                                    }
+                                }
+                            }
+                        },
+                        data: {
+                            labels: label,
+                            datasets: [{
+                                label: 'performance',
+                                data: data
+                            }]
+                        }
+                    });
+                    ordersChart.update();
+                });
+                    $chart.data('chart', ordersChart);
+                    
+                }
+
+                // Init chart
+                if ($chart.length) {
+                    initChart($chart);
+                }
         })();
     </script>
 
@@ -1176,7 +1466,9 @@
         function initChart($chart) {
 
             // Create chart
-            var ordersChart = new Chart($chart, {
+            var ctx = document.getElementById('chart-orderss-bali').getContext('2d');
+
+            window.ordersChart = new Chart(ctx, {
                 type: 'bar',
                 options: {
                     scales: {
@@ -1217,17 +1509,136 @@
                     }]
                 }
             });
+        
+                // Save to jQuery object
+            function removeData(chart) {
+                chart.destroy();
+            }
 
-            // Save to jQuery object
+            function addData(chart, label, data) {
+                
+            }
+        $("#btn1Bali").on("click", function() {
+            // var chart = ordersChart
+            // var label = {!! json_encode($positifDateProv) !!}
+            // var data = {!! json_encode($dataPositifProv) !!}
+
+            // chart.data.labels.pop();
+            // chart.data.datasets.forEach((dataset) => {
+            //     dataset.data.pop();
+            // });
+            // chart.update();
+
+            if(window.ordersChart && window.ordersChart !== null){
+            window.ordersChart.destroy();
+            }
+
+            var label = {!! json_encode($positifDateBali) !!}
+            var data = {!! json_encode($dataPositifBali) !!}
+
+            window.ordersChart = new Chart(ctx, {
+                type: 'bar',
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                callback: function(value) {
+                                    if (!(value % 10)) {
+                                        //return '$' + value + 'k'
+                                        return value
+                                    }
+                                }
+                            }
+                        }]
+                    },
+                    tooltips: {
+                        callbacks: {
+                            label: function(item, data) {
+                                var label = data.datasets[item.datasetIndex].label || '';
+                                var yLabel = item.yLabel;
+                                var content = '';
+
+                                if (data.datasets.length > 1) {
+                                    content += '<span class="popover-body-label mr-auto">' + label + '</span>';
+                                }
+
+                                content += '<span class="popover-body-value">' + yLabel + '</span>';
+                                
+                                return content;
+                            }
+                        }
+                    }
+                },
+                data: {
+                    labels: label,
+                    datasets: [{
+                        label: 'performance',
+                        data: data
+                    }]
+                }
+            });
+            ordersChart.update();
+        });
+        $("#btn2Bali").on("click", function() {
+
+            if(window.ordersChart && window.ordersChart !== null){
+            window.ordersChart.destroy();
+            }
+
+            var label = {!! json_encode($positifDateBaliDiff) !!}
+            var data = {!! json_encode($dataPositifBaliDiff) !!}
+
+            window.ordersChart = new Chart(ctx, {
+                type: 'bar',
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                callback: function(value) {
+                                    if (!(value % 10)) {
+                                        //return '$' + value + 'k'
+                                        return value
+                                    }
+                                }
+                            }
+                        }]
+                    },
+                    tooltips: {
+                        callbacks: {
+                            label: function(item, data) {
+                                var label = data.datasets[item.datasetIndex].label || '';
+                                var yLabel = item.yLabel;
+                                var content = '';
+
+                                if (data.datasets.length > 1) {
+                                    content += '<span class="popover-body-label mr-auto">' + label + '</span>';
+                                }
+
+                                content += '<span class="popover-body-value">' + yLabel + '</span>';
+                                
+                                return content;
+                            }
+                        }
+                    }
+                },
+                data: {
+                    labels: label,
+                    datasets: [{
+                        label: 'performance',
+                        data: data
+                    }]
+                }
+            });
+            ordersChart.update();
+        });
             $chart.data('chart', ordersChart);
+            
         }
-
 
         // Init chart
         if ($chart.length) {
             initChart($chart);
         }
-
         })();
     </script>
     
