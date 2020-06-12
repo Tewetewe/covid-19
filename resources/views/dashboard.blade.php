@@ -142,13 +142,13 @@
                         </div>
                         <div class="col">
                             <ul class="nav nav-pills justify-content-end">
-                                <li class="nav-item mr-2 mr-md-0" id="btn1">
+                                <li class="nav-item mr-2 mr-md-0" id="btn1Global">
                                     <a href="#" class="nav-link py-2 px-3 active show" data-toggle="tab" id="btn1Global">
                                         <span class="d-none d-md-block">Akumulasi</span>
                                         <span class="d-md-none">Akumulasi</span>
                                     </a>
                                 </li>
-                                <li class="nav-item" id="btn2">
+                                <li class="nav-item" id="btn2Global">
                                     <a href="#" class="nav-link py-2 px-3" data-toggle="tab" id="btn2Global">
                                         <span class="d-none d-md-block">Laju</span>
                                         <span class="d-md-none">Laju</span>
@@ -294,13 +294,13 @@
                             </div>
                             <div class="col">
                                 <ul class="nav nav-pills justify-content-end">
-                                    <li class="nav-item mr-2 mr-md-0" id="btn1">
+                                    <li class="nav-item mr-2 mr-md-0" id="btn1Indo">
                                         <a href="#" class="nav-link py-2 px-3 active show" data-toggle="tab" id="btn1Indo">
                                             <span class="d-none d-md-block">Akumulasi</span>
                                             <span class="d-md-none">Akumulasi</span>
                                         </a>
                                     </li>
-                                    <li class="nav-item" id="btn2">
+                                    <li class="nav-item" id="btn2Indo">
                                         <a href="#" class="nav-link py-2 px-3" data-toggle="tab" id="btn2Indo">
                                             <span class="d-none d-md-block">Laju</span>
                                             <span class="d-md-none">Laju</span>
@@ -445,13 +445,13 @@
                             </div>
                             <div class="col">
                                 <ul class="nav nav-pills justify-content-end">
-                                    <li class="nav-item mr-2 mr-md-0" id="btn1">
+                                    <li class="nav-item mr-2 mr-md-0" id="btn1Bali">
                                         <a href="#" class="nav-link py-2 px-3 active show" data-toggle="tab" id="btn1Bali">
                                             <span class="d-none d-md-block">Akumulasi</span>
                                             <span class="d-md-none">Akumulasi</span>
                                         </a>
                                     </li>
-                                    <li class="nav-item" id="btn2">
+                                    <li class="nav-item" id="btn2Bali">
                                         <a href="#" class="nav-link py-2 px-3" data-toggle="tab" id="btn2Bali">
                                             <span class="d-none d-md-block">Laju</span>
                                             <span class="d-md-none">Laju</span>
@@ -997,18 +997,18 @@
         <script>
             'use strict';
             
-            var SalesChart = (function() {
+            var SalesChartProv = (function() {
     
             // Variables
     
-            var $chart = $('#chart-saless-prov');
+            var $chartProv = $('#chart-saless-prov');
     
     
             // Methods
     
-            function init($chart) {
+            function init($chartProv) {
     
-                var salesChart = new Chart($chart, {
+                var salesChartProv = new Chart($chartProv, {
                     type: 'line',
                     options: {
                         scales: {
@@ -1054,25 +1054,25 @@
     
                 // Save to jQuery object
     
-                $chart.data('chart', salesChart);
+                $chartProv.data('chart', salesChartProv);
     
             };
     
     
             // Events
     
-            if ($chart.length) {
-                init($chart);
+            if ($chartProv.length) {
+                init($chartProvIndo);
             }
     
             })();
         </script>
 
     <script>
-        var OrdersChart = (function() {
+        var OrdersChartIndo = (function() {
 
-        var $chart = $('#chart-orderss');
-        var $ordersSelect = $('[name="ordersSelect"]');
+        var $chartIndo = $('#chart-orderss');
+        var $ordersSelectIndo = $('[name="ordersSelect"]');
 
 
         //
@@ -1080,12 +1080,12 @@
         //
 
         // Init chart
-        function initChart($chart) {
+        function initChart($chartIndo) {
 
             // Create chart
-            var ctx = document.getElementById('chart-orderss').getContext('2d');
+            var ctxIndo = document.getElementById('chart-orderss').getContext('2d');
 
-            window.ordersChart = new Chart(ctx, {
+            window.ordersChartIndo = new Chart(ctxIndo, {
                 type: 'bar',
                 options: {
                     scales: {
@@ -1128,11 +1128,11 @@
             });
         
                 // Save to jQuery object
-            function removeData(chart) {
-                chart.destroy();
+            function removeData(chartIndo) {
+                chartIndo.destroy();
             }
 
-            function addData(chart, label, data) {
+            function addData(chartIndo, label, data) {
                 
             }
         $("#btn1Indo").on("click", function() {
@@ -1146,14 +1146,14 @@
             // });
             // chart.update();
 
-            if(window.ordersChart && window.ordersChart !== null){
-            window.ordersChart.destroy();
+            if(window.ordersChartIndo && window.ordersChartIndo !== null){
+                window.ordersChartIndo.destroy();
             }
 
             var label = {!! json_encode($positifDate) !!}
             var data = {!! json_encode($dataPositif) !!}
 
-            window.ordersChart = new Chart(ctx, {
+            window.ordersChartIndo = new Chart(ctxIndo, {
                 type: 'bar',
                 options: {
                     scales: {
@@ -1194,18 +1194,18 @@
                     }]
                 }
             });
-            ordersChart.update();
+            ordersChartIndo.update();
         });
         $("#btn2Indo").on("click", function() {
 
-            if(window.ordersChart && window.ordersChart !== null){
-            window.ordersChart.destroy();
+            if(window.ordersChartIndo && window.ordersChartIndo !== null){
+                window.ordersChartIndo.destroy();
             }
 
             var label = {!! json_encode($positifDateDiff) !!}
             var data = {!! json_encode($dataPositifDiff) !!}
 
-            window.ordersChart = new Chart(ctx, {
+            window.ordersChartIndo = new Chart(ctxIndo, {
                 type: 'bar',
                 options: {
                     scales: {
@@ -1246,24 +1246,24 @@
                     }]
                 }
             });
-            ordersChart.update();
+            ordersChartIndo.update();
         });
-            $chart.data('chart', ordersChart);
+            $chartIndo.data('chartIndo', ordersChartIndo);
             
         }
 
         // Init chart
-        if ($chart.length) {
-            initChart($chart);
+        if ($chartIndo.length) {
+            initChart($chartIndo);
         }
         })();
             </script>
 
             <script>
-                var OrdersChart = (function() {
+                var OrdersChartGlobal = (function() {
 
-                var $chart = $('#chart-orderss-global');
-                var $ordersSelect = $('[name="ordersSelect"]');
+                var $chartGlobal = $('#chart-orderss-global');
+                var $ordersSelectGlobal = $('[name="ordersSelect"]');
 
 
                 //
@@ -1271,12 +1271,12 @@
                 //
 
                 // Init chart
-                function initChart($chart) {
+                function initChart($chartGlobal) {
 
                     // Create chart
-                    var ctx = document.getElementById('chart-orderss-global').getContext('2d');
+                    var ctxGlobal = document.getElementById('chart-orderss-global').getContext('2d');
 
-                    window.ordersChart = new Chart(ctx, {
+                    window.ordersChartGlobal = new Chart(ctxGlobal, {
                         type: 'bar',
                         options: {
                             scales: {
@@ -1319,11 +1319,11 @@
                     });
                 
                         // Save to jQuery object
-                    function removeData(chart) {
-                        chart.destroy();
+                    function removeData(chartGlobal) {
+                        chartGlobal.destroy();
                     }
 
-                    function addData(chart, label, data) {
+                    function addData(chartGlobal, label, data) {
                         
                     }
                 $("#btn1Global").on("click", function() {
@@ -1337,14 +1337,14 @@
                     // });
                     // chart.update();
 
-                    if(window.ordersChart && window.ordersChart !== null){
-                    window.ordersChart.destroy();
+                    if(window.ordersChartGlobal && window.ordersChartGlobal !== null){
+                        window.ordersChartGlobal.destroy();
                     }
 
                     var label = {!! json_encode($positifDateGlobal) !!}
                     var data = {!! json_encode($dataPositifGlobal) !!}
 
-                    window.ordersChart = new Chart(ctx, {
+                    window.ordersChartGlobal = new Chart(ctxGlobal, {
                         type: 'bar',
                         options: {
                             scales: {
@@ -1385,18 +1385,18 @@
                             }]
                         }
                     });
-                    ordersChart.update();
+                    ordersChartGlobal.update();
                 });
                 $("#btn2Global").on("click", function() {
 
-                    if(window.ordersChart && window.ordersChart !== null){
-                    window.ordersChart.destroy();
+                    if(window.ordersChartGlobal && window.ordersChartGlobal !== null){
+                        window.ordersChartGlobal.destroy();
                     }
 
                     var label = {!! json_encode($positifDateGlobalDiff) !!}
                     var data = {!! json_encode($dataPositifGlobalDiff) !!}
 
-                    window.ordersChart = new Chart(ctx, {
+                    window.ordersChartGlobal = new Chart(ctxGlobal, {
                         type: 'bar',
                         options: {
                             scales: {
@@ -1437,24 +1437,24 @@
                             }]
                         }
                     });
-                    ordersChart.update();
+                    ordersChartGlobal.update();
                 });
-                    $chart.data('chart', ordersChart);
+                    $chartGlobal.data('chartGlobal', ordersChartGlobal);
                     
                 }
 
                 // Init chart
-                if ($chart.length) {
-                    initChart($chart);
+                if ($chartGlobal.length) {
+                    initChart($chartGlobal);
                 }
         })();
     </script>
 
 <script>
-        var OrdersChart = (function() {
+        var OrdersChartBali = (function() {
 
-        var $chart = $('#chart-orderss-bali');
-        var $ordersSelect = $('[name="ordersSelect"]');
+        var $chartBali = $('#chart-orderss-bali');
+        var $ordersSelectBali = $('[name="ordersSelect"]');
 
 
         //
@@ -1462,12 +1462,12 @@
         //
 
         // Init chart
-        function initChart($chart) {
+        function initChart($chartBali) {
 
             // Create chart
-            var ctx = document.getElementById('chart-orderss-bali').getContext('2d');
+            var ctxBali = document.getElementById('chart-orderss-bali').getContext('2d');
 
-            window.ordersChart = new Chart(ctx, {
+            window.ordersChartBali = new Chart(ctxBali, {
                 type: 'bar',
                 options: {
                     scales: {
@@ -1510,11 +1510,11 @@
             });
         
                 // Save to jQuery object
-            function removeData(chart) {
-                chart.destroy();
+            function removeData(chartBali) {
+                chartBali.destroy();
             }
 
-            function addData(chart, label, data) {
+            function addData(chartBali, label, data) {
                 
             }
         $("#btn1Bali").on("click", function() {
@@ -1528,14 +1528,14 @@
             // });
             // chart.update();
 
-            if(window.ordersChart && window.ordersChart !== null){
-            window.ordersChart.destroy();
+            if(window.ordersChartBali && window.ordersChartBali !== null){
+                window.ordersChartBali.destroy();
             }
 
             var label = {!! json_encode($positifDateBali) !!}
             var data = {!! json_encode($dataPositifBali) !!}
 
-            window.ordersChart = new Chart(ctx, {
+            window.ordersChartBali = new Chart(ctxBali, {
                 type: 'bar',
                 options: {
                     scales: {
@@ -1576,18 +1576,18 @@
                     }]
                 }
             });
-            ordersChart.update();
+            ordersChartBali.update();
         });
         $("#btn2Bali").on("click", function() {
 
-            if(window.ordersChart && window.ordersChart !== null){
-            window.ordersChart.destroy();
+            if(window.ordersChartBali && window.ordersChartBali !== null){
+                window.ordersChartBali.destroy();
             }
 
             var label = {!! json_encode($positifDateBaliDiff) !!}
             var data = {!! json_encode($dataPositifBaliDiff) !!}
 
-            window.ordersChart = new Chart(ctx, {
+            window.ordersChartBali = new Chart(ctxBali, {
                 type: 'bar',
                 options: {
                     scales: {
@@ -1628,24 +1628,24 @@
                     }]
                 }
             });
-            ordersChart.update();
+            ordersChartBali.update();
         });
-            $chart.data('chart', ordersChart);
+            $chartBali.data('chartBali', ordersChartBali);
             
         }
 
         // Init chart
-        if ($chart.length) {
-            initChart($chart);
+        if ($chartBali.length) {
+            initChart($chartBali);
         }
         })();
     </script>
     
     <script>
-        var OrdersChart = (function() {
+        var OrdersChartProv = (function() {
 
-        var $chart = $('#chart-orderss-prov');
-        var $ordersSelect = $('[name="ordersSelect"]');
+        var $chartProv = $('#chart-orderss-prov');
+        var $ordersSelectProv = $('[name="ordersSelect"]');
 
 
         //
@@ -1653,12 +1653,12 @@
         //
 
         // Init chart
-        function initChart($chart) {
+        function initChart($chartProv) {
 
             // Create chart
-            var ctx = document.getElementById('chart-orderss-prov').getContext('2d');
+            var ctxProv = document.getElementById('chart-orderss-prov').getContext('2d');
 
-            window.ordersChart = new Chart(ctx, {
+            window.ordersChartProv = new Chart(ctxProv, {
                 type: 'bar',
                 options: {
                     scales: {
@@ -1701,11 +1701,11 @@
             });
            
                 // Save to jQuery object
-            function removeData(chart) {
-                chart.destroy();
+            function removeData(chartProv) {
+                chartProv.destroy();
             }
 
-            function addData(chart, label, data) {
+            function addData(chartProv, label, data) {
                 
             }
         $("#btn1").on("click", function() {
@@ -1719,14 +1719,14 @@
             // });
             // chart.update();
 
-            if(window.ordersChart && window.ordersChart !== null){
-            window.ordersChart.destroy();
+            if(window.ordersChartProv && window.ordersChartProv !== null){
+                window.ordersChartProv.destroy();
             }
 
             var label = {!! json_encode($positifDateProv) !!}
             var data = {!! json_encode($dataPositifProv) !!}
 
-            window.ordersChart = new Chart(ctx, {
+            window.ordersChartProv = new Chart(ctxProv, {
                 type: 'bar',
                 options: {
                     scales: {
@@ -1767,18 +1767,18 @@
                     }]
                 }
             });
-            ordersChart.update();
+            ordersChartProv.update();
         });
         $("#btn2").on("click", function() {
 
-            if(window.ordersChart && window.ordersChart !== null){
-            window.ordersChart.destroy();
+            if(window.ordersChartProv && window.ordersChartProv !== null){
+                window.ordersChartProv.destroy();
             }
 
             var label = {!! json_encode($positifDateProvDiff) !!}
             var data = {!! json_encode($dataPositifProvDiff) !!}
 
-            window.ordersChart = new Chart(ctx, {
+            window.ordersChartProv = new Chart(ctxProv, {
                 type: 'bar',
                 options: {
                     scales: {
@@ -1819,21 +1819,17 @@
                     }]
                 }
             });
-            ordersChart.update();
+            ordersChartProv.update();
         });
-            $chart.data('chart', ordersChart);
+            $chartProv.data('chartProv', ordersChartProv);
             
         }
         
         // Init chart
-        if ($chart.length) {
-            initChart($chart);
+        if ($chartProv.length) {
+            initChart($chartProv);
         }
         })();
-        
-      
-
-
 
     </script>
 
