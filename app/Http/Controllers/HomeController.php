@@ -344,12 +344,13 @@ class HomeController extends Controller
         }
 
         $DiffGlobal = RekapGlobal::orderBy('created_at', 'desc')->take(2)->get();
-        $dataPositifGlobal = array();
-        $positifDateGlobal = array();
+        $dataPositifGlobalDiff = array();
+        $positifDateGlobalDiff = array();
 
-        for ($i=0; $i < count($dataRekapGlobal); $i++) {
-            array_push($positifDateGlobal, date('d-F', strtotime($dataRekapGlobal[$i]->created_at)));
-            array_push($dataPositifGlobal, $dataRekapGlobal[$i]->positif);
+        for ($i=1; $i < count($dataRekapGlobal); $i++) {
+            $selisihGlobal = (($dataRekapGlobal[$i]->positif)-($dataRekapGlobal[$i-1]->positif));
+            array_push($positifDateGlobalDiff, date('d-F', strtotime($dataRekapGlobal[$i]->created_at)));
+            array_push($dataPositifGlobalDiff, $selisihGlobal);
         }
 
         for ($i=0; $i < count($DiffGlobal); $i++) {
@@ -385,7 +386,7 @@ class HomeController extends Controller
         for ($i=1; $i < count($dataBali); $i++) {
             $selisihBali = (($dataBali[$i]->Kasus_Posi)-($dataBali[$i-1]->Kasus_Posi));
             array_push($positifDateBaliDiff, date('d-F', strtotime($dataBali[$i]->created_at)));
-            array_push($dataPositifBalifDiff, $selisihBali);
+            array_push($dataPositifBaliDiff, $selisihBali);
         }
 
 
