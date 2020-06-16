@@ -1189,18 +1189,22 @@
                                         <th scope="col">No.</th>
                                         <th scope="col">Negara</th>
                                         <th scope="col">Positif</th>
+                                        <th scope="col">Laju Positif</th>
                                         <th scope="col">Sembuh</th>
+                                        <th scope="col">Persentase Sembuh</th>
                                         <th scope="col">Meninggal</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @for ($i = 1; $i <= sizeof($global); $i++)
+                                    @for ($i = 1; $i <= 186; $i++)
                                         <tr>
                                             <td>{{ $i }}</td>
-                                            <td>{{ $global[$i-1]->OBJECTID }}</td>
-                                            <td>{{ number_format($global[$i-1]->Confirmed,0,",",",") }}</td>
-                                            <td>{{ number_format($global[$i-1]->Recovered,0,",",",") }}</td>
-                                            <td>{{ number_format($global[$i-1]->Deaths,0,",",",") }}</td>
+                                            <td>{{ $global[$i-1 + (sizeof($global)-186)]->OBJECTID }}</td>
+                                            <td>{{ number_format($global[$i-1 + (sizeof($global)-186)]->Confirmed,0,",",",") }}</td>
+                                            <td>{{ number_format((($global[$i-1 + (sizeof($global)-186)]->Confirmed)-($global[$i-1]->Confirmed))/(sizeof($global)/186),0,",",",") }}</td>
+                                            <td>{{ number_format($global[$i-1 + (sizeof($global)-186)]->Recovered,0,",",",") }}</td>
+                                            <td>{{ number_format(($global[$i-1 + (sizeof($global)-186)]->Recovered/($global[$i-1 + (sizeof($global)-186)]->Confirmed)*100),2) }} %</td>
+                                            <td>{{ number_format($global[$i-1 + (sizeof($global)-186)]->Deaths,0,",",",") }}</td>  
                                         </tr>
                                     @endfor
                                 </tbody>
@@ -1225,18 +1229,22 @@
                                         <th scope="col">No.</th>
                                         <th scope="col">Provinsi</th>
                                         <th scope="col">Positif</th>
+                                        <th scope="col">Laju Positif</th>
                                         <th scope="col">Sembuh</th>
+                                        <th scope="col">Persentase Sembuh</th>
                                         <th scope="col">Meninggal</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @for ($i = 1; $i <= sizeof($provinsi); $i++)
+                                    @for ($i = 1; $i <= 34; $i++)
                                         <tr>
                                             <td>{{ $i }}</td>
-                                            <td>{{ $provinsi[$i-1]->FID }}</td>
-                                            <td>{{ number_format($provinsi[$i-1]->Kasus_Posi,0,",",",") }}</td>
-                                            <td>{{ number_format($provinsi[$i-1]->Kasus_Semb,0,",",",") }}</td>
-                                            <td>{{ number_format($provinsi[$i-1]->Kasus_Meni,0,",",",") }}</td>
+                                            <td>{{ $provinsi[$i-1 + (sizeof($provinsi)-34)]->FID }}</td>
+                                            <td>{{ number_format($provinsi[$i-1 + (sizeof($provinsi)-34)]->Kasus_Posi,0,",",",") }}</td>
+                                            <td>{{ number_format((($provinsi[$i-1 + (sizeof($provinsi)-34)]->Kasus_Posi)-($provinsi[$i-1]->Kasus_Posi))/(sizeof($provinsi)/34),0,",",",") }}</td>
+                                            <td>{{ number_format($provinsi[$i-1 + (sizeof($provinsi)-34)]->Kasus_Semb,0,",",",") }}</td>
+                                            <td>{{ number_format(($provinsi[$i-1 + (sizeof($provinsi)-34)]->Kasus_Semb/($provinsi[$i-1 + (sizeof($provinsi)-34)]->Kasus_Posi)*100),2) }} %</td>
+                                            <td>{{ number_format($provinsi[$i-1 + (sizeof($provinsi)-34)]->Kasus_Meni,0,",",",") }}</td>    
                                         </tr>
                                     @endfor
                                 </tbody>
