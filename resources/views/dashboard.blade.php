@@ -129,9 +129,10 @@
         </div>
     </div>
 </div>
-    
-    <div class="container-fluid mt--7 ">
-            <div class="col-xl-14 mb-5 mb-xl-4">
+
+    <div class="container-fluid mt--7 " >
+        <div class="row">
+            <div class="col-xl-6"  id="hideSembuhDunia">
                 <div class="card bg-gradient-default shadow">
                     <div class="card-header bg-transparent">
                         <div class="row align-items-center">
@@ -156,21 +157,127 @@
                                 </ul>
                             </div>
                         </div>
-
                     </div>
-                        <div class="card-body">
-                            <!-- Chart -->
-                            <div class="chart">
-                                <canvas id="chart-orderss-global" class="chart-canvas"></canvas>
-                            </div>
+                    <div class="card-body">
+                        <!-- Chart -->
+                        <div class="chart">
+                            <canvas id="chart-orderss-global" class="chart-canvas"></canvas>
                         </div>
+                    </div>
                 </div>
             </div>
-            <hr>
+                
+            <div class="col-xl-6"  id="hideSembuhDunia">
+                <div class="card bg-gradient-default shadow">
+                    <div class="card-header bg-transparent">
+                        <div class="row align-items-center">
+                            <div class="col">
+                                <h6 class="text-uppercase text-light ls-1 mb-1">Overview</h6>
+                                <h2 class="text-white mb-0">Grafik Sembuh COVID-19 Dunia</h2>
+                            </div>
+                            <div class="col">
+                                <ul class="nav nav-pills justify-content-end">
+                                    <li class="nav-item mr-2 mr-md-0" id="btn1GlobalSembuh">
+                                        <a href="#" class="nav-link py-2 px-3 active show" data-toggle="tab" id="btn1GlobalSembuh">
+                                            <span class="d-none d-md-block">Akumulasi</span>
+                                            <span class="d-md-none">Akumulasi</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item" id="btn2GlobalSembuh">
+                                        <a href="#" class="nav-link py-2 px-3" data-toggle="tab" id="btn2GlobalSembuh">
+                                            <span class="d-none d-md-block">Laju</span>
+                                            <span class="d-md-none">Laju</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <!-- Chart -->
+                        <div class="chart">
+                            <canvas id="chart-orderss-global-sembuh" class="chart-canvas"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-xl-6"  id="hideSembuhDunia">
+                <div class="card bg-gradient-default shadow">
+                    <div class="card-header bg-transparent">
+                        <div class="row align-items-center">
+                            <div class="col">
+                                <h6 class="text-uppercase text-light ls-1 mb-1">Overview</h6>
+                                <h2 class="text-white mb-0" style="font-size:120%;">Grafik Meninggal COVID-19 Dunia</h2>
+                            </div>
+                            <div class="col">
+                                <ul class="nav nav-pills justify-content-end">
+                                    <li class="nav-item mr-2 mr-md-0" id="btn1GlobalMeninggal">
+                                        <a href="#" class="nav-link py-2 px-3 active show" data-toggle="tab" id="btn1GlobalMeninggal">
+                                            <span class="d-none d-md-block">Akumulasi</span>
+                                            <span class="d-md-none">Akumulasi</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item" id="btn2GlobalMeninggal">
+                                        <a href="#" class="nav-link py-2 px-3" data-toggle="tab" id="btn2GlobalMeninggal">
+                                            <span class="d-none d-md-block">Laju</span>
+                                            <span class="d-md-none">Laju</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <!-- Chart -->
+                        <div class="chart">
+                            <canvas id="chart-orderss-global-meninggal" class="chart-canvas"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                
+            <div class="col-xl-6"  id="hideSembuhDunia">
+                <div class="card bg-gradient-default shadow">
+                    <div class="card-header bg-transparent">
+                        <div class="row align-items-center">
+                            <div class="col">
+                                <h6 class="text-uppercase text-light ls-1 mb-1">Overview</h6>
+                                <h2 class="text-white mb-0">Grafik Dirawat COVID-19 Dunia</h2>
+                            </div>
+                            <div class="col">
+                                <ul class="nav nav-pills justify-content-end">
+                                    <li class="nav-item mr-2 mr-md-0" id="btn1GlobalDirawat">
+                                        <a href="#" class="nav-link py-2 px-3 active show" data-toggle="tab" id="btn1GlobalDirawat">
+                                            <span class="d-none d-md-block">Akumulasi</span>
+                                            <span class="d-md-none">Akumulasi</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item" id="btn2GlobalDirawat">
+                                        <a href="#" class="nav-link py-2 px-3" data-toggle="tab" id="btn2GlobalDirawat">
+                                            <span class="d-none d-md-block">Laju</span>
+                                            <span class="d-md-none">Laju</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <!-- Chart -->
+                        <div class="chart">
+                            <canvas id="chart-orderss-global-dirawat" class="chart-canvas"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr>
 
             <div class="shadow alert alert-white text-muted" role="alert">
                 <h2><b>Rekapitulasi Data Penyebaran COVID-19 Indonesia</b></h2>
-             </div>
+            </div>
             <div class="row mb-xl-4">
                 <div class="col-xl-3 col-lg-6">
                     <div class="shadow card card-stats bg-gradient-danger mb-4 mb-xl-0">
@@ -285,7 +392,8 @@
                     </div>
                 </div>
             </div>
-            <div class="col-xl-14 mb-5 mb-xl-4">
+            <div class="row mb-xl-4">
+            <div class="col-xl-6 mb-5 mb-xl-4">
                 <div class="card bg-gradient-default shadow">
                     <div class="card-header bg-transparent">
                         <div class="row align-items-center">
@@ -318,6 +426,112 @@
                         </div>
                     </div>
                 </div>
+            </div>
+            <div class="col-xl-6 mb-5 mb-xl-4">
+                <div class="card bg-gradient-default shadow">
+                    <div class="card-header bg-transparent">
+                        <div class="row align-items-center">
+                            <div class="col">
+                                <h6 class="text-uppercase text-light ls-1 mb-1">Overview</h6>
+                                <h2 class="text-white mb-0">Grafik Sembuh COVID-19 Indonesia</h2>
+                            </div>
+                            <div class="col">
+                                <ul class="nav nav-pills justify-content-end">
+                                    <li class="nav-item mr-2 mr-md-0" id="btn1IndoSembuh">
+                                        <a href="#" class="nav-link py-2 px-3 active show" data-toggle="tab" id="btn1IndoSembuh">
+                                            <span class="d-none d-md-block">Akumulasi</span>
+                                            <span class="d-md-none">Akumulasi</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item" id="btn2IndoSembuh">
+                                        <a href="#" class="nav-link py-2 px-3" data-toggle="tab" id="btn2IndoSembuh">
+                                            <span class="d-none d-md-block">Laju</span>
+                                            <span class="d-md-none">Laju</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <!-- Chart -->
+                        <div class="chart">
+                            <canvas id="chart-orderss-sembuh" class="chart-canvas"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+
+            <div class="row">
+            <div class="col-xl-6 mb-5 mb-xl-4">
+                <div class="card bg-gradient-default shadow">
+                    <div class="card-header bg-transparent">
+                        <div class="row align-items-center">
+                            <div class="col">
+                                <h6 class="text-uppercase text-light ls-1 mb-1">Overview</h6>
+                                <h2 class="text-white mb-0">Grafik Meninggal COVID-19 Indonesia</h2>
+                            </div>
+                            <div class="col">
+                                <ul class="nav nav-pills justify-content-end">
+                                    <li class="nav-item mr-2 mr-md-0" id="btn1IndoMeninggal">
+                                        <a href="#" class="nav-link py-2 px-3 active show" data-toggle="tab" id="btn1IndoMeninggal">
+                                            <span class="d-none d-md-block">Akumulasi</span>
+                                            <span class="d-md-none">Akumulasi</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item" id="btn2IndoMeninggal">
+                                        <a href="#" class="nav-link py-2 px-3" data-toggle="tab" id="btn2IndoMeninggal">
+                                            <span class="d-none d-md-block">Laju</span>
+                                            <span class="d-md-none">Laju</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <!-- Chart -->
+                        <div class="chart">
+                            <canvas id="chart-orderss-meninggal" class="chart-canvas"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-6 mb-5 mb-xl-4">
+                <div class="card bg-gradient-default shadow">
+                    <div class="card-header bg-transparent">
+                        <div class="row align-items-center">
+                            <div class="col">
+                                <h6 class="text-uppercase text-light ls-1 mb-1">Overview</h6>
+                                <h2 class="text-white mb-0">Grafik Dirawat COVID-19 Indonesia</h2>
+                            </div>
+                            <div class="col">
+                                <ul class="nav nav-pills justify-content-end">
+                                    <li class="nav-item mr-2 mr-md-0" id="btn1IndoDirawat">
+                                        <a href="#" class="nav-link py-2 px-3 active show" data-toggle="tab" id="btn1IndoDirawat">
+                                            <span class="d-none d-md-block">Akumulasi</span>
+                                            <span class="d-md-none">Akumulasi</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item" id="btn2IndoDirawat">
+                                        <a href="#" class="nav-link py-2 px-3" data-toggle="tab" id="btn2IndoDirawat">
+                                            <span class="d-none d-md-block">Laju</span>
+                                            <span class="d-md-none">Laju</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <!-- Chart -->
+                        <div class="chart">
+                            <canvas id="chart-orderss-dirawat" class="chart-canvas"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
             </div>
             <hr>
 
@@ -436,7 +650,8 @@
                     </div>
                 </div>
             </div>
-            <div class="col-xl-14 mb-5 mb-xl-4">
+            <div class="row">
+            <div class="col-xl-6 mb-5 mb-xl-4">
                 <div class="card bg-gradient-default shadow">
                     <div class="card-header bg-transparent">
                         <div class="row align-items-center">
@@ -470,6 +685,114 @@
                             </div>
                         </div>
                 </div>
+            </div>
+            <div class="col-xl-6 mb-5 mb-xl-4">
+                <div class="card bg-gradient-default shadow">
+                    <div class="card-header bg-transparent">
+                        <div class="row align-items-center">
+                            <div class="col">
+                                <h6 class="text-uppercase text-light ls-1 mb-1">Overview</h6>
+                                <h2 class="text-white mb-0">Grafik Sembuh COVID-19 Bali</h2>
+                            </div>
+                            <div class="col">
+                                <ul class="nav nav-pills justify-content-end">
+                                    <li class="nav-item mr-2 mr-md-0" id="btn1BaliSembuh">
+                                        <a href="#" class="nav-link py-2 px-3 active show" data-toggle="tab" id="btn1BaliSembuh">
+                                            <span class="d-none d-md-block">Akumulasi</span>
+                                            <span class="d-md-none">Akumulasi</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item" id="btn2BaliSembuh">
+                                        <a href="#" class="nav-link py-2 px-3" data-toggle="tab" id="btn2BaliSembuh">
+                                            <span class="d-none d-md-block">Laju</span>
+                                            <span class="d-md-none">Laju</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                        <div class="card-body">
+                            <!-- Chart -->
+                            <div class="chart">
+                                <!-- Chart wrapper -->
+                                <canvas id="chart-orderss-bali-sembuh" class="chart-canvas"></canvas>
+                            </div>
+                        </div>
+                </div>
+            </div>
+            </div>
+            <div class="row">
+            <div class="col-xl-6 mb-5 mb-xl-4">
+                <div class="card bg-gradient-default shadow">
+                    <div class="card-header bg-transparent">
+                        <div class="row align-items-center">
+                            <div class="col">
+                                <h6 class="text-uppercase text-light ls-1 mb-1">Overview</h6>
+                                <h2 class="text-white mb-0">Grafik Meninggal COVID-19 Bali</h2>
+                            </div>
+                            <div class="col">
+                                <ul class="nav nav-pills justify-content-end">
+                                    <li class="nav-item mr-2 mr-md-0" id="btn1BaliMeninggal">
+                                        <a href="#" class="nav-link py-2 px-3 active show" data-toggle="tab" id="btn1BaliMeninggal">
+                                            <span class="d-none d-md-block">Akumulasi</span>
+                                            <span class="d-md-none">Akumulasi</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item" id="btn2BaliMeninggal">
+                                        <a href="#" class="nav-link py-2 px-3" data-toggle="tab" id="btn2BaliMeninggal">
+                                            <span class="d-none d-md-block">Laju</span>
+                                            <span class="d-md-none">Laju</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                        <div class="card-body">
+                            <!-- Chart -->
+                            <div class="chart">
+                                <!-- Chart wrapper -->
+                                <canvas id="chart-orderss-bali-meninggal" class="chart-canvas"></canvas>
+                            </div>
+                        </div>
+                </div>
+            </div>
+            <div class="col-xl-6 mb-5 mb-xl-4">
+                <div class="card bg-gradient-default shadow">
+                    <div class="card-header bg-transparent">
+                        <div class="row align-items-center">
+                            <div class="col">
+                                <h6 class="text-uppercase text-light ls-1 mb-1">Overview</h6>
+                                <h2 class="text-white mb-0">Grafik Dirawat COVID-19 Bali</h2>
+                            </div>
+                            <div class="col">
+                                <ul class="nav nav-pills justify-content-end">
+                                    <li class="nav-item mr-2 mr-md-0" id="btn1BaliDirawat">
+                                        <a href="#" class="nav-link py-2 px-3 active show" data-toggle="tab" id="btn1BaliDirawat">
+                                            <span class="d-none d-md-block">Akumulasi</span>
+                                            <span class="d-md-none">Akumulasi</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item" id="btn2BaliDirawat">
+                                        <a href="#" class="nav-link py-2 px-3" data-toggle="tab" id="btn2BaliDirawat">
+                                            <span class="d-none d-md-block">Laju</span>
+                                            <span class="d-md-none">Laju</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                        <div class="card-body">
+                            <!-- Chart -->
+                            <div class="chart">
+                                <!-- Chart wrapper -->
+                                <canvas id="chart-orderss-bali-dirawat" class="chart-canvas"></canvas>
+                            </div>
+                        </div>
+                </div>
+            </div>
             </div>
             <hr>
 
@@ -608,7 +931,8 @@
                     </div>
                 </div>
             </div>
-            <div class="col-xl-14 mb-5 mb-xl-4">
+            <div class="row">
+            <div class="col-xl-6 mb-5 mb-xl-4">
                 <div class="card bg-gradient-default shadow">
                     <div class="card-header bg-transparent">
                         <div class="row align-items-center">
@@ -667,6 +991,187 @@
                     </div>
                 </div>
             </div>
+            <div class="col-xl-6 mb-5 mb-xl-4">
+                <div class="card bg-gradient-default shadow">
+                    <div class="card-header bg-transparent">
+                        <div class="row align-items-center">
+                            <div class="col">
+                                <h6 class="text-uppercase text-light ls-1 mb-1">Overview</h6>
+                                <h2 class="text-white mb-0">Grafik Sembuh COVID-19 Provinsi {{$nama}}</h2>
+                                </div>
+                                {{-- <button id="btn1">
+                                    Option 1
+                                    </button>
+                                    <button id="btn2">
+                                    Option 2
+                                    </button> --}}
+                      
+                                <div class="col">
+                                    <ul class="nav nav-pills justify-content-end">
+                                        <li class="nav-item mr-2 mr-md-0" id="btn1Sembuh">
+                                            <a href="#" class="nav-link py-2 px-3 active show" data-toggle="tab" id="btn1Sembuh">
+                                                <span class="d-none d-md-block">Akumulasi</span>
+                                                <span class="d-md-none">Akumulasi</span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item" id="btn2Sembuh">
+                                            <a href="#" class="nav-link py-2 px-3" data-toggle="tab" id="btn2Sembuh">
+                                                <span class="d-none d-md-block">Laju</span>
+                                                <span class="d-md-none">Laju</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                              
+                        </div>
+                        <!-- <form action="/ProvGraph/filter" method="GET">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <select class="form-control" id="drop" name="nama">
+                                    <option value="">{{$nama}}</option>
+                                        @foreach ($namaProvinsi as $item)
+                                            <option value="{{$item->FID}}">{{ucfirst($item->FID)}}</option>      
+                                        @endforeach
+                                    </select>
+                                    <button class="btn btn-icon btn-success" type="submit">
+                                        <span class="btn-inner--icon"><i class="ni ni-send"></i></span>
+                                    </button>
+                                </div>
+                            </div>
+                            
+                        </form> -->
+                        
+                    </div>
+                    <div class="card-body">
+                        <!-- Chart -->
+                        <div class="chart">
+                            <canvas id="chart-orderss-prov-sembuh" class="chart-canvas"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+            <div class="row">
+            <div class="col-xl-6 mb-5 mb-xl-4">
+                <div class="card bg-gradient-default shadow">
+                    <div class="card-header bg-transparent">
+                        <div class="row align-items-center">
+                            <div class="col">
+                                <h6 class="text-uppercase text-light ls-1 mb-1">Overview</h6>
+                                <h2 class="text-white mb-0">Grafik Meninggal COVID-19 Provinsi {{$nama}}</h2>
+                                </div>
+                                {{-- <button id="btn1">
+                                    Option 1
+                                    </button>
+                                    <button id="btn2">
+                                    Option 2
+                                    </button> --}}
+                      
+                                <div class="col">
+                                    <ul class="nav nav-pills justify-content-end">
+                                        <li class="nav-item mr-2 mr-md-0" id="btn1Meninggal">
+                                            <a href="#" class="nav-link py-2 px-3 active show" data-toggle="tab" id="btn1Meninggal">
+                                                <span class="d-none d-md-block">Akumulasi</span>
+                                                <span class="d-md-none">Akumulasi</span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item" id="btn2Meninggal">
+                                            <a href="#" class="nav-link py-2 px-3" data-toggle="tab" id="btn2Meninggal">
+                                                <span class="d-none d-md-block">Laju</span>
+                                                <span class="d-md-none">Laju</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                              
+                        </div>
+                        <!-- <form action="/ProvGraph/filter" method="GET">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <select class="form-control" id="drop" name="nama">
+                                    <option value="">{{$nama}}</option>
+                                        @foreach ($namaProvinsi as $item)
+                                            <option value="{{$item->FID}}">{{ucfirst($item->FID)}}</option>      
+                                        @endforeach
+                                    </select>
+                                    <button class="btn btn-icon btn-success" type="submit">
+                                        <span class="btn-inner--icon"><i class="ni ni-send"></i></span>
+                                    </button>
+                                </div>
+                            </div>
+                            
+                        </form> -->
+                        
+                    </div>
+                    <div class="card-body">
+                        <!-- Chart -->
+                        <div class="chart">
+                            <canvas id="chart-orderss-prov-meninggal" class="chart-canvas"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-6 mb-5 mb-xl-4">
+                <div class="card bg-gradient-default shadow">
+                    <div class="card-header bg-transparent">
+                        <div class="row align-items-center">
+                            <div class="col">
+                                <h6 class="text-uppercase text-light ls-1 mb-1">Overview</h6>
+                                <h2 class="text-white mb-0">Grafik Dirawat COVID-19 Provinsi {{$nama}}</h2>
+                                </div>
+                                {{-- <button id="btn1">
+                                    Option 1
+                                    </button>
+                                    <button id="btn2">
+                                    Option 2
+                                    </button> --}}
+                      
+                                <div class="col">
+                                    <ul class="nav nav-pills justify-content-end">
+                                        <li class="nav-item mr-2 mr-md-0" id="btn1Dirawat">
+                                            <a href="#" class="nav-link py-2 px-3 active show" data-toggle="tab" id="btn1Dirawat">
+                                                <span class="d-none d-md-block">Akumulasi</span>
+                                                <span class="d-md-none">Akumulasi</span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item" id="btn2Dirawat">
+                                            <a href="#" class="nav-link py-2 px-3" data-toggle="tab" id="btn2Dirawat">
+                                                <span class="d-none d-md-block">Laju</span>
+                                                <span class="d-md-none">Laju</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                              
+                        </div>
+                        <!-- <form action="/ProvGraph/filter" method="GET">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <select class="form-control" id="drop" name="nama">
+                                    <option value="">{{$nama}}</option>
+                                        @foreach ($namaProvinsi as $item)
+                                            <option value="{{$item->FID}}">{{ucfirst($item->FID)}}</option>      
+                                        @endforeach
+                                    </select>
+                                    <button class="btn btn-icon btn-success" type="submit">
+                                        <span class="btn-inner--icon"><i class="ni ni-send"></i></span>
+                                    </button>
+                                </div>
+                            </div>
+                            
+                        </form> -->
+                        
+                    </div>
+                    <div class="card-body">
+                        <!-- Chart -->
+                        <div class="chart">
+                            <canvas id="chart-orderss-prov-dirawat" class="chart-canvas"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+
             <div class="row mt-5">
                 <div class="col-xl-12 mb-5">
                     <div class="card shadow">
@@ -922,6 +1427,153 @@
 
         })();
     </script>
+
+    <script>
+        'use strict';
+        
+        var SalesChartGlobalSembuh = (function() {
+
+        // Variables
+        var $chartGlobal = $('#chart-saless-global-sembuh');
+
+
+        // Methods
+
+        function init($chartGlobal) {
+
+            var salesChartGlobal = new Chart($chartGlobal, {
+                type: 'line',
+                options: {
+                    scales: {
+                        yAxes: [{
+                            gridLines: {
+                                color: Charts.colors.gray[900],
+                                zeroLineColor: Charts.colors.gray[900]
+                            },
+                            ticks: {
+                                callback: function(value) {
+                                    if (!(value % 10)) {
+                                        return value;
+                                    }
+                                }
+                            }
+                        }]
+                    },
+                    tooltips: {
+                        callbacks: {
+                            label: function(item, data) {
+                                var label = data.datasets[item.datasetIndex].label || '';
+                                var yLabel = item.yLabel;
+                                var content = '';
+
+                                if (data.datasets.length > 1) {
+                                    content += '<span class="popover-body-label mr-auto">' + label + '</span>';
+                                }
+
+                                content += yLabel ;
+                                return content;
+                            }
+                        }
+                    }
+                },
+                data: {
+                    labels: {!! json_encode($positifDateGlobal) !!},
+                    datasets: [{
+                        label: 'performance',
+                        data: {!! json_encode($dataPositifGlobal) !!}
+                    }]
+                }
+            });
+
+            // Save to jQuery object
+
+            $chartGlobal.data('chart', salesChartGlobal);
+
+        };
+
+
+        // Events
+
+        if ($chartGlobal.length) {
+            init($chartGlobal);
+        }
+
+        })();
+    </script>
+
+<script>
+        'use strict';
+        
+        var SalesChartGlobalMeninggal = (function() {
+
+        // Variables
+        var $chartGlobalMeninggal = $('#chart-saless-global-meninggal');
+
+
+        // Methods
+
+        function init($chartGlobalMeninggal) {
+
+            var salesChartGlobal = new Chart($chartGlobalMeninggal, {
+                type: 'line',
+                options: {
+                    scales: {
+                        yAxes: [{
+                            gridLines: {
+                                color: Charts.colors.gray[900],
+                                zeroLineColor: Charts.colors.gray[900]
+                            },
+                            ticks: {
+                                callback: function(value) {
+                                    if (!(value % 10)) {
+                                        return value;
+                                    }
+                                }
+                            }
+                        }]
+                    },
+                    tooltips: {
+                        callbacks: {
+                            label: function(item, data) {
+                                var label = data.datasets[item.datasetIndex].label || '';
+                                var yLabel = item.yLabel;
+                                var content = '';
+
+                                if (data.datasets.length > 1) {
+                                    content += '<span class="popover-body-label mr-auto">' + label + '</span>';
+                                }
+
+                                content += yLabel ;
+                                return content;
+                            }
+                        }
+                    }
+                },
+                data: {
+                    labels: {!! json_encode($positifDateGlobal) !!},
+                    datasets: [{
+                        label: 'performance',
+                        data: {!! json_encode($dataPositifGlobal) !!}
+                    }]
+                }
+            });
+
+            // Save to jQuery object
+
+            $chartGlobalMeninggal.data('chart', SalesChartGlobalMeninggal);
+
+        };
+
+
+        // Events
+
+        if ($chartGlobalMeninggal.length) {
+            init($chartGlobalMeninggal);
+        }
+
+        })();
+    </script>
+
      <script>
         'use strict';
         
@@ -1258,7 +1910,580 @@
             initChart($chartIndo);
         }
         })();
-            </script>
+    </script>
+
+    <script>
+        var OrdersChartIndoSembuh = (function() {
+
+        var $chartIndoSembuh = $('#chart-orderss-sembuh');
+        var $ordersSelectIndoSembuh = $('[name="ordersSelect"]');
+
+
+        //
+        // Methods
+        //
+
+        // Init chart
+        function initChart($chartIndoSembuh) {
+
+            // Create chart
+            var ctxIndoSembuh = document.getElementById('chart-orderss-sembuh').getContext('2d');
+
+            window.ordersChartIndoSembuh = new Chart(ctxIndoSembuh, {
+                type: 'bar',
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                callback: function(value) {
+                                    if (!(value % 10)) {
+                                        //return '$' + value + 'k'
+                                        return value
+                                    }
+                                }
+                            }
+                        }]
+                    },
+                    tooltips: {
+                        callbacks: {
+                            label: function(item, data) {
+                                var label = data.datasets[item.datasetIndex].label || '';
+                                var yLabel = item.yLabel;
+                                var content = '';
+
+                                if (data.datasets.length > 1) {
+                                    content += '<span class="popover-body-label mr-auto">' + label + '</span>';
+                                }
+
+                                content += '<span class="popover-body-value">' + yLabel + '</span>';
+                                
+                                return content;
+                            }
+                        }
+                    }
+                },
+                data: {
+                    labels: {!! json_encode($sembuhDate) !!},
+                    datasets: [{
+                        label: 'performance',
+                        data: {!! json_encode($dataSembuh) !!}
+                    }]
+                }
+            });
+        
+                // Save to jQuery object
+            function removeData(chartIndoSembuh) {
+                chartIndoSembuh.destroy();
+            }
+
+            function addData(chartIndoSembuh, label, data) {
+                
+            }
+        $("#btn1IndoSembuh").on("click", function() {
+            // var chart = ordersChart
+            // var label = {!! json_encode($positifDateProv) !!}
+            // var data = {!! json_encode($dataPositifProv) !!}
+
+            // chart.data.labels.pop();
+            // chart.data.datasets.forEach((dataset) => {
+            //     dataset.data.pop();
+            // });
+            // chart.update();
+
+            if(window.ordersChartIndoSembuh && window.ordersChartIndoSembuh !== null){
+                window.ordersChartIndoSembuh.destroy();
+            }
+
+            var label = {!! json_encode($sembuhDate) !!}
+            var data = {!! json_encode($dataSembuh) !!}
+
+            window.ordersChartIndoSembuh = new Chart(ctxIndoSembuh, {
+                type: 'bar',
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                callback: function(value) {
+                                    if (!(value % 10)) {
+                                        //return '$' + value + 'k'
+                                        return value
+                                    }
+                                }
+                            }
+                        }]
+                    },
+                    tooltips: {
+                        callbacks: {
+                            label: function(item, data) {
+                                var label = data.datasets[item.datasetIndex].label || '';
+                                var yLabel = item.yLabel;
+                                var content = '';
+
+                                if (data.datasets.length > 1) {
+                                    content += '<span class="popover-body-label mr-auto">' + label + '</span>';
+                                }
+
+                                content += '<span class="popover-body-value">' + yLabel + '</span>';
+                                
+                                return content;
+                            }
+                        }
+                    }
+                },
+                data: {
+                    labels: label,
+                    datasets: [{
+                        label: 'performance',
+                        data: data
+                    }]
+                }
+            });
+            ordersChartIndoSembuh.update();
+        });
+        $("#btn2IndoSembuh").on("click", function() {
+
+            if(window.ordersChartIndoSembuh && window.ordersChartIndoSembuh !== null){
+                window.ordersChartIndoSembuh.destroy();
+            }
+
+            var label = {!! json_encode($sembuhDateDiff) !!}
+            var data = {!! json_encode($dataSembuhDiff) !!}
+
+            window.ordersChartIndoSembuh = new Chart(ctxIndoSembuh, {
+                type: 'bar',
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                callback: function(value) {
+                                    if (!(value % 10)) {
+                                        //return '$' + value + 'k'
+                                        return value
+                                    }
+                                }
+                            }
+                        }]
+                    },
+                    tooltips: {
+                        callbacks: {
+                            label: function(item, data) {
+                                var label = data.datasets[item.datasetIndex].label || '';
+                                var yLabel = item.yLabel;
+                                var content = '';
+
+                                if (data.datasets.length > 1) {
+                                    content += '<span class="popover-body-label mr-auto">' + label + '</span>';
+                                }
+
+                                content += '<span class="popover-body-value">' + yLabel + '</span>';
+                                
+                                return content;
+                            }
+                        }
+                    }
+                },
+                data: {
+                    labels: label,
+                    datasets: [{
+                        label: 'performance',
+                        data: data
+                    }]
+                }
+            });
+            ordersChartIndoSembuh.update();
+        });
+            $chartIndoSembuh.data('chartIndoSembuh', ordersChartIndoSembuh);
+            
+        }
+
+        // Init chart
+        if ($chartIndoSembuh.length) {
+            initChart($chartIndoSembuh);
+        }
+        })();
+    </script>
+
+    <script>
+        var OrdersChartIndoMeninggal = (function() {
+
+        var $chartIndoMeninggal = $('#chart-orderss-meninggal');
+        var $ordersSelectIndoMeninggal = $('[name="ordersSelect"]');
+
+
+        //
+        // Methods
+        //
+
+        // Init chart
+        function initChart($chartIndoMeninggal) {
+
+            // Create chart
+            var ctxIndoMeninggal = document.getElementById('chart-orderss-meninggal').getContext('2d');
+
+            window.ordersChartIndoMeninggal = new Chart(ctxIndoMeninggal, {
+                type: 'bar',
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                callback: function(value) {
+                                    if (!(value % 10)) {
+                                        //return '$' + value + 'k'
+                                        return value
+                                    }
+                                }
+                            }
+                        }]
+                    },
+                    tooltips: {
+                        callbacks: {
+                            label: function(item, data) {
+                                var label = data.datasets[item.datasetIndex].label || '';
+                                var yLabel = item.yLabel;
+                                var content = '';
+
+                                if (data.datasets.length > 1) {
+                                    content += '<span class="popover-body-label mr-auto">' + label + '</span>';
+                                }
+
+                                content += '<span class="popover-body-value">' + yLabel + '</span>';
+                                
+                                return content;
+                            }
+                        }
+                    }
+                },
+                data: {
+                    labels: {!! json_encode($meninggalDate) !!},
+                    datasets: [{
+                        label: 'performance',
+                        data: {!! json_encode($dataMeninggal) !!}
+                    }]
+                }
+            });
+        
+                // Save to jQuery object
+            function removeData(chartIndoMeninggal) {
+                chartIndoMeninggal.destroy();
+            }
+
+            function addData(chartIndoMeninggal, label, data) {
+                
+            }
+        $("#btn1IndoMeninggal").on("click", function() {
+            // var chart = ordersChart
+            // var label = {!! json_encode($positifDateProv) !!}
+            // var data = {!! json_encode($dataPositifProv) !!}
+
+            // chart.data.labels.pop();
+            // chart.data.datasets.forEach((dataset) => {
+            //     dataset.data.pop();
+            // });
+            // chart.update();
+
+            if(window.ordersChartIndoMeninggal && window.ordersChartIndoMeninggal !== null){
+                window.ordersChartIndoMeninggal.destroy();
+            }
+
+            var label = {!! json_encode($meninggalDate) !!}
+            var data = {!! json_encode($dataMeninggal) !!}
+
+            window.ordersChartIndoMeninggal = new Chart(ctxIndoMeninggal, {
+                type: 'bar',
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                callback: function(value) {
+                                    if (!(value % 10)) {
+                                        //return '$' + value + 'k'
+                                        return value
+                                    }
+                                }
+                            }
+                        }]
+                    },
+                    tooltips: {
+                        callbacks: {
+                            label: function(item, data) {
+                                var label = data.datasets[item.datasetIndex].label || '';
+                                var yLabel = item.yLabel;
+                                var content = '';
+
+                                if (data.datasets.length > 1) {
+                                    content += '<span class="popover-body-label mr-auto">' + label + '</span>';
+                                }
+
+                                content += '<span class="popover-body-value">' + yLabel + '</span>';
+                                
+                                return content;
+                            }
+                        }
+                    }
+                },
+                data: {
+                    labels: label,
+                    datasets: [{
+                        label: 'performance',
+                        data: data
+                    }]
+                }
+            });
+            ordersChartIndoMeninggal.update();
+        });
+        $("#btn2IndoMeninggal").on("click", function() {
+
+            if(window.ordersChartIndoMeninggal && window.ordersChartIndoMeninggal !== null){
+                window.ordersChartIndoMeninggal.destroy();
+            }
+
+            var label = {!! json_encode($meninggalDateDiff) !!}
+            var data = {!! json_encode($dataMeninggalDiff) !!}
+
+            window.ordersChartIndoMeninggal = new Chart(ctxIndoMeninggal, {
+                type: 'bar',
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                callback: function(value) {
+                                    if (!(value % 10)) {
+                                        //return '$' + value + 'k'
+                                        return value
+                                    }
+                                }
+                            }
+                        }]
+                    },
+                    tooltips: {
+                        callbacks: {
+                            label: function(item, data) {
+                                var label = data.datasets[item.datasetIndex].label || '';
+                                var yLabel = item.yLabel;
+                                var content = '';
+
+                                if (data.datasets.length > 1) {
+                                    content += '<span class="popover-body-label mr-auto">' + label + '</span>';
+                                }
+
+                                content += '<span class="popover-body-value">' + yLabel + '</span>';
+                                
+                                return content;
+                            }
+                        }
+                    }
+                },
+                data: {
+                    labels: label,
+                    datasets: [{
+                        label: 'performance',
+                        data: data
+                    }]
+                }
+            });
+            ordersChartIndoMeninggal.update();
+        });
+            $chartIndoMeninggal.data('chartIndoMeninggal', ordersChartIndoMeninggal);
+            
+        }
+
+        // Init chart
+        if ($chartIndoMeninggal.length) {
+            initChart($chartIndoMeninggal);
+        }
+        })();
+    </script>
+
+    <script>
+        var OrdersChartIndoDirawat = (function() {
+
+        var $chartIndoDirawat = $('#chart-orderss-dirawat');
+        var $ordersSelectIndoDirawat = $('[name="ordersSelect"]');
+
+
+        //
+        // Methods
+        //
+
+        // Init chart
+        function initChart($chartIndoDirawat) {
+
+            // Create chart
+            var ctxIndoDirawat = document.getElementById('chart-orderss-dirawat').getContext('2d');
+
+            window.ordersChartIndoDirawat = new Chart(ctxIndoDirawat, {
+                type: 'bar',
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                callback: function(value) {
+                                    if (!(value % 10)) {
+                                        //return '$' + value + 'k'
+                                        return value
+                                    }
+                                }
+                            }
+                        }]
+                    },
+                    tooltips: {
+                        callbacks: {
+                            label: function(item, data) {
+                                var label = data.datasets[item.datasetIndex].label || '';
+                                var yLabel = item.yLabel;
+                                var content = '';
+
+                                if (data.datasets.length > 1) {
+                                    content += '<span class="popover-body-label mr-auto">' + label + '</span>';
+                                }
+
+                                content += '<span class="popover-body-value">' + yLabel + '</span>';
+                                
+                                return content;
+                            }
+                        }
+                    }
+                },
+                data: {
+                    labels: {!! json_encode($dirawatDate) !!},
+                    datasets: [{
+                        label: 'performance',
+                        data: {!! json_encode($dataDirawat) !!}
+                    }]
+                }
+            });
+        
+                // Save to jQuery object
+            function removeData(chartIndoDirawat) {
+                chartIndoDirawat.destroy();
+            }
+
+            function addData(chartIndoDirawat, label, data) {
+                
+            }
+        $("#btn1IndoDirawat").on("click", function() {
+            // var chart = ordersChart
+            // var label = {!! json_encode($positifDateProv) !!}
+            // var data = {!! json_encode($dataPositifProv) !!}
+
+            // chart.data.labels.pop();
+            // chart.data.datasets.forEach((dataset) => {
+            //     dataset.data.pop();
+            // });
+            // chart.update();
+
+            if(window.ordersChartIndoDirawat && window.ordersChartIndoDirawat !== null){
+                window.ordersChartIndoDirawat.destroy();
+            }
+
+            var label = {!! json_encode($dirawatDate) !!}
+            var data = {!! json_encode($dataDirawat) !!}
+
+            window.ordersChartIndoDirawat = new Chart(ctxIndoDirawat, {
+                type: 'bar',
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                callback: function(value) {
+                                    if (!(value % 10)) {
+                                        //return '$' + value + 'k'
+                                        return value
+                                    }
+                                }
+                            }
+                        }]
+                    },
+                    tooltips: {
+                        callbacks: {
+                            label: function(item, data) {
+                                var label = data.datasets[item.datasetIndex].label || '';
+                                var yLabel = item.yLabel;
+                                var content = '';
+
+                                if (data.datasets.length > 1) {
+                                    content += '<span class="popover-body-label mr-auto">' + label + '</span>';
+                                }
+
+                                content += '<span class="popover-body-value">' + yLabel + '</span>';
+                                
+                                return content;
+                            }
+                        }
+                    }
+                },
+                data: {
+                    labels: label,
+                    datasets: [{
+                        label: 'performance',
+                        data: data
+                    }]
+                }
+            });
+            ordersChartIndoDirawat.update();
+        });
+        $("#btn2IndoDirawat").on("click", function() {
+
+            if(window.ordersChartIndoDirawat && window.ordersChartIndoDirawat !== null){
+                window.ordersChartIndoDirawat.destroy();
+            }
+
+            var label = {!! json_encode($dirawatDateDiff) !!}
+            var data = {!! json_encode($dataDirawatDiff) !!}
+
+            window.ordersChartIndoDirawat = new Chart(ctxIndoDirawat, {
+                type: 'bar',
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                callback: function(value) {
+                                    if (!(value % 10)) {
+                                        //return '$' + value + 'k'
+                                        return value
+                                    }
+                                }
+                            }
+                        }]
+                    },
+                    tooltips: {
+                        callbacks: {
+                            label: function(item, data) {
+                                var label = data.datasets[item.datasetIndex].label || '';
+                                var yLabel = item.yLabel;
+                                var content = '';
+
+                                if (data.datasets.length > 1) {
+                                    content += '<span class="popover-body-label mr-auto">' + label + '</span>';
+                                }
+
+                                content += '<span class="popover-body-value">' + yLabel + '</span>';
+                                
+                                return content;
+                            }
+                        }
+                    }
+                },
+                data: {
+                    labels: label,
+                    datasets: [{
+                        label: 'performance',
+                        data: data
+                    }]
+                }
+            });
+            ordersChartIndoDirawat.update();
+        });
+            $chartIndoDirawat.data('chartIndoDirawat', ordersChartIndoDirawat);
+            
+        }
+
+        // Init chart
+        if ($chartIndoDirawat.length) {
+            initChart($chartIndoDirawat);
+        }
+        })();
+    </script>
 
             <script>
                 var OrdersChartGlobal = (function() {
@@ -1451,7 +2676,580 @@
         })();
     </script>
 
-<script>
+    <script>
+                var OrdersChartGlobalSembuh = (function() {
+
+                var $chartGlobalSembuh = $('#chart-orderss-global-sembuh');
+                var $ordersSelectGlobalSembuh = $('[name="ordersSelect"]');
+
+
+                //
+                // Methods
+                //
+
+                // Init chart
+                function initChart($chartGlobalSembuh) {
+
+                    // Create chart
+                    var ctxGlobalSembuh = document.getElementById('chart-orderss-global-sembuh').getContext('2d');
+
+                    window.ordersChartGlobalSembuh = new Chart(ctxGlobalSembuh, {
+                        type: 'bar',
+                        options: {
+                            scales: {
+                                yAxes: [{
+                                    ticks: {
+                                        callback: function(value) {
+                                            if (!(value % 10)) {
+                                                //return '$' + value + 'k'
+                                                return value
+                                            }
+                                        }
+                                    }
+                                }]
+                            },
+                            tooltips: {
+                                callbacks: {
+                                    label: function(item, data) {
+                                        var label = data.datasets[item.datasetIndex].label || '';
+                                        var yLabel = item.yLabel;
+                                        var content = '';
+
+                                        if (data.datasets.length > 1) {
+                                            content += '<span class="popover-body-label mr-auto">' + label + '</span>';
+                                        }
+
+                                        content += '<span class="popover-body-value">' + yLabel + '</span>';
+                                        
+                                        return content;
+                                    }
+                                }
+                            }
+                        },
+                        data: {
+                            labels: {!! json_encode($sembuhDateGlobal) !!},
+                            datasets: [{
+                                label: 'performance',
+                                data: {!! json_encode($dataSembuhGlobal) !!}
+                            }]
+                        }
+                    });
+                
+                        // Save to jQuery object
+                    function removeData(chartGlobalSembuh) {
+                        chartGlobalSembuh.destroy();
+                    }
+
+                    function addData(chartGlobalSembuh, label, data) {
+                        
+                    }
+                $("#btn1GlobalSembuh").on("click", function() {
+                    // var chart = ordersChart
+                    // var label = {!! json_encode($positifDateProv) !!}
+                    // var data = {!! json_encode($dataPositifProv) !!}
+
+                    // chart.data.labels.pop();
+                    // chart.data.datasets.forEach((dataset) => {
+                    //     dataset.data.pop();
+                    // });
+                    // chart.update();
+
+                    if(window.ordersChartGlobalSembuh && window.ordersChartGlobalSembuh !== null){
+                        window.ordersChartGlobalSembuh.destroy();
+                    }
+
+                    var label = {!! json_encode($sembuhDateGlobal) !!}
+                    var data = {!! json_encode($dataSembuhGlobal) !!}
+
+                    window.ordersChartGlobalSembuh = new Chart(ctxGlobalSembuh, {
+                        type: 'bar',
+                        options: {
+                            scales: {
+                                yAxes: [{
+                                    ticks: {
+                                        callback: function(value) {
+                                            if (!(value % 10)) {
+                                                //return '$' + value + 'k'
+                                                return value
+                                            }
+                                        }
+                                    }
+                                }]
+                            },
+                            tooltips: {
+                                callbacks: {
+                                    label: function(item, data) {
+                                        var label = data.datasets[item.datasetIndex].label || '';
+                                        var yLabel = item.yLabel;
+                                        var content = '';
+
+                                        if (data.datasets.length > 1) {
+                                            content += '<span class="popover-body-label mr-auto">' + label + '</span>';
+                                        }
+
+                                        content += '<span class="popover-body-value">' + yLabel + '</span>';
+                                        
+                                        return content;
+                                    }
+                                }
+                            }
+                        },
+                        data: {
+                            labels: label,
+                            datasets: [{
+                                label: 'performance',
+                                data: data
+                            }]
+                        }
+                    });
+                    ordersChartGlobalSembuh.update();
+                });
+                $("#btn2GlobalSembuh").on("click", function() {
+
+                    if(window.ordersChartGlobalSembuh && window.ordersChartGlobalSembuh !== null){
+                        window.ordersChartGlobalSembuh.destroy();
+                    }
+
+                    var label = {!! json_encode($sembuhDateGlobalDiff) !!}
+                    var data = {!! json_encode($dataSembuhGlobalDiff) !!}
+
+                    window.ordersChartGlobalSembuh = new Chart(ctxGlobalSembuh, {
+                        type: 'bar',
+                        options: {
+                            scales: {
+                                yAxes: [{
+                                    ticks: {
+                                        callback: function(value) {
+                                            if (!(value % 10)) {
+                                                //return '$' + value + 'k'
+                                                return value
+                                            }
+                                        }
+                                    }
+                                }]
+                            },
+                            tooltips: {
+                                callbacks: {
+                                    label: function(item, data) {
+                                        var label = data.datasets[item.datasetIndex].label || '';
+                                        var yLabel = item.yLabel;
+                                        var content = '';
+
+                                        if (data.datasets.length > 1) {
+                                            content += '<span class="popover-body-label mr-auto">' + label + '</span>';
+                                        }
+
+                                        content += '<span class="popover-body-value">' + yLabel + '</span>';
+                                        
+                                        return content;
+                                    }
+                                }
+                            }
+                        },
+                        data: {
+                            labels: label,
+                            datasets: [{
+                                label: 'performance',
+                                data: data
+                            }]
+                        }
+                    });
+                    ordersChartGlobalSembuh.update();
+                });
+                    $chartGlobalSembuh.data('chartGlobalSembuh', ordersChartGlobalSembuh);
+                    
+                }
+
+                // Init chart
+                if ($chartGlobalSembuh.length) {
+                    initChart($chartGlobalSembuh);
+                }
+        })();
+    </script>
+
+    <script>
+                var OrdersChartGlobalMeninggal = (function() {
+
+                var $chartGlobalMeninggal = $('#chart-orderss-global-meninggal');
+                var $ordersSelectGlobalMeninggal = $('[name="ordersSelect"]');
+
+
+                //
+                // Methods
+                //
+
+                // Init chart
+                function initChart($chartGlobalMeninggal) {
+
+                    // Create chart
+                    var ctxGlobalMeninggal = document.getElementById('chart-orderss-global-meninggal').getContext('2d');
+
+                    window.ordersChartGlobalMeninggal = new Chart(ctxGlobalMeninggal, {
+                        type: 'bar',
+                        options: {
+                            scales: {
+                                yAxes: [{
+                                    ticks: {
+                                        callback: function(value) {
+                                            if (!(value % 10)) {
+                                                //return '$' + value + 'k'
+                                                return value
+                                            }
+                                        }
+                                    }
+                                }]
+                            },
+                            tooltips: {
+                                callbacks: {
+                                    label: function(item, data) {
+                                        var label = data.datasets[item.datasetIndex].label || '';
+                                        var yLabel = item.yLabel;
+                                        var content = '';
+
+                                        if (data.datasets.length > 1) {
+                                            content += '<span class="popover-body-label mr-auto">' + label + '</span>';
+                                        }
+
+                                        content += '<span class="popover-body-value">' + yLabel + '</span>';
+                                        
+                                        return content;
+                                    }
+                                }
+                            }
+                        },
+                        data: {
+                            labels: {!! json_encode($meninggalDateGlobal) !!},
+                            datasets: [{
+                                label: 'performance',
+                                data: {!! json_encode($dataMeninggalGlobal) !!}
+                            }]
+                        }
+                    });
+                
+                        // Save to jQuery object
+                    function removeData(chartGlobalMeninggal) {
+                        chartGlobalMeninggal.destroy();
+                    }
+
+                    function addData(chartGlobalSembuh, label, data) {
+                        
+                    }
+                $("#btn1GlobalMeninggal").on("click", function() {
+                    // var chart = ordersChart
+                    // var label = {!! json_encode($positifDateProv) !!}
+                    // var data = {!! json_encode($dataPositifProv) !!}
+
+                    // chart.data.labels.pop();
+                    // chart.data.datasets.forEach((dataset) => {
+                    //     dataset.data.pop();
+                    // });
+                    // chart.update();
+
+                    if(window.ordersChartGlobalMeninggal && window.ordersChartGlobalMeninggal !== null){
+                        window.ordersChartGlobalMeninggal.destroy();
+                    }
+
+                    var label = {!! json_encode($meninggalDateGlobal) !!}
+                    var data = {!! json_encode($dataMeninggalGlobal) !!}
+
+                    window.ordersChartGlobalMeninggal = new Chart(ctxGlobalMeninggal, {
+                        type: 'bar',
+                        options: {
+                            scales: {
+                                yAxes: [{
+                                    ticks: {
+                                        callback: function(value) {
+                                            if (!(value % 10)) {
+                                                //return '$' + value + 'k'
+                                                return value
+                                            }
+                                        }
+                                    }
+                                }]
+                            },
+                            tooltips: {
+                                callbacks: {
+                                    label: function(item, data) {
+                                        var label = data.datasets[item.datasetIndex].label || '';
+                                        var yLabel = item.yLabel;
+                                        var content = '';
+
+                                        if (data.datasets.length > 1) {
+                                            content += '<span class="popover-body-label mr-auto">' + label + '</span>';
+                                        }
+
+                                        content += '<span class="popover-body-value">' + yLabel + '</span>';
+                                        
+                                        return content;
+                                    }
+                                }
+                            }
+                        },
+                        data: {
+                            labels: label,
+                            datasets: [{
+                                label: 'performance',
+                                data: data
+                            }]
+                        }
+                    });
+                    ordersChartGlobalMeninggal.update();
+                });
+                $("#btn2GlobalMeninggal").on("click", function() {
+
+                    if(window.ordersChartGlobalMeninggal && window.ordersChartGlobalMeninggal !== null){
+                        window.ordersChartGlobalMeninggal.destroy();
+                    }
+
+                    var label = {!! json_encode($meninggalDateGlobalDiff) !!}
+                    var data = {!! json_encode($dataMeninggalGlobalDiff) !!}
+
+                    window.ordersChartGlobalMeninggal = new Chart(ctxGlobalMeninggal, {
+                        type: 'bar',
+                        options: {
+                            scales: {
+                                yAxes: [{
+                                    ticks: {
+                                        callback: function(value) {
+                                            if (!(value % 10)) {
+                                                //return '$' + value + 'k'
+                                                return value
+                                            }
+                                        }
+                                    }
+                                }]
+                            },
+                            tooltips: {
+                                callbacks: {
+                                    label: function(item, data) {
+                                        var label = data.datasets[item.datasetIndex].label || '';
+                                        var yLabel = item.yLabel;
+                                        var content = '';
+
+                                        if (data.datasets.length > 1) {
+                                            content += '<span class="popover-body-label mr-auto">' + label + '</span>';
+                                        }
+
+                                        content += '<span class="popover-body-value">' + yLabel + '</span>';
+                                        
+                                        return content;
+                                    }
+                                }
+                            }
+                        },
+                        data: {
+                            labels: label,
+                            datasets: [{
+                                label: 'performance',
+                                data: data
+                            }]
+                        }
+                    });
+                    ordersChartGlobalMeninggal.update();
+                });
+                    $chartGlobalMeninggal.data('chartGlobalMeninggal', ordersChartGlobalMeninggal);
+                    
+                }
+
+                // Init chart
+                if ($chartGlobalMeninggal.length) {
+                    initChart($chartGlobalMeninggal);
+                }
+        })();
+    </script>
+
+    <script>
+                var OrdersChartGlobalDirawat= (function() {
+
+                var $chartGlobalDirawat = $('#chart-orderss-global-dirawat');
+                var $ordersSelectGlobalDirawat = $('[name="ordersSelect"]');
+
+
+                //
+                // Methods
+                //
+
+                // Init chart
+                function initChart($chartGlobalDirawat) {
+
+                    // Create chart
+                    var ctxGlobalMeninggal = document.getElementById('chart-orderss-global-dirawat').getContext('2d');
+
+                    window.ordersChartGlobalDirawat = new Chart(ctxGlobalMeninggal, {
+                        type: 'bar',
+                        options: {
+                            scales: {
+                                yAxes: [{
+                                    ticks: {
+                                        callback: function(value) {
+                                            if (!(value % 10)) {
+                                                //return '$' + value + 'k'
+                                                return value
+                                            }
+                                        }
+                                    }
+                                }]
+                            },
+                            tooltips: {
+                                callbacks: {
+                                    label: function(item, data) {
+                                        var label = data.datasets[item.datasetIndex].label || '';
+                                        var yLabel = item.yLabel;
+                                        var content = '';
+
+                                        if (data.datasets.length > 1) {
+                                            content += '<span class="popover-body-label mr-auto">' + label + '</span>';
+                                        }
+
+                                        content += '<span class="popover-body-value">' + yLabel + '</span>';
+                                        
+                                        return content;
+                                    }
+                                }
+                            }
+                        },
+                        data: {
+                            labels: {!! json_encode($dirawatDateGlobal) !!},
+                            datasets: [{
+                                label: 'performance',
+                                data: {!! json_encode($dataDirawatGlobal) !!}
+                            }]
+                        }
+                    });
+                
+                        // Save to jQuery object
+                    function removeData(chartGlobalDirawat) {
+                        chartGlobalDirawat.destroy();
+                    }
+
+                    function addData(chartGlobalDirawat, label, data) {
+                        
+                    }
+                $("#btn1GlobalDirawat").on("click", function() {
+                    // var chart = ordersChart
+                    // var label = {!! json_encode($positifDateProv) !!}
+                    // var data = {!! json_encode($dataPositifProv) !!}
+
+                    // chart.data.labels.pop();
+                    // chart.data.datasets.forEach((dataset) => {
+                    //     dataset.data.pop();
+                    // });
+                    // chart.update();
+
+                    if(window.ordersChartGlobalDirawat && window.ordersChartGlobalDirawat !== null){
+                        window.ordersChartGlobalDirawat.destroy();
+                    }
+
+                    var label = {!! json_encode($dirawatDateGlobal) !!}
+                    var data = {!! json_encode($dataDirawatGlobal) !!}
+
+                    window.ordersChartGlobalDirawat = new Chart(ctxGlobalMeninggal, {
+                        type: 'bar',
+                        options: {
+                            scales: {
+                                yAxes: [{
+                                    ticks: {
+                                        callback: function(value) {
+                                            if (!(value % 10)) {
+                                                //return '$' + value + 'k'
+                                                return value
+                                            }
+                                        }
+                                    }
+                                }]
+                            },
+                            tooltips: {
+                                callbacks: {
+                                    label: function(item, data) {
+                                        var label = data.datasets[item.datasetIndex].label || '';
+                                        var yLabel = item.yLabel;
+                                        var content = '';
+
+                                        if (data.datasets.length > 1) {
+                                            content += '<span class="popover-body-label mr-auto">' + label + '</span>';
+                                        }
+
+                                        content += '<span class="popover-body-value">' + yLabel + '</span>';
+                                        
+                                        return content;
+                                    }
+                                }
+                            }
+                        },
+                        data: {
+                            labels: label,
+                            datasets: [{
+                                label: 'performance',
+                                data: data
+                            }]
+                        }
+                    });
+                    ordersChartGlobalDirawat.update();
+                });
+                $("#btn2GlobalDirawat").on("click", function() {
+
+                    if(window.ordersChartGlobalDirawat && window.ordersChartGlobalDirawat !== null){
+                        window.ordersChartGlobalDirawat.destroy();
+                    }
+
+                    var label = {!! json_encode($dirawatDateGlobalDiff) !!}
+                    var data = {!! json_encode($dataDirawatGlobalDiff) !!}
+
+                    window.ordersChartGlobalDirawat = new Chart(ctxGlobalMeninggal, {
+                        type: 'bar',
+                        options: {
+                            scales: {
+                                yAxes: [{
+                                    ticks: {
+                                        callback: function(value) {
+                                            if (!(value % 10)) {
+                                                //return '$' + value + 'k'
+                                                return value
+                                            }
+                                        }
+                                    }
+                                }]
+                            },
+                            tooltips: {
+                                callbacks: {
+                                    label: function(item, data) {
+                                        var label = data.datasets[item.datasetIndex].label || '';
+                                        var yLabel = item.yLabel;
+                                        var content = '';
+
+                                        if (data.datasets.length > 1) {
+                                            content += '<span class="popover-body-label mr-auto">' + label + '</span>';
+                                        }
+
+                                        content += '<span class="popover-body-value">' + yLabel + '</span>';
+                                        
+                                        return content;
+                                    }
+                                }
+                            }
+                        },
+                        data: {
+                            labels: label,
+                            datasets: [{
+                                label: 'performance',
+                                data: data
+                            }]
+                        }
+                    });
+                    ordersChartGlobalDirawat.update();
+                });
+                    $chartGlobalDirawat.data('chartGlobalDirawat', ordersChartGlobalDirawat);
+                    
+                }
+
+                // Init chart
+                if ($chartGlobalDirawat.length) {
+                    initChart($chartGlobalDirawat);
+                }
+        })();
+    </script>
+
+    <script>
         var OrdersChartBali = (function() {
 
         var $chartBali = $('#chart-orderss-bali');
@@ -1642,6 +3440,579 @@
         })();
     </script>
     
+    <script>
+        var OrdersChartBaliSembuh = (function() {
+
+        var $chartBaliSembuh = $('#chart-orderss-bali-sembuh');
+        var $ordersSelectBaliSembuh = $('[name="ordersSelect"]');
+
+
+        //
+        // Methods
+        //
+
+        // Init chart
+        function initChart($chartBaliSembuh) {
+
+            // Create chart
+            var ctxBaliSembuh = document.getElementById('chart-orderss-bali-sembuh').getContext('2d');
+
+            window.ordersChartBaliSembuh = new Chart(ctxBaliSembuh, {
+                type: 'bar',
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                callback: function(value) {
+                                    if (!(value % 10)) {
+                                        //return '$' + value + 'k'
+                                        return value
+                                    }
+                                }
+                            }
+                        }]
+                    },
+                    tooltips: {
+                        callbacks: {
+                            label: function(item, data) {
+                                var label = data.datasets[item.datasetIndex].label || '';
+                                var yLabel = item.yLabel;
+                                var content = '';
+
+                                if (data.datasets.length > 1) {
+                                    content += '<span class="popover-body-label mr-auto">' + label + '</span>';
+                                }
+
+                                content += '<span class="popover-body-value">' + yLabel + '</span>';
+                                
+                                return content;
+                            }
+                        }
+                    }
+                },
+                data: {
+                    labels: {!! json_encode($sembuhDateBali) !!},
+                    datasets: [{
+                        label: 'performance',
+                        data: {!! json_encode($dataSembuhBali) !!}
+                    }]
+                }
+            });
+        
+                // Save to jQuery object
+            function removeData(chartBaliSembuh) {
+                chartBaliSembuh.destroy();
+            }
+
+            function addData(chartBaliSembuh, label, data) {
+                
+            }
+        $("#btn1BaliSembuh").on("click", function() {
+            // var chart = ordersChart
+            // var label = {!! json_encode($positifDateProv) !!}
+            // var data = {!! json_encode($dataPositifProv) !!}
+
+            // chart.data.labels.pop();
+            // chart.data.datasets.forEach((dataset) => {
+            //     dataset.data.pop();
+            // });
+            // chart.update();
+
+            if(window.ordersChartBaliSembuh && window.ordersChartBaliSembuh !== null){
+                window.ordersChartBaliSembuh.destroy();
+            }
+
+            var label = {!! json_encode($sembuhDateBali) !!}
+            var data = {!! json_encode($dataSembuhBali) !!}
+
+            window.ordersChartBaliSembuh = new Chart(ctxBaliSembuh, {
+                type: 'bar',
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                callback: function(value) {
+                                    if (!(value % 10)) {
+                                        //return '$' + value + 'k'
+                                        return value
+                                    }
+                                }
+                            }
+                        }]
+                    },
+                    tooltips: {
+                        callbacks: {
+                            label: function(item, data) {
+                                var label = data.datasets[item.datasetIndex].label || '';
+                                var yLabel = item.yLabel;
+                                var content = '';
+
+                                if (data.datasets.length > 1) {
+                                    content += '<span class="popover-body-label mr-auto">' + label + '</span>';
+                                }
+
+                                content += '<span class="popover-body-value">' + yLabel + '</span>';
+                                
+                                return content;
+                            }
+                        }
+                    }
+                },
+                data: {
+                    labels: label,
+                    datasets: [{
+                        label: 'performance',
+                        data: data
+                    }]
+                }
+            });
+            ordersChartBaliSembuh.update();
+        });
+        $("#btn2BaliSembuh").on("click", function() {
+
+            if(window.ordersChartBaliSembuh && window.ordersChartBaliSembuh !== null){
+                window.ordersChartBaliSembuh.destroy();
+            }
+
+            var label = {!! json_encode($sembuhDateBaliDiff) !!}
+            var data = {!! json_encode($dataSembuhBaliDiff) !!}
+
+            window.ordersChartBaliSembuh = new Chart(ctxBaliSembuh, {
+                type: 'bar',
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                callback: function(value) {
+                                    if (!(value % 10)) {
+                                        //return '$' + value + 'k'
+                                        return value
+                                    }
+                                }
+                            }
+                        }]
+                    },
+                    tooltips: {
+                        callbacks: {
+                            label: function(item, data) {
+                                var label = data.datasets[item.datasetIndex].label || '';
+                                var yLabel = item.yLabel;
+                                var content = '';
+
+                                if (data.datasets.length > 1) {
+                                    content += '<span class="popover-body-label mr-auto">' + label + '</span>';
+                                }
+
+                                content += '<span class="popover-body-value">' + yLabel + '</span>';
+                                
+                                return content;
+                            }
+                        }
+                    }
+                },
+                data: {
+                    labels: label,
+                    datasets: [{
+                        label: 'performance',
+                        data: data
+                    }]
+                }
+            });
+            ordersChartBaliSembuh.update();
+        });
+            $chartBaliSembuh.data('chartBaliSembuh', ordersChartBaliSembuh);
+            
+        }
+
+        // Init chart
+        if ($chartBaliSembuh.length) {
+            initChart($chartBaliSembuh);
+        }
+        })();
+    </script>
+
+    <script>
+        var OrdersChartBaliMeninggal = (function() {
+
+        var $chartBaliMeninggal = $('#chart-orderss-bali-meninggal');
+        var $ordersSelectBaliMeninggal = $('[name="ordersSelect"]');
+
+
+        //
+        // Methods
+        //
+
+        // Init chart
+        function initChart($chartBaliMeninggal) {
+
+            // Create chart
+            var ctxBaliMeninggal = document.getElementById('chart-orderss-bali-meninggal').getContext('2d');
+
+            window.ordersChartBaliMeninggal = new Chart(ctxBaliMeninggal, {
+                type: 'bar',
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                callback: function(value) {
+                                    if (!(value % 10)) {
+                                        //return '$' + value + 'k'
+                                        return value
+                                    }
+                                }
+                            }
+                        }]
+                    },
+                    tooltips: {
+                        callbacks: {
+                            label: function(item, data) {
+                                var label = data.datasets[item.datasetIndex].label || '';
+                                var yLabel = item.yLabel;
+                                var content = '';
+
+                                if (data.datasets.length > 1) {
+                                    content += '<span class="popover-body-label mr-auto">' + label + '</span>';
+                                }
+
+                                content += '<span class="popover-body-value">' + yLabel + '</span>';
+                                
+                                return content;
+                            }
+                        }
+                    }
+                },
+                data: {
+                    labels: {!! json_encode($meninggalDateBali) !!},
+                    datasets: [{
+                        label: 'performance',
+                        data: {!! json_encode($dataMeninggalBali) !!}
+                    }]
+                }
+            });
+        
+                // Save to jQuery object
+            function removeData(chartBaliMeninggal) {
+                chartBaliMeninggal.destroy();
+            }
+
+            function addData(chartBaliMeninggal, label, data) {
+                
+            }
+        $("#btn1BaliMeninggal").on("click", function() {
+            // var chart = ordersChart
+            // var label = {!! json_encode($positifDateProv) !!}
+            // var data = {!! json_encode($dataPositifProv) !!}
+
+            // chart.data.labels.pop();
+            // chart.data.datasets.forEach((dataset) => {
+            //     dataset.data.pop();
+            // });
+            // chart.update();
+
+            if(window.ordersChartBaliMeninggal && window.ordersChartBaliMeninggal !== null){
+                window.ordersChartBaliMeninggal.destroy();
+            }
+
+            var label = {!! json_encode($meninggalDateBali) !!}
+            var data = {!! json_encode($dataMeninggalBali) !!}
+
+            window.ordersChartBaliMeninggal = new Chart(ctxBaliMeninggal, {
+                type: 'bar',
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                callback: function(value) {
+                                    if (!(value % 10)) {
+                                        //return '$' + value + 'k'
+                                        return value
+                                    }
+                                }
+                            }
+                        }]
+                    },
+                    tooltips: {
+                        callbacks: {
+                            label: function(item, data) {
+                                var label = data.datasets[item.datasetIndex].label || '';
+                                var yLabel = item.yLabel;
+                                var content = '';
+
+                                if (data.datasets.length > 1) {
+                                    content += '<span class="popover-body-label mr-auto">' + label + '</span>';
+                                }
+
+                                content += '<span class="popover-body-value">' + yLabel + '</span>';
+                                
+                                return content;
+                            }
+                        }
+                    }
+                },
+                data: {
+                    labels: label,
+                    datasets: [{
+                        label: 'performance',
+                        data: data
+                    }]
+                }
+            });
+            ordersChartBaliMeninggal.update();
+        });
+        $("#btn2BaliMeninggal").on("click", function() {
+
+            if(window.ordersChartBaliMeninggal && window.ordersChartBaliMeninggal !== null){
+                window.ordersChartBaliMeninggal.destroy();
+            }
+
+            var label = {!! json_encode($meninggalDateBaliDiff) !!}
+            var data = {!! json_encode($dataMeninggalBaliDiff) !!}
+
+            window.ordersChartBaliMeninggal = new Chart(ctxBaliMeninggal, {
+                type: 'bar',
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                callback: function(value) {
+                                    if (!(value % 10)) {
+                                        //return '$' + value + 'k'
+                                        return value
+                                    }
+                                }
+                            }
+                        }]
+                    },
+                    tooltips: {
+                        callbacks: {
+                            label: function(item, data) {
+                                var label = data.datasets[item.datasetIndex].label || '';
+                                var yLabel = item.yLabel;
+                                var content = '';
+
+                                if (data.datasets.length > 1) {
+                                    content += '<span class="popover-body-label mr-auto">' + label + '</span>';
+                                }
+
+                                content += '<span class="popover-body-value">' + yLabel + '</span>';
+                                
+                                return content;
+                            }
+                        }
+                    }
+                },
+                data: {
+                    labels: label,
+                    datasets: [{
+                        label: 'performance',
+                        data: data
+                    }]
+                }
+            });
+            ordersChartBaliMeninggal.update();
+        });
+            $chartBaliMeninggal.data('chartBaliMeninggal', ordersChartBaliMeninggal);
+            
+        }
+
+        // Init chart
+        if ($chartBaliMeninggal.length) {
+            initChart($chartBaliMeninggal);
+        }
+        })();
+    </script>
+
+    <script>
+        var OrdersChartBaliDirawat = (function() {
+
+        var $chartBaliDirawat = $('#chart-orderss-bali-dirawat');
+        var $ordersSelectBaliDirawat = $('[name="ordersSelect"]');
+
+
+        //
+        // Methods
+        //
+
+        // Init chart
+        function initChart($chartBaliDirawat) {
+
+            // Create chart
+            var ctxBaliDirawat = document.getElementById('chart-orderss-bali-dirawat').getContext('2d');
+
+            window.ordersChartBaliDirawat = new Chart(ctxBaliDirawat, {
+                type: 'bar',
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                callback: function(value) {
+                                    if (!(value % 10)) {
+                                        //return '$' + value + 'k'
+                                        return value
+                                    }
+                                }
+                            }
+                        }]
+                    },
+                    tooltips: {
+                        callbacks: {
+                            label: function(item, data) {
+                                var label = data.datasets[item.datasetIndex].label || '';
+                                var yLabel = item.yLabel;
+                                var content = '';
+
+                                if (data.datasets.length > 1) {
+                                    content += '<span class="popover-body-label mr-auto">' + label + '</span>';
+                                }
+
+                                content += '<span class="popover-body-value">' + yLabel + '</span>';
+                                
+                                return content;
+                            }
+                        }
+                    }
+                },
+                data: {
+                    labels: {!! json_encode($dirawatDateBali) !!},
+                    datasets: [{
+                        label: 'performance',
+                        data: {!! json_encode($dataDirawatBali) !!}
+                    }]
+                }
+            });
+        
+                // Save to jQuery object
+            function removeData(chartBaliDirawat) {
+                chartBaliDirawat.destroy();
+            }
+
+            function addData(chartBaliDirawat, label, data) {
+                
+            }
+        $("#btn1BaliDirawat").on("click", function() {
+            // var chart = ordersChart
+            // var label = {!! json_encode($positifDateProv) !!}
+            // var data = {!! json_encode($dataPositifProv) !!}
+
+            // chart.data.labels.pop();
+            // chart.data.datasets.forEach((dataset) => {
+            //     dataset.data.pop();
+            // });
+            // chart.update();
+
+            if(window.ordersChartBaliDirawat && window.ordersChartBaliDirawat !== null){
+                window.ordersChartBaliDirawat.destroy();
+            }
+
+            var label = {!! json_encode($dirawatDateBali) !!}
+            var data = {!! json_encode($dataDirawatBali) !!}
+
+            window.ordersChartBaliDirawat = new Chart(ctxBaliDirawat, {
+                type: 'bar',
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                callback: function(value) {
+                                    if (!(value % 10)) {
+                                        //return '$' + value + 'k'
+                                        return value
+                                    }
+                                }
+                            }
+                        }]
+                    },
+                    tooltips: {
+                        callbacks: {
+                            label: function(item, data) {
+                                var label = data.datasets[item.datasetIndex].label || '';
+                                var yLabel = item.yLabel;
+                                var content = '';
+
+                                if (data.datasets.length > 1) {
+                                    content += '<span class="popover-body-label mr-auto">' + label + '</span>';
+                                }
+
+                                content += '<span class="popover-body-value">' + yLabel + '</span>';
+                                
+                                return content;
+                            }
+                        }
+                    }
+                },
+                data: {
+                    labels: label,
+                    datasets: [{
+                        label: 'performance',
+                        data: data
+                    }]
+                }
+            });
+            ordersChartBaliDirawat.update();
+        });
+        $("#btn2BaliDirawat").on("click", function() {
+
+            if(window.ordersChartBaliDirawat && window.ordersChartBaliDirawat !== null){
+                window.ordersChartBaliDirawat.destroy();
+            }
+
+            var label = {!! json_encode($dirawatDateBaliDiff) !!}
+            var data = {!! json_encode($dataDirawatBaliDiff) !!}
+
+            window.ordersChartBaliDirawat = new Chart(ctxBaliDirawat, {
+                type: 'bar',
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                callback: function(value) {
+                                    if (!(value % 10)) {
+                                        //return '$' + value + 'k'
+                                        return value
+                                    }
+                                }
+                            }
+                        }]
+                    },
+                    tooltips: {
+                        callbacks: {
+                            label: function(item, data) {
+                                var label = data.datasets[item.datasetIndex].label || '';
+                                var yLabel = item.yLabel;
+                                var content = '';
+
+                                if (data.datasets.length > 1) {
+                                    content += '<span class="popover-body-label mr-auto">' + label + '</span>';
+                                }
+
+                                content += '<span class="popover-body-value">' + yLabel + '</span>';
+                                
+                                return content;
+                            }
+                        }
+                    }
+                },
+                data: {
+                    labels: label,
+                    datasets: [{
+                        label: 'performance',
+                        data: data
+                    }]
+                }
+            });
+            ordersChartBaliDirawat.update();
+        });
+            $chartBaliDirawat.data('chartBaliDirawat', ordersChartBaliDirawat);
+            
+        }
+
+        // Init chart
+        if ($chartBaliDirawat.length) {
+            initChart($chartBaliDirawat);
+        }
+        })();
+    </script>
+
     <script>
         var OrdersChartProv = (function() {
 
@@ -1834,4 +4205,581 @@
 
     </script>
 
+    <script>
+        var OrdersChartProvSembuh = (function() {
+
+        var $chartProvSembuh = $('#chart-orderss-prov-sembuh');
+        var $ordersSelectProvSembuh = $('[name="ordersSelect"]');
+
+
+        //
+        // Methods
+        //
+
+        // Init chart
+        function initChart($chartProvSembuh) {
+
+            // Create chart
+            var ctxProvSembuh = document.getElementById('chart-orderss-prov-sembuh').getContext('2d');
+
+            window.ordersChartProvSembuh = new Chart(ctxProvSembuh, {
+                type: 'bar',
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                callback: function(value) {
+                                    if (!(value % 10)) {
+                                        //return '$' + value + 'k'
+                                        return value
+                                    }
+                                }
+                            }
+                        }]
+                    },
+                    tooltips: {
+                        callbacks: {
+                            label: function(item, data) {
+                                var label = data.datasets[item.datasetIndex].label || '';
+                                var yLabel = item.yLabel;
+                                var content = '';
+
+                                if (data.datasets.length > 1) {
+                                    content += '<span class="popover-body-label mr-auto">' + label + '</span>';
+                                }
+
+                                content += '<span class="popover-body-value">' + yLabel + '</span>';
+                                
+                                return content;
+                            }
+                        }
+                    }
+                },
+                data: {
+                    labels: {!! json_encode($sembuhDateProv) !!},
+                    datasets: [{
+                        label: 'performance',
+                        data: {!! json_encode($dataSembuhProv) !!}
+                    }]
+                }
+            });
+           
+                // Save to jQuery object
+            function removeData(chartProvSembuh) {
+                chartProvSembuh.destroy();
+            }
+
+            function addData(chartProvSembuh, label, data) {
+                
+            }
+        $("#btn1Sembuh").on("click", function() {
+            // var chart = ordersChart
+            // var label = {!! json_encode($positifDateProv) !!}
+            // var data = {!! json_encode($dataPositifProv) !!}
+
+            // chart.data.labels.pop();
+            // chart.data.datasets.forEach((dataset) => {
+            //     dataset.data.pop();
+            // });
+            // chart.update();
+
+            if(window.ordersChartProvSembuh && window.ordersChartProvSembuh !== null){
+                window.ordersChartProvSembuh.destroy();
+            }
+
+            var label = {!! json_encode($sembuhDateProv) !!}
+            var data = {!! json_encode($dataSembuhProv) !!}
+
+            window.ordersChartProvSembuh = new Chart(ctxProvSembuh, {
+                type: 'bar',
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                callback: function(value) {
+                                    if (!(value % 10)) {
+                                        //return '$' + value + 'k'
+                                        return value
+                                    }
+                                }
+                            }
+                        }]
+                    },
+                    tooltips: {
+                        callbacks: {
+                            label: function(item, data) {
+                                var label = data.datasets[item.datasetIndex].label || '';
+                                var yLabel = item.yLabel;
+                                var content = '';
+
+                                if (data.datasets.length > 1) {
+                                    content += '<span class="popover-body-label mr-auto">' + label + '</span>';
+                                }
+
+                                content += '<span class="popover-body-value">' + yLabel + '</span>';
+                                
+                                return content;
+                            }
+                        }
+                    }
+                },
+                data: {
+                    labels: label,
+                    datasets: [{
+                        label: 'performance',
+                        data: data
+                    }]
+                }
+            });
+            ordersChartProvSembuh.update();
+        });
+        $("#btn2Sembuh").on("click", function() {
+
+            if(window.ordersChartProvSembuh && window.ordersChartProvSembuh !== null){
+                window.ordersChartProvSembuh.destroy();
+            }
+
+            var label = {!! json_encode($sembuhDateProvDiff) !!}
+            var data = {!! json_encode($dataSembuhProvDiff) !!}
+
+            window.ordersChartProvSembuh = new Chart(ctxProvSembuh, {
+                type: 'bar',
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                callback: function(value) {
+                                    if (!(value % 10)) {
+                                        //return '$' + value + 'k'
+                                        return value
+                                    }
+                                }
+                            }
+                        }]
+                    },
+                    tooltips: {
+                        callbacks: {
+                            label: function(item, data) {
+                                var label = data.datasets[item.datasetIndex].label || '';
+                                var yLabel = item.yLabel;
+                                var content = '';
+
+                                if (data.datasets.length > 1) {
+                                    content += '<span class="popover-body-label mr-auto">' + label + '</span>';
+                                }
+
+                                content += '<span class="popover-body-value">' + yLabel + '</span>';
+                                
+                                return content;
+                            }
+                        }
+                    }
+                },
+                data: {
+                    labels: label,
+                    datasets: [{
+                        label: 'performance',
+                        data: data
+                    }]
+                }
+            });
+            ordersChartProvSembuh.update();
+        });
+            $chartProvSembuh.data('chartProvSembuh', ordersChartProvSembuh);
+            
+        }
+        
+        // Init chart
+        if ($chartProvSembuh.length) {
+            initChart($chartProvSembuh);
+        }
+        })();
+
+    </script>
+
+    <script>
+        var OrdersChartProvMeninggal = (function() {
+
+        var $chartProvMeninggal = $('#chart-orderss-prov-meninggal');
+        var $ordersSelectProvMeninggal = $('[name="ordersSelect"]');
+
+
+        //
+        // Methods
+        //
+
+        // Init chart
+        function initChart($chartProvMeninggal) {
+
+            // Create chart
+            var ctxProvMeninggal = document.getElementById('chart-orderss-prov-meninggal').getContext('2d');
+
+            window.ordersChartProvMeninggal = new Chart(ctxProvMeninggal, {
+                type: 'bar',
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                callback: function(value) {
+                                    if (!(value % 10)) {
+                                        //return '$' + value + 'k'
+                                        return value
+                                    }
+                                }
+                            }
+                        }]
+                    },
+                    tooltips: {
+                        callbacks: {
+                            label: function(item, data) {
+                                var label = data.datasets[item.datasetIndex].label || '';
+                                var yLabel = item.yLabel;
+                                var content = '';
+
+                                if (data.datasets.length > 1) {
+                                    content += '<span class="popover-body-label mr-auto">' + label + '</span>';
+                                }
+
+                                content += '<span class="popover-body-value">' + yLabel + '</span>';
+                                
+                                return content;
+                            }
+                        }
+                    }
+                },
+                data: {
+                    labels: {!! json_encode($meninggalDateProv) !!},
+                    datasets: [{
+                        label: 'performance',
+                        data: {!! json_encode($dataMeninggalProv) !!}
+                    }]
+                }
+            });
+           
+                // Save to jQuery object
+            function removeData(chartProvMeninggal) {
+                chartProvMeninggal.destroy();
+            }
+
+            function addData(chartProvMeninggal, label, data) {
+                
+            }
+        $("#btn1Meninggal").on("click", function() {
+            // var chart = ordersChart
+            // var label = {!! json_encode($positifDateProv) !!}
+            // var data = {!! json_encode($dataPositifProv) !!}
+
+            // chart.data.labels.pop();
+            // chart.data.datasets.forEach((dataset) => {
+            //     dataset.data.pop();
+            // });
+            // chart.update();
+
+            if(window.ordersChartProvMeninggal && window.ordersChartProvMeninggal !== null){
+                window.ordersChartProvMeninggal.destroy();
+            }
+
+            var label = {!! json_encode($meninggalDateProv) !!}
+            var data = {!! json_encode($dataMeninggalProv) !!}
+
+            window.ordersChartProvMeninggal = new Chart(ctxProvMeninggal, {
+                type: 'bar',
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                callback: function(value) {
+                                    if (!(value % 10)) {
+                                        //return '$' + value + 'k'
+                                        return value
+                                    }
+                                }
+                            }
+                        }]
+                    },
+                    tooltips: {
+                        callbacks: {
+                            label: function(item, data) {
+                                var label = data.datasets[item.datasetIndex].label || '';
+                                var yLabel = item.yLabel;
+                                var content = '';
+
+                                if (data.datasets.length > 1) {
+                                    content += '<span class="popover-body-label mr-auto">' + label + '</span>';
+                                }
+
+                                content += '<span class="popover-body-value">' + yLabel + '</span>';
+                                
+                                return content;
+                            }
+                        }
+                    }
+                },
+                data: {
+                    labels: label,
+                    datasets: [{
+                        label: 'performance',
+                        data: data
+                    }]
+                }
+            });
+            ordersChartProvMeninggal.update();
+        });
+        $("#btn2Meninggal").on("click", function() {
+
+            if(window.ordersChartProvMeninggal && window.ordersChartProvMeninggal !== null){
+                window.ordersChartProvMeninggal.destroy();
+            }
+
+            var label = {!! json_encode($meninggalDateProvDiff) !!}
+            var data = {!! json_encode($dataMeninggalProvDiff) !!}
+
+            window.ordersChartProvMeninggal = new Chart(ctxProvMeninggal, {
+                type: 'bar',
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                callback: function(value) {
+                                    if (!(value % 10)) {
+                                        //return '$' + value + 'k'
+                                        return value
+                                    }
+                                }
+                            }
+                        }]
+                    },
+                    tooltips: {
+                        callbacks: {
+                            label: function(item, data) {
+                                var label = data.datasets[item.datasetIndex].label || '';
+                                var yLabel = item.yLabel;
+                                var content = '';
+
+                                if (data.datasets.length > 1) {
+                                    content += '<span class="popover-body-label mr-auto">' + label + '</span>';
+                                }
+
+                                content += '<span class="popover-body-value">' + yLabel + '</span>';
+                                
+                                return content;
+                            }
+                        }
+                    }
+                },
+                data: {
+                    labels: label,
+                    datasets: [{
+                        label: 'performance',
+                        data: data
+                    }]
+                }
+            });
+            ordersChartProvMeninggal.update();
+        });
+            $chartProvMeninggal.data('chartProvMeninggal', ordersChartProvMeninggal);
+            
+        }
+        
+        // Init chart
+        if ($chartProvMeninggal.length) {
+            initChart($chartProvMeninggal);
+        }
+        })();
+
+    </script>
+
+    <script>
+        var OrdersChartProvDirawat = (function() {
+
+        var $chartProvDirawat = $('#chart-orderss-prov-dirawat');
+        var $ordersSelectProvDirawat = $('[name="ordersSelect"]');
+
+
+        //
+        // Methods
+        //
+
+        // Init chart
+        function initChart($chartProvDirawat) {
+
+            // Create chart
+            var ctxProvDirawat = document.getElementById('chart-orderss-prov-dirawat').getContext('2d');
+
+            window.ordersChartProvDirawat = new Chart(ctxProvDirawat, {
+                type: 'bar',
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                callback: function(value) {
+                                    if (!(value % 10)) {
+                                        //return '$' + value + 'k'
+                                        return value
+                                    }
+                                }
+                            }
+                        }]
+                    },
+                    tooltips: {
+                        callbacks: {
+                            label: function(item, data) {
+                                var label = data.datasets[item.datasetIndex].label || '';
+                                var yLabel = item.yLabel;
+                                var content = '';
+
+                                if (data.datasets.length > 1) {
+                                    content += '<span class="popover-body-label mr-auto">' + label + '</span>';
+                                }
+
+                                content += '<span class="popover-body-value">' + yLabel + '</span>';
+                                
+                                return content;
+                            }
+                        }
+                    }
+                },
+                data: {
+                    labels: {!! json_encode($dirawatDateProv) !!},
+                    datasets: [{
+                        label: 'performance',
+                        data: {!! json_encode($dataDirawatProv) !!}
+                    }]
+                }
+            });
+           
+                // Save to jQuery object
+            function removeData(chartProvDirawat) {
+                chartProvDirawat.destroy();
+            }
+
+            function addData(chartProvDirawat, label, data) {
+                
+            }
+        $("#btn1Dirawat").on("click", function() {
+            // var chart = ordersChart
+            // var label = {!! json_encode($positifDateProv) !!}
+            // var data = {!! json_encode($dataPositifProv) !!}
+
+            // chart.data.labels.pop();
+            // chart.data.datasets.forEach((dataset) => {
+            //     dataset.data.pop();
+            // });
+            // chart.update();
+
+            if(window.ordersChartProvDirawat && window.ordersChartProvDirawat !== null){
+                window.ordersChartProvDirawat.destroy();
+            }
+
+            var label = {!! json_encode($dirawatDateProv) !!}
+            var data = {!! json_encode($dataDirawatProv) !!}
+
+            window.ordersChartProvDirawat = new Chart(ctxProvDirawat, {
+                type: 'bar',
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                callback: function(value) {
+                                    if (!(value % 10)) {
+                                        //return '$' + value + 'k'
+                                        return value
+                                    }
+                                }
+                            }
+                        }]
+                    },
+                    tooltips: {
+                        callbacks: {
+                            label: function(item, data) {
+                                var label = data.datasets[item.datasetIndex].label || '';
+                                var yLabel = item.yLabel;
+                                var content = '';
+
+                                if (data.datasets.length > 1) {
+                                    content += '<span class="popover-body-label mr-auto">' + label + '</span>';
+                                }
+
+                                content += '<span class="popover-body-value">' + yLabel + '</span>';
+                                
+                                return content;
+                            }
+                        }
+                    }
+                },
+                data: {
+                    labels: label,
+                    datasets: [{
+                        label: 'performance',
+                        data: data
+                    }]
+                }
+            });
+            ordersChartProvDirawat.update();
+        });
+        $("#btn2Dirawat").on("click", function() {
+
+            if(window.ordersChartProvDirawat && window.ordersChartProvDirawat !== null){
+                window.ordersChartProvDirawat.destroy();
+            }
+
+            var label = {!! json_encode($dirawatDateProvDiff) !!}
+            var data = {!! json_encode($dataDirawatProvDiff) !!}
+
+            window.ordersChartProvDirawat = new Chart(ctxProvDirawat, {
+                type: 'bar',
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                callback: function(value) {
+                                    if (!(value % 10)) {
+                                        //return '$' + value + 'k'
+                                        return value
+                                    }
+                                }
+                            }
+                        }]
+                    },
+                    tooltips: {
+                        callbacks: {
+                            label: function(item, data) {
+                                var label = data.datasets[item.datasetIndex].label || '';
+                                var yLabel = item.yLabel;
+                                var content = '';
+
+                                if (data.datasets.length > 1) {
+                                    content += '<span class="popover-body-label mr-auto">' + label + '</span>';
+                                }
+
+                                content += '<span class="popover-body-value">' + yLabel + '</span>';
+                                
+                                return content;
+                            }
+                        }
+                    }
+                },
+                data: {
+                    labels: label,
+                    datasets: [{
+                        label: 'performance',
+                        data: data
+                    }]
+                }
+            });
+            ordersChartProvDirawat.update();
+        });
+            $chartProvDirawat.data('chartProvDirawat', ordersChartProvDirawat);
+            
+        }
+        
+        // Init chart
+        if ($chartProvDirawat.length) {
+            initChart($chartProvDirawat);
+        }
+        })();
+
+    </script>
+
+  
 @endpush

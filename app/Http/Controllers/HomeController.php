@@ -84,19 +84,61 @@ class HomeController extends Controller
 
         $Diff = RekapIndo::orderBy('created_at', 'desc')->take(2)->get();
         $dataPositif = array();
+        $dataSembuh = array();
+        $dataMeninggal = array();
+        $dataDirawat = array();
+
         $positifDate = array();
+        $sembuhDate = array();
+        $meninggalDate = array();
+        $dirawatDate = array();
 
         for ($i=0; $i < count($dataRekapIndo); $i++) {
             array_push($positifDate, date('d-F', strtotime($dataRekapIndo[$i]->created_at)));
             array_push($dataPositif, $dataRekapIndo[$i]->positif);
         }
+        for ($i=0; $i < count($dataRekapIndo); $i++) {
+            array_push($sembuhDate, date('d-F', strtotime($dataRekapIndo[$i]->created_at)));
+            array_push($dataSembuh, $dataRekapIndo[$i]->sembuh);
+        }
+        for ($i=0; $i < count($dataRekapIndo); $i++) {
+            array_push($meninggalDate, date('d-F', strtotime($dataRekapIndo[$i]->created_at)));
+            array_push($dataMeninggal, $dataRekapIndo[$i]->meninggal);
+        }
+        for ($i=0; $i < count($dataRekapIndo); $i++) {
+            array_push($dirawatDate, date('d-F', strtotime($dataRekapIndo[$i]->created_at)));
+            array_push($dataDirawat, ($dataRekapIndo[$i]->positif - $dataRekapIndo[$i]->sembuh - $dataRekapIndo[$i]->meninggal));
+        }
+
         $dataPositifDiff = array();
+        $dataSembuhDiff = array();
+        $dataMeninggalDiff = array();
+        $dataDirawatDiff = array();
+
         $positifDateDiff = array();
+        $sembuhDateDiff = array();
+        $meninggalDateDiff = array();
+        $dirawatDateDiff = array();
 
         for ($i=1; $i < count($dataRekapIndo); $i++) {
             $selisihIndo = (($dataRekapIndo[$i]->positif)-($dataRekapIndo[$i-1]->positif));
             array_push($positifDateDiff, date('d-F', strtotime($dataRekapIndo[$i]->created_at)));
             array_push($dataPositifDiff, $selisihIndo);
+        }
+        for ($i=1; $i < count($dataRekapIndo); $i++) {
+            $selisihIndo = (($dataRekapIndo[$i]->sembuh)-($dataRekapIndo[$i-1]->sembuh));
+            array_push($sembuhDateDiff, date('d-F', strtotime($dataRekapIndo[$i]->created_at)));
+            array_push($dataSembuhDiff, $selisihIndo);
+        }
+        for ($i=1; $i < count($dataRekapIndo); $i++) {
+            $selisihIndo = (($dataRekapIndo[$i]->sembuh)-($dataRekapIndo[$i-1]->sembuh));
+            array_push($meninggalDateDiff, date('d-F', strtotime($dataRekapIndo[$i]->created_at)));
+            array_push($dataMeninggalDiff, $selisihIndo);
+        }
+        for ($i=1; $i < count($dataRekapIndo); $i++) {
+            $selisihIndo = (($dataRekapIndo[$i]->positif - $dataRekapIndo[$i]->sembuh - $dataRekapIndo[$i]->meninggal) - ($dataRekapIndo[$i-1]->positif - $dataRekapIndo[$i-1]->sembuh - $dataRekapIndo[$i-1]->meninggal));
+            array_push($dirawatDateDiff, date('d-F', strtotime($dataRekapIndo[$i]->created_at)));
+            array_push($dataDirawatDiff, $selisihIndo);
         }
 
         for ($i=0; $i < count($Diff); $i++) {
@@ -124,20 +166,63 @@ class HomeController extends Controller
         $dirawatGlobal = number_format($dirawatGlobal);
 
         $DiffGlobal = RekapGlobal::orderBy('created_at', 'desc')->take(2)->get();
+
         $dataPositifGlobal = array();
+        $dataSembuhGlobal = array();
+        $dataMeninggalGlobal = array();
+        $dataDirawatGlobal = array();
+
         $positifDateGlobal = array();
+        $sembuhDateGlobal = array();
+        $meninggalDateGlobal = array();
+        $dirawatDateGlobal = array();
 
         for ($i=0; $i < count($dataRekapGlobal); $i++) {
             array_push($positifDateGlobal, date('d-F', strtotime($dataRekapGlobal[$i]->created_at)));
             array_push($dataPositifGlobal, $dataRekapGlobal[$i]->positif);
         }
+        for ($i=0; $i < count($dataRekapGlobal); $i++) {
+            array_push($sembuhDateGlobal, date('d-F', strtotime($dataRekapGlobal[$i]->created_at)));
+            array_push($dataSembuhGlobal, $dataRekapGlobal[$i]->sembuh);
+        }
+        for ($i=0; $i < count($dataRekapGlobal); $i++) {
+            array_push($meninggalDateGlobal, date('d-F', strtotime($dataRekapGlobal[$i]->created_at)));
+            array_push($dataMeninggalGlobal, $dataRekapGlobal[$i]->meninggal);
+        }
+        for ($i=0; $i < count($dataRekapGlobal); $i++) {
+            array_push($dirawatDateGlobal, date('d-F', strtotime($dataRekapGlobal[$i]->created_at)));
+            array_push($dataDirawatGlobal, ($dataRekapGlobal[$i]->positif - $dataRekapGlobal[$i]->sembuh - $dataRekapGlobal[$i]->meninggal));
+        }
+
         $dataPositifGlobalDiff = array();
+        $dataSembuhGlobalDiff = array();
+        $dataMeninggalGlobalDiff = array();
+        $dataDirawatGlobalDiff = array();
+
         $positifDateGlobalDiff = array();
+        $sembuhDateGlobalDiff = array();
+        $meninggalDateGlobalDiff = array();
+        $dirawatDateGlobalDiff = array();
 
         for ($i=1; $i < count($dataRekapGlobal); $i++) {
             $selisihGlobal = (($dataRekapGlobal[$i]->positif)-($dataRekapGlobal[$i-1]->positif));
             array_push($positifDateGlobalDiff, date('d-F', strtotime($dataRekapGlobal[$i]->created_at)));
             array_push($dataPositifGlobalDiff, $selisihGlobal);
+        }
+        for ($i=1; $i < count($dataRekapGlobal); $i++) {
+            $selisihGlobalSembuh = (($dataRekapGlobal[$i]->sembuh)-($dataRekapGlobal[$i-1]->sembuh));
+            array_push($sembuhDateGlobalDiff, date('d-F', strtotime($dataRekapGlobal[$i]->created_at)));
+            array_push($dataSembuhGlobalDiff, $selisihGlobalSembuh);
+        }
+        for ($i=1; $i < count($dataRekapGlobal); $i++) {
+            $selisihGlobalMeninggal = (($dataRekapGlobal[$i]->meninggal)-($dataRekapGlobal[$i-1]->meninggal));
+            array_push($meninggalDateGlobalDiff, date('d-F', strtotime($dataRekapGlobal[$i]->created_at)));
+            array_push($dataMeninggalGlobalDiff, $selisihGlobalMeninggal);
+        }
+        for ($i=1; $i < count($dataRekapGlobal); $i++) {
+            $selisihGlobalDirawat = (($dataRekapGlobal[$i]->positif) - ($dataRekapGlobal[$i]->sembuh) - ($dataRekapGlobal[$i]->meninggal))-(($dataRekapGlobal[$i-1]->positif) - ($dataRekapGlobal[$i-1]->sembuh) - ($dataRekapGlobal[$i-1]->meninggal));
+            array_push($dirawatDateGlobalDiff, date('d-F', strtotime($dataRekapGlobal[$i]->created_at)));
+            array_push($dataDirawatGlobalDiff, $selisihGlobalDirawat);
         }
 
         for ($i=0; $i < count($DiffGlobal); $i++) {
@@ -167,18 +252,62 @@ class HomeController extends Controller
 
         $DiffProv = ProvinsiData::where('FID','DKI Jakarta')->orderBy('created_at', 'desc')->take(2)->get();
         $dataPositifProv = array();
+        $dataSembuhProv = array();
+        $dataMeninggalProv = array();
+        $dataDirawatProv = array();
+
         $positifDateProv = array();
+        $sembuhDateProv = array();
+        $meninggalDateProv = array();
+        $dirawatDateProv = array();
+
         $dataPositifProvDiff = array();
+        $dataSembuhProvDiff = array();
+        $dataMeninggalProvDiff = array();
+        $dataDirawatProvDiff = array();
+
         $positifDateProvDiff = array();
+        $sembuhDateProvDiff = array();
+        $meninggalDateProvDiff = array();
+        $dirawatDateProvDiff = array();
 
         for ($i=1; $i < count($dataProvinsi); $i++) {
             $selisih = (($dataProvinsi[$i]->Kasus_Posi)-($dataProvinsi[$i-1]->Kasus_Posi));
             array_push($positifDateProvDiff, date('d-F', strtotime($dataProvinsi[$i]->created_at)));
             array_push($dataPositifProvDiff, $selisih);
         }
+        for ($i=1; $i < count($dataProvinsi); $i++) {
+            $selisih = (($dataProvinsi[$i]->Kasus_Semb)-($dataProvinsi[$i-1]->Kasus_Semb));
+            array_push($sembuhDateProvDiff, date('d-F', strtotime($dataProvinsi[$i]->created_at)));
+            array_push($dataSembuhProvDiff, $selisih);
+        }
+        for ($i=1; $i < count($dataProvinsi); $i++) {
+            $selisih = (($dataProvinsi[$i]->Kasus_Meni)-($dataProvinsi[$i-1]->Kasus_Meni));
+            array_push($meninggalDateProvDiff, date('d-F', strtotime($dataProvinsi[$i]->created_at)));
+            array_push($dataMeninggalProvDiff, $selisih);
+        }
+        for ($i=1; $i < count($dataProvinsi); $i++) {
+            $selisih = (($dataProvinsi[$i]->Kasus_Posi - $dataProvinsi[$i]->Kasus_Semb - $dataProvinsi[$i]->Kasus_Meni) - ($dataProvinsi[$i-1]->Kasus_Posi - $dataProvinsi[$i-1]->Kasus_Semb - $dataProvinsi[$i-1]->Kasus_Meni));
+            array_push($dirawatDateProvDiff, date('d-F', strtotime($dataProvinsi[$i]->created_at)));
+            array_push($dataDirawatProvDiff, $selisih);
+        }
+
+
         for ($i=0; $i < count($dataProvinsi); $i++) {
             array_push($positifDateProv, date('d-F', strtotime($dataProvinsi[$i]->created_at)));
             array_push($dataPositifProv, $dataProvinsi[$i]->Kasus_Posi);
+        }
+        for ($i=0; $i < count($dataProvinsi); $i++) {
+            array_push($sembuhDateProv, date('d-F', strtotime($dataProvinsi[$i]->created_at)));
+            array_push($dataSembuhProv, $dataProvinsi[$i]->Kasus_Semb);
+        }
+        for ($i=0; $i < count($dataProvinsi); $i++) {
+            array_push($meninggalDateProv, date('d-F', strtotime($dataProvinsi[$i]->created_at)));
+            array_push($dataMeninggalProv, $dataProvinsi[$i]->Kasus_Meni);
+        }
+        for ($i=0; $i < count($dataProvinsi); $i++) {
+            array_push($dirawatDateProv, date('d-F', strtotime($dataProvinsi[$i]->created_at)));
+            array_push($dataDirawatProv, $dataProvinsi[$i]->Kasus_Posi - $dataProvinsi[$i]->Kasus_Semb - $dataProvinsi[$i]->Kasus_Meni);
         }
 
         for ($i=0; $i < count($DiffProv); $i++) {
@@ -198,8 +327,17 @@ class HomeController extends Controller
         $sembuhBali = number_format(ProvinsiData::orderBy('created_at', 'desc')->where('FID','Bali')->take(1)->value('Kasus_Semb'));
         $meninggalBali = number_format(ProvinsiData::orderBy('created_at', 'desc')->where('FID','Bali')->take(1)->value('Kasus_Meni'));
         $DiffBali = ProvinsiData::where('FID','Bali')->orderBy('created_at', 'desc')->take(2)->get();
+
         $dataPositifBali = array();
+        $dataSembuhBali = array();
+        $dataMeninggalBali = array();
+        $dataDirawatBali = array();
+        
         $positifDateBali = array();
+        $sembuhDateBali = array();
+        $meninggalDateBali = array();
+        $dirawatDateBali = array();
+
         $dirawatBali = $positifBali-$sembuhBali-$meninggalBali;
         $persenSembuhBali = number_format(($sembuhBali/$positifBali*100),2);
         $persenMeninggalBali = number_format(($meninggalBali/$positifBali*100),2);
@@ -208,18 +346,54 @@ class HomeController extends Controller
         $sembuhBali = number_format($sembuhBali);
         $meninggalBali = number_format($meninggalBali);
         $dirawatBali = number_format($dirawatBali);
+
         $dataPositifBaliDiff = array();
+        $dataSembuhBaliDiff = array();
+        $dataMeninggalBaliDiff = array();
+        $dataDirawatBaliDiff = array();
+
         $positifDateBaliDiff = array();
+        $sembuhDateBaliDiff = array();
+        $meninggalDateBaliDiff = array();
+        $dirawatDateBaliDiff = array();
 
         for ($i=1; $i < count($dataBali); $i++) {
             $selisihBali = (($dataBali[$i]->Kasus_Posi)-($dataBali[$i-1]->Kasus_Posi));
             array_push($positifDateBaliDiff, date('d-F', strtotime($dataBali[$i]->created_at)));
             array_push($dataPositifBaliDiff, $selisihBali);
         }
+        for ($i=1; $i < count($dataBali); $i++) {
+            $selisihBali = (($dataBali[$i]->Kasus_Semb)-($dataBali[$i-1]->Kasus_Semb));
+            array_push($sembuhDateBaliDiff, date('d-F', strtotime($dataBali[$i]->created_at)));
+            array_push($dataSembuhBaliDiff, $selisihBali);
+        }
+        for ($i=1; $i < count($dataBali); $i++) {
+            $selisihBali = (($dataBali[$i]->Kasus_Meni)-($dataBali[$i-1]->Kasus_Meni));
+            array_push($meninggalDateBaliDiff, date('d-F', strtotime($dataBali[$i]->created_at)));
+            array_push($dataMeninggalBaliDiff, $selisihBali);
+        }
+        for ($i=1; $i < count($dataBali); $i++) {
+            $selisihBali = (($dataBali[$i]->Kasus_Posi - $dataBali[$i]->Kasus_Semb - $dataBali[$i]->Kasus_Meni)-($dataBali[$i-1]->Kasus_Posi - $dataBali[$i-1]->Kasus_Semb - $dataBali[$i-1]->Kasus_Meni));
+            array_push($meninggalDateBaliDiff, date('d-F', strtotime($dataBali[$i]->created_at)));
+            array_push($dataMeninggalBaliDiff, $selisihBali);
+        }
+
 
         for ($i=0; $i < count($dataBali); $i++) {
             array_push($positifDateBali, date('d-F', strtotime($dataBali[$i]->created_at)));
             array_push($dataPositifBali, $dataBali[$i]->Kasus_Posi);
+        }
+        for ($i=0; $i < count($dataBali); $i++) {
+            array_push($sembuhDateBali, date('d-F', strtotime($dataBali[$i]->created_at)));
+            array_push($dataSembuhBali, $dataBali[$i]->Kasus_Semb);
+        }
+        for ($i=0; $i < count($dataBali); $i++) {
+            array_push($meninggalDateBali, date('d-F', strtotime($dataBali[$i]->created_at)));
+            array_push($dataMeninggalBali, $dataBali[$i]->Kasus_Meni);
+        }
+        for ($i=0; $i < count($dataBali); $i++) {
+            array_push($dirawatDateBali, date('d-F', strtotime($dataBali[$i]->created_at)));
+            array_push($dataDirawatBali, $dataBali[$i]->Kasus_Posi - $dataBali[$i]->Kasus_Semb - $dataBali[$i]->Kasus_Meni);
         }
 
         for ($i=0; $i < count($DiffBali); $i++) {
@@ -232,16 +406,18 @@ class HomeController extends Controller
         $diffMeninggalBali = $data3Bali[0] - $data3Bali[1];
         $diffDirawatBali = ($data1Bali[0]-$data2Bali[0]-$data3Bali[0])-($data1Bali[1]-$data2Bali[1]-$data3Bali[1]);
 
-
-        
-        
         return view('dashboard', compact('diffMeninggal','diffPositif','diffSembuh','provinsi','baliData',
         'global', 'dataRekapIndo', 'dataPositif','positifDate','dataPositifDiff','positifDateDiff','diffMeninggalGlobal','diffPositifGlobal',
         'diffSembuhGlobal','dataRekapIndo','dataPositifBali','positifDateBali', 'dataPositifBaliDiff','positifDateBaliDiff','dataPositifGlobal','positifDateGlobal', 'dataPositifGlobalDiff','positifDateGlobalDiff', 'dataPositifProvDiff','positifDateProvDiff',
         'positif','sembuh','meninggal', 'positifGlobal','sembuhGlobal','meninggalGlobal','tanggal','arrayPositif','dataPositifProv','positifDateProv', 'diffMeninggalProv','diffPositifProv',
         'diffSembuhProv', 'positifBali', 'sembuhBali', 'meninggalBali', 'positifProv', 'sembuhProv', 'meninggalProv','dirawatGlobal','diffDirawatGlobal','dirawat','diffDirawat','dirawatProv',
         'diffDirawatProv','dirawatBali','diffDirawatBali', 'diffPositifBali', 'diffMeninggalBali', 'diffSembuhBali', 'persenSembuh', 'persenMeninggal', 'persenDirawat', 'persenSembuhGlobal',
-         'persenMeninggalGlobal', 'persenDirawatGlobal','persenSembuhProv', 'persenMeninggalProv', 'persenDirawatProv','persenSembuhBali', 'persenMeninggalBali', 'persenDirawatBali', 'namaProvinsi', 'nama'));
+        'persenMeninggalGlobal', 'persenDirawatGlobal','persenSembuhProv', 'persenMeninggalProv', 'persenDirawatProv','persenSembuhBali', 'persenMeninggalBali', 'persenDirawatBali', 'namaProvinsi', 'nama',
+        'sembuhDateGlobal','dataSembuhGlobal', 'meninggalDateGlobal','dataMeninggalGlobal', 'dirawatDateGlobal','dataDirawatGlobal', 'sembuhDateGlobalDiff', 'dataSembuhGlobalDiff',
+        'meninggalDateGlobalDiff', 'dataMeninggalGlobalDiff', 'dirawatDateGlobalDiff', 'dataDirawatGlobalDiff', 'dataSembuh', 'sembuhDate', 'dataMeninggal', 'meninggalDate', 'dataDirawat', 'dirawatDate',
+        'dataSembuhDiff', 'sembuhDateDiff', 'dataMeninggalDiff', 'meninggalDateDiff', 'dataDirawatDiff', 'dirawatDateDiff', 'dataSembuhBaliDiff', 'sembuhDateBaliDiff', 'dataMeninggalBaliDiff', 'meninggalDateBaliDiff',
+        'dataDirawatBaliDiff', 'dirawatDateBaliDiff', 'sembuhDateBali', 'dataSembuhBali', 'meninggalDateBali', 'dataMeninggalBali', 'dirawatDateBali', 'dataDirawatBali', 'sembuhDate' , 'sembuhDateProvDiff', 'dataSembuhProvDiff',
+        'meninggalDateProvDiff', 'dataMeninggalProvDiff', 'dirawatDateProvDiff', 'dataDirawatProvDiff', 'sembuhDateProv', 'dataSembuhProv', 'meninggalDateProv', 'dataMeninggalProv', 'dirawatDateProv', 'dataDirawatProv'));
     }
     public function filter(Request $request){
         
