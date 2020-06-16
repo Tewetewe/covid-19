@@ -374,8 +374,8 @@ class HomeController extends Controller
         }
         for ($i=1; $i < count($dataBali); $i++) {
             $selisihBali = (($dataBali[$i]->Kasus_Posi - $dataBali[$i]->Kasus_Semb - $dataBali[$i]->Kasus_Meni)-($dataBali[$i-1]->Kasus_Posi - $dataBali[$i-1]->Kasus_Semb - $dataBali[$i-1]->Kasus_Meni));
-            array_push($meninggalDateBaliDiff, date('d-F', strtotime($dataBali[$i]->created_at)));
-            array_push($dataMeninggalBaliDiff, $selisihBali);
+            array_push($dirawatDateBaliDiff, date('d-F', strtotime($dataBali[$i]->created_at)));
+            array_push($dataDirawatBaliDiff, $selisihBali);
         }
 
 
