@@ -148,7 +148,7 @@
                     </a>
                 </li>
                 @endif
-                @if( auth()->user()->role == "superadmin" )
+                @if( auth()->user()->role == "admin" )
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('loadData') }}" style="color: #565656;">
                         <i class="ni ni-circle-08" style="color: #565656;"></i>

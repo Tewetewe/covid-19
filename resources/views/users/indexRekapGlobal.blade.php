@@ -63,6 +63,7 @@
                                 <th scope="col">Positif</th>
                                 <th scope="col">Sembuh</th>
                                 <th scope="col">Meninggal</th>
+                                <th scope="col">Tanggal</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -72,6 +73,7 @@
                                     <td>{{ $rekapGlobalData[$i-1]->positif}}</td>
                                     <td>{{ $rekapGlobalData[$i-1]->sembuh}}</td>
                                     <td>{{ $rekapGlobalData[$i-1]->meninggal}}</td>
+                                    <td>{{ $rekapGlobalData[$i-1]->created_at}}</td>
                                     
                                     <!-- <td class="text-right">
                                         <div class="dropdown">
