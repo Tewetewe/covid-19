@@ -137,7 +137,7 @@
                         <div class="row align-items-center">
                             <div class="col">
                                 <h6 class="text-uppercase text-light ls-1 mb-1">Overview</h6>
-                                <h2 class="text-white mb-0">Statistik Positif COVID-19 Dunia</h2>
+                                <h2 class="text-white mb-0">Grafik Positif COVID-19 Dunia</h2>
                             </div>
                             <div class="col">
                                 <ul class="nav nav-pills justify-content-end">
@@ -291,7 +291,7 @@
                         <div class="row align-items-center">
                             <div class="col">
                                 <h6 class="text-uppercase text-light ls-1 mb-1">Overview</h6>
-                                <h2 class="text-white mb-0">Statistik Positif COVID-19 Indonesia</h2>
+                                <h2 class="text-white mb-0">Grafik Positif COVID-19 Indonesia</h2>
                             </div>
                             <div class="col">
                                 <ul class="nav nav-pills justify-content-end">
@@ -442,7 +442,7 @@
                         <div class="row align-items-center">
                             <div class="col">
                                 <h6 class="text-uppercase text-light ls-1 mb-1">Overview</h6>
-                                <h2 class="text-white mb-0">Statistik Positif COVID-19 Bali</h2>
+                                <h2 class="text-white mb-0">Grafik Positif COVID-19 Bali</h2>
                             </div>
                             <div class="col">
                                 <ul class="nav nav-pills justify-content-end">
@@ -614,7 +614,7 @@
                         <div class="row align-items-center">
                             <div class="col">
                                 <h6 class="text-uppercase text-light ls-1 mb-1">Overview</h6>
-                                <h2 class="text-white mb-0">Statistik Positif COVID-19 Provinsi {{$nama}}</h2>
+                                <h2 class="text-white mb-0">Grafik Positif COVID-19 Provinsi {{$nama}}</h2>
                                 </div>
                                 {{-- <button id="btn1">
                                     Option 1
@@ -668,7 +668,7 @@
                 </div>
             </div>
             <div class="row mt-5">
-                <div class="col-xl-6 mb-5">
+                <div class="col-xl-12 mb-5">
                     <div class="card shadow">
                         <div class="card-header border-0">
                             <div class="row align-items-center">
@@ -704,7 +704,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-xl-6 mb-5 mb-xl-0">
+                <div class="col-xl-12 mb-5 mb-xl-0">
                     <div class="card shadow">
                         <div class="card-header border-0">
                             <div class="row align-items-center">
@@ -722,7 +722,7 @@
                                         <th scope="col">Provinsi</th>
                                         <th scope="col">Positif</th>
                                         <th scope="col">Sembuh</th>
-                                        <th scope="col">Meninggal1</th>
+                                        <th scope="col">Meninggal</th>
                                     </tr>
                                 </thead>
                                 <tbody>
