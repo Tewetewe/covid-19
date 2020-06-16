@@ -424,9 +424,9 @@ class HomeController extends Controller
     public function filter(Request $request){
         
         $provinsi = ProvinsiData::select('FID', 'Kasus_Posi', 'Kasus_Semb', 'Kasus_Meni', 'created_at')
-        ->orderBy('provinsi_data.Kasus_Posi', 'DESC')->where('created_at', ProvinsiData::max('created_at'))->get();
+        ->whereMonth('created_at', Carbon::now()->month)->orderBy('created_at','ASC')->orderBy('FID', 'ASC')->get();
         $global = GlobalData::select('OBJECTID', 'Confirmed', 'Deaths', 'Recovered', 'created_at', 'City', 'Province')
-        ->orderBy('global_data.Confirmed', 'DESC')->where('created_at', GlobalData::max('created_at'))->get();
+        ->whereMonth('created_at', Carbon::now()->month)->orderBy('created_at','ASC')->orderBy('OBJECTID', 'ASC')->get();
         $tanggal = BaliData::select('Tanggal')
         ->groupBy('Tanggal')->get();
         $baliData = BaliData::get();
