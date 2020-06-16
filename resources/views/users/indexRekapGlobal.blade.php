@@ -54,15 +54,16 @@
                 <div class="col-12">
                 </div>
 
-                <div class="table-responsive" style="height:500px;overflow:auto;">
+                <div class="table-responsive" style="padding-right: 25px;padding-left: 25px;">
                     <!-- Projects table -->
-                    <table class="table align-items-center table-flush">
+                    <table id="table_import" class="table align-items-center table-flush" cellspacing="0" width="100%">
                         <thead class="thead-light">
                             <tr>
                                 <th scope="col">No.</th>
                                 <th scope="col">Positif</th>
                                 <th scope="col">Sembuh</th>
                                 <th scope="col">Meninggal</th>
+                                <th scope="col">Tanggal</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -72,6 +73,7 @@
                                     <td>{{ $rekapGlobalData[$i-1]->positif}}</td>
                                     <td>{{ $rekapGlobalData[$i-1]->sembuh}}</td>
                                     <td>{{ $rekapGlobalData[$i-1]->meninggal}}</td>
+                                    <td>{{ $rekapGlobalData[$i-1]->created_at}}</td>
                                     
                                     <!-- <td class="text-right">
                                         <div class="dropdown">
@@ -100,3 +102,24 @@
 </div>
         
 @endsection
+
+@push('js')
+
+<!-- MDBootstrap Datatables  -->
+<script type="text/javascript" src="{{ asset('argon') }}/js/addons/datatables.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+    $('#table_import').DataTable({
+        language: {
+            paginate: {
+            next: '>', // or '→'
+            previous: '<' // or '←' 
+            }
+        }
+    });
+    $('.dataTables_length').addClass('bs-select');
+    });
+</script>
+    
+@endpush

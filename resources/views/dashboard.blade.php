@@ -1171,7 +1171,6 @@
                 </div>
             </div>
             </div>
-
             <div class="row mt-5">
                 <div class="col-xl-12 mb-5">
                     <div class="card shadow">
@@ -1182,9 +1181,9 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="table-responsive" style="height:350px;overflow:auto;">
+                        <div class="table-responsive" style="padding-right: 25px;padding-left: 25px;">
                             <!-- Projects table -->
-                            <table class="table align-items-center table-flush">
+                            <table id="table_dunia" class="table align-items-center table-flush" cellspacing="0" width="100%">
                                 <thead class="thead-light">
                                     <tr>
                                         <th scope="col">No.</th>
@@ -1218,9 +1217,9 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="table-responsive" style="height:350px;overflow:auto;">
+                        <div class="table-responsive" style="padding-right: 25px;padding-left: 25px;">
                             <!-- Projects table -->
-                            <table class="table align-items-center table-flush">
+                            <table id="table_indo" class="table align-items-center table-flush" cellspacing="0" width="100%">
                                 <thead class="thead-light">
                                     <tr>
                                         <th scope="col">No.</th>
@@ -1270,16 +1269,18 @@
     position:absolute;
     width:300px;
     display: contents;
- }
+}
+
 </style>
-
-
-
 
 @push('js')
 
     <script src="{{ asset('argon') }}/vendor/chart.js/dist/Chart.min.js"></script>
     <script src="{{ asset('argon') }}/vendor/chart.js/dist/Chart.extension.js"></script>
+    
+    <!-- MDBootstrap Datatables  -->
+    <script type="text/javascript" src="{{ asset('argon') }}/js/addons/datatables.min.js"></script>
+
     <script src="/argon/js/argon.js"></script>
     <script>
         'use strict';
@@ -4782,4 +4783,26 @@
     </script>
 
   
+    <script>
+        $(document).ready(function () {
+        $('#table_indo').DataTable({
+            language: {
+                paginate: {
+                next: '>', // or '→'
+                previous: '<' // or '←' 
+                }
+            }
+        });
+        $('#table_dunia').DataTable({
+            language: {
+                paginate: {
+                next: '>', // or '→'
+                previous: '<' // or '←' 
+                }
+            }
+        });
+        $('.dataTables_length').addClass('bs-select');
+        });
+    </script>
+
 @endpush

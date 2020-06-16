@@ -58,8 +58,8 @@
                 <div class="col-12">
                 </div>
 
-                <div class="table-responsive" style="height:500px;overflow:auto;">
-                    <table class="table align-items-center table-flush">
+                <div class="table-responsive" style="padding-right: 25px;padding-left: 25px;">
+                    <table id="table_import" class="table align-items-center table-flush" cellspacing="0" width="100%">
                         <thead class="thead-light">
                             <tr>
                                 <th scope="col">No.</th>
@@ -140,6 +140,26 @@
     </div>
     @include('layouts.footers.auth')
 </div>
-
         
 @endsection
+
+@push('js')
+
+<!-- MDBootstrap Datatables  -->
+<script type="text/javascript" src="{{ asset('argon') }}/js/addons/datatables.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+    $('#table_import').DataTable({
+        language: {
+            paginate: {
+            next: '>', // or '→'
+            previous: '<' // or '←' 
+            }
+        }
+    });
+    $('.dataTables_length').addClass('bs-select');
+    });
+</script>
+    
+@endpush
