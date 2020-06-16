@@ -1201,7 +1201,7 @@
                                             <td>{{ $i }}</td>
                                             <td>{{ $global[$i-1 + (sizeof($global)-186)]->OBJECTID }}</td>
                                             <td>{{ number_format($global[$i-1 + (sizeof($global)-186)]->Confirmed,0,",",",") }}</td>
-                                            <td>{{ number_format((($global[$i-1 + (sizeof($global)-186)]->Confirmed)-($global[$i-1]->Confirmed))/(sizeof($global)/186),2,",",",") }}</td>
+                                            <td>{{ number_format((($global[$i-1 + (sizeof($global)-186)]->Confirmed)-($global[$i-1]->Confirmed))/(sizeof($global)/186),0,",",",") }}</td>
                                             <td>{{ number_format($global[$i-1 + (sizeof($global)-186)]->Recovered,0,",",",") }}</td>
                                             <td>{{ number_format(($global[$i-1 + (sizeof($global)-186)]->Recovered/($global[$i-1 + (sizeof($global)-186)]->Confirmed)*100),2) }} %</td>
                                             <td>{{ number_format($global[$i-1 + (sizeof($global)-186)]->Deaths,0,",",",") }}</td>  
@@ -1241,7 +1241,7 @@
                                             <td>{{ $i }}</td>
                                             <td>{{ $provinsi[$i-1 + (sizeof($provinsi)-34)]->FID }}</td>
                                             <td>{{ number_format($provinsi[$i-1 + (sizeof($provinsi)-34)]->Kasus_Posi,0,",",",") }}</td>
-                                            <td>{{ number_format((($provinsi[$i-1 + (sizeof($provinsi)-34)]->Kasus_Posi)-($provinsi[$i-1]->Kasus_Posi))/(sizeof($provinsi)/34),2,",",",") }}</td>
+                                            <td>{{ number_format((($provinsi[$i-1 + (sizeof($provinsi)-34)]->Kasus_Posi)-($provinsi[$i-1]->Kasus_Posi))/(sizeof($provinsi)/34),0,",",",") }}</td>
                                             <td>{{ number_format($provinsi[$i-1 + (sizeof($provinsi)-34)]->Kasus_Semb,0,",",",") }}</td>
                                             <td>{{ number_format(($provinsi[$i-1 + (sizeof($provinsi)-34)]->Kasus_Semb/($provinsi[$i-1 + (sizeof($provinsi)-34)]->Kasus_Posi)*100),2) }} %</td>
                                             <td>{{ number_format($provinsi[$i-1 + (sizeof($provinsi)-34)]->Kasus_Meni,0,",",",") }}</td>    
@@ -1315,7 +1315,15 @@
                             },
                             ticks: {
                                 callback: function(value) {
-                                    if (!(value % 10)) {
+                                    // if (!(value % 10)) {
+                                    //     return value;
+                                    // }
+
+                                    if(parseInt(value) >= 1000){
+                                        return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                    }else if(value == 0){
+                                        return value = "0";
+                                    } else{
                                         return value;
                                     }
                                 }
@@ -1325,16 +1333,26 @@
                     tooltips: {
                         callbacks: {
                             label: function(item, data) {
-                                var label = data.datasets[item.datasetIndex].label || '';
-                                var yLabel = item.yLabel;
-                                var content = '';
+                                // var label = data.datasets[item.datasetIndex].label || '';
+                                // var yLabel = item.yLabel;
+                                // var content = '';
 
-                                if (data.datasets.length > 1) {
-                                    content += '<span class="popover-body-label mr-auto">' + label + '</span>';
+                                // if (data.datasets.length > 1) {
+                                //     content += '<span class="popover-body-label mr-auto">' + label + '</span>';
+                                // }
+
+                                // content += yLabel ;
+                                // return content;
+
+                                var value = data.datasets[item.datasetIndex].data[item.index];
+
+                                if(parseInt(value) >= 1000){
+                                    return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                }else if(value == 0){
+                                    return value = "0";
+                                } else{
+                                    return value;
                                 }
-
-                                content += yLabel ;
-                                return content;
                             }
                         }
                     }
@@ -1388,7 +1406,15 @@
                             },
                             ticks: {
                                 callback: function(value) {
-                                    if (!(value % 10)) {
+                                    // if (!(value % 10)) {
+                                    //     return value;
+                                    // }
+
+                                    if(parseInt(value) >= 1000){
+                                        return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                    }else if(value == 0){
+                                        return value = "0";
+                                    } else{
                                         return value;
                                     }
                                 }
@@ -1398,16 +1424,26 @@
                     tooltips: {
                         callbacks: {
                             label: function(item, data) {
-                                var label = data.datasets[item.datasetIndex].label || '';
-                                var yLabel = item.yLabel;
-                                var content = '';
+                                // var label = data.datasets[item.datasetIndex].label || '';
+                                // var yLabel = item.yLabel;
+                                // var content = '';
 
-                                if (data.datasets.length > 1) {
-                                    content += '<span class="popover-body-label mr-auto">' + label + '</span>';
+                                // if (data.datasets.length > 1) {
+                                //     content += '<span class="popover-body-label mr-auto">' + label + '</span>';
+                                // }
+
+                                // content += yLabel ;
+                                // return content;
+
+                                var value = data.datasets[item.datasetIndex].data[item.index];
+
+                                if(parseInt(value) >= 1000){
+                                    return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                }else if(value == 0){
+                                    return value = "0";
+                                } else{
+                                    return value;
                                 }
-
-                                content += yLabel ;
-                                return content;
                             }
                         }
                     }
@@ -1461,7 +1497,15 @@
                             },
                             ticks: {
                                 callback: function(value) {
-                                    if (!(value % 10)) {
+                                    // if (!(value % 10)) {
+                                    //     return value;
+                                    // }
+
+                                    if(parseInt(value) >= 1000){
+                                        return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                    }else if(value == 0){
+                                        return value = "0";
+                                    } else{
                                         return value;
                                     }
                                 }
@@ -1471,16 +1515,26 @@
                     tooltips: {
                         callbacks: {
                             label: function(item, data) {
-                                var label = data.datasets[item.datasetIndex].label || '';
-                                var yLabel = item.yLabel;
-                                var content = '';
+                                // var label = data.datasets[item.datasetIndex].label || '';
+                                // var yLabel = item.yLabel;
+                                // var content = '';
 
-                                if (data.datasets.length > 1) {
-                                    content += '<span class="popover-body-label mr-auto">' + label + '</span>';
+                                // if (data.datasets.length > 1) {
+                                //     content += '<span class="popover-body-label mr-auto">' + label + '</span>';
+                                // }
+
+                                // content += yLabel ;
+                                // return content;
+
+                                var value = data.datasets[item.datasetIndex].data[item.index];
+
+                                if(parseInt(value) >= 1000){
+                                    return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                }else if(value == 0){
+                                    return value = "0";
+                                } else{
+                                    return value;
                                 }
-
-                                content += yLabel ;
-                                return content;
                             }
                         }
                     }
@@ -1534,7 +1588,15 @@
                             },
                             ticks: {
                                 callback: function(value) {
-                                    if (!(value % 10)) {
+                                    // if (!(value % 10)) {
+                                    //     return value;
+                                    // }
+
+                                    if(parseInt(value) >= 1000){
+                                        return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                    }else if(value == 0){
+                                        return value = "0";
+                                    } else{
                                         return value;
                                     }
                                 }
@@ -1544,16 +1606,26 @@
                     tooltips: {
                         callbacks: {
                             label: function(item, data) {
-                                var label = data.datasets[item.datasetIndex].label || '';
-                                var yLabel = item.yLabel;
-                                var content = '';
+                                // var label = data.datasets[item.datasetIndex].label || '';
+                                // var yLabel = item.yLabel;
+                                // var content = '';
 
-                                if (data.datasets.length > 1) {
-                                    content += '<span class="popover-body-label mr-auto">' + label + '</span>';
+                                // if (data.datasets.length > 1) {
+                                //     content += '<span class="popover-body-label mr-auto">' + label + '</span>';
+                                // }
+
+                                // content += yLabel ;
+                                // return content;
+
+                                var value = data.datasets[item.datasetIndex].data[item.index];
+
+                                if(parseInt(value) >= 1000){
+                                    return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                }else if(value == 0){
+                                    return value = "0";
+                                } else{
+                                    return value;
                                 }
-
-                                content += yLabel ;
-                                return content;
                             }
                         }
                     }
@@ -1608,7 +1680,15 @@
                             },
                             ticks: {
                                 callback: function(value) {
-                                    if (!(value % 10)) {
+                                    // if (!(value % 10)) {
+                                    //     return value;
+                                    // }
+
+                                    if(parseInt(value) >= 1000){
+                                        return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                    }else if(value == 0){
+                                        return value = "0";
+                                    } else{
                                         return value;
                                     }
                                 }
@@ -1618,16 +1698,26 @@
                     tooltips: {
                         callbacks: {
                             label: function(item, data) {
-                                var label = data.datasets[item.datasetIndex].label || '';
-                                var yLabel = item.yLabel;
-                                var content = '';
+                                // var label = data.datasets[item.datasetIndex].label || '';
+                                // var yLabel = item.yLabel;
+                                // var content = '';
 
-                                if (data.datasets.length > 1) {
-                                    content += '<span class="popover-body-label mr-auto">' + label + '</span>';
+                                // if (data.datasets.length > 1) {
+                                //     content += '<span class="popover-body-label mr-auto">' + label + '</span>';
+                                // }
+
+                                // content += yLabel ;
+                                // return content;
+
+                                var value = data.datasets[item.datasetIndex].data[item.index];
+
+                                if(parseInt(value) >= 1000){
+                                    return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                }else if(value == 0){
+                                    return value = "0";
+                                } else{
+                                    return value;
                                 }
-
-                                content += yLabel ;
-                                return content;
                             }
                         }
                     }
@@ -1681,7 +1771,15 @@
                                 },
                                 ticks: {
                                     callback: function(value) {
-                                        if (!(value % 10)) {
+                                        // if (!(value % 10)) {
+                                        //     return value;
+                                        // }
+
+                                        if(parseInt(value) >= 1000){
+                                            return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                        }else if(value == 0){
+                                            return value = "0";
+                                        } else{
                                             return value;
                                         }
                                     }
@@ -1691,16 +1789,26 @@
                         tooltips: {
                             callbacks: {
                                 label: function(item, data) {
-                                    var label = data.datasets[item.datasetIndex].label || '';
-                                    var yLabel = item.yLabel;
-                                    var content = '';
+                                    // var label = data.datasets[item.datasetIndex].label || '';
+                                    // var yLabel = item.yLabel;
+                                    // var content = '';
     
-                                    if (data.datasets.length > 1) {
-                                        content += '<span class="popover-body-label mr-auto">' + label + '</span>';
+                                    // if (data.datasets.length > 1) {
+                                    //     content += '<span class="popover-body-label mr-auto">' + label + '</span>';
+                                    // }
+    
+                                    // content += yLabel ;
+                                    // return content;
+
+                                    var value = data.datasets[item.datasetIndex].data[item.index];
+
+                                    if(parseInt(value) >= 1000){
+                                        return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                    }else if(value == 0){
+                                        return value = "0";
+                                    } else{
+                                        return value;
                                     }
-    
-                                    content += yLabel ;
-                                    return content;
                                 }
                             }
                         }
@@ -1754,9 +1862,17 @@
                         yAxes: [{
                             ticks: {
                                 callback: function(value) {
-                                    if (!(value % 10)) {
-                                        //return '$' + value + 'k'
-                                        return value
+                                    // if (!(value % 10)) {
+                                    //     //return '$' + value + 'k'
+                                    //     return value
+                                    // }
+
+                                    if(parseInt(value) >= 1000){
+                                        return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                    }else if(value == 0){
+                                        return value = "0";
+                                    } else{
+                                        return value;
                                     }
                                 }
                             }
@@ -1765,17 +1881,27 @@
                     tooltips: {
                         callbacks: {
                             label: function(item, data) {
-                                var label = data.datasets[item.datasetIndex].label || '';
-                                var yLabel = item.yLabel;
-                                var content = '';
+                                // var label = data.datasets[item.datasetIndex].label || '';
+                                // var yLabel = item.yLabel;
+                                // var content = '';
 
-                                if (data.datasets.length > 1) {
-                                    content += '<span class="popover-body-label mr-auto">' + label + '</span>';
-                                }
+                                // if (data.datasets.length > 1) {
+                                //     content += '<span class="popover-body-label mr-auto">' + label + '</span>';
+                                // }
 
-                                content += '<span class="popover-body-value">' + yLabel + '</span>';
+                                // content += '<span class="popover-body-value">' + yLabel + '</span>';
                                 
-                                return content;
+                                // return content;
+
+                                var value = data.datasets[item.datasetIndex].data[item.index];
+
+                                if(parseInt(value) >= 1000){
+                                    return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                }else if(value == 0){
+                                    return value = "0";
+                                } else{
+                                    return value;
+                                }
                             }
                         }
                     }
@@ -1822,9 +1948,17 @@
                         yAxes: [{
                             ticks: {
                                 callback: function(value) {
-                                    if (!(value % 10)) {
-                                        //return '$' + value + 'k'
-                                        return value
+                                    // if (!(value % 10)) {
+                                    //     //return '$' + value + 'k'
+                                    //     return value
+                                    // }
+
+                                    if(parseInt(value) >= 1000){
+                                        return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                    }else if(value == 0){
+                                        return value = "0";
+                                    } else{
+                                        return value;
                                     }
                                 }
                             }
@@ -1833,17 +1967,27 @@
                     tooltips: {
                         callbacks: {
                             label: function(item, data) {
-                                var label = data.datasets[item.datasetIndex].label || '';
-                                var yLabel = item.yLabel;
-                                var content = '';
+                                // var label = data.datasets[item.datasetIndex].label || '';
+                                // var yLabel = item.yLabel;
+                                // var content = '';
 
-                                if (data.datasets.length > 1) {
-                                    content += '<span class="popover-body-label mr-auto">' + label + '</span>';
-                                }
+                                // if (data.datasets.length > 1) {
+                                //     content += '<span class="popover-body-label mr-auto">' + label + '</span>';
+                                // }
 
-                                content += '<span class="popover-body-value">' + yLabel + '</span>';
+                                // content += '<span class="popover-body-value">' + yLabel + '</span>';
                                 
-                                return content;
+                                // return content;
+
+                                var value = data.datasets[item.datasetIndex].data[item.index];
+
+                                if(parseInt(value) >= 1000){
+                                    return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                }else if(value == 0){
+                                    return value = "0";
+                                } else{
+                                    return value;
+                                }
                             }
                         }
                     }
@@ -1874,9 +2018,17 @@
                         yAxes: [{
                             ticks: {
                                 callback: function(value) {
-                                    if (!(value % 10)) {
-                                        //return '$' + value + 'k'
-                                        return value
+                                    // if (!(value % 10)) {
+                                    //     //return '$' + value + 'k'
+                                    //     return value
+                                    // }
+
+                                    if(parseInt(value) >= 1000){
+                                        return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                    }else if(value == 0){
+                                        return value = "0";
+                                    } else{
+                                        return value;
                                     }
                                 }
                             }
@@ -1885,17 +2037,27 @@
                     tooltips: {
                         callbacks: {
                             label: function(item, data) {
-                                var label = data.datasets[item.datasetIndex].label || '';
-                                var yLabel = item.yLabel;
-                                var content = '';
+                                // var label = data.datasets[item.datasetIndex].label || '';
+                                // var yLabel = item.yLabel;
+                                // var content = '';
 
-                                if (data.datasets.length > 1) {
-                                    content += '<span class="popover-body-label mr-auto">' + label + '</span>';
-                                }
+                                // if (data.datasets.length > 1) {
+                                //     content += '<span class="popover-body-label mr-auto">' + label + '</span>';
+                                // }
 
-                                content += '<span class="popover-body-value">' + yLabel + '</span>';
+                                // content += '<span class="popover-body-value">' + yLabel + '</span>';
                                 
-                                return content;
+                                // return content;
+
+                                var value = data.datasets[item.datasetIndex].data[item.index];
+
+                                if(parseInt(value) >= 1000){
+                                    return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                }else if(value == 0){
+                                    return value = "0";
+                                } else{
+                                    return value;
+                                }
                             }
                         }
                     }
@@ -1945,9 +2107,17 @@
                         yAxes: [{
                             ticks: {
                                 callback: function(value) {
-                                    if (!(value % 10)) {
-                                        //return '$' + value + 'k'
-                                        return value
+                                    // if (!(value % 10)) {
+                                    //     //return '$' + value + 'k'
+                                    //     return value
+                                    // }
+
+                                    if(parseInt(value) >= 1000){
+                                        return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                    }else if(value == 0){
+                                        return value = "0";
+                                    } else{
+                                        return value;
                                     }
                                 }
                             }
@@ -1956,17 +2126,27 @@
                     tooltips: {
                         callbacks: {
                             label: function(item, data) {
-                                var label = data.datasets[item.datasetIndex].label || '';
-                                var yLabel = item.yLabel;
-                                var content = '';
+                                // var label = data.datasets[item.datasetIndex].label || '';
+                                // var yLabel = item.yLabel;
+                                // var content = '';
 
-                                if (data.datasets.length > 1) {
-                                    content += '<span class="popover-body-label mr-auto">' + label + '</span>';
-                                }
+                                // if (data.datasets.length > 1) {
+                                //     content += '<span class="popover-body-label mr-auto">' + label + '</span>';
+                                // }
 
-                                content += '<span class="popover-body-value">' + yLabel + '</span>';
+                                // content += '<span class="popover-body-value">' + yLabel + '</span>';
                                 
-                                return content;
+                                // return content;
+
+                                var value = data.datasets[item.datasetIndex].data[item.index];
+
+                                if(parseInt(value) >= 1000){
+                                    return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                }else if(value == 0){
+                                    return value = "0";
+                                } else{
+                                    return value;
+                                }
                             }
                         }
                     }
@@ -2013,9 +2193,17 @@
                         yAxes: [{
                             ticks: {
                                 callback: function(value) {
-                                    if (!(value % 10)) {
-                                        //return '$' + value + 'k'
-                                        return value
+                                    // if (!(value % 10)) {
+                                    //     //return '$' + value + 'k'
+                                    //     return value
+                                    // }
+
+                                    if(parseInt(value) >= 1000){
+                                        return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                    }else if(value == 0){
+                                        return value = "0";
+                                    } else{
+                                        return value;
                                     }
                                 }
                             }
@@ -2024,17 +2212,27 @@
                     tooltips: {
                         callbacks: {
                             label: function(item, data) {
-                                var label = data.datasets[item.datasetIndex].label || '';
-                                var yLabel = item.yLabel;
-                                var content = '';
+                                // var label = data.datasets[item.datasetIndex].label || '';
+                                // var yLabel = item.yLabel;
+                                // var content = '';
 
-                                if (data.datasets.length > 1) {
-                                    content += '<span class="popover-body-label mr-auto">' + label + '</span>';
-                                }
+                                // if (data.datasets.length > 1) {
+                                //     content += '<span class="popover-body-label mr-auto">' + label + '</span>';
+                                // }
 
-                                content += '<span class="popover-body-value">' + yLabel + '</span>';
+                                // content += '<span class="popover-body-value">' + yLabel + '</span>';
                                 
-                                return content;
+                                // return content;
+
+                                var value = data.datasets[item.datasetIndex].data[item.index];
+
+                                if(parseInt(value) >= 1000){
+                                    return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                }else if(value == 0){
+                                    return value = "0";
+                                } else{
+                                    return value;
+                                }
                             }
                         }
                     }
@@ -2065,9 +2263,17 @@
                         yAxes: [{
                             ticks: {
                                 callback: function(value) {
-                                    if (!(value % 10)) {
-                                        //return '$' + value + 'k'
-                                        return value
+                                    // if (!(value % 10)) {
+                                    //     //return '$' + value + 'k'
+                                    //     return value
+                                    // }
+
+                                    if(parseInt(value) >= 1000){
+                                        return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                    }else if(value == 0){
+                                        return value = "0";
+                                    } else{
+                                        return value;
                                     }
                                 }
                             }
@@ -2076,17 +2282,27 @@
                     tooltips: {
                         callbacks: {
                             label: function(item, data) {
-                                var label = data.datasets[item.datasetIndex].label || '';
-                                var yLabel = item.yLabel;
-                                var content = '';
+                                // var label = data.datasets[item.datasetIndex].label || '';
+                                // var yLabel = item.yLabel;
+                                // var content = '';
 
-                                if (data.datasets.length > 1) {
-                                    content += '<span class="popover-body-label mr-auto">' + label + '</span>';
-                                }
+                                // if (data.datasets.length > 1) {
+                                //     content += '<span class="popover-body-label mr-auto">' + label + '</span>';
+                                // }
 
-                                content += '<span class="popover-body-value">' + yLabel + '</span>';
+                                // content += '<span class="popover-body-value">' + yLabel + '</span>';
                                 
-                                return content;
+                                // return content;
+
+                                var value = data.datasets[item.datasetIndex].data[item.index];
+
+                                if(parseInt(value) >= 1000){
+                                    return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                }else if(value == 0){
+                                    return value = "0";
+                                } else{
+                                    return value;
+                                }
                             }
                         }
                     }
@@ -2136,9 +2352,17 @@
                         yAxes: [{
                             ticks: {
                                 callback: function(value) {
-                                    if (!(value % 10)) {
-                                        //return '$' + value + 'k'
-                                        return value
+                                    // if (!(value % 10)) {
+                                    //     //return '$' + value + 'k'
+                                    //     return value
+                                    // }
+
+                                    if(parseInt(value) >= 1000){
+                                        return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                    }else if(value == 0){
+                                        return value = "0";
+                                    } else{
+                                        return value;
                                     }
                                 }
                             }
@@ -2147,17 +2371,27 @@
                     tooltips: {
                         callbacks: {
                             label: function(item, data) {
-                                var label = data.datasets[item.datasetIndex].label || '';
-                                var yLabel = item.yLabel;
-                                var content = '';
+                                // var label = data.datasets[item.datasetIndex].label || '';
+                                // var yLabel = item.yLabel;
+                                // var content = '';
 
-                                if (data.datasets.length > 1) {
-                                    content += '<span class="popover-body-label mr-auto">' + label + '</span>';
-                                }
+                                // if (data.datasets.length > 1) {
+                                //     content += '<span class="popover-body-label mr-auto">' + label + '</span>';
+                                // }
 
-                                content += '<span class="popover-body-value">' + yLabel + '</span>';
+                                // content += '<span class="popover-body-value">' + yLabel + '</span>';
                                 
-                                return content;
+                                // return content;
+
+                                var value = data.datasets[item.datasetIndex].data[item.index];
+
+                                if(parseInt(value) >= 1000){
+                                    return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                }else if(value == 0){
+                                    return value = "0";
+                                } else{
+                                    return value;
+                                }
                             }
                         }
                     }
@@ -2204,9 +2438,17 @@
                         yAxes: [{
                             ticks: {
                                 callback: function(value) {
-                                    if (!(value % 10)) {
-                                        //return '$' + value + 'k'
-                                        return value
+                                    // if (!(value % 10)) {
+                                    //     //return '$' + value + 'k'
+                                    //     return value
+                                    // }
+
+                                    if(parseInt(value) >= 1000){
+                                        return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                    }else if(value == 0){
+                                        return value = "0";
+                                    } else{
+                                        return value;
                                     }
                                 }
                             }
@@ -2215,17 +2457,27 @@
                     tooltips: {
                         callbacks: {
                             label: function(item, data) {
-                                var label = data.datasets[item.datasetIndex].label || '';
-                                var yLabel = item.yLabel;
-                                var content = '';
+                                // var label = data.datasets[item.datasetIndex].label || '';
+                                // var yLabel = item.yLabel;
+                                // var content = '';
 
-                                if (data.datasets.length > 1) {
-                                    content += '<span class="popover-body-label mr-auto">' + label + '</span>';
-                                }
+                                // if (data.datasets.length > 1) {
+                                //     content += '<span class="popover-body-label mr-auto">' + label + '</span>';
+                                // }
 
-                                content += '<span class="popover-body-value">' + yLabel + '</span>';
+                                // content += '<span class="popover-body-value">' + yLabel + '</span>';
                                 
-                                return content;
+                                // return content;
+
+                                var value = data.datasets[item.datasetIndex].data[item.index];
+
+                                if(parseInt(value) >= 1000){
+                                    return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                }else if(value == 0){
+                                    return value = "0";
+                                } else{
+                                    return value;
+                                }
                             }
                         }
                     }
@@ -2256,9 +2508,17 @@
                         yAxes: [{
                             ticks: {
                                 callback: function(value) {
-                                    if (!(value % 10)) {
-                                        //return '$' + value + 'k'
-                                        return value
+                                    // if (!(value % 10)) {
+                                    //     //return '$' + value + 'k'
+                                    //     return value
+                                    // }
+
+                                    if(parseInt(value) >= 1000){
+                                        return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                    }else if(value == 0){
+                                        return value = "0";
+                                    } else{
+                                        return value;
                                     }
                                 }
                             }
@@ -2267,17 +2527,27 @@
                     tooltips: {
                         callbacks: {
                             label: function(item, data) {
-                                var label = data.datasets[item.datasetIndex].label || '';
-                                var yLabel = item.yLabel;
-                                var content = '';
+                                // var label = data.datasets[item.datasetIndex].label || '';
+                                // var yLabel = item.yLabel;
+                                // var content = '';
 
-                                if (data.datasets.length > 1) {
-                                    content += '<span class="popover-body-label mr-auto">' + label + '</span>';
-                                }
+                                // if (data.datasets.length > 1) {
+                                //     content += '<span class="popover-body-label mr-auto">' + label + '</span>';
+                                // }
 
-                                content += '<span class="popover-body-value">' + yLabel + '</span>';
+                                // content += '<span class="popover-body-value">' + yLabel + '</span>';
                                 
-                                return content;
+                                // return content;
+
+                                var value = data.datasets[item.datasetIndex].data[item.index];
+
+                                if(parseInt(value) >= 1000){
+                                    return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                }else if(value == 0){
+                                    return value = "0";
+                                } else{
+                                    return value;
+                                }
                             }
                         }
                     }
@@ -2327,9 +2597,17 @@
                         yAxes: [{
                             ticks: {
                                 callback: function(value) {
-                                    if (!(value % 10)) {
-                                        //return '$' + value + 'k'
-                                        return value
+                                    // if (!(value % 10)) {
+                                    //     //return '$' + value + 'k'
+                                    //     return value
+                                    // }
+
+                                    if(parseInt(value) >= 1000){
+                                        return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                    }else if(value == 0){
+                                        return value = "0";
+                                    } else{
+                                        return value;
                                     }
                                 }
                             }
@@ -2338,17 +2616,27 @@
                     tooltips: {
                         callbacks: {
                             label: function(item, data) {
-                                var label = data.datasets[item.datasetIndex].label || '';
-                                var yLabel = item.yLabel;
-                                var content = '';
+                                // var label = data.datasets[item.datasetIndex].label || '';
+                                // var yLabel = item.yLabel;
+                                // var content = '';
 
-                                if (data.datasets.length > 1) {
-                                    content += '<span class="popover-body-label mr-auto">' + label + '</span>';
-                                }
+                                // if (data.datasets.length > 1) {
+                                //     content += '<span class="popover-body-label mr-auto">' + label + '</span>';
+                                // }
 
-                                content += '<span class="popover-body-value">' + yLabel + '</span>';
+                                // content += '<span class="popover-body-value">' + yLabel + '</span>';
                                 
-                                return content;
+                                // return content;
+
+                                var value = data.datasets[item.datasetIndex].data[item.index];
+
+                                if(parseInt(value) >= 1000){
+                                    return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                }else if(value == 0){
+                                    return value = "0";
+                                } else{
+                                    return value;
+                                }
                             }
                         }
                     }
@@ -2395,9 +2683,17 @@
                         yAxes: [{
                             ticks: {
                                 callback: function(value) {
-                                    if (!(value % 10)) {
-                                        //return '$' + value + 'k'
-                                        return value
+                                    // if (!(value % 10)) {
+                                    //     //return '$' + value + 'k'
+                                    //     return value
+                                    // }
+
+                                    if(parseInt(value) >= 1000){
+                                        return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                    }else if(value == 0){
+                                        return value = "0";
+                                    } else{
+                                        return value;
                                     }
                                 }
                             }
@@ -2406,17 +2702,27 @@
                     tooltips: {
                         callbacks: {
                             label: function(item, data) {
-                                var label = data.datasets[item.datasetIndex].label || '';
-                                var yLabel = item.yLabel;
-                                var content = '';
+                                // var label = data.datasets[item.datasetIndex].label || '';
+                                // var yLabel = item.yLabel;
+                                // var content = '';
 
-                                if (data.datasets.length > 1) {
-                                    content += '<span class="popover-body-label mr-auto">' + label + '</span>';
-                                }
+                                // if (data.datasets.length > 1) {
+                                //     content += '<span class="popover-body-label mr-auto">' + label + '</span>';
+                                // }
 
-                                content += '<span class="popover-body-value">' + yLabel + '</span>';
+                                // content += '<span class="popover-body-value">' + yLabel + '</span>';
                                 
-                                return content;
+                                // return content;
+
+                                var value = data.datasets[item.datasetIndex].data[item.index];
+
+                                if(parseInt(value) >= 1000){
+                                    return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                }else if(value == 0){
+                                    return value = "0";
+                                } else{
+                                    return value;
+                                }
                             }
                         }
                     }
@@ -2447,9 +2753,17 @@
                         yAxes: [{
                             ticks: {
                                 callback: function(value) {
-                                    if (!(value % 10)) {
-                                        //return '$' + value + 'k'
-                                        return value
+                                    // if (!(value % 10)) {
+                                    //     //return '$' + value + 'k'
+                                    //     return value
+                                    // }
+
+                                    if(parseInt(value) >= 1000){
+                                        return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                    }else if(value == 0){
+                                        return value = "0";
+                                    } else{
+                                        return value;
                                     }
                                 }
                             }
@@ -2458,17 +2772,27 @@
                     tooltips: {
                         callbacks: {
                             label: function(item, data) {
-                                var label = data.datasets[item.datasetIndex].label || '';
-                                var yLabel = item.yLabel;
-                                var content = '';
+                                // var label = data.datasets[item.datasetIndex].label || '';
+                                // var yLabel = item.yLabel;
+                                // var content = '';
 
-                                if (data.datasets.length > 1) {
-                                    content += '<span class="popover-body-label mr-auto">' + label + '</span>';
-                                }
+                                // if (data.datasets.length > 1) {
+                                //     content += '<span class="popover-body-label mr-auto">' + label + '</span>';
+                                // }
 
-                                content += '<span class="popover-body-value">' + yLabel + '</span>';
+                                // content += '<span class="popover-body-value">' + yLabel + '</span>';
                                 
-                                return content;
+                                // return content;
+
+                                var value = data.datasets[item.datasetIndex].data[item.index];
+
+                                if(parseInt(value) >= 1000){
+                                    return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                }else if(value == 0){
+                                    return value = "0";
+                                } else{
+                                    return value;
+                                }
                             }
                         }
                     }
@@ -2518,9 +2842,17 @@
                                 yAxes: [{
                                     ticks: {
                                         callback: function(value) {
-                                            if (!(value % 10)) {
-                                                //return '$' + value + 'k'
-                                                return value
+                                            // if (!(value % 10)) {
+                                            //     //return '$' + value + 'k'
+                                            //     return value
+                                            // }
+
+                                            if(parseInt(value) >= 1000){
+                                                return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                            }else if(value == 0){
+                                                return value = "0";
+                                            } else{
+                                                return value;
                                             }
                                         }
                                     }
@@ -2529,17 +2861,27 @@
                             tooltips: {
                                 callbacks: {
                                     label: function(item, data) {
-                                        var label = data.datasets[item.datasetIndex].label || '';
-                                        var yLabel = item.yLabel;
-                                        var content = '';
+                                        // var label = data.datasets[item.datasetIndex].label || '';
+                                        // var yLabel = item.yLabel;
+                                        // var content = '';
 
-                                        if (data.datasets.length > 1) {
-                                            content += '<span class="popover-body-label mr-auto">' + label + '</span>';
-                                        }
+                                        // if (data.datasets.length > 1) {
+                                        //     content += '<span class="popover-body-label mr-auto">' + label + '</span>';
+                                        // }
 
-                                        content += '<span class="popover-body-value">' + yLabel + '</span>';
+                                        // content += '<span class="popover-body-value">' + yLabel + '</span>';
                                         
-                                        return content;
+                                        // return content;
+
+                                        var value = data.datasets[item.datasetIndex].data[item.index];
+
+                                        if(parseInt(value) >= 1000){
+                                            return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                        }else if(value == 0){
+                                            return value = "0";
+                                        } else{
+                                            return value;
+                                        }
                                     }
                                 }
                             }
@@ -2586,9 +2928,17 @@
                                 yAxes: [{
                                     ticks: {
                                         callback: function(value) {
-                                            if (!(value % 10)) {
-                                                //return '$' + value + 'k'
-                                                return value
+                                            // if (!(value % 10)) {
+                                            //     //return '$' + value + 'k'
+                                            //     return value
+                                            // }
+
+                                            if(parseInt(value) >= 1000){
+                                                return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                            }else if(value == 0){
+                                                return value = "0";
+                                            } else{
+                                                return value;
                                             }
                                         }
                                     }
@@ -2597,17 +2947,27 @@
                             tooltips: {
                                 callbacks: {
                                     label: function(item, data) {
-                                        var label = data.datasets[item.datasetIndex].label || '';
-                                        var yLabel = item.yLabel;
-                                        var content = '';
+                                        // var label = data.datasets[item.datasetIndex].label || '';
+                                        // var yLabel = item.yLabel;
+                                        // var content = '';
 
-                                        if (data.datasets.length > 1) {
-                                            content += '<span class="popover-body-label mr-auto">' + label + '</span>';
-                                        }
+                                        // if (data.datasets.length > 1) {
+                                        //     content += '<span class="popover-body-label mr-auto">' + label + '</span>';
+                                        // }
 
-                                        content += '<span class="popover-body-value">' + yLabel + '</span>';
+                                        // content += '<span class="popover-body-value">' + yLabel + '</span>';
                                         
-                                        return content;
+                                        // return content;
+
+                                        var value = data.datasets[item.datasetIndex].data[item.index];
+
+                                        if(parseInt(value) >= 1000){
+                                            return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                        }else if(value == 0){
+                                            return value = "0";
+                                        } else{
+                                            return value;
+                                        }
                                     }
                                 }
                             }
@@ -2638,9 +2998,17 @@
                                 yAxes: [{
                                     ticks: {
                                         callback: function(value) {
-                                            if (!(value % 10)) {
-                                                //return '$' + value + 'k'
-                                                return value
+                                            // if (!(value % 10)) {
+                                            //     //return '$' + value + 'k'
+                                            //     return value
+                                            // }
+
+                                            if(parseInt(value) >= 1000){
+                                                return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                            }else if(value == 0){
+                                                return value = "0";
+                                            } else{
+                                                return value;
                                             }
                                         }
                                     }
@@ -2649,17 +3017,27 @@
                             tooltips: {
                                 callbacks: {
                                     label: function(item, data) {
-                                        var label = data.datasets[item.datasetIndex].label || '';
-                                        var yLabel = item.yLabel;
-                                        var content = '';
+                                        // var label = data.datasets[item.datasetIndex].label || '';
+                                        // var yLabel = item.yLabel;
+                                        // var content = '';
 
-                                        if (data.datasets.length > 1) {
-                                            content += '<span class="popover-body-label mr-auto">' + label + '</span>';
-                                        }
+                                        // if (data.datasets.length > 1) {
+                                        //     content += '<span class="popover-body-label mr-auto">' + label + '</span>';
+                                        // }
 
-                                        content += '<span class="popover-body-value">' + yLabel + '</span>';
+                                        // content += '<span class="popover-body-value">' + yLabel + '</span>';
                                         
-                                        return content;
+                                        // return content;
+
+                                        var value = data.datasets[item.datasetIndex].data[item.index];
+
+                                        if(parseInt(value) >= 1000){
+                                            return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                        }else if(value == 0){
+                                            return value = "0";
+                                        } else{
+                                            return value;
+                                        }
                                     }
                                 }
                             }
@@ -2709,9 +3087,17 @@
                                 yAxes: [{
                                     ticks: {
                                         callback: function(value) {
-                                            if (!(value % 10)) {
-                                                //return '$' + value + 'k'
-                                                return value
+                                            // if (!(value % 10)) {
+                                            //     //return '$' + value + 'k'
+                                            //     return value
+                                            // }
+
+                                            if(parseInt(value) >= 1000){
+                                                return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                            }else if(value == 0){
+                                                return value = "0";
+                                            } else{
+                                                return value;
                                             }
                                         }
                                     }
@@ -2720,17 +3106,27 @@
                             tooltips: {
                                 callbacks: {
                                     label: function(item, data) {
-                                        var label = data.datasets[item.datasetIndex].label || '';
-                                        var yLabel = item.yLabel;
-                                        var content = '';
+                                        // var label = data.datasets[item.datasetIndex].label || '';
+                                        // var yLabel = item.yLabel;
+                                        // var content = '';
 
-                                        if (data.datasets.length > 1) {
-                                            content += '<span class="popover-body-label mr-auto">' + label + '</span>';
-                                        }
+                                        // if (data.datasets.length > 1) {
+                                        //     content += '<span class="popover-body-label mr-auto">' + label + '</span>';
+                                        // }
 
-                                        content += '<span class="popover-body-value">' + yLabel + '</span>';
+                                        // content += '<span class="popover-body-value">' + yLabel + '</span>';
                                         
-                                        return content;
+                                        // return content;
+
+                                        var value = data.datasets[item.datasetIndex].data[item.index];
+
+                                        if(parseInt(value) >= 1000){
+                                            return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                        }else if(value == 0){
+                                            return value = "0";
+                                        } else{
+                                            return value;
+                                        }
                                     }
                                 }
                             }
@@ -2777,9 +3173,17 @@
                                 yAxes: [{
                                     ticks: {
                                         callback: function(value) {
-                                            if (!(value % 10)) {
-                                                //return '$' + value + 'k'
-                                                return value
+                                            // if (!(value % 10)) {
+                                            //     //return '$' + value + 'k'
+                                            //     return value
+                                            // }
+
+                                            if(parseInt(value) >= 1000){
+                                                return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                            }else if(value == 0){
+                                                return value = "0";
+                                            } else{
+                                                return value;
                                             }
                                         }
                                     }
@@ -2788,17 +3192,27 @@
                             tooltips: {
                                 callbacks: {
                                     label: function(item, data) {
-                                        var label = data.datasets[item.datasetIndex].label || '';
-                                        var yLabel = item.yLabel;
-                                        var content = '';
+                                        // var label = data.datasets[item.datasetIndex].label || '';
+                                        // var yLabel = item.yLabel;
+                                        // var content = '';
 
-                                        if (data.datasets.length > 1) {
-                                            content += '<span class="popover-body-label mr-auto">' + label + '</span>';
-                                        }
+                                        // if (data.datasets.length > 1) {
+                                        //     content += '<span class="popover-body-label mr-auto">' + label + '</span>';
+                                        // }
 
-                                        content += '<span class="popover-body-value">' + yLabel + '</span>';
+                                        // content += '<span class="popover-body-value">' + yLabel + '</span>';
                                         
-                                        return content;
+                                        // return content;
+
+                                        var value = data.datasets[item.datasetIndex].data[item.index];
+
+                                        if(parseInt(value) >= 1000){
+                                            return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                        }else if(value == 0){
+                                            return value = "0";
+                                        } else{
+                                            return value;
+                                        }
                                     }
                                 }
                             }
@@ -2829,9 +3243,17 @@
                                 yAxes: [{
                                     ticks: {
                                         callback: function(value) {
-                                            if (!(value % 10)) {
-                                                //return '$' + value + 'k'
-                                                return value
+                                            // if (!(value % 10)) {
+                                            //     //return '$' + value + 'k'
+                                            //     return value
+                                            // }
+
+                                            if(parseInt(value) >= 1000){
+                                                return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                            }else if(value == 0){
+                                                return value = "0";
+                                            } else{
+                                                return value;
                                             }
                                         }
                                     }
@@ -2840,17 +3262,27 @@
                             tooltips: {
                                 callbacks: {
                                     label: function(item, data) {
-                                        var label = data.datasets[item.datasetIndex].label || '';
-                                        var yLabel = item.yLabel;
-                                        var content = '';
+                                        // var label = data.datasets[item.datasetIndex].label || '';
+                                        // var yLabel = item.yLabel;
+                                        // var content = '';
 
-                                        if (data.datasets.length > 1) {
-                                            content += '<span class="popover-body-label mr-auto">' + label + '</span>';
-                                        }
+                                        // if (data.datasets.length > 1) {
+                                        //     content += '<span class="popover-body-label mr-auto">' + label + '</span>';
+                                        // }
 
-                                        content += '<span class="popover-body-value">' + yLabel + '</span>';
+                                        // content += '<span class="popover-body-value">' + yLabel + '</span>';
                                         
-                                        return content;
+                                        // return content;
+
+                                        var value = data.datasets[item.datasetIndex].data[item.index];
+
+                                        if(parseInt(value) >= 1000){
+                                            return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                        }else if(value == 0){
+                                            return value = "0";
+                                        } else{
+                                            return value;
+                                        }
                                     }
                                 }
                             }
@@ -2900,9 +3332,17 @@
                                 yAxes: [{
                                     ticks: {
                                         callback: function(value) {
-                                            if (!(value % 10)) {
-                                                //return '$' + value + 'k'
-                                                return value
+                                            // if (!(value % 10)) {
+                                            //     //return '$' + value + 'k'
+                                            //     return value
+                                            // }
+
+                                            if(parseInt(value) >= 1000){
+                                                return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                            }else if(value == 0){
+                                                return value = "0";
+                                            } else{
+                                                return value;
                                             }
                                         }
                                     }
@@ -2911,17 +3351,27 @@
                             tooltips: {
                                 callbacks: {
                                     label: function(item, data) {
-                                        var label = data.datasets[item.datasetIndex].label || '';
-                                        var yLabel = item.yLabel;
-                                        var content = '';
+                                        // var label = data.datasets[item.datasetIndex].label || '';
+                                        // var yLabel = item.yLabel;
+                                        // var content = '';
 
-                                        if (data.datasets.length > 1) {
-                                            content += '<span class="popover-body-label mr-auto">' + label + '</span>';
-                                        }
+                                        // if (data.datasets.length > 1) {
+                                        //     content += '<span class="popover-body-label mr-auto">' + label + '</span>';
+                                        // }
 
-                                        content += '<span class="popover-body-value">' + yLabel + '</span>';
+                                        // content += '<span class="popover-body-value">' + yLabel + '</span>';
                                         
-                                        return content;
+                                        // return content;
+
+                                        var value = data.datasets[item.datasetIndex].data[item.index];
+
+                                        if(parseInt(value) >= 1000){
+                                            return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                        }else if(value == 0){
+                                            return value = "0";
+                                        } else{
+                                            return value;
+                                        }
                                     }
                                 }
                             }
@@ -2968,9 +3418,17 @@
                                 yAxes: [{
                                     ticks: {
                                         callback: function(value) {
-                                            if (!(value % 10)) {
-                                                //return '$' + value + 'k'
-                                                return value
+                                            // if (!(value % 10)) {
+                                            //     //return '$' + value + 'k'
+                                            //     return value
+                                            // }
+
+                                            if(parseInt(value) >= 1000){
+                                                return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                            }else if(value == 0){
+                                                return value = "0";
+                                            } else{
+                                                return value;
                                             }
                                         }
                                     }
@@ -2979,17 +3437,27 @@
                             tooltips: {
                                 callbacks: {
                                     label: function(item, data) {
-                                        var label = data.datasets[item.datasetIndex].label || '';
-                                        var yLabel = item.yLabel;
-                                        var content = '';
+                                        // var label = data.datasets[item.datasetIndex].label || '';
+                                        // var yLabel = item.yLabel;
+                                        // var content = '';
 
-                                        if (data.datasets.length > 1) {
-                                            content += '<span class="popover-body-label mr-auto">' + label + '</span>';
-                                        }
+                                        // if (data.datasets.length > 1) {
+                                        //     content += '<span class="popover-body-label mr-auto">' + label + '</span>';
+                                        // }
 
-                                        content += '<span class="popover-body-value">' + yLabel + '</span>';
+                                        // content += '<span class="popover-body-value">' + yLabel + '</span>';
                                         
-                                        return content;
+                                        // return content;
+
+                                        var value = data.datasets[item.datasetIndex].data[item.index];
+
+                                        if(parseInt(value) >= 1000){
+                                            return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                        }else if(value == 0){
+                                            return value = "0";
+                                        } else{
+                                            return value;
+                                        }
                                     }
                                 }
                             }
@@ -3020,9 +3488,17 @@
                                 yAxes: [{
                                     ticks: {
                                         callback: function(value) {
-                                            if (!(value % 10)) {
-                                                //return '$' + value + 'k'
-                                                return value
+                                            // if (!(value % 10)) {
+                                            //     //return '$' + value + 'k'
+                                            //     return value
+                                            // }
+
+                                            if(parseInt(value) >= 1000){
+                                                return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                            }else if(value == 0){
+                                                return value = "0";
+                                            } else{
+                                                return value;
                                             }
                                         }
                                     }
@@ -3031,17 +3507,27 @@
                             tooltips: {
                                 callbacks: {
                                     label: function(item, data) {
-                                        var label = data.datasets[item.datasetIndex].label || '';
-                                        var yLabel = item.yLabel;
-                                        var content = '';
+                                        // var label = data.datasets[item.datasetIndex].label || '';
+                                        // var yLabel = item.yLabel;
+                                        // var content = '';
 
-                                        if (data.datasets.length > 1) {
-                                            content += '<span class="popover-body-label mr-auto">' + label + '</span>';
-                                        }
+                                        // if (data.datasets.length > 1) {
+                                        //     content += '<span class="popover-body-label mr-auto">' + label + '</span>';
+                                        // }
 
-                                        content += '<span class="popover-body-value">' + yLabel + '</span>';
+                                        // content += '<span class="popover-body-value">' + yLabel + '</span>';
                                         
-                                        return content;
+                                        // return content;
+
+                                        var value = data.datasets[item.datasetIndex].data[item.index];
+
+                                        if(parseInt(value) >= 1000){
+                                            return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                        }else if(value == 0){
+                                            return value = "0";
+                                        } else{
+                                            return value;
+                                        }
                                     }
                                 }
                             }
@@ -3091,9 +3577,17 @@
                                 yAxes: [{
                                     ticks: {
                                         callback: function(value) {
-                                            if (!(value % 10)) {
-                                                //return '$' + value + 'k'
-                                                return value
+                                            // if (!(value % 10)) {
+                                            //     //return '$' + value + 'k'
+                                            //     return value
+                                            // }
+
+                                            if(parseInt(value) >= 1000){
+                                                return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                            }else if(value == 0){
+                                                return value = "0";
+                                            } else{
+                                                return value;
                                             }
                                         }
                                     }
@@ -3102,17 +3596,27 @@
                             tooltips: {
                                 callbacks: {
                                     label: function(item, data) {
-                                        var label = data.datasets[item.datasetIndex].label || '';
-                                        var yLabel = item.yLabel;
-                                        var content = '';
+                                        // var label = data.datasets[item.datasetIndex].label || '';
+                                        // var yLabel = item.yLabel;
+                                        // var content = '';
 
-                                        if (data.datasets.length > 1) {
-                                            content += '<span class="popover-body-label mr-auto">' + label + '</span>';
-                                        }
+                                        // if (data.datasets.length > 1) {
+                                        //     content += '<span class="popover-body-label mr-auto">' + label + '</span>';
+                                        // }
 
-                                        content += '<span class="popover-body-value">' + yLabel + '</span>';
+                                        // content += '<span class="popover-body-value">' + yLabel + '</span>';
                                         
-                                        return content;
+                                        // return content;
+
+                                        var value = data.datasets[item.datasetIndex].data[item.index];
+
+                                        if(parseInt(value) >= 1000){
+                                            return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                        }else if(value == 0){
+                                            return value = "0";
+                                        } else{
+                                            return value;
+                                        }
                                     }
                                 }
                             }
@@ -3159,9 +3663,17 @@
                                 yAxes: [{
                                     ticks: {
                                         callback: function(value) {
-                                            if (!(value % 10)) {
-                                                //return '$' + value + 'k'
-                                                return value
+                                            // if (!(value % 10)) {
+                                            //     //return '$' + value + 'k'
+                                            //     return value
+                                            // }
+
+                                            if(parseInt(value) >= 1000){
+                                                return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                            }else if(value == 0){
+                                                return value = "0";
+                                            } else{
+                                                return value;
                                             }
                                         }
                                     }
@@ -3170,17 +3682,27 @@
                             tooltips: {
                                 callbacks: {
                                     label: function(item, data) {
-                                        var label = data.datasets[item.datasetIndex].label || '';
-                                        var yLabel = item.yLabel;
-                                        var content = '';
+                                        // var label = data.datasets[item.datasetIndex].label || '';
+                                        // var yLabel = item.yLabel;
+                                        // var content = '';
 
-                                        if (data.datasets.length > 1) {
-                                            content += '<span class="popover-body-label mr-auto">' + label + '</span>';
-                                        }
+                                        // if (data.datasets.length > 1) {
+                                        //     content += '<span class="popover-body-label mr-auto">' + label + '</span>';
+                                        // }
 
-                                        content += '<span class="popover-body-value">' + yLabel + '</span>';
+                                        // content += '<span class="popover-body-value">' + yLabel + '</span>';
                                         
-                                        return content;
+                                        // return content;
+
+                                        var value = data.datasets[item.datasetIndex].data[item.index];
+
+                                        if(parseInt(value) >= 1000){
+                                            return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                        }else if(value == 0){
+                                            return value = "0";
+                                        } else{
+                                            return value;
+                                        }
                                     }
                                 }
                             }
@@ -3211,9 +3733,17 @@
                                 yAxes: [{
                                     ticks: {
                                         callback: function(value) {
-                                            if (!(value % 10)) {
-                                                //return '$' + value + 'k'
-                                                return value
+                                            // if (!(value % 10)) {
+                                            //     //return '$' + value + 'k'
+                                            //     return value
+                                            // }
+                                            
+                                            if(parseInt(value) >= 1000){
+                                                return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                            }else if(value == 0){
+                                                return value = "0";
+                                            } else{
+                                                return value;
                                             }
                                         }
                                     }
@@ -3222,17 +3752,26 @@
                             tooltips: {
                                 callbacks: {
                                     label: function(item, data) {
-                                        var label = data.datasets[item.datasetIndex].label || '';
-                                        var yLabel = item.yLabel;
-                                        var content = '';
+                                        // var label = data.datasets[item.datasetIndex].label || '';
+                                        // var yLabel = item.yLabel;
+                                        // var content = '';
 
-                                        if (data.datasets.length > 1) {
-                                            content += '<span class="popover-body-label mr-auto">' + label + '</span>';
-                                        }
+                                        // if (data.datasets.length > 1) {
+                                        //     content += '<span class="popover-body-label mr-auto">' + label + '</span>';
+                                        // }
 
-                                        content += '<span class="popover-body-value">' + yLabel + '</span>';
+                                        // content += '<span class="popover-body-value">' + yLabel + '</span>';
                                         
-                                        return content;
+                                        // return content;
+                                        var value = data.datasets[item.datasetIndex].data[item.index];
+
+                                        if(parseInt(value) >= 1000){
+                                            return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                        }else if(value == 0){
+                                            return value = "0";
+                                        } else{
+                                            return value;
+                                        }
                                     }
                                 }
                             }
@@ -3282,9 +3821,17 @@
                         yAxes: [{
                             ticks: {
                                 callback: function(value) {
-                                    if (!(value % 10)) {
-                                        //return '$' + value + 'k'
-                                        return value
+                                    // if (!(value % 10)) {
+                                    //     //return '$' + value + 'k'
+                                    //     return value
+                                    // }
+                                    
+                                    if(parseInt(value) >= 1000){
+                                        return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                    }else if(value == 0){
+                                        return value = "0";
+                                    } else{
+                                        return value;
                                     }
                                 }
                             }
@@ -3293,17 +3840,26 @@
                     tooltips: {
                         callbacks: {
                             label: function(item, data) {
-                                var label = data.datasets[item.datasetIndex].label || '';
-                                var yLabel = item.yLabel;
-                                var content = '';
+                                // var label = data.datasets[item.datasetIndex].label || '';
+                                // var yLabel = item.yLabel;
+                                // var content = '';
 
-                                if (data.datasets.length > 1) {
-                                    content += '<span class="popover-body-label mr-auto">' + label + '</span>';
-                                }
+                                // if (data.datasets.length > 1) {
+                                //     content += '<span class="popover-body-label mr-auto">' + label + '</span>';
+                                // }
 
-                                content += '<span class="popover-body-value">' + yLabel + '</span>';
+                                // content += '<span class="popover-body-value">' + yLabel + '</span>';
                                 
-                                return content;
+                                // return content;
+                                var value = data.datasets[item.datasetIndex].data[item.index];
+
+                                if(parseInt(value) >= 1000){
+                                    return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                }else if(value == 0){
+                                    return value = "0";
+                                } else{
+                                    return value;
+                                }
                             }
                         }
                     }
@@ -3350,9 +3906,17 @@
                         yAxes: [{
                             ticks: {
                                 callback: function(value) {
-                                    if (!(value % 10)) {
-                                        //return '$' + value + 'k'
-                                        return value
+                                    // if (!(value % 10)) {
+                                    //     //return '$' + value + 'k'
+                                    //     return value
+                                    // }
+                                   
+                                    if(parseInt(value) >= 1000){
+                                        return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                    }else if(value == 0){
+                                        return value = "0";
+                                    } else{
+                                        return value;
                                     }
                                 }
                             }
@@ -3361,17 +3925,26 @@
                     tooltips: {
                         callbacks: {
                             label: function(item, data) {
-                                var label = data.datasets[item.datasetIndex].label || '';
-                                var yLabel = item.yLabel;
-                                var content = '';
+                                // var label = data.datasets[item.datasetIndex].label || '';
+                                // var yLabel = item.yLabel;
+                                // var content = '';
 
-                                if (data.datasets.length > 1) {
-                                    content += '<span class="popover-body-label mr-auto">' + label + '</span>';
-                                }
+                                // if (data.datasets.length > 1) {
+                                //     content += '<span class="popover-body-label mr-auto">' + label + '</span>';
+                                // }
 
-                                content += '<span class="popover-body-value">' + yLabel + '</span>';
+                                // content += '<span class="popover-body-value">' + yLabel + '</span>';
                                 
-                                return content;
+                                // return content;
+                                var value = data.datasets[item.datasetIndex].data[item.index];
+
+                                if(parseInt(value) >= 1000){
+                                    return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                }else if(value == 0){
+                                    return value = "0";
+                                } else{
+                                    return value;
+                                }
                             }
                         }
                     }
@@ -3402,9 +3975,17 @@
                         yAxes: [{
                             ticks: {
                                 callback: function(value) {
-                                    if (!(value % 10)) {
-                                        //return '$' + value + 'k'
-                                        return value
+                                    // if (!(value % 10)) {
+                                    //     //return '$' + value + 'k'
+                                    //     return value
+                                    // }
+                                    
+                                    if(parseInt(value) >= 1000){
+                                        return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                    }else if(value == 0){
+                                        return value = "0";
+                                    } else{
+                                        return value;
                                     }
                                 }
                             }
@@ -3413,17 +3994,26 @@
                     tooltips: {
                         callbacks: {
                             label: function(item, data) {
-                                var label = data.datasets[item.datasetIndex].label || '';
-                                var yLabel = item.yLabel;
-                                var content = '';
+                                // var label = data.datasets[item.datasetIndex].label || '';
+                                // var yLabel = item.yLabel;
+                                // var content = '';
 
-                                if (data.datasets.length > 1) {
-                                    content += '<span class="popover-body-label mr-auto">' + label + '</span>';
-                                }
+                                // if (data.datasets.length > 1) {
+                                //     content += '<span class="popover-body-label mr-auto">' + label + '</span>';
+                                // }
 
-                                content += '<span class="popover-body-value">' + yLabel + '</span>';
+                                // content += '<span class="popover-body-value">' + yLabel + '</span>';
                                 
-                                return content;
+                                // return content;
+                                var value = data.datasets[item.datasetIndex].data[item.index];
+
+                                if(parseInt(value) >= 1000){
+                                    return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                }else if(value == 0){
+                                    return value = "0";
+                                } else{
+                                    return value;
+                                }
                             }
                         }
                     }
@@ -3473,9 +4063,17 @@
                         yAxes: [{
                             ticks: {
                                 callback: function(value) {
-                                    if (!(value % 10)) {
-                                        //return '$' + value + 'k'
-                                        return value
+                                    // if (!(value % 10)) {
+                                    //     //return '$' + value + 'k'
+                                    //     return value
+                                    // }
+                                    
+                                    if(parseInt(value) >= 1000){
+                                        return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                    }else if(value == 0){
+                                        return value = "0";
+                                    } else{
+                                        return value;
                                     }
                                 }
                             }
@@ -3484,17 +4082,26 @@
                     tooltips: {
                         callbacks: {
                             label: function(item, data) {
-                                var label = data.datasets[item.datasetIndex].label || '';
-                                var yLabel = item.yLabel;
-                                var content = '';
+                                // var label = data.datasets[item.datasetIndex].label || '';
+                                // var yLabel = item.yLabel;
+                                // var content = '';
 
-                                if (data.datasets.length > 1) {
-                                    content += '<span class="popover-body-label mr-auto">' + label + '</span>';
-                                }
+                                // if (data.datasets.length > 1) {
+                                //     content += '<span class="popover-body-label mr-auto">' + label + '</span>';
+                                // }
 
-                                content += '<span class="popover-body-value">' + yLabel + '</span>';
+                                // content += '<span class="popover-body-value">' + yLabel + '</span>';
                                 
-                                return content;
+                                // return content;
+                                var value = data.datasets[item.datasetIndex].data[item.index];
+
+                                if(parseInt(value) >= 1000){
+                                    return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                }else if(value == 0){
+                                    return value = "0";
+                                } else{
+                                    return value;
+                                }
                             }
                         }
                     }
@@ -3541,9 +4148,17 @@
                         yAxes: [{
                             ticks: {
                                 callback: function(value) {
-                                    if (!(value % 10)) {
-                                        //return '$' + value + 'k'
-                                        return value
+                                    // if (!(value % 10)) {
+                                    //     //return '$' + value + 'k'
+                                    //     return value
+                                    // }
+                                
+                                    if(parseInt(value) >= 1000){
+                                        return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                    }else if(value == 0){
+                                        return value = "0";
+                                    } else{
+                                        return value;
                                     }
                                 }
                             }
@@ -3552,17 +4167,27 @@
                     tooltips: {
                         callbacks: {
                             label: function(item, data) {
-                                var label = data.datasets[item.datasetIndex].label || '';
-                                var yLabel = item.yLabel;
-                                var content = '';
+                                // var label = data.datasets[item.datasetIndex].label || '';
+                                // var yLabel = item.yLabel;
+                                // var content = '';
 
-                                if (data.datasets.length > 1) {
-                                    content += '<span class="popover-body-label mr-auto">' + label + '</span>';
-                                }
+                                // if (data.datasets.length > 1) {
+                                //     content += '<span class="popover-body-label mr-auto">' + label + '</span>';
+                                // }
 
-                                content += '<span class="popover-body-value">' + yLabel + '</span>';
+                                // content += '<span class="popover-body-value">' + yLabel + '</span>';
                                 
-                                return content;
+                                // return content;
+
+                                var value = data.datasets[item.datasetIndex].data[item.index];
+
+                                if(parseInt(value) >= 1000){
+                                    return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                }else if(value == 0){
+                                    return value = "0";
+                                } else{
+                                    return value;
+                                }
                             }
                         }
                     }
@@ -3593,9 +4218,17 @@
                         yAxes: [{
                             ticks: {
                                 callback: function(value) {
-                                    if (!(value % 10)) {
-                                        //return '$' + value + 'k'
-                                        return value
+                                    // if (!(value % 10)) {
+                                    //     //return '$' + value + 'k'
+                                    //     return value
+                                    // }
+                                    
+                                    if(parseInt(value) >= 1000){
+                                        return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                    }else if(value == 0){
+                                        return value = "0";
+                                    } else{
+                                        return value;
                                     }
                                 }
                             }
@@ -3604,17 +4237,26 @@
                     tooltips: {
                         callbacks: {
                             label: function(item, data) {
-                                var label = data.datasets[item.datasetIndex].label || '';
-                                var yLabel = item.yLabel;
-                                var content = '';
+                                // var label = data.datasets[item.datasetIndex].label || '';
+                                // var yLabel = item.yLabel;
+                                // var content = '';
 
-                                if (data.datasets.length > 1) {
-                                    content += '<span class="popover-body-label mr-auto">' + label + '</span>';
-                                }
+                                // if (data.datasets.length > 1) {
+                                //     content += '<span class="popover-body-label mr-auto">' + label + '</span>';
+                                // }
 
-                                content += '<span class="popover-body-value">' + yLabel + '</span>';
+                                // content += '<span class="popover-body-value">' + yLabel + '</span>';
                                 
-                                return content;
+                                // return content;
+                                var value = data.datasets[item.datasetIndex].data[item.index];
+
+                                if(parseInt(value) >= 1000){
+                                    return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                }else if(value == 0){
+                                    return value = "0";
+                                } else{
+                                    return value;
+                                }
                             }
                         }
                     }
@@ -3664,9 +4306,17 @@
                         yAxes: [{
                             ticks: {
                                 callback: function(value) {
-                                    if (!(value % 10)) {
-                                        //return '$' + value + 'k'
-                                        return value
+                                    // if (!(value % 10)) {
+                                    //     //return '$' + value + 'k'
+                                    //     return value
+                                    // }
+
+                                    if(parseInt(value) >= 1000){
+                                        return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                    }else if(value == 0){
+                                        return value = "0";
+                                    } else{
+                                        return value;
                                     }
                                 }
                             }
@@ -3675,17 +4325,27 @@
                     tooltips: {
                         callbacks: {
                             label: function(item, data) {
-                                var label = data.datasets[item.datasetIndex].label || '';
-                                var yLabel = item.yLabel;
-                                var content = '';
+                                // var label = data.datasets[item.datasetIndex].label || '';
+                                // var yLabel = item.yLabel;
+                                // var content = '';
 
-                                if (data.datasets.length > 1) {
-                                    content += '<span class="popover-body-label mr-auto">' + label + '</span>';
-                                }
+                                // if (data.datasets.length > 1) {
+                                //     content += '<span class="popover-body-label mr-auto">' + label + '</span>';
+                                // }
 
-                                content += '<span class="popover-body-value">' + yLabel + '</span>';
+                                // content += '<span class="popover-body-value">' + yLabel + '</span>';
                                 
-                                return content;
+                                // return content;
+
+                                var value = data.datasets[item.datasetIndex].data[item.index];
+
+                                if(parseInt(value) >= 1000){
+                                    return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                }else if(value == 0){
+                                    return value = "0";
+                                } else{
+                                    return value;
+                                }
                             }
                         }
                     }
@@ -3732,9 +4392,17 @@
                         yAxes: [{
                             ticks: {
                                 callback: function(value) {
-                                    if (!(value % 10)) {
-                                        //return '$' + value + 'k'
-                                        return value
+                                    // if (!(value % 10)) {
+                                    //     //return '$' + value + 'k'
+                                    //     return value
+                                    // }
+
+                                    if(parseInt(value) >= 1000){
+                                        return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                    }else if(value == 0){
+                                        return value = "0";
+                                    } else{
+                                        return value;
                                     }
                                 }
                             }
@@ -3743,17 +4411,27 @@
                     tooltips: {
                         callbacks: {
                             label: function(item, data) {
-                                var label = data.datasets[item.datasetIndex].label || '';
-                                var yLabel = item.yLabel;
-                                var content = '';
+                                // var label = data.datasets[item.datasetIndex].label || '';
+                                // var yLabel = item.yLabel;
+                                // var content = '';
 
-                                if (data.datasets.length > 1) {
-                                    content += '<span class="popover-body-label mr-auto">' + label + '</span>';
-                                }
+                                // if (data.datasets.length > 1) {
+                                //     content += '<span class="popover-body-label mr-auto">' + label + '</span>';
+                                // }
 
-                                content += '<span class="popover-body-value">' + yLabel + '</span>';
+                                // content += '<span class="popover-body-value">' + yLabel + '</span>';
                                 
-                                return content;
+                                // return content;
+
+                                var value = data.datasets[item.datasetIndex].data[item.index];
+
+                                if(parseInt(value) >= 1000){
+                                    return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                }else if(value == 0){
+                                    return value = "0";
+                                } else{
+                                    return value;
+                                }
                             }
                         }
                     }
@@ -3784,9 +4462,17 @@
                         yAxes: [{
                             ticks: {
                                 callback: function(value) {
-                                    if (!(value % 10)) {
-                                        //return '$' + value + 'k'
-                                        return value
+                                    // if (!(value % 10)) {
+                                    //     //return '$' + value + 'k'
+                                    //     return value
+                                    // }
+
+                                    if(parseInt(value) >= 1000){
+                                        return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                    }else if(value == 0){
+                                        return value = "0";
+                                    } else{
+                                        return value;
                                     }
                                 }
                             }
@@ -3795,17 +4481,27 @@
                     tooltips: {
                         callbacks: {
                             label: function(item, data) {
-                                var label = data.datasets[item.datasetIndex].label || '';
-                                var yLabel = item.yLabel;
-                                var content = '';
+                                // var label = data.datasets[item.datasetIndex].label || '';
+                                // var yLabel = item.yLabel;
+                                // var content = '';
 
-                                if (data.datasets.length > 1) {
-                                    content += '<span class="popover-body-label mr-auto">' + label + '</span>';
-                                }
+                                // if (data.datasets.length > 1) {
+                                //     content += '<span class="popover-body-label mr-auto">' + label + '</span>';
+                                // }
 
-                                content += '<span class="popover-body-value">' + yLabel + '</span>';
+                                // content += '<span class="popover-body-value">' + yLabel + '</span>';
                                 
-                                return content;
+                                // return content;
+
+                                var value = data.datasets[item.datasetIndex].data[item.index];
+
+                                if(parseInt(value) >= 1000){
+                                    return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                }else if(value == 0){
+                                    return value = "0";
+                                } else{
+                                    return value;
+                                }
                             }
                         }
                     }
@@ -3855,9 +4551,17 @@
                         yAxes: [{
                             ticks: {
                                 callback: function(value) {
-                                    if (!(value % 10)) {
-                                        //return '$' + value + 'k'
-                                        return value
+                                    // if (!(value % 10)) {
+                                    //     //return '$' + value + 'k'
+                                    //     return value
+                                    // }
+
+                                    if(parseInt(value) >= 1000){
+                                        return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                    }else if(value == 0){
+                                        return value = "0";
+                                    } else{
+                                        return value;
                                     }
                                 }
                             }
@@ -3866,17 +4570,27 @@
                     tooltips: {
                         callbacks: {
                             label: function(item, data) {
-                                var label = data.datasets[item.datasetIndex].label || '';
-                                var yLabel = item.yLabel;
-                                var content = '';
+                                // var label = data.datasets[item.datasetIndex].label || '';
+                                // var yLabel = item.yLabel;
+                                // var content = '';
 
-                                if (data.datasets.length > 1) {
-                                    content += '<span class="popover-body-label mr-auto">' + label + '</span>';
-                                }
+                                // if (data.datasets.length > 1) {
+                                //     content += '<span class="popover-body-label mr-auto">' + label + '</span>';
+                                // }
 
-                                content += '<span class="popover-body-value">' + yLabel + '</span>';
+                                // content += '<span class="popover-body-value">' + yLabel + '</span>';
                                 
-                                return content;
+                                // return content;
+
+                                var value = data.datasets[item.datasetIndex].data[item.index];
+
+                                if(parseInt(value) >= 1000){
+                                    return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                }else if(value == 0){
+                                    return value = "0";
+                                } else{
+                                    return value;
+                                }
                             }
                         }
                     }
@@ -3923,9 +4637,17 @@
                         yAxes: [{
                             ticks: {
                                 callback: function(value) {
-                                    if (!(value % 10)) {
-                                        //return '$' + value + 'k'
-                                        return value
+                                    // if (!(value % 10)) {
+                                    //     //return '$' + value + 'k'
+                                    //     return value
+                                    // }
+
+                                    if(parseInt(value) >= 1000){
+                                        return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                    }else if(value == 0){
+                                        return value = "0";
+                                    } else{
+                                        return value;
                                     }
                                 }
                             }
@@ -3934,17 +4656,27 @@
                     tooltips: {
                         callbacks: {
                             label: function(item, data) {
-                                var label = data.datasets[item.datasetIndex].label || '';
-                                var yLabel = item.yLabel;
-                                var content = '';
+                                // var label = data.datasets[item.datasetIndex].label || '';
+                                // var yLabel = item.yLabel;
+                                // var content = '';
 
-                                if (data.datasets.length > 1) {
-                                    content += '<span class="popover-body-label mr-auto">' + label + '</span>';
-                                }
+                                // if (data.datasets.length > 1) {
+                                //     content += '<span class="popover-body-label mr-auto">' + label + '</span>';
+                                // }
 
-                                content += '<span class="popover-body-value">' + yLabel + '</span>';
+                                // content += '<span class="popover-body-value">' + yLabel + '</span>';
                                 
-                                return content;
+                                // return content;
+
+                                var value = data.datasets[item.datasetIndex].data[item.index];
+
+                                if(parseInt(value) >= 1000){
+                                    return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                }else if(value == 0){
+                                    return value = "0";
+                                } else{
+                                    return value;
+                                }
                             }
                         }
                     }
@@ -3975,9 +4707,17 @@
                         yAxes: [{
                             ticks: {
                                 callback: function(value) {
-                                    if (!(value % 10)) {
-                                        //return '$' + value + 'k'
-                                        return value
+                                    // if (!(value % 10)) {
+                                    //     //return '$' + value + 'k'
+                                    //     return value
+                                    // }
+
+                                    if(parseInt(value) >= 1000){
+                                        return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                    }else if(value == 0){
+                                        return value = "0";
+                                    } else{
+                                        return value;
                                     }
                                 }
                             }
@@ -3986,17 +4726,27 @@
                     tooltips: {
                         callbacks: {
                             label: function(item, data) {
-                                var label = data.datasets[item.datasetIndex].label || '';
-                                var yLabel = item.yLabel;
-                                var content = '';
+                                // var label = data.datasets[item.datasetIndex].label || '';
+                                // var yLabel = item.yLabel;
+                                // var content = '';
 
-                                if (data.datasets.length > 1) {
-                                    content += '<span class="popover-body-label mr-auto">' + label + '</span>';
-                                }
+                                // if (data.datasets.length > 1) {
+                                //     content += '<span class="popover-body-label mr-auto">' + label + '</span>';
+                                // }
 
-                                content += '<span class="popover-body-value">' + yLabel + '</span>';
+                                // content += '<span class="popover-body-value">' + yLabel + '</span>';
                                 
-                                return content;
+                                // return content;
+
+                                var value = data.datasets[item.datasetIndex].data[item.index];
+
+                                if(parseInt(value) >= 1000){
+                                    return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                }else if(value == 0){
+                                    return value = "0";
+                                } else{
+                                    return value;
+                                }
                             }
                         }
                     }
@@ -4046,9 +4796,17 @@
                         yAxes: [{
                             ticks: {
                                 callback: function(value) {
-                                    if (!(value % 10)) {
-                                        //return '$' + value + 'k'
-                                        return value
+                                    // if (!(value % 10)) {
+                                    //     //return '$' + value + 'k'
+                                    //     return value
+                                    // }
+
+                                    if(parseInt(value) >= 1000){
+                                        return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                    }else if(value == 0){
+                                        return value = "0";
+                                    } else{
+                                        return value;
                                     }
                                 }
                             }
@@ -4057,17 +4815,27 @@
                     tooltips: {
                         callbacks: {
                             label: function(item, data) {
-                                var label = data.datasets[item.datasetIndex].label || '';
-                                var yLabel = item.yLabel;
-                                var content = '';
+                                // var label = data.datasets[item.datasetIndex].label || '';
+                                // var yLabel = item.yLabel;
+                                // var content = '';
 
-                                if (data.datasets.length > 1) {
-                                    content += '<span class="popover-body-label mr-auto">' + label + '</span>';
-                                }
+                                // if (data.datasets.length > 1) {
+                                //     content += '<span class="popover-body-label mr-auto">' + label + '</span>';
+                                // }
 
-                                content += '<span class="popover-body-value">' + yLabel + '</span>';
+                                // content += '<span class="popover-body-value">' + yLabel + '</span>';
                                 
-                                return content;
+                                // return content;
+
+                                var value = data.datasets[item.datasetIndex].data[item.index];
+
+                                if(parseInt(value) >= 1000){
+                                    return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                }else if(value == 0){
+                                    return value = "0";
+                                } else{
+                                    return value;
+                                }
                             }
                         }
                     }
@@ -4114,9 +4882,17 @@
                         yAxes: [{
                             ticks: {
                                 callback: function(value) {
-                                    if (!(value % 10)) {
-                                        //return '$' + value + 'k'
-                                        return value
+                                    // if (!(value % 10)) {
+                                    //     //return '$' + value + 'k'
+                                    //     return value
+                                    // }
+
+                                    if(parseInt(value) >= 1000){
+                                        return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                    }else if(value == 0){
+                                        return value = "0";
+                                    } else{
+                                        return value;
                                     }
                                 }
                             }
@@ -4125,17 +4901,27 @@
                     tooltips: {
                         callbacks: {
                             label: function(item, data) {
-                                var label = data.datasets[item.datasetIndex].label || '';
-                                var yLabel = item.yLabel;
-                                var content = '';
+                                // var label = data.datasets[item.datasetIndex].label || '';
+                                // var yLabel = item.yLabel;
+                                // var content = '';
 
-                                if (data.datasets.length > 1) {
-                                    content += '<span class="popover-body-label mr-auto">' + label + '</span>';
-                                }
+                                // if (data.datasets.length > 1) {
+                                //     content += '<span class="popover-body-label mr-auto">' + label + '</span>';
+                                // }
 
-                                content += '<span class="popover-body-value">' + yLabel + '</span>';
+                                // content += '<span class="popover-body-value">' + yLabel + '</span>';
                                 
-                                return content;
+                                // return content;
+
+                                var value = data.datasets[item.datasetIndex].data[item.index];
+
+                                if(parseInt(value) >= 1000){
+                                    return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                }else if(value == 0){
+                                    return value = "0";
+                                } else{
+                                    return value;
+                                }
                             }
                         }
                     }
@@ -4166,9 +4952,17 @@
                         yAxes: [{
                             ticks: {
                                 callback: function(value) {
-                                    if (!(value % 10)) {
-                                        //return '$' + value + 'k'
-                                        return value
+                                    // if (!(value % 10)) {
+                                    //     //return '$' + value + 'k'
+                                    //     return value
+                                    // }
+
+                                    if(parseInt(value) >= 1000){
+                                        return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                    }else if(value == 0){
+                                        return value = "0";
+                                    } else{
+                                        return value;
                                     }
                                 }
                             }
@@ -4177,17 +4971,27 @@
                     tooltips: {
                         callbacks: {
                             label: function(item, data) {
-                                var label = data.datasets[item.datasetIndex].label || '';
-                                var yLabel = item.yLabel;
-                                var content = '';
+                                // var label = data.datasets[item.datasetIndex].label || '';
+                                // var yLabel = item.yLabel;
+                                // var content = '';
 
-                                if (data.datasets.length > 1) {
-                                    content += '<span class="popover-body-label mr-auto">' + label + '</span>';
-                                }
+                                // if (data.datasets.length > 1) {
+                                //     content += '<span class="popover-body-label mr-auto">' + label + '</span>';
+                                // }
 
-                                content += '<span class="popover-body-value">' + yLabel + '</span>';
+                                // content += '<span class="popover-body-value">' + yLabel + '</span>';
                                 
-                                return content;
+                                // return content;
+
+                                var value = data.datasets[item.datasetIndex].data[item.index];
+
+                                if(parseInt(value) >= 1000){
+                                    return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                }else if(value == 0){
+                                    return value = "0";
+                                } else{
+                                    return value;
+                                }
                             }
                         }
                     }
@@ -4238,9 +5042,17 @@
                         yAxes: [{
                             ticks: {
                                 callback: function(value) {
-                                    if (!(value % 10)) {
-                                        //return '$' + value + 'k'
-                                        return value
+                                    // if (!(value % 10)) {
+                                    //     //return '$' + value + 'k'
+                                    //     return value
+                                    // }
+
+                                    if(parseInt(value) >= 1000){
+                                        return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                    }else if(value == 0){
+                                        return value = "0";
+                                    } else{
+                                        return value;
                                     }
                                 }
                             }
@@ -4249,17 +5061,27 @@
                     tooltips: {
                         callbacks: {
                             label: function(item, data) {
-                                var label = data.datasets[item.datasetIndex].label || '';
-                                var yLabel = item.yLabel;
-                                var content = '';
+                                // var label = data.datasets[item.datasetIndex].label || '';
+                                // var yLabel = item.yLabel;
+                                // var content = '';
 
-                                if (data.datasets.length > 1) {
-                                    content += '<span class="popover-body-label mr-auto">' + label + '</span>';
-                                }
+                                // if (data.datasets.length > 1) {
+                                //     content += '<span class="popover-body-label mr-auto">' + label + '</span>';
+                                // }
 
-                                content += '<span class="popover-body-value">' + yLabel + '</span>';
+                                // content += '<span class="popover-body-value">' + yLabel + '</span>';
                                 
-                                return content;
+                                // return content;
+
+                                var value = data.datasets[item.datasetIndex].data[item.index];
+
+                                if(parseInt(value) >= 1000){
+                                    return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                }else if(value == 0){
+                                    return value = "0";
+                                } else{
+                                    return value;
+                                }
                             }
                         }
                     }
@@ -4306,9 +5128,17 @@
                         yAxes: [{
                             ticks: {
                                 callback: function(value) {
-                                    if (!(value % 10)) {
-                                        //return '$' + value + 'k'
-                                        return value
+                                    // if (!(value % 10)) {
+                                    //     //return '$' + value + 'k'
+                                    //     return value
+                                    // }
+
+                                    if(parseInt(value) >= 1000){
+                                        return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                    }else if(value == 0){
+                                        return value = "0";
+                                    } else{
+                                        return value;
                                     }
                                 }
                             }
@@ -4317,17 +5147,27 @@
                     tooltips: {
                         callbacks: {
                             label: function(item, data) {
-                                var label = data.datasets[item.datasetIndex].label || '';
-                                var yLabel = item.yLabel;
-                                var content = '';
+                                // var label = data.datasets[item.datasetIndex].label || '';
+                                // var yLabel = item.yLabel;
+                                // var content = '';
 
-                                if (data.datasets.length > 1) {
-                                    content += '<span class="popover-body-label mr-auto">' + label + '</span>';
-                                }
+                                // if (data.datasets.length > 1) {
+                                //     content += '<span class="popover-body-label mr-auto">' + label + '</span>';
+                                // }
 
-                                content += '<span class="popover-body-value">' + yLabel + '</span>';
+                                // content += '<span class="popover-body-value">' + yLabel + '</span>';
                                 
-                                return content;
+                                // return content;
+
+                                var value = data.datasets[item.datasetIndex].data[item.index];
+
+                                if(parseInt(value) >= 1000){
+                                    return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                }else if(value == 0){
+                                    return value = "0";
+                                } else{
+                                    return value;
+                                }
                             }
                         }
                     }
@@ -4358,9 +5198,17 @@
                         yAxes: [{
                             ticks: {
                                 callback: function(value) {
-                                    if (!(value % 10)) {
-                                        //return '$' + value + 'k'
-                                        return value
+                                    // if (!(value % 10)) {
+                                    //     //return '$' + value + 'k'
+                                    //     return value
+                                    // }
+
+                                    if(parseInt(value) >= 1000){
+                                        return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                    }else if(value == 0){
+                                        return value = "0";
+                                    } else{
+                                        return value;
                                     }
                                 }
                             }
@@ -4369,17 +5217,27 @@
                     tooltips: {
                         callbacks: {
                             label: function(item, data) {
-                                var label = data.datasets[item.datasetIndex].label || '';
-                                var yLabel = item.yLabel;
-                                var content = '';
+                                // var label = data.datasets[item.datasetIndex].label || '';
+                                // var yLabel = item.yLabel;
+                                // var content = '';
 
-                                if (data.datasets.length > 1) {
-                                    content += '<span class="popover-body-label mr-auto">' + label + '</span>';
-                                }
+                                // if (data.datasets.length > 1) {
+                                //     content += '<span class="popover-body-label mr-auto">' + label + '</span>';
+                                // }
 
-                                content += '<span class="popover-body-value">' + yLabel + '</span>';
+                                // content += '<span class="popover-body-value">' + yLabel + '</span>';
                                 
-                                return content;
+                                // return content;
+
+                                var value = data.datasets[item.datasetIndex].data[item.index];
+
+                                if(parseInt(value) >= 1000){
+                                    return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                }else if(value == 0){
+                                    return value = "0";
+                                } else{
+                                    return value;
+                                }
                             }
                         }
                     }
@@ -4430,9 +5288,17 @@
                         yAxes: [{
                             ticks: {
                                 callback: function(value) {
-                                    if (!(value % 10)) {
-                                        //return '$' + value + 'k'
-                                        return value
+                                    // if (!(value % 10)) {
+                                    //     //return '$' + value + 'k'
+                                    //     return value
+                                    // }
+
+                                    if(parseInt(value) >= 1000){
+                                        return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                    }else if(value == 0){
+                                        return value = "0";
+                                    } else{
+                                        return value;
                                     }
                                 }
                             }
@@ -4441,17 +5307,27 @@
                     tooltips: {
                         callbacks: {
                             label: function(item, data) {
-                                var label = data.datasets[item.datasetIndex].label || '';
-                                var yLabel = item.yLabel;
-                                var content = '';
+                                // var label = data.datasets[item.datasetIndex].label || '';
+                                // var yLabel = item.yLabel;
+                                // var content = '';
 
-                                if (data.datasets.length > 1) {
-                                    content += '<span class="popover-body-label mr-auto">' + label + '</span>';
-                                }
+                                // if (data.datasets.length > 1) {
+                                //     content += '<span class="popover-body-label mr-auto">' + label + '</span>';
+                                // }
 
-                                content += '<span class="popover-body-value">' + yLabel + '</span>';
+                                // content += '<span class="popover-body-value">' + yLabel + '</span>';
                                 
-                                return content;
+                                // return content;
+
+                                var value = data.datasets[item.datasetIndex].data[item.index];
+
+                                if(parseInt(value) >= 1000){
+                                    return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                }else if(value == 0){
+                                    return value = "0";
+                                } else{
+                                    return value;
+                                }
                             }
                         }
                     }
@@ -4498,9 +5374,17 @@
                         yAxes: [{
                             ticks: {
                                 callback: function(value) {
-                                    if (!(value % 10)) {
-                                        //return '$' + value + 'k'
-                                        return value
+                                    // if (!(value % 10)) {
+                                    //     //return '$' + value + 'k'
+                                    //     return value
+                                    // }
+
+                                    if(parseInt(value) >= 1000){
+                                        return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                    }else if(value == 0){
+                                        return value = "0";
+                                    } else{
+                                        return value;
                                     }
                                 }
                             }
@@ -4509,17 +5393,27 @@
                     tooltips: {
                         callbacks: {
                             label: function(item, data) {
-                                var label = data.datasets[item.datasetIndex].label || '';
-                                var yLabel = item.yLabel;
-                                var content = '';
+                                // var label = data.datasets[item.datasetIndex].label || '';
+                                // var yLabel = item.yLabel;
+                                // var content = '';
 
-                                if (data.datasets.length > 1) {
-                                    content += '<span class="popover-body-label mr-auto">' + label + '</span>';
-                                }
+                                // if (data.datasets.length > 1) {
+                                //     content += '<span class="popover-body-label mr-auto">' + label + '</span>';
+                                // }
 
-                                content += '<span class="popover-body-value">' + yLabel + '</span>';
+                                // content += '<span class="popover-body-value">' + yLabel + '</span>';
                                 
-                                return content;
+                                // return content;
+
+                                var value = data.datasets[item.datasetIndex].data[item.index];
+
+                                if(parseInt(value) >= 1000){
+                                    return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                }else if(value == 0){
+                                    return value = "0";
+                                } else{
+                                    return value;
+                                }
                             }
                         }
                     }
@@ -4550,9 +5444,17 @@
                         yAxes: [{
                             ticks: {
                                 callback: function(value) {
-                                    if (!(value % 10)) {
-                                        //return '$' + value + 'k'
-                                        return value
+                                    // if (!(value % 10)) {
+                                    //     //return '$' + value + 'k'
+                                    //     return value
+                                    // }
+
+                                    if(parseInt(value) >= 1000){
+                                        return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                    }else if(value == 0){
+                                        return value = "0";
+                                    } else{
+                                        return value;
                                     }
                                 }
                             }
@@ -4561,17 +5463,27 @@
                     tooltips: {
                         callbacks: {
                             label: function(item, data) {
-                                var label = data.datasets[item.datasetIndex].label || '';
-                                var yLabel = item.yLabel;
-                                var content = '';
+                                // var label = data.datasets[item.datasetIndex].label || '';
+                                // var yLabel = item.yLabel;
+                                // var content = '';
 
-                                if (data.datasets.length > 1) {
-                                    content += '<span class="popover-body-label mr-auto">' + label + '</span>';
-                                }
+                                // if (data.datasets.length > 1) {
+                                //     content += '<span class="popover-body-label mr-auto">' + label + '</span>';
+                                // }
 
-                                content += '<span class="popover-body-value">' + yLabel + '</span>';
+                                // content += '<span class="popover-body-value">' + yLabel + '</span>';
                                 
-                                return content;
+                                // return content;
+
+                                var value = data.datasets[item.datasetIndex].data[item.index];
+
+                                if(parseInt(value) >= 1000){
+                                    return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                }else if(value == 0){
+                                    return value = "0";
+                                } else{
+                                    return value;
+                                }
                             }
                         }
                     }
@@ -4626,9 +5538,12 @@
                                     //     //return '$' + value + 'k'
                                     //     return value
                                     // }
+                                    
                                     if(parseInt(value) >= 1000){
                                         return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-                                    }else{
+                                    }else if(value == 0){
+                                        return value = "0";
+                                    } else{
                                         return value;
                                     }
                                 }
@@ -4654,7 +5569,9 @@
 
                                 if(parseInt(value) >= 1000){
                                     return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-                                }else{
+                                }else if(value == 0){
+                                    return value = "0";
+                                } else{
                                     return value;
                                 }
                             }
@@ -4703,9 +5620,17 @@
                         yAxes: [{
                             ticks: {
                                 callback: function(value) {
-                                    if (!(value % 10)) {
-                                        //return '$' + value + 'k'
-                                        return value
+                                    // if (!(value % 10)) {
+                                    //     //return '$' + value + 'k'
+                                    //     return value
+                                    // }
+
+                                    if(parseInt(value) >= 1000){
+                                        return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                    }else if(value == 0){
+                                        return value = "0";
+                                    } else{
+                                        return value;
                                     }
                                 }
                             }
@@ -4714,17 +5639,27 @@
                     tooltips: {
                         callbacks: {
                             label: function(item, data) {
-                                var label = data.datasets[item.datasetIndex].label || '';
-                                var yLabel = item.yLabel;
-                                var content = '';
+                                // var label = data.datasets[item.datasetIndex].label || '';
+                                // var yLabel = item.yLabel;
+                                // var content = '';
 
-                                if (data.datasets.length > 1) {
-                                    content += '<span class="popover-body-label mr-auto">' + label + '</span>';
-                                }
+                                // if (data.datasets.length > 1) {
+                                //     content += '<span class="popover-body-label mr-auto">' + label + '</span>';
+                                // }
 
-                                content += '<span class="popover-body-value">' + yLabel + '</span>';
+                                // content += '<span class="popover-body-value">' + yLabel + '</span>';
                                 
-                                return content;
+                                // return content;
+
+                                var value = data.datasets[item.datasetIndex].data[item.index];
+
+                                if(parseInt(value) >= 1000){
+                                    return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                }else if(value == 0){
+                                    return value = "0";
+                                } else{
+                                    return value;
+                                }
                             }
                         }
                     }
@@ -4755,9 +5690,17 @@
                         yAxes: [{
                             ticks: {
                                 callback: function(value) {
-                                    if (!(value % 10)) {
-                                        //return '$' + value + 'k'
-                                        return value
+                                    // if (!(value % 10)) {
+                                    //     //return '$' + value + 'k'
+                                    //     return value
+                                    // }
+
+                                    if(parseInt(value) >= 1000){
+                                        return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                    }else if(value == 0){
+                                        return value = "0";
+                                    } else{
+                                        return value;
                                     }
                                 }
                             }
@@ -4766,17 +5709,27 @@
                     tooltips: {
                         callbacks: {
                             label: function(item, data) {
-                                var label = data.datasets[item.datasetIndex].label || '';
-                                var yLabel = item.yLabel;
-                                var content = '';
+                                // var label = data.datasets[item.datasetIndex].label || '';
+                                // var yLabel = item.yLabel;
+                                // var content = '';
 
-                                if (data.datasets.length > 1) {
-                                    content += '<span class="popover-body-label mr-auto">' + label + '</span>';
-                                }
+                                // if (data.datasets.length > 1) {
+                                //     content += '<span class="popover-body-label mr-auto">' + label + '</span>';
+                                // }
 
-                                content += '<span class="popover-body-value">' + yLabel + '</span>';
+                                // content += '<span class="popover-body-value">' + yLabel + '</span>';
                                 
-                                return content;
+                                // return content;
+
+                                var value = data.datasets[item.datasetIndex].data[item.index];
+
+                                if(parseInt(value) >= 1000){
+                                    return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                }else if(value == 0){
+                                    return value = "0";
+                                } else{
+                                    return value;
+                                }
                             }
                         }
                     }
