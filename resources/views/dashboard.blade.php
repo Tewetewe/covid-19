@@ -767,27 +767,16 @@
     display: contents;
 }
 
-    table.dataTable thead .sorting:after,
-    table.dataTable thead .sorting:before,
-    table.dataTable thead .sorting_asc:after,
-    table.dataTable thead .sorting_asc:before,
-    table.dataTable thead .sorting_asc_disabled:after,
-    table.dataTable thead .sorting_asc_disabled:before,
-    table.dataTable thead .sorting_desc:after,
-    table.dataTable thead .sorting_desc:before,
-    table.dataTable thead .sorting_desc_disabled:after,
-    table.dataTable thead .sorting_desc_disabled:before {
-    bottom: .5em;
-    }
-
 </style>
 
 @push('js')
 
     <script src="{{ asset('argon') }}/vendor/chart.js/dist/Chart.min.js"></script>
     <script src="{{ asset('argon') }}/vendor/chart.js/dist/Chart.extension.js"></script>
+    
     <!-- MDBootstrap Datatables  -->
     <script type="text/javascript" src="{{ asset('argon') }}/js/addons/datatables.min.js"></script>
+
     <script src="/argon/js/argon.js"></script>
     <script>
         'use strict';
