@@ -112,9 +112,9 @@
                                 <tr>
                                     <td>{{ $i }}</td>
                                     <td>{{ $globalData[$i-1]->OBJECTID }}</td>
-                                    <td>{{ $globalData[$i-1]->Confirmed }}</td>
-                                    <td>{{ $globalData[$i-1]->Recovered }}</td>
-                                    <td>{{ $globalData[$i-1]->Deaths }}</td>
+                                    <td align="right">{{ $globalData[$i-1]->Confirmed }}</td>
+                                    <td align="right">{{ $globalData[$i-1]->Recovered }}</td>
+                                    <td align="right">{{ $globalData[$i-1]->Deaths }}</td>
                                     <td>{{ $globalData[$i-1]->Province }}</td>
                                     <td>{{ $globalData[$i-1]->City }}</td>
                                     <td>{{ $globalData[$i-1]->created_at }}</td>
@@ -163,12 +163,18 @@
     <script>
         $(document).ready(function () {
         $('#table_import').DataTable({
+            "lengthMenu": [[10, 20, 25, 50, 100, -1], [10, 20, 25, 50, 100, "All"]],
             language: {
                 paginate: {
                 next: '>', // or '→'
                 previous: '<' // or '←' 
                 }
-            }
+            },
+            "aaSorting": [],
+            columnDefs: [{
+                orderable: false,
+                targets: 0
+            }]
         });
         $('.dataTables_length').addClass('bs-select');
         });

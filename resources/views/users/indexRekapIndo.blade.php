@@ -72,9 +72,9 @@
                             @for ($i = 1; $i <= sizeof($rekapIndo); $i++)
                                 <tr>
                                     <td>{{$i}}</td>
-                                    <td>{{ $rekapIndo[$i-1]->positif}}</td>
-                                    <td>{{ $rekapIndo[$i-1]->sembuh}}</td>
-                                    <td>{{ $rekapIndo[$i-1]->meninggal}}</td>
+                                    <td align="right">{{ $rekapIndo[$i-1]->positif}}</td>
+                                    <td align="right">{{ $rekapIndo[$i-1]->sembuh}}</td>
+                                    <td align="right">{{ $rekapIndo[$i-1]->meninggal}}</td>
                                     <td>{{ $rekapIndo[$i-1]->created_at}}</td>
                                     <!-- <td class="text-right">
                                         <div class="dropdown">
@@ -112,12 +112,18 @@
 <script>
     $(document).ready(function () {
     $('#table_import').DataTable({
+        "lengthMenu": [[10, 20, 25, 50, 100, -1], [10, 20, 25, 50, 100, "All"]],
         language: {
             paginate: {
             next: '>', // or '→'
             previous: '<' // or '←' 
             }
-        }
+        },
+        "aaSorting": [],
+        columnDefs: [{
+            orderable: false,
+            targets: 0
+        }]
     });
     $('.dataTables_length').addClass('bs-select');
     });
