@@ -1200,11 +1200,11 @@
                                         <tr>
                                             <td>{{ $i }}</td>
                                             <td>{{ $global[$i-1 + (sizeof($global)-186)]->OBJECTID }}</td>
-                                            <td>{{ number_format($global[$i-1 + (sizeof($global)-186)]->Confirmed,0,",",",") }}</td>
-                                            <td>{{ number_format((($global[$i-1 + (sizeof($global)-186)]->Confirmed)-($global[$i-1]->Confirmed))/(sizeof($global)/186),0,",",",") }}</td>
-                                            <td>{{ number_format($global[$i-1 + (sizeof($global)-186)]->Recovered,0,",",",") }}</td>
-                                            <td>{{ number_format(($global[$i-1 + (sizeof($global)-186)]->Recovered/($global[$i-1 + (sizeof($global)-186)]->Confirmed)*100),2) }} %</td>
-                                            <td>{{ number_format($global[$i-1 + (sizeof($global)-186)]->Deaths,0,",",",") }}</td>  
+                                            <td align="right">{{ number_format($global[$i-1 + (sizeof($global)-186)]->Confirmed,0,",",",") }}</td>
+                                            <td align="right">{{ number_format((($global[$i-1 + (sizeof($global)-186)]->Confirmed)-($global[$i-1]->Confirmed))/(sizeof($global)/186),0,",",",") }}</td>
+                                            <td align="right">{{ number_format($global[$i-1 + (sizeof($global)-186)]->Recovered,0,",",",") }}</td>
+                                            <td align="right">{{ number_format(($global[$i-1 + (sizeof($global)-186)]->Recovered/($global[$i-1 + (sizeof($global)-186)]->Confirmed)*100),2) }} %</td>
+                                            <td align="right">{{ number_format($global[$i-1 + (sizeof($global)-186)]->Deaths,0,",",",") }}</td>  
                                         </tr>
                                     @endfor
                                 </tbody>
@@ -1240,11 +1240,11 @@
                                         <tr>
                                             <td>{{ $i }}</td>
                                             <td>{{ $provinsi[$i-1 + (sizeof($provinsi)-34)]->FID }}</td>
-                                            <td>{{ number_format($provinsi[$i-1 + (sizeof($provinsi)-34)]->Kasus_Posi,0,",",",") }}</td>
-                                            <td>{{ number_format((($provinsi[$i-1 + (sizeof($provinsi)-34)]->Kasus_Posi)-($provinsi[$i-1]->Kasus_Posi))/(sizeof($provinsi)/34),0,",",",") }}</td>
-                                            <td>{{ number_format($provinsi[$i-1 + (sizeof($provinsi)-34)]->Kasus_Semb,0,",",",") }}</td>
-                                            <td>{{ number_format(($provinsi[$i-1 + (sizeof($provinsi)-34)]->Kasus_Semb/($provinsi[$i-1 + (sizeof($provinsi)-34)]->Kasus_Posi)*100),2) }} %</td>
-                                            <td>{{ number_format($provinsi[$i-1 + (sizeof($provinsi)-34)]->Kasus_Meni,0,",",",") }}</td>    
+                                            <td align="right">{{ number_format($provinsi[$i-1 + (sizeof($provinsi)-34)]->Kasus_Posi,0,",",",") }}</td>
+                                            <td align="right">{{ number_format((($provinsi[$i-1 + (sizeof($provinsi)-34)]->Kasus_Posi)-($provinsi[$i-1]->Kasus_Posi))/(sizeof($provinsi)/34),0,",",",") }}</td>
+                                            <td align="right">{{ number_format($provinsi[$i-1 + (sizeof($provinsi)-34)]->Kasus_Semb,0,",",",") }}</td>
+                                            <td align="right">{{ number_format(($provinsi[$i-1 + (sizeof($provinsi)-34)]->Kasus_Semb/($provinsi[$i-1 + (sizeof($provinsi)-34)]->Kasus_Posi)*100),2) }} %</td>
+                                            <td align="right">{{ number_format($provinsi[$i-1 + (sizeof($provinsi)-34)]->Kasus_Meni,0,",",",") }}</td>    
                                         </tr>
                                     @endfor
                                 </tbody>
@@ -5759,23 +5759,35 @@
   
     <script>
         $(document).ready(function () {
-        $('#table_indo').DataTable({
-            language: {
-                paginate: {
-                next: '>', // or '→'
-                previous: '<' // or '←' 
-                }
-            }
-        });
-        $('#table_dunia').DataTable({
-            language: {
-                paginate: {
-                next: '>', // or '→'
-                previous: '<' // or '←' 
-                }
-            }
-        });
-        $('.dataTables_length').addClass('bs-select');
+            $('#table_indo').DataTable({
+                "lengthMenu": [[10, 20, 25, 50, 100, -1], [10, 20, 25, 50, 100, "All"]],
+                language: {
+                    paginate: {
+                    next: '>', // or '→'
+                    previous: '<' // or '←' 
+                    }
+                },
+                "aaSorting": [],
+                columnDefs: [{
+                    orderable: false,
+                    targets: 0
+                }]
+            });
+            $('#table_dunia').DataTable({
+                "lengthMenu": [[10, 20, 25, 50, 100, -1], [10, 20, 25, 50, 100, "All"]],
+                language: {
+                    paginate: {
+                    next: '>', // or '→'
+                    previous: '<' // or '←' 
+                    }
+                },
+                "aaSorting": [],
+                columnDefs: [{
+                    orderable: false,
+                    targets: 0
+                }]
+            });
+            $('.dataTables_length').addClass('bs-select');
         });
     </script>
 
