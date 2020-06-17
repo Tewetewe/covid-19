@@ -56,7 +56,7 @@
 
                 <div class="table-responsive" style="padding-right: 25px;padding-left: 25px;">
                     <!-- Projects table -->
-                    <table id="table_import" class="table align-items-center table-flush" cellspacing="0" width="100%">
+                    <table id="table_import" class="table align-items-center table-flush table-striped" cellspacing="0" width="100%">
                         <thead class="thead-light">
                             <tr>
                                 <th scope="col">No.</th>
@@ -70,10 +70,10 @@
                             @for ($i = 1; $i <= sizeof($rekapGlobalData); $i++)
                                 <tr>
                                     <td>{{$i}}</td>
-                                    <td>{{ $rekapGlobalData[$i-1]->positif}}</td>
-                                    <td>{{ $rekapGlobalData[$i-1]->sembuh}}</td>
-                                    <td>{{ $rekapGlobalData[$i-1]->meninggal}}</td>
-                                    <td>{{ $rekapGlobalData[$i-1]->created_at}}</td>
+                                    <td align="right">{{ $rekapGlobalData[$i-1]->positif}}</td>
+                                    <td align="right">{{ $rekapGlobalData[$i-1]->sembuh}}</td>
+                                    <td align="right">{{ $rekapGlobalData[$i-1]->meninggal}}</td>
+                                    <td >{{ $rekapGlobalData[$i-1]->created_at}}</td>
                                     
                                     <!-- <td class="text-right">
                                         <div class="dropdown">
@@ -111,12 +111,18 @@
 <script>
     $(document).ready(function () {
     $('#table_import').DataTable({
+        "lengthMenu": [[10, 20, 25, 50, 100, -1], [10, 20, 25, 50, 100, "All"]],
         language: {
             paginate: {
             next: '>', // or '→'
             previous: '<' // or '←' 
             }
-        }
+        },
+        "aaSorting": [],
+        columnDefs: [{
+            orderable: false,
+            targets: 0
+        }]
     });
     $('.dataTables_length').addClass('bs-select');
     });

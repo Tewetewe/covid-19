@@ -59,7 +59,7 @@
                 </div>
 
                 <div class="table-responsive" style="padding-right: 25px;padding-left: 25px;">
-                    <table id="table_import" class="table align-items-center table-flush" cellspacing="0" width="100%">
+                    <table id="table_import" class="table align-items-center table-flush table-striped" cellspacing="0" width="100%">
                         <thead class="thead-light">
                             <tr>
                                 <th scope="col">No.</th>
@@ -96,15 +96,15 @@
                                     <td>{{ $baliData[$i-1]->Resiko}}</td>
                                     <td>{{ $baliData[$i-1]->Paparan}}</td>
                                     <td>{{ $baliData[$i-1]->Bantu}}</td>
-                                    <td>{{ $baliData[$i-1]->No_Baru}}</td>
-                                    <td>{{ $baliData[$i-1]->No_kemarin}}</td>
+                                    <td align="right">{{ $baliData[$i-1]->No_Baru}}</td>
+                                    <td align="right">{{ $baliData[$i-1]->No_kemarin}}</td>
                                     <td>{{ $baliData[$i-1]->Tanggal}}</td>
                                     <td>{{ $baliData[$i-1]->Status}}</td>
                                     <td>{{ $baliData[$i-1]->Nama}}</td>
                                     <td>{{ $baliData[$i-1]->Penularan}}</td>
                                     <td>{{ $baliData[$i-1]->Negara}}</td>
                                     <td>{{ $baliData[$i-1]->Jenis_Kelamin}}</td>
-                                    <td>{{ $baliData[$i-1]->Umur}}</td>
+                                    <td align="right">{{ $baliData[$i-1]->Umur}}</td>
                                     <td>{{ $baliData[$i-1]->Alamat}}</td>
                                     <td>{{ $baliData[$i-1]->Desa}}</td>
                                     <td>{{ $baliData[$i-1]->Kecamatan}}</td>
@@ -112,7 +112,7 @@
                                     <td>{{ $baliData[$i-1]->Faskes}}</td>
                                     <td>{{ $baliData[$i-1]->Keterangan}}</td>
                                     <td>{{ $baliData[$i-1]->Kondisi}}</td>
-                                    <td>{{ $baliData[$i-1]->Kelompok_Umur}}</td>
+                                    <td align="right">{{ $baliData[$i-1]->Kelompok_Umur}}</td>
                                     <td>{{ $baliData[$i-1]->Kategori_Kasus}}</td>
                                     <td>{{ $baliData[$i-1]->Hubungan}}</td>
                                     <!-- <td class="text-right">
@@ -151,12 +151,18 @@
 <script>
     $(document).ready(function () {
     $('#table_import').DataTable({
+        "lengthMenu": [[10, 20, 25, 50, 100, -1], [10, 20, 25, 50, 100, "All"]],
         language: {
             paginate: {
             next: '>', // or '→'
             previous: '<' // or '←' 
             }
-        }
+        },
+        "aaSorting": [],
+        columnDefs: [{
+            orderable: false,
+            targets: 0
+        }]
     });
     $('.dataTables_length').addClass('bs-select');
     });

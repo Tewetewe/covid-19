@@ -1979,7 +1979,7 @@ pre code
 
 .table-striped tbody tr:nth-of-type(odd)
 {
-    background-color: rgba(0, 0, 0, .05);
+    background-color: rgba(0, 0, 0, .03);
 }
 
 .table-hover tbody tr:hover
@@ -20991,7 +20991,7 @@ textarea[resize='horizontal']
     top: 0px;
     position: sticky;
     color: #8898aa; 
-    background-color: #f6f9fc;
+    background-color: #e3e9ee;
 }
 
 .table-hover tr
