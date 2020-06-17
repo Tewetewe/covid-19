@@ -1183,7 +1183,7 @@
                         </div>
                         <div class="table-responsive" style="padding-right: 25px;padding-left: 25px;">
                             <!-- Projects table -->
-                            <table id="table_dunia" class="table align-items-center table-flush" cellspacing="0" width="100%">
+                            <table id="table_dunia" class="table align-items-center table-flush table-striped" cellspacing="0" width="100%">
                                 <thead class="thead-light">
                                     <tr>
                                         <th scope="col">No.</th>
@@ -1223,7 +1223,7 @@
                         </div>
                         <div class="table-responsive" style="padding-right: 25px;padding-left: 25px;">
                             <!-- Projects table -->
-                            <table id="table_indo" class="table align-items-center table-flush" cellspacing="0" width="100%">
+                            <table id="table_indo" class="table align-items-center table-flush table-striped" cellspacing="0" width="100%">
                                 <thead class="thead-light">
                                     <tr>
                                         <th scope="col">No.</th>
