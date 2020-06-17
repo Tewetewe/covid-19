@@ -144,8 +144,8 @@
                                 <ul class="nav nav-pills justify-content-end">
                                     <li class="nav-item mr-2 mr-md-0" id="btn1Global">
                                         <a href="#" class="nav-link py-2 px-3 active show" data-toggle="tab" id="btn1Global">
-                                            <span class="d-none d-md-block">Akumulatif</span>
-                                            <span class="d-md-none">Akumulatif</span>
+                                            <span class="d-none d-md-block">Kumulatif</span>
+                                            <span class="d-md-none">Kumulatif</span>
                                         </a>
                                     </li>
                                     <li class="nav-item" id="btn2Global">
@@ -179,8 +179,8 @@
                                 <ul class="nav nav-pills justify-content-end">
                                     <li class="nav-item mr-2 mr-md-0" id="btn1GlobalSembuh">
                                         <a href="#" class="nav-link py-2 px-3 active show" data-toggle="tab" id="btn1GlobalSembuh">
-                                            <span class="d-none d-md-block">Akumulatif</span>
-                                            <span class="d-md-none">Akumulatif</span>
+                                            <span class="d-none d-md-block">Kumulatif</span>
+                                            <span class="d-md-none">Kumulatif</span>
                                         </a>
                                     </li>
                                     <li class="nav-item" id="btn2GlobalSembuh">
@@ -215,8 +215,8 @@
                                 <ul class="nav nav-pills justify-content-end">
                                     <li class="nav-item mr-2 mr-md-0" id="btn1GlobalMeninggal">
                                         <a href="#" class="nav-link py-2 px-3 active show" data-toggle="tab" id="btn1GlobalMeninggal">
-                                            <span class="d-none d-md-block">Akumulatif</span>
-                                            <span class="d-md-none">Akumulatif</span>
+                                            <span class="d-none d-md-block">Kumulatif</span>
+                                            <span class="d-md-none">Kumulatif</span>
                                         </a>
                                     </li>
                                     <li class="nav-item" id="btn2GlobalMeninggal">
@@ -250,8 +250,8 @@
                                 <ul class="nav nav-pills justify-content-end">
                                     <li class="nav-item mr-2 mr-md-0" id="btn1GlobalDirawat">
                                         <a href="#" class="nav-link py-2 px-3 active show" data-toggle="tab" id="btn1GlobalDirawat">
-                                            <span class="d-none d-md-block">Akumulatif</span>
-                                            <span class="d-md-none">Akumulatif</span>
+                                            <span class="d-none d-md-block">Kumulatif</span>
+                                            <span class="d-md-none">Kumulatif</span>
                                         </a>
                                     </li>
                                     <li class="nav-item" id="btn2GlobalDirawat">
@@ -405,8 +405,8 @@
                                 <ul class="nav nav-pills justify-content-end">
                                     <li class="nav-item mr-2 mr-md-0" id="btn1Indo">
                                         <a href="#" class="nav-link py-2 px-3 active show" data-toggle="tab" id="btn1Indo">
-                                            <span class="d-none d-md-block">Akumulatif</span>
-                                            <span class="d-md-none">Akumulatif</span>
+                                            <span class="d-none d-md-block">Kumulatif</span>
+                                            <span class="d-md-none">Kumulatif</span>
                                         </a>
                                     </li>
                                     <li class="nav-item" id="btn2Indo">
@@ -439,8 +439,8 @@
                                 <ul class="nav nav-pills justify-content-end">
                                     <li class="nav-item mr-2 mr-md-0" id="btn1IndoSembuh">
                                         <a href="#" class="nav-link py-2 px-3 active show" data-toggle="tab" id="btn1IndoSembuh">
-                                            <span class="d-none d-md-block">Akumulatif</span>
-                                            <span class="d-md-none">Akumulatif</span>
+                                            <span class="d-none d-md-block">Kumulatif</span>
+                                            <span class="d-md-none">Kumulatif</span>
                                         </a>
                                     </li>
                                     <li class="nav-item" id="btn2IndoSembuh">
@@ -476,8 +476,8 @@
                                 <ul class="nav nav-pills justify-content-end">
                                     <li class="nav-item mr-2 mr-md-0" id="btn1IndoMeninggal">
                                         <a href="#" class="nav-link py-2 px-3 active show" data-toggle="tab" id="btn1IndoMeninggal">
-                                            <span class="d-none d-md-block">Akumulatif</span>
-                                            <span class="d-md-none">Akumulatif</span>
+                                            <span class="d-none d-md-block">Kumulatif</span>
+                                            <span class="d-md-none">Kumulatif</span>
                                         </a>
                                     </li>
                                     <li class="nav-item" id="btn2IndoMeninggal">
@@ -510,8 +510,8 @@
                                 <ul class="nav nav-pills justify-content-end">
                                     <li class="nav-item mr-2 mr-md-0" id="btn1IndoDirawat">
                                         <a href="#" class="nav-link py-2 px-3 active show" data-toggle="tab" id="btn1IndoDirawat">
-                                            <span class="d-none d-md-block">Akumulatif</span>
-                                            <span class="d-md-none">Akumulatif</span>
+                                            <span class="d-none d-md-block">Kumulatif</span>
+                                            <span class="d-md-none">Kumulatif</span>
                                         </a>
                                     </li>
                                     <li class="nav-item" id="btn2IndoDirawat">
@@ -663,8 +663,8 @@
                                 <ul class="nav nav-pills justify-content-end">
                                     <li class="nav-item mr-2 mr-md-0" id="btn1Bali">
                                         <a href="#" class="nav-link py-2 px-3 active show" data-toggle="tab" id="btn1Bali">
-                                            <span class="d-none d-md-block">Akumulatif</span>
-                                            <span class="d-md-none">Akumulatif</span>
+                                            <span class="d-none d-md-block">Kumulatif</span>
+                                            <span class="d-md-none">Kumulatif</span>
                                         </a>
                                     </li>
                                     <li class="nav-item" id="btn2Bali">
@@ -698,8 +698,8 @@
                                 <ul class="nav nav-pills justify-content-end">
                                     <li class="nav-item mr-2 mr-md-0" id="btn1BaliSembuh">
                                         <a href="#" class="nav-link py-2 px-3 active show" data-toggle="tab" id="btn1BaliSembuh">
-                                            <span class="d-none d-md-block">Akumulatif</span>
-                                            <span class="d-md-none">Akumulatif</span>
+                                            <span class="d-none d-md-block">Kumulatif</span>
+                                            <span class="d-md-none">Kumulatif</span>
                                         </a>
                                     </li>
                                     <li class="nav-item" id="btn2BaliSembuh">
@@ -735,8 +735,8 @@
                                 <ul class="nav nav-pills justify-content-end">
                                     <li class="nav-item mr-2 mr-md-0" id="btn1BaliMeninggal">
                                         <a href="#" class="nav-link py-2 px-3 active show" data-toggle="tab" id="btn1BaliMeninggal">
-                                            <span class="d-none d-md-block">Akumulatif</span>
-                                            <span class="d-md-none">Akumulatif</span>
+                                            <span class="d-none d-md-block">Kumulatif</span>
+                                            <span class="d-md-none">Kumulatif</span>
                                         </a>
                                     </li>
                                     <li class="nav-item" id="btn2BaliMeninggal">
@@ -770,8 +770,8 @@
                                 <ul class="nav nav-pills justify-content-end">
                                     <li class="nav-item mr-2 mr-md-0" id="btn1BaliDirawat">
                                         <a href="#" class="nav-link py-2 px-3 active show" data-toggle="tab" id="btn1BaliDirawat">
-                                            <span class="d-none d-md-block">Akumulatif</span>
-                                            <span class="d-md-none">Akumulatif</span>
+                                            <span class="d-none d-md-block">Kumulatif</span>
+                                            <span class="d-md-none">Kumulatif</span>
                                         </a>
                                     </li>
                                     <li class="nav-item" id="btn2BaliDirawat">
@@ -951,8 +951,8 @@
                                     <ul class="nav nav-pills justify-content-end">
                                         <li class="nav-item mr-2 mr-md-0" id="btn1">
                                             <a href="#" class="nav-link py-2 px-3 active show" data-toggle="tab" id="btn1">
-                                                <span class="d-none d-md-block">Akumulatif</span>
-                                                <span class="d-md-none">Akumulatif</span>
+                                                <span class="d-none d-md-block">Kumulatif</span>
+                                                <span class="d-md-none">Kumulatif</span>
                                             </a>
                                         </li>
                                         <li class="nav-item" id="btn2">
@@ -1010,8 +1010,8 @@
                                     <ul class="nav nav-pills justify-content-end">
                                         <li class="nav-item mr-2 mr-md-0" id="btn1Sembuh">
                                             <a href="#" class="nav-link py-2 px-3 active show" data-toggle="tab" id="btn1Sembuh">
-                                                <span class="d-none d-md-block">Akumulatif</span>
-                                                <span class="d-md-none">Akumulatif</span>
+                                                <span class="d-none d-md-block">Kumulatif</span>
+                                                <span class="d-md-none">Kumulatif</span>
                                             </a>
                                         </li>
                                         <li class="nav-item" id="btn2Sembuh">
@@ -1071,8 +1071,8 @@
                                     <ul class="nav nav-pills justify-content-end">
                                         <li class="nav-item mr-2 mr-md-0" id="btn1Meninggal">
                                             <a href="#" class="nav-link py-2 px-3 active show" data-toggle="tab" id="btn1Meninggal">
-                                                <span class="d-none d-md-block">Akumulatif</span>
-                                                <span class="d-md-none">Akumulatif</span>
+                                                <span class="d-none d-md-block">Kumulatif</span>
+                                                <span class="d-md-none">Kumulatif</span>
                                             </a>
                                         </li>
                                         <li class="nav-item" id="btn2Meninggal">
@@ -1130,8 +1130,8 @@
                                     <ul class="nav nav-pills justify-content-end">
                                         <li class="nav-item mr-2 mr-md-0" id="btn1Dirawat">
                                             <a href="#" class="nav-link py-2 px-3 active show" data-toggle="tab" id="btn1Dirawat">
-                                                <span class="d-none d-md-block">Akumulatif</span>
-                                                <span class="d-md-none">Akumulatif</span>
+                                                <span class="d-none d-md-block">Kumulatif</span>
+                                                <span class="d-md-none">Kumulatif</span>
                                             </a>
                                         </li>
                                         <li class="nav-item" id="btn2Dirawat">
@@ -1193,6 +1193,7 @@
                                         <th scope="col">Sembuh</th>
                                         <th scope="col">Persentase Sembuh</th>
                                         <th scope="col">Meninggal</th>
+                                        <th scope="col">Persentase Meninggal</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -1201,10 +1202,11 @@
                                             <td>{{ $i }}</td>
                                             <td>{{ $global[$i-1 + (sizeof($global)-186)]->OBJECTID }}</td>
                                             <td align="right">{{ number_format($global[$i-1 + (sizeof($global)-186)]->Confirmed,0,",",",") }}</td>
-                                            <td align="right">{{ number_format((($global[$i-1 + (sizeof($global)-186)]->Confirmed)-($global[$i-1]->Confirmed))/(sizeof($global)/186),0,",",",") }}</td>
+                                            <td align="right">{{ number_format((($global[$i-1 + (sizeof($global)-186)]->Confirmed)-($global[$i-1]->Confirmed))/(sizeof($global)/186),2,",",",") }}</td>
                                             <td align="right">{{ number_format($global[$i-1 + (sizeof($global)-186)]->Recovered,0,",",",") }}</td>
                                             <td align="right">{{ number_format(($global[$i-1 + (sizeof($global)-186)]->Recovered/($global[$i-1 + (sizeof($global)-186)]->Confirmed)*100),2) }} %</td>
-                                            <td align="right">{{ number_format($global[$i-1 + (sizeof($global)-186)]->Deaths,0,",",",") }}</td>  
+                                            <td align="right">{{ number_format($global[$i-1 + (sizeof($global)-186)]->Deaths,0,",",",") }}</td>
+                                            <td align="right">{{ number_format(($global[$i-1 + (sizeof($global)-186)]->Deaths/($global[$i-1 + (sizeof($global)-186)]->Confirmed)*100),2) }} %</td>
                                         </tr>
                                     @endfor
                                 </tbody>
@@ -1233,6 +1235,8 @@
                                         <th scope="col">Sembuh</th>
                                         <th scope="col">Persentase Sembuh</th>
                                         <th scope="col">Meninggal</th>
+                                        <th scope="col">Persentase Meninggal</th>
+
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -1241,10 +1245,12 @@
                                             <td>{{ $i }}</td>
                                             <td>{{ $provinsi[$i-1 + (sizeof($provinsi)-34)]->FID }}</td>
                                             <td align="right">{{ number_format($provinsi[$i-1 + (sizeof($provinsi)-34)]->Kasus_Posi,0,",",",") }}</td>
-                                            <td align="right">{{ number_format((($provinsi[$i-1 + (sizeof($provinsi)-34)]->Kasus_Posi)-($provinsi[$i-1]->Kasus_Posi))/(sizeof($provinsi)/34),0,",",",") }}</td>
+                                            <td align="right">{{ number_format((($provinsi[$i-1 + (sizeof($provinsi)-34)]->Kasus_Posi)-($provinsi[$i-1]->Kasus_Posi))/(sizeof($provinsi)/34),2,",",",") }}</td>
                                             <td align="right">{{ number_format($provinsi[$i-1 + (sizeof($provinsi)-34)]->Kasus_Semb,0,",",",") }}</td>
                                             <td align="right">{{ number_format(($provinsi[$i-1 + (sizeof($provinsi)-34)]->Kasus_Semb/($provinsi[$i-1 + (sizeof($provinsi)-34)]->Kasus_Posi)*100),2) }} %</td>
-                                            <td align="right">{{ number_format($provinsi[$i-1 + (sizeof($provinsi)-34)]->Kasus_Meni,0,",",",") }}</td>    
+                                            <td align="right">{{ number_format($provinsi[$i-1 + (sizeof($provinsi)-34)]->Kasus_Meni,0,",",",") }}</td>
+                                            <td align="right">{{ number_format(($provinsi[$i-1 + (sizeof($provinsi)-34)]->Kasus_Meni/($provinsi[$i-1 + (sizeof($provinsi)-34)]->Kasus_Posi)*100),2) }} %</td>
+                                             
                                         </tr>
                                     @endfor
                                 </tbody>

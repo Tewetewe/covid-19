@@ -124,21 +124,33 @@ class HomeController extends Controller
 
         for ($i=1; $i < count($dataRekapIndo); $i++) {
             $selisihIndo = (($dataRekapIndo[$i]->positif)-($dataRekapIndo[$i-1]->positif));
+            if ($selisihIndo < 0){
+                $selisihIndo = 0;
+            }
             array_push($positifDateDiff, date('d-F', strtotime($dataRekapIndo[$i]->created_at)));
             array_push($dataPositifDiff, $selisihIndo);
         }
         for ($i=1; $i < count($dataRekapIndo); $i++) {
             $selisihIndo = (($dataRekapIndo[$i]->sembuh)-($dataRekapIndo[$i-1]->sembuh));
+            if ($selisihIndo < 0){
+                $selisihIndo = 0;
+            }
             array_push($sembuhDateDiff, date('d-F', strtotime($dataRekapIndo[$i]->created_at)));
             array_push($dataSembuhDiff, $selisihIndo);
         }
         for ($i=1; $i < count($dataRekapIndo); $i++) {
             $selisihIndo = (($dataRekapIndo[$i]->sembuh)-($dataRekapIndo[$i-1]->sembuh));
+            if ($selisihIndo < 0){
+                $selisihIndo = 0;
+            }
             array_push($meninggalDateDiff, date('d-F', strtotime($dataRekapIndo[$i]->created_at)));
             array_push($dataMeninggalDiff, $selisihIndo);
         }
         for ($i=1; $i < count($dataRekapIndo); $i++) {
             $selisihIndo = (($dataRekapIndo[$i]->positif - $dataRekapIndo[$i]->sembuh - $dataRekapIndo[$i]->meninggal) - ($dataRekapIndo[$i-1]->positif - $dataRekapIndo[$i-1]->sembuh - $dataRekapIndo[$i-1]->meninggal));
+            if ($selisihIndo < 0){
+                $selisihIndo = 0;
+            }
             array_push($dirawatDateDiff, date('d-F', strtotime($dataRekapIndo[$i]->created_at)));
             array_push($dataDirawatDiff, $selisihIndo);
         }
@@ -208,21 +220,33 @@ class HomeController extends Controller
 
         for ($i=1; $i < count($dataRekapGlobal); $i++) {
             $selisihGlobal = (($dataRekapGlobal[$i]->positif)-($dataRekapGlobal[$i-1]->positif));
+            if ($selisihGlobal < 0){
+                $selisihGlobal = 0;
+            }
             array_push($positifDateGlobalDiff, date('d-F', strtotime($dataRekapGlobal[$i]->created_at)));
             array_push($dataPositifGlobalDiff, $selisihGlobal);
         }
         for ($i=1; $i < count($dataRekapGlobal); $i++) {
             $selisihGlobalSembuh = (($dataRekapGlobal[$i]->sembuh)-($dataRekapGlobal[$i-1]->sembuh));
+            if ($selisihGlobalSembuh < 0){
+                $selisihGlobalSembuh = 0;
+            }
             array_push($sembuhDateGlobalDiff, date('d-F', strtotime($dataRekapGlobal[$i]->created_at)));
             array_push($dataSembuhGlobalDiff, $selisihGlobalSembuh);
         }
         for ($i=1; $i < count($dataRekapGlobal); $i++) {
             $selisihGlobalMeninggal = (($dataRekapGlobal[$i]->meninggal)-($dataRekapGlobal[$i-1]->meninggal));
+            if ($selisihGlobalMeninggal < 0){
+                $selisihGlobalMeninggal = 0;
+            }
             array_push($meninggalDateGlobalDiff, date('d-F', strtotime($dataRekapGlobal[$i]->created_at)));
             array_push($dataMeninggalGlobalDiff, $selisihGlobalMeninggal);
         }
         for ($i=1; $i < count($dataRekapGlobal); $i++) {
             $selisihGlobalDirawat = (($dataRekapGlobal[$i]->positif) - ($dataRekapGlobal[$i]->sembuh) - ($dataRekapGlobal[$i]->meninggal))-(($dataRekapGlobal[$i-1]->positif) - ($dataRekapGlobal[$i-1]->sembuh) - ($dataRekapGlobal[$i-1]->meninggal));
+            if($selisihGlobalDirawat < 0){
+                $selisihGlobalDirawat = 0;
+            }
             array_push($dirawatDateGlobalDiff, date('d-F', strtotime($dataRekapGlobal[$i]->created_at)));
             array_push($dataDirawatGlobalDiff, $selisihGlobalDirawat);
         }
@@ -275,21 +299,33 @@ class HomeController extends Controller
 
         for ($i=1; $i < count($dataProvinsi); $i++) {
             $selisih = (($dataProvinsi[$i]->Kasus_Posi)-($dataProvinsi[$i-1]->Kasus_Posi));
+            if ($selisih < 0){
+                $selisih = 0;
+            }
             array_push($positifDateProvDiff, date('d-F', strtotime($dataProvinsi[$i]->created_at)));
             array_push($dataPositifProvDiff, $selisih);
         }
         for ($i=1; $i < count($dataProvinsi); $i++) {
             $selisih = (($dataProvinsi[$i]->Kasus_Semb)-($dataProvinsi[$i-1]->Kasus_Semb));
+            if ($selisih < 0){
+                $selisih = 0;
+            }
             array_push($sembuhDateProvDiff, date('d-F', strtotime($dataProvinsi[$i]->created_at)));
             array_push($dataSembuhProvDiff, $selisih);
         }
         for ($i=1; $i < count($dataProvinsi); $i++) {
             $selisih = (($dataProvinsi[$i]->Kasus_Meni)-($dataProvinsi[$i-1]->Kasus_Meni));
+            if ($selisih < 0){
+                $selisih = 0;
+            }
             array_push($meninggalDateProvDiff, date('d-F', strtotime($dataProvinsi[$i]->created_at)));
             array_push($dataMeninggalProvDiff, $selisih);
         }
         for ($i=1; $i < count($dataProvinsi); $i++) {
             $selisih = (($dataProvinsi[$i]->Kasus_Posi - $dataProvinsi[$i]->Kasus_Semb - $dataProvinsi[$i]->Kasus_Meni) - ($dataProvinsi[$i-1]->Kasus_Posi - $dataProvinsi[$i-1]->Kasus_Semb - $dataProvinsi[$i-1]->Kasus_Meni));
+            if ($selisih < 0){
+                $selisih = 0;
+            }
             array_push($dirawatDateProvDiff, date('d-F', strtotime($dataProvinsi[$i]->created_at)));
             array_push($dataDirawatProvDiff, $selisih);
         }
@@ -361,21 +397,33 @@ class HomeController extends Controller
 
         for ($i=1; $i < count($dataBali); $i++) {
             $selisihBali = (($dataBali[$i]->Kasus_Posi)-($dataBali[$i-1]->Kasus_Posi));
+            if($selisihBali < 0){
+                $selisihBali = 0;
+            }
             array_push($positifDateBaliDiff, date('d-F', strtotime($dataBali[$i]->created_at)));
             array_push($dataPositifBaliDiff, $selisihBali);
         }
         for ($i=1; $i < count($dataBali); $i++) {
             $selisihBali = (($dataBali[$i]->Kasus_Semb)-($dataBali[$i-1]->Kasus_Semb));
+            if ($selisihBali < 0){
+                $selisihBali = 0;
+            }
             array_push($sembuhDateBaliDiff, date('d-F', strtotime($dataBali[$i]->created_at)));
             array_push($dataSembuhBaliDiff, $selisihBali);
         }
         for ($i=1; $i < count($dataBali); $i++) {
             $selisihBali = (($dataBali[$i]->Kasus_Meni)-($dataBali[$i-1]->Kasus_Meni));
+            if($selisihBali < 0){
+                $selisihBali = 0;
+            }
             array_push($meninggalDateBaliDiff, date('d-F', strtotime($dataBali[$i]->created_at)));
             array_push($dataMeninggalBaliDiff, $selisihBali);
         }
         for ($i=1; $i < count($dataBali); $i++) {
             $selisihBali = (($dataBali[$i]->Kasus_Posi - $dataBali[$i]->Kasus_Semb - $dataBali[$i]->Kasus_Meni)-($dataBali[$i-1]->Kasus_Posi - $dataBali[$i-1]->Kasus_Semb - $dataBali[$i-1]->Kasus_Meni));
+            if ($selisihBali < 0){
+                $selisihBali = 0;
+            }
             array_push($dirawatDateBaliDiff, date('d-F', strtotime($dataBali[$i]->created_at)));
             array_push($dataDirawatBaliDiff, $selisihBali);
         }
@@ -514,21 +562,33 @@ class HomeController extends Controller
 
         for ($i=1; $i < count($dataRekapIndo); $i++) {
             $selisihIndo = (($dataRekapIndo[$i]->positif)-($dataRekapIndo[$i-1]->positif));
+            if ($selisihIndo < 0){
+                $selisihIndo = 0;
+            }
             array_push($positifDateDiff, date('d-F', strtotime($dataRekapIndo[$i]->created_at)));
             array_push($dataPositifDiff, $selisihIndo);
         }
         for ($i=1; $i < count($dataRekapIndo); $i++) {
             $selisihIndo = (($dataRekapIndo[$i]->sembuh)-($dataRekapIndo[$i-1]->sembuh));
+            if ($selisihIndo < 0){
+                $selisihIndo = 0;
+            }
             array_push($sembuhDateDiff, date('d-F', strtotime($dataRekapIndo[$i]->created_at)));
             array_push($dataSembuhDiff, $selisihIndo);
         }
         for ($i=1; $i < count($dataRekapIndo); $i++) {
             $selisihIndo = (($dataRekapIndo[$i]->sembuh)-($dataRekapIndo[$i-1]->sembuh));
+            if ($selisihIndo < 0){
+                $selisihIndo = 0;
+            }
             array_push($meninggalDateDiff, date('d-F', strtotime($dataRekapIndo[$i]->created_at)));
             array_push($dataMeninggalDiff, $selisihIndo);
         }
         for ($i=1; $i < count($dataRekapIndo); $i++) {
             $selisihIndo = (($dataRekapIndo[$i]->positif - $dataRekapIndo[$i]->sembuh - $dataRekapIndo[$i]->meninggal) - ($dataRekapIndo[$i-1]->positif - $dataRekapIndo[$i-1]->sembuh - $dataRekapIndo[$i-1]->meninggal));
+            if ($selisihIndo < 0){
+                $selisihIndo = 0;
+            }
             array_push($dirawatDateDiff, date('d-F', strtotime($dataRekapIndo[$i]->created_at)));
             array_push($dataDirawatDiff, $selisihIndo);
         }
@@ -598,21 +658,33 @@ class HomeController extends Controller
 
         for ($i=1; $i < count($dataRekapGlobal); $i++) {
             $selisihGlobal = (($dataRekapGlobal[$i]->positif)-($dataRekapGlobal[$i-1]->positif));
+            if ($selisihGlobal < 0){
+                $selisihGlobal = 0;
+            }
             array_push($positifDateGlobalDiff, date('d-F', strtotime($dataRekapGlobal[$i]->created_at)));
             array_push($dataPositifGlobalDiff, $selisihGlobal);
         }
         for ($i=1; $i < count($dataRekapGlobal); $i++) {
             $selisihGlobalSembuh = (($dataRekapGlobal[$i]->sembuh)-($dataRekapGlobal[$i-1]->sembuh));
+            if ($selisihGlobalSembuh < 0){
+                $selisihGlobalSembuh = 0;
+            }
             array_push($sembuhDateGlobalDiff, date('d-F', strtotime($dataRekapGlobal[$i]->created_at)));
             array_push($dataSembuhGlobalDiff, $selisihGlobalSembuh);
         }
         for ($i=1; $i < count($dataRekapGlobal); $i++) {
             $selisihGlobalMeninggal = (($dataRekapGlobal[$i]->meninggal)-($dataRekapGlobal[$i-1]->meninggal));
+            if ($selisihGlobalMeninggal < 0){
+                $selisihGlobalMeninggal = 0;
+            }
             array_push($meninggalDateGlobalDiff, date('d-F', strtotime($dataRekapGlobal[$i]->created_at)));
             array_push($dataMeninggalGlobalDiff, $selisihGlobalMeninggal);
         }
         for ($i=1; $i < count($dataRekapGlobal); $i++) {
             $selisihGlobalDirawat = (($dataRekapGlobal[$i]->positif) - ($dataRekapGlobal[$i]->sembuh) - ($dataRekapGlobal[$i]->meninggal))-(($dataRekapGlobal[$i-1]->positif) - ($dataRekapGlobal[$i-1]->sembuh) - ($dataRekapGlobal[$i-1]->meninggal));
+            if ($selisihGlobalDirawat < 0){
+                $selisihGlobalDirawat = 0;
+            }
             array_push($dirawatDateGlobalDiff, date('d-F', strtotime($dataRekapGlobal[$i]->created_at)));
             array_push($dataDirawatGlobalDiff, $selisihGlobalDirawat);
         }
@@ -666,21 +738,33 @@ class HomeController extends Controller
 
         for ($i=1; $i < count($dataBali); $i++) {
             $selisihBali = (($dataBali[$i]->Kasus_Posi)-($dataBali[$i-1]->Kasus_Posi));
+            if ($selisihBali < 0){
+                $selisihBali = 0;
+            }
             array_push($positifDateBaliDiff, date('d-F', strtotime($dataBali[$i]->created_at)));
             array_push($dataPositifBaliDiff, $selisihBali);
         }
         for ($i=1; $i < count($dataBali); $i++) {
             $selisihBali = (($dataBali[$i]->Kasus_Semb)-($dataBali[$i-1]->Kasus_Semb));
+            if ($selisihBali < 0){
+                $selisihBali = 0;
+            }
             array_push($sembuhDateBaliDiff, date('d-F', strtotime($dataBali[$i]->created_at)));
             array_push($dataSembuhBaliDiff, $selisihBali);
         }
         for ($i=1; $i < count($dataBali); $i++) {
             $selisihBali = (($dataBali[$i]->Kasus_Meni)-($dataBali[$i-1]->Kasus_Meni));
+            if ($selisihBali < 0){
+                $selisihBali = 0;
+            }
             array_push($meninggalDateBaliDiff, date('d-F', strtotime($dataBali[$i]->created_at)));
             array_push($dataMeninggalBaliDiff, $selisihBali);
         }
         for ($i=1; $i < count($dataBali); $i++) {
             $selisihBali = (($dataBali[$i]->Kasus_Posi - $dataBali[$i]->Kasus_Semb - $dataBali[$i]->Kasus_Meni)-($dataBali[$i-1]->Kasus_Posi - $dataBali[$i-1]->Kasus_Semb - $dataBali[$i-1]->Kasus_Meni));
+            if ($selisihBali < 0){
+                $selisihBali = 0;
+            }
             array_push($dirawatDateBaliDiff, date('d-F', strtotime($dataBali[$i]->created_at)));
             array_push($dataDirawatBaliDiff, $selisihBali);
         }
@@ -751,21 +835,33 @@ class HomeController extends Controller
 
         for ($i=1; $i < count($dataProvinsi); $i++) {
             $selisih = (($dataProvinsi[$i]->Kasus_Posi)-($dataProvinsi[$i-1]->Kasus_Posi));
+            if ($selisih < 0){
+                $selisih = 0;
+            }
             array_push($positifDateProvDiff, date('d-F', strtotime($dataProvinsi[$i]->created_at)));
             array_push($dataPositifProvDiff, $selisih);
         }
         for ($i=1; $i < count($dataProvinsi); $i++) {
             $selisih = (($dataProvinsi[$i]->Kasus_Semb)-($dataProvinsi[$i-1]->Kasus_Semb));
+            if ($selisih < 0){
+                $selisih = 0;
+            }
             array_push($sembuhDateProvDiff, date('d-F', strtotime($dataProvinsi[$i]->created_at)));
             array_push($dataSembuhProvDiff, $selisih);
         }
         for ($i=1; $i < count($dataProvinsi); $i++) {
             $selisih = (($dataProvinsi[$i]->Kasus_Meni)-($dataProvinsi[$i-1]->Kasus_Meni));
+            if ($selisih < 0){
+                $selisih = 0;
+            }
             array_push($meninggalDateProvDiff, date('d-F', strtotime($dataProvinsi[$i]->created_at)));
             array_push($dataMeninggalProvDiff, $selisih);
         }
         for ($i=1; $i < count($dataProvinsi); $i++) {
             $selisih = (($dataProvinsi[$i]->Kasus_Posi - $dataProvinsi[$i]->Kasus_Semb - $dataProvinsi[$i]->Kasus_Meni) - ($dataProvinsi[$i-1]->Kasus_Posi - $dataProvinsi[$i-1]->Kasus_Semb - $dataProvinsi[$i-1]->Kasus_Meni));
+            if ($selisih < 0){
+                $selisih = 0;
+            }
             array_push($dirawatDateProvDiff, date('d-F', strtotime($dataProvinsi[$i]->created_at)));
             array_push($dataDirawatProvDiff, $selisih);
         }
