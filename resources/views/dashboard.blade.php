@@ -1186,7 +1186,7 @@
                             <table id="table_dunia" class="table align-items-center table-flush table-striped" cellspacing="0" width="100%">
                                 <thead class="thead-light">
                                     <tr>
-                                        <th scope="col">No.</th>
+                                        <th data-formatter="runningFormatter">NO</th>
                                         <th scope="col">Negara</th>
                                         <th scope="col">Positif</th>
                                         <th scope="col">Laju Positif</th>
@@ -1228,7 +1228,7 @@
                             <table id="table_indo" class="table align-items-center table-flush table-striped" cellspacing="0" width="100%">
                                 <thead class="thead-light">
                                     <tr>
-                                        <th scope="col">No.</th>
+                                        <th data-formatter="runningFormatter">NO</th>
                                         <th scope="col">Provinsi</th>
                                         <th scope="col">Positif</th>
                                         <th scope="col">Laju Positif</th>
@@ -5765,7 +5765,7 @@
   
     <script>
         $(document).ready(function () {
-            $('#table_indo').DataTable({
+            var t = $('#table_indo').DataTable({
                 "lengthMenu": [[10, 20, 25, 50, 100, -1], [10, 20, 25, 50, 100, "All"]],
                 language: {
                     paginate: {
@@ -5779,7 +5779,12 @@
                     targets: 0
                 }]
             });
-            $('#table_dunia').DataTable({
+            t.on( 'order.dt search.dt', function () {
+                t.column(0, {search:'applied', order:'applied'}).nodes().each( function (cell, i) {
+                    cell.innerHTML = i+1;
+                } );
+            } ).draw();
+            var td= $('#table_dunia').DataTable({
                 "lengthMenu": [[10, 20, 25, 50, 100, -1], [10, 20, 25, 50, 100, "All"]],
                 language: {
                     paginate: {
@@ -5792,9 +5797,16 @@
                     orderable: false,
                     targets: 0
                 }]
+
             });
+            td.on( 'order.dt search.dt', function () {
+                td.column(0, {search:'applied', order:'applied'}).nodes().each( function (cell, i) {
+                    cell.innerHTML = i+1;
+                } );
+            } ).draw();
             $('.dataTables_length').addClass('bs-select');
         });
     </script>
+
 
 @endpush
