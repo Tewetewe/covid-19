@@ -117,12 +117,12 @@
                     </a>
                 </li> -->
                 @if( auth()->user()->role == "admin" )
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                     <a class="nav-link" href="{{ route('user.index') }}" style="color: #565656;">
                         <i class="ni ni-single-copy-04" style="color: #565656;"></i>
                              {{ __('Import XLS Bali') }}
                     </a>
-                </li>
+                </li> --}}
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('provinsi') }}" style="color: #565656;">
                         <i class="ni ni-book-bookmark" style="color: #565656;"></i>
