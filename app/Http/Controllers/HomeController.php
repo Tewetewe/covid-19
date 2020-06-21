@@ -361,9 +361,9 @@ class HomeController extends Controller
 
 
         $dataBali = ProvinsiData::where('FID','Bali')->orderBy('created_at', 'asc')->get();   
-        $positifBali = number_format(ProvinsiData::orderBy('created_at', 'desc')->where('FID','Bali')->take(1)->value('Kasus_Posi'));
-        $sembuhBali = number_format(ProvinsiData::orderBy('created_at', 'desc')->where('FID','Bali')->take(1)->value('Kasus_Semb'));
-        $meninggalBali = number_format(ProvinsiData::orderBy('created_at', 'desc')->where('FID','Bali')->take(1)->value('Kasus_Meni'));
+        $positifBali = (ProvinsiData::orderBy('created_at', 'desc')->where('FID','Bali')->take(1)->value('Kasus_Posi'));
+        $sembuhBali = (ProvinsiData::orderBy('created_at', 'desc')->where('FID','Bali')->take(1)->value('Kasus_Semb'));
+        $meninggalBali = (ProvinsiData::orderBy('created_at', 'desc')->where('FID','Bali')->take(1)->value('Kasus_Meni'));
         $DiffBali = ProvinsiData::where('FID','Bali')->orderBy('created_at', 'desc')->take(2)->get();
 
         $dataPositifBali = array();
@@ -702,9 +702,9 @@ class HomeController extends Controller
 
 
         $dataBali = ProvinsiData::where('FID','Bali')->orderBy('created_at', 'asc')->get();   
-        $positifBali = number_format(ProvinsiData::orderBy('created_at', 'desc')->where('FID','Bali')->take(1)->value('Kasus_Posi'));
-        $sembuhBali = number_format(ProvinsiData::orderBy('created_at', 'desc')->where('FID','Bali')->take(1)->value('Kasus_Semb'));
-        $meninggalBali = number_format(ProvinsiData::orderBy('created_at', 'desc')->where('FID','Bali')->take(1)->value('Kasus_Meni'));
+        $positifBali =(ProvinsiData::orderBy('created_at', 'desc')->where('FID','Bali')->take(1)->value('Kasus_Posi'));
+        $sembuhBali =(ProvinsiData::orderBy('created_at', 'desc')->where('FID','Bali')->take(1)->value('Kasus_Semb'));
+        $meninggalBali =(ProvinsiData::orderBy('created_at', 'desc')->where('FID','Bali')->take(1)->value('Kasus_Meni'));
         $DiffBali = ProvinsiData::where('FID','Bali')->orderBy('created_at', 'desc')->take(2)->get();
 
         $dataPositifBali = array();
