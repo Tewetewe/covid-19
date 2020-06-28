@@ -24,7 +24,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/ProvGraph/filter', 'HomeController@filter');
-
+Route::get('/GlobalGraph/filter', 'HomeController@filterGlobal');
 
 Route::post('/ProvinsiData/import_excel', 'BaliDataController@import_excel_provinsi');
 Route::post('/BaliData/import_excel', 'BaliDataController@import_excel_bali');

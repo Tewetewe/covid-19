@@ -140,6 +140,7 @@
                                 <h6 class="text-uppercase text-light ls-1 mb-1">Overview</h6>
                                 <h2 class="text-white mb-0">Grafik Positif COVID-19 Dunia</h2>
                             </div>
+                            
                             <div class="col">
                                 <ul class="nav nav-pills justify-content-end">
                                     <li class="nav-item mr-2 mr-md-0" id="btn1Global">
@@ -274,6 +275,390 @@
             </div>
         </div>
         <hr>
+        <div class="shadow alert alert-white text-muted" role="alert">
+                <h2><b>Rekapitulasi Data Penyebaran COVID-19 Negara di Dunia</b></h2>
+            </div>
+            <form action="/GlobalGraph/filter" method="GET">
+                <div class="form-group">
+                        <div class="input-group">
+                            <select class="form-control" id="drop" name="nama">
+                            <option value="">{{$namaNegara}}</option>
+                                 @foreach ($namaNegaraData  as $item)
+                                    <option value="{{$item->OBJECTID}}">{{ucfirst($item->OBJECTID)}}</option>      
+                                 @endforeach
+                            </select>
+                            <button class="btn btn-icon btn-success" type="submit">
+                                <span class="btn-inner--icon"><i class="ni ni-send"></i></span>
+                            </button>
+                        </div>
+                </div>
+                            
+            </form>
+
+
+            <div class="row mb-xl-4">
+                <div class="col-xl-3 col-lg-6">
+                    <div class="shadow card bg-gradient-danger card-stats mb-4 mb-xl-0">
+                        <div class="shadow card-body">
+                            <div class="row">
+                                <div class="col">
+                                    <h5 class="card-title text-uppercase text-white mb-0">Terkonfirmasi</h5>
+                                    <span class="h2 font-weight-bold text-white mb-0">{{ $positifNegara }} Orang</span>
+                                    <h6><span class="h2 font-weight-bold text-white mb-0"></span></h6>
+                                </div>
+                                <div class="col-auto">
+                                    <!-- <div class="icon icon-shape bg-danger text-white rounded-circle shadow"> -->
+                                        <img height="55" widht="55" src="{{ asset('argon') }}/img/brand/emoticon-sad.png" alt="...">
+                                    <!-- </div> -->
+                                </div>
+                            </div>
+                            <p class="mt-5 mb-0 text-white text-sm">
+                                <span class="text-white mr-2">
+                                    @if($dataPositifNegaraDiff >= 0)
+                                    <i class="fa fa-arrow-up">
+                                    @else
+                                    <i class="fa fa-arrow-down">
+                                    @endif
+                                    </i> 
+                                    
+                                </span>
+                                <span class="text-white">Dari Kemarin</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-6">
+                    <div class="shadow card bg-gradient-success card-stats mb-4 mb-xl-0">
+                        <div class="shadow card-body">
+                            <div class="row">
+                                <div class="col">
+                                    <h5 class="card-title text-uppercase text-white mb-0">Sembuh</h5>
+                                    <span class="h2 font-weight-bold text-white mb-0">{{ $sembuhNegara }} Orang</span>
+                                    <h6><span class="h2 font-weight-bold text-white mb-0">{{ $persenSembuhNegara}}% </span></h6>
+                                </div>
+                                <div class="col-auto">
+                                    <!-- <div class="icon icon-shape bg-green text-white rounded-circle shadow"> -->
+                                        <img height="55" widht="55" src="{{ asset('argon') }}/img/brand/emoticon-happy.png" alt="...">
+                                    <!-- </div> -->
+                                </div>
+                            </div>
+                            <p class="mt-4 mb-0 text-white text-sm">
+                                <span class="text-white mr-2">
+                                    @if($dataSembuhNegaraDiff >= 0)
+                                    <i class="fa fa-arrow-up">
+                                    @else
+                                    <i class="fa fa-arrow-down">
+                                    @endif
+                                    </i> 
+                                    
+                                    
+                                    </span>
+                                <span class="text-white">Dari Kemarin</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-6">
+                    <div class="shadow card bg-gradient-gray-dark card-stats mb-4 mb-xl-0">
+                        <div class="shadow card-body">
+                            <div class="row">
+                                <div class="col">
+                                    <h5 class="card-title text-uppercase text-white mb-0">Meninggal</h5>
+                                    <span class="h2 font-weight-bold text-white mb-0">{{ $meninggalNegara }} Orang</span>
+                                    <h6><span class="h2 font-weight-bold text-white mb-0">{{ $persenMeninggalNegara}}% </span></h6>
+                                </div>
+                                <div class="col-auto">
+                                    <!-- <div class="icon icon-shape bg-black text-white rounded-circle shadow"> -->
+                                        <img height="55" widht="55" src="{{ asset('argon') }}/img/brand/emoticon-cry.png" alt="...">
+                                    <!-- </div> -->
+                                </div>
+                            </div>
+                            <p class="mt-4 mb-0 text-white text-sm">
+                                <span class="text-white mr-2">
+                                    @if($dataMeninggalNegaraDiff >= 0)
+                                    <i class="fa fa-arrow-up">
+                                    @else
+                                    <i class="fa fa-arrow-down">
+                                    @endif
+                                    </i> 
+                                    
+                                    </span>
+                                <span class="text-white">Dari kemarin</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-6">
+                    <div class="shadow card bg-gradient-warning card-stats mb-4 mb-xl-0">
+                        <div class="shadow card-body">
+                            <div class="row">
+                                <div class="col">
+                                    <h5 class="card-title text-uppercase text-white mb-0">Dirawat</h5>
+                                    <span class="h2 font-weight-bold text-white mb-0">{{ $dirawatNegara }} Orang</span>
+                                    <h6><span class="h2 font-weight-bold text-white mb-0">{{ $persenDirawatNegara }}% </span></h6>
+                                </div>
+                                <div class="col-auto">
+                                    <!-- <div class="icon icon-shape bg-blue text-white rounded-circle shadow"> -->
+                                        <img height="55" widht="55" src="{{ asset('argon') }}/img/brand/emoticon-sick.png" alt="...">
+                                    <!-- </div> -->
+                                </div>
+                            </div>
+                            <p class="mt-4 mb-0 text-white text-sm">
+                                <span class="text-white mr-2">
+                                    @if($dataDirawatNegaraDiff >= 0)
+                                    <i class="fa fa-arrow-up">
+                                    @else
+                                    <i class="fa fa-arrow-down">
+                                    @endif
+                                    </i> 
+                                    
+                                    </span>
+                                <span class="text-white">Dari kemarin</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+            <div class="col-xl-6 mb-5 mb-xl-4">
+                <div class="card bg-gradient-default shadow">
+                    <div class="card-header bg-transparent">
+                        <div class="row align-items-center">
+                            <div class="col">
+                                <h6 class="text-uppercase text-light ls-1 mb-1">Overview</h6>
+                                <h2 class="text-white mb-0">Grafik Positif COVID-19 Negara {{$namaNegara}}</h2>
+                                </div>
+                                {{-- <button id="btn1">
+                                    Option 1
+                                    </button>
+                                    <button id="btn2">
+                                    Option 2
+                                    </button> --}}
+                      
+                                <div class="col">
+                                    <ul class="nav nav-pills justify-content-end">
+                                        <li class="nav-item mr-2 mr-md-0" id="btn1Negara">
+                                            <a href="#" class="nav-link py-2 px-3 active show" data-toggle="tab" id="btn1Negara">
+                                                <span class="d-none d-md-block">Kumulatif</span>
+                                                <span class="d-md-none">Kumulatif</span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item" id="btn2Negara">
+                                            <a href="#" class="nav-link py-2 px-3" data-toggle="tab" id="btn2Negara">
+                                                <span class="d-none d-md-block">Laju</span>
+                                                <span class="d-md-none">Laju</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                              
+                        </div>
+                        <!-- <form action="/ProvGraph/filter" method="GET">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <select class="form-control" id="drop" name="nama">
+                                    <option value="">{{$nama}}</option>
+                                        @foreach ($namaProvinsi as $item)
+                                            <option value="{{$item->FID}}">{{ucfirst($item->FID)}}</option>      
+                                        @endforeach
+                                    </select>
+                                    <button class="btn btn-icon btn-success" type="submit">
+                                        <span class="btn-inner--icon"><i class="ni ni-send"></i></span>
+                                    </button>
+                                </div>
+                            </div>
+                            
+                        </form> -->
+                        
+                    </div>
+                    <div class="card-body">
+                        <!-- Chart -->
+                        <div class="chart">
+                            <canvas id="chart-orderss-negara" class="chart-canvas"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-6 mb-5 mb-xl-4">
+                <div class="card bg-gradient-default shadow">
+                    <div class="card-header bg-transparent">
+                        <div class="row align-items-center">
+                            <div class="col">
+                                <h6 class="text-uppercase text-light ls-1 mb-1">Overview</h6>
+                                <h2 class="text-white mb-0">Grafik Sembuh COVID-19 Negara {{$namaNegara}}</h2>
+                                </div>
+                                {{-- <button id="btn1">
+                                    Option 1
+                                    </button>
+                                    <button id="btn2">
+                                    Option 2
+                                    </button> --}}
+                      
+                                <div class="col">
+                                    <ul class="nav nav-pills justify-content-end">
+                                        <li class="nav-item mr-2 mr-md-0" id="btn1NegaraSembuh">
+                                            <a href="#" class="nav-link py-2 px-3 active show" data-toggle="tab" id="btn1NegaraSembuh">
+                                                <span class="d-none d-md-block">Kumulatif</span>
+                                                <span class="d-md-none">Kumulatif</span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item" id="btn2NegaraSembuh">
+                                            <a href="#" class="nav-link py-2 px-3" data-toggle="tab" id="btn2NegaraSembuh">
+                                                <span class="d-none d-md-block">Laju</span>
+                                                <span class="d-md-none">Laju</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                              
+                        </div>
+                        <!-- <form action="/ProvGraph/filter" method="GET">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <select class="form-control" id="drop" name="nama">
+                                    <option value="">{{$nama}}</option>
+                                        @foreach ($namaProvinsi as $item)
+                                            <option value="{{$item->FID}}">{{ucfirst($item->FID)}}</option>      
+                                        @endforeach
+                                    </select>
+                                    <button class="btn btn-icon btn-success" type="submit">
+                                        <span class="btn-inner--icon"><i class="ni ni-send"></i></span>
+                                    </button>
+                                </div>
+                            </div>
+                            
+                        </form> -->
+                        
+                    </div>
+                    <div class="card-body">
+                        <!-- Chart -->
+                        <div class="chart">
+                            <canvas id="chart-orderss-negara-sembuh" class="chart-canvas"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+            <div class="row">
+            <div class="col-xl-6 mb-5 mb-xl-4">
+                <div class="card bg-gradient-default shadow">
+                    <div class="card-header bg-transparent">
+                        <div class="row align-items-center">
+                            <div class="col">
+                                <h6 class="text-uppercase text-light ls-1 mb-1">Overview</h6>
+                                <h2 class="text-white mb-0">Grafik Meninggal COVID-19 Negara {{$namaNegara}}</h2>
+                                </div>
+                                {{-- <button id="btn1">
+                                    Option 1
+                                    </button>
+                                    <button id="btn2">
+                                    Option 2
+                                    </button> --}}
+                      
+                                <div class="col">
+                                    <ul class="nav nav-pills justify-content-end">
+                                        <li class="nav-item mr-2 mr-md-0" id="btn1NegaraMeninggal">
+                                            <a href="#" class="nav-link py-2 px-3 active show" data-toggle="tab" id="btn1NegaraMeninggal">
+                                                <span class="d-none d-md-block">Kumulatif</span>
+                                                <span class="d-md-none">Kumulatif</span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item" id="btn2NegaraMeninggal">
+                                            <a href="#" class="nav-link py-2 px-3" data-toggle="tab" id="btn2NegaraMeninggal">
+                                                <span class="d-none d-md-block">Laju</span>
+                                                <span class="d-md-none">Laju</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                              
+                        </div>
+                        <!-- <form action="/ProvGraph/filter" method="GET">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <select class="form-control" id="drop" name="nama">
+                                    <option value="">{{$nama}}</option>
+                                        @foreach ($namaProvinsi as $item)
+                                            <option value="{{$item->FID}}">{{ucfirst($item->FID)}}</option>      
+                                        @endforeach
+                                    </select>
+                                    <button class="btn btn-icon btn-success" type="submit">
+                                        <span class="btn-inner--icon"><i class="ni ni-send"></i></span>
+                                    </button>
+                                </div>
+                            </div>
+                            
+                        </form> -->
+                        
+                    </div>
+                    <div class="card-body">
+                        <!-- Chart -->
+                        <div class="chart">
+                            <canvas id="chart-orderss-negara-meninggal" class="chart-canvas"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-6 mb-5 mb-xl-4">
+                <div class="card bg-gradient-default shadow">
+                    <div class="card-header bg-transparent">
+                        <div class="row align-items-center">
+                            <div class="col">
+                                <h6 class="text-uppercase text-light ls-1 mb-1">Overview</h6>
+                                <h2 class="text-white mb-0">Grafik Dirawat COVID-19 Negara {{$namaNegara}}</h2>
+                                </div>
+                                {{-- <button id="btn1">
+                                    Option 1
+                                    </button>
+                                    <button id="btn2">
+                                    Option 2
+                                    </button> --}}
+                      
+                                <div class="col">
+                                    <ul class="nav nav-pills justify-content-end">
+                                        <li class="nav-item mr-2 mr-md-0" id="btn1NegaraDirawat">
+                                            <a href="#" class="nav-link py-2 px-3 active show" data-toggle="tab" id="btn1NegaraDirawat">
+                                                <span class="d-none d-md-block">Kumulatif</span>
+                                                <span class="d-md-none">Kumulatif</span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item" id="btn2NegaraDirawat">
+                                            <a href="#" class="nav-link py-2 px-3" data-toggle="tab" id="btn2NegaraDirawat">
+                                                <span class="d-none d-md-block">Laju</span>
+                                                <span class="d-md-none">Laju</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                              
+                        </div>
+                        <!-- <form action="/ProvGraph/filter" method="GET">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <select class="form-control" id="drop" name="nama">
+                                    <option value="">{{$nama}}</option>
+                                        @foreach ($namaProvinsi as $item)
+                                            <option value="{{$item->FID}}">{{ucfirst($item->FID)}}</option>      
+                                        @endforeach
+                                    </select>
+                                    <button class="btn btn-icon btn-success" type="submit">
+                                        <span class="btn-inner--icon"><i class="ni ni-send"></i></span>
+                                    </button>
+                                </div>
+                            </div>
+                            
+                        </form> -->
+                        
+                    </div>
+                    <div class="card-body">
+                        <!-- Chart -->
+                        <div class="chart">
+                            <canvas id="chart-orderss-negara-dirawat" class="chart-canvas"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
 
             <div class="shadow alert alert-white text-muted" role="alert">
                 <h2><b>Rekapitulasi Data Penyebaran COVID-19 Indonesia</b></h2>
@@ -4776,6 +5161,989 @@
             initChart($chartBaliDirawat);
         }
         })();
+    </script>
+
+    <script>
+        var OrdersChartNegara = (function() {
+
+        var $chartNegara = $('#chart-orderss-negara');
+        var $ordersSelectNegara = $('[name="ordersSelect"]');
+
+
+        //
+        // Methods
+        //
+
+        // Init chart
+        function initChart($chartNegara) {
+
+            // Create chart
+            var ctxNegara = document.getElementById('chart-orderss-negara').getContext('2d');
+
+            window.ordersChartNegara = new Chart(ctxNegara, {
+                type: 'bar',
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                callback: function(value) {
+                                    // if (!(value % 10)) {
+                                    //     //return '$' + value + 'k'
+                                    //     return value
+                                    // }
+
+                                    if(parseInt(value) >= 1000){
+                                        return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                    }else if(value == 0){
+                                        return value = "0";
+                                    } else{
+                                        return value;
+                                    }
+                                }
+                            }
+                        }]
+                    },
+                    tooltips: {
+                        callbacks: {
+                            label: function(item, data) {
+                                // var label = data.datasets[item.datasetIndex].label || '';
+                                // var yLabel = item.yLabel;
+                                // var content = '';
+
+                                // if (data.datasets.length > 1) {
+                                //     content += '<span class="popover-body-label mr-auto">' + label + '</span>';
+                                // }
+
+                                // content += '<span class="popover-body-value">' + yLabel + '</span>';
+                                
+                                // return content;
+
+                                var value = data.datasets[item.datasetIndex].data[item.index];
+
+                                if(parseInt(value) >= 1000){
+                                    return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                }else if(value == 0){
+                                    return value = "0";
+                                } else{
+                                    return value;
+                                }
+                            }
+                        }
+                    }
+                },
+                data: {
+                    labels: {!! json_encode($positifDateNegara) !!},
+                    datasets: [{
+                        label: 'performance',
+                        data: {!! json_encode($dataPositifNegara) !!}
+                    }]
+                }
+            });
+           
+                // Save to jQuery object
+            function removeData(chartNegara) {
+                chartNegara.destroy();
+            }
+
+            function addData(chartNegara, label, data) {
+                
+            }
+        $("#btn1Negara").on("click", function() {
+            // var chart = ordersChart
+            // var label = {!! json_encode($positifDateProv) !!}
+            // var data = {!! json_encode($dataPositifProv) !!}
+
+            // chart.data.labels.pop();
+            // chart.data.datasets.forEach((dataset) => {
+            //     dataset.data.pop();
+            // });
+            // chart.update();
+
+            if(window.ordersChartNegara && window.ordersChartNegara !== null){
+                window.ordersChartNegara.destroy();
+            }
+
+            var label = {!! json_encode($positifDateNegara) !!}
+            var data = {!! json_encode($dataPositifNegara) !!}
+
+            window.ordersChartNegara = new Chart(ctxNegara, {
+                type: 'bar',
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                callback: function(value) {
+                                    // if (!(value % 10)) {
+                                    //     //return '$' + value + 'k'
+                                    //     return value
+                                    // }
+
+                                    if(parseInt(value) >= 1000){
+                                        return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                    }else if(value == 0){
+                                        return value = "0";
+                                    } else{
+                                        return value;
+                                    }
+                                }
+                            }
+                        }]
+                    },
+                    tooltips: {
+                        callbacks: {
+                            label: function(item, data) {
+                                // var label = data.datasets[item.datasetIndex].label || '';
+                                // var yLabel = item.yLabel;
+                                // var content = '';
+
+                                // if (data.datasets.length > 1) {
+                                //     content += '<span class="popover-body-label mr-auto">' + label + '</span>';
+                                // }
+
+                                // content += '<span class="popover-body-value">' + yLabel + '</span>';
+                                
+                                // return content;
+
+                                var value = data.datasets[item.datasetIndex].data[item.index];
+
+                                if(parseInt(value) >= 1000){
+                                    return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                }else if(value == 0){
+                                    return value = "0";
+                                } else{
+                                    return value;
+                                }
+                            }
+                        }
+                    }
+                },
+                data: {
+                    labels: label,
+                    datasets: [{
+                        label: 'performance',
+                        data: data
+                    }]
+                }
+            });
+            ordersChartNegara.update();
+        });
+        $("#btn2Negara").on("click", function() {
+
+            if(window.ordersChartNegara && window.ordersChartNegara !== null){
+                window.ordersChartNegara.destroy();
+            }
+
+            var label = {!! json_encode($positifDateNegaraDiff) !!}
+            var data = {!! json_encode($dataPositifNegaraDiff) !!}
+
+            window.ordersChartNegara = new Chart(ctxNegara, {
+                type: 'bar',
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                callback: function(value) {
+                                    // if (!(value % 10)) {
+                                    //     //return '$' + value + 'k'
+                                    //     return value
+                                    // }
+
+                                    if(parseInt(value) >= 1000){
+                                        return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                    }else if(value == 0){
+                                        return value = "0";
+                                    } else{
+                                        return value;
+                                    }
+                                }
+                            }
+                        }]
+                    },
+                    tooltips: {
+                        callbacks: {
+                            label: function(item, data) {
+                                // var label = data.datasets[item.datasetIndex].label || '';
+                                // var yLabel = item.yLabel;
+                                // var content = '';
+
+                                // if (data.datasets.length > 1) {
+                                //     content += '<span class="popover-body-label mr-auto">' + label + '</span>';
+                                // }
+
+                                // content += '<span class="popover-body-value">' + yLabel + '</span>';
+                                
+                                // return content;
+
+                                var value = data.datasets[item.datasetIndex].data[item.index];
+
+                                if(parseInt(value) >= 1000){
+                                    return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                }else if(value == 0){
+                                    return value = "0";
+                                } else{
+                                    return value;
+                                }
+                            }
+                        }
+                    }
+                },
+                data: {
+                    labels: label,
+                    datasets: [{
+                        label: 'performance',
+                        data: data
+                    }]
+                }
+            });
+            ordersChartNegara.update();
+        });
+            $chartNegara.data('chartNegara', ordersChartNegara);
+            
+        }
+        
+        // Init chart
+        if ($chartNegara.length) {
+            initChart($chartNegara);
+        }
+        })();
+
+    </script>
+
+    <script>
+        var OrdersChartNegaraSembuh = (function() {
+
+        var $chartNegaraSembuh = $('#chart-orderss-negara-sembuh');
+        var $ordersSelectNegaraSembuh = $('[name="ordersSelect"]');
+
+
+        //
+        // Methods
+        //
+
+        // Init chart
+        function initChart($chartNegaraSembuh) {
+
+            // Create chart
+            var ctxNegaraSembuh = document.getElementById('chart-orderss-negara-sembuh').getContext('2d');
+
+            window.ordersChartNegaraSembuh = new Chart(ctxNegaraSembuh, {
+                type: 'bar',
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                callback: function(value) {
+                                    // if (!(value % 10)) {
+                                    //     //return '$' + value + 'k'
+                                    //     return value
+                                    // }
+
+                                    if(parseInt(value) >= 1000){
+                                        return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                    }else if(value == 0){
+                                        return value = "0";
+                                    } else{
+                                        return value;
+                                    }
+                                }
+                            }
+                        }]
+                    },
+                    tooltips: {
+                        callbacks: {
+                            label: function(item, data) {
+                                // var label = data.datasets[item.datasetIndex].label || '';
+                                // var yLabel = item.yLabel;
+                                // var content = '';
+
+                                // if (data.datasets.length > 1) {
+                                //     content += '<span class="popover-body-label mr-auto">' + label + '</span>';
+                                // }
+
+                                // content += '<span class="popover-body-value">' + yLabel + '</span>';
+                                
+                                // return content;
+
+                                var value = data.datasets[item.datasetIndex].data[item.index];
+
+                                if(parseInt(value) >= 1000){
+                                    return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                }else if(value == 0){
+                                    return value = "0";
+                                } else{
+                                    return value;
+                                }
+                            }
+                        }
+                    }
+                },
+                data: {
+                    labels: {!! json_encode($sembuhDateNegara) !!},
+                    datasets: [{
+                        label: 'performance',
+                        data: {!! json_encode($dataSembuhNegara) !!}
+                    }]
+                }
+            });
+           
+                // Save to jQuery object
+            function removeData(chartNegaraSembuh) {
+                chartNegaraSembuh.destroy();
+            }
+
+            function addData(chartNegaraSembuh, label, data) {
+                
+            }
+        $("#btn1NegaraSembuh").on("click", function() {
+            // var chart = ordersChart
+            // var label = {!! json_encode($positifDateProv) !!}
+            // var data = {!! json_encode($dataPositifProv) !!}
+
+            // chart.data.labels.pop();
+            // chart.data.datasets.forEach((dataset) => {
+            //     dataset.data.pop();
+            // });
+            // chart.update();
+
+            if(window.ordersChartNegaraSembuh && window.ordersChartNegaraSembuh !== null){
+                window.ordersChartNegaraSembuh.destroy();
+            }
+
+            var label = {!! json_encode($sembuhDateNegara) !!}
+            var data = {!! json_encode($dataSembuhNegara) !!}
+
+            window.ordersChartNegaraSembuh = new Chart(ctxNegaraSembuh, {
+                type: 'bar',
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                callback: function(value) {
+                                    // if (!(value % 10)) {
+                                    //     //return '$' + value + 'k'
+                                    //     return value
+                                    // }
+
+                                    if(parseInt(value) >= 1000){
+                                        return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                    }else if(value == 0){
+                                        return value = "0";
+                                    } else{
+                                        return value;
+                                    }
+                                }
+                            }
+                        }]
+                    },
+                    tooltips: {
+                        callbacks: {
+                            label: function(item, data) {
+                                // var label = data.datasets[item.datasetIndex].label || '';
+                                // var yLabel = item.yLabel;
+                                // var content = '';
+
+                                // if (data.datasets.length > 1) {
+                                //     content += '<span class="popover-body-label mr-auto">' + label + '</span>';
+                                // }
+
+                                // content += '<span class="popover-body-value">' + yLabel + '</span>';
+                                
+                                // return content;
+
+                                var value = data.datasets[item.datasetIndex].data[item.index];
+
+                                if(parseInt(value) >= 1000){
+                                    return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                }else if(value == 0){
+                                    return value = "0";
+                                } else{
+                                    return value;
+                                }
+                            }
+                        }
+                    }
+                },
+                data: {
+                    labels: label,
+                    datasets: [{
+                        label: 'performance',
+                        data: data
+                    }]
+                }
+            });
+            ordersChartNegaraSembuh.update();
+        });
+        $("#btn2NegaraSembuh").on("click", function() {
+
+            if(window.ordersChartNegaraSembuh && window.ordersChartNegaraSembuh !== null){
+                window.ordersChartNegaraSembuh.destroy();
+            }
+
+            var label = {!! json_encode($sembuhDateNegaraDiff) !!}
+            var data = {!! json_encode($dataSembuhNegaraDiff) !!}
+
+            window.ordersChartNegaraSembuh = new Chart(ctxNegaraSembuh, {
+                type: 'bar',
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                callback: function(value) {
+                                    // if (!(value % 10)) {
+                                    //     //return '$' + value + 'k'
+                                    //     return value
+                                    // }
+
+                                    if(parseInt(value) >= 1000){
+                                        return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                    }else if(value == 0){
+                                        return value = "0";
+                                    } else{
+                                        return value;
+                                    }
+                                }
+                            }
+                        }]
+                    },
+                    tooltips: {
+                        callbacks: {
+                            label: function(item, data) {
+                                // var label = data.datasets[item.datasetIndex].label || '';
+                                // var yLabel = item.yLabel;
+                                // var content = '';
+
+                                // if (data.datasets.length > 1) {
+                                //     content += '<span class="popover-body-label mr-auto">' + label + '</span>';
+                                // }
+
+                                // content += '<span class="popover-body-value">' + yLabel + '</span>';
+                                
+                                // return content;
+
+                                var value = data.datasets[item.datasetIndex].data[item.index];
+
+                                if(parseInt(value) >= 1000){
+                                    return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                }else if(value == 0){
+                                    return value = "0";
+                                } else{
+                                    return value;
+                                }
+                            }
+                        }
+                    }
+                },
+                data: {
+                    labels: label,
+                    datasets: [{
+                        label: 'performance',
+                        data: data
+                    }]
+                }
+            });
+            ordersChartNegaraSembuh.update();
+        });
+            $chartNegaraSembuh.data('chartNegaraSembuh', ordersChartNegaraSembuh);
+            
+        }
+        
+        // Init chart
+        if ($chartNegaraSembuh.length) {
+            initChart($chartNegaraSembuh);
+        }
+        })();
+
+    </script>
+
+    <script>
+        var OrdersChartNegaraMeninggal = (function() {
+
+        var $chartNegaraMeninggal = $('#chart-orderss-negara-meninggal');
+        var $ordersSelectNegaraMeninggal = $('[name="ordersSelect"]');
+
+
+        //
+        // Methods
+        //
+
+        // Init chart
+        function initChart($chartNegaraMeninggal) {
+
+            // Create chart
+            var ctxNegaraMeninggal = document.getElementById('chart-orderss-negara-meninggal').getContext('2d');
+
+            window.ordersChartNegaraMeninggal = new Chart(ctxNegaraMeninggal, {
+                type: 'bar',
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                callback: function(value) {
+                                    // if (!(value % 10)) {
+                                    //     //return '$' + value + 'k'
+                                    //     return value
+                                    // }
+
+                                    if(parseInt(value) >= 1000){
+                                        return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                    }else if(value == 0){
+                                        return value = "0";
+                                    } else{
+                                        return value;
+                                    }
+                                }
+                            }
+                        }]
+                    },
+                    tooltips: {
+                        callbacks: {
+                            label: function(item, data) {
+                                // var label = data.datasets[item.datasetIndex].label || '';
+                                // var yLabel = item.yLabel;
+                                // var content = '';
+
+                                // if (data.datasets.length > 1) {
+                                //     content += '<span class="popover-body-label mr-auto">' + label + '</span>';
+                                // }
+
+                                // content += '<span class="popover-body-value">' + yLabel + '</span>';
+                                
+                                // return content;
+
+                                var value = data.datasets[item.datasetIndex].data[item.index];
+
+                                if(parseInt(value) >= 1000){
+                                    return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                }else if(value == 0){
+                                    return value = "0";
+                                } else{
+                                    return value;
+                                }
+                            }
+                        }
+                    }
+                },
+                data: {
+                    labels: {!! json_encode($meninggalDateNegara) !!},
+                    datasets: [{
+                        label: 'performance',
+                        data: {!! json_encode($dataMeninggalNegara) !!}
+                    }]
+                }
+            });
+           
+                // Save to jQuery object
+            function removeData(chartNegaraMeninggal) {
+                chartNegaraMeninggal.destroy();
+            }
+
+            function addData(chartNegaraMeninggal, label, data) {
+                
+            }
+        $("#btn1NegaraMeninggal").on("click", function() {
+            // var chart = ordersChart
+            // var label = {!! json_encode($positifDateProv) !!}
+            // var data = {!! json_encode($dataPositifProv) !!}
+
+            // chart.data.labels.pop();
+            // chart.data.datasets.forEach((dataset) => {
+            //     dataset.data.pop();
+            // });
+            // chart.update();
+
+            if(window.ordersChartNegaraMeninggal && window.ordersChartNegaraMeninggal !== null){
+                window.ordersChartNegaraMeninggal.destroy();
+            }
+
+            var label = {!! json_encode($meninggalDateNegara) !!}
+            var data = {!! json_encode($dataMeninggalNegara) !!}
+
+            window.ordersChartNegaraMeninggal = new Chart(ctxNegaraMeninggal, {
+                type: 'bar',
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                callback: function(value) {
+                                    // if (!(value % 10)) {
+                                    //     //return '$' + value + 'k'
+                                    //     return value
+                                    // }
+
+                                    if(parseInt(value) >= 1000){
+                                        return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                    }else if(value == 0){
+                                        return value = "0";
+                                    } else{
+                                        return value;
+                                    }
+                                }
+                            }
+                        }]
+                    },
+                    tooltips: {
+                        callbacks: {
+                            label: function(item, data) {
+                                // var label = data.datasets[item.datasetIndex].label || '';
+                                // var yLabel = item.yLabel;
+                                // var content = '';
+
+                                // if (data.datasets.length > 1) {
+                                //     content += '<span class="popover-body-label mr-auto">' + label + '</span>';
+                                // }
+
+                                // content += '<span class="popover-body-value">' + yLabel + '</span>';
+                                
+                                // return content;
+
+                                var value = data.datasets[item.datasetIndex].data[item.index];
+
+                                if(parseInt(value) >= 1000){
+                                    return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                }else if(value == 0){
+                                    return value = "0";
+                                } else{
+                                    return value;
+                                }
+                            }
+                        }
+                    }
+                },
+                data: {
+                    labels: label,
+                    datasets: [{
+                        label: 'performance',
+                        data: data
+                    }]
+                }
+            });
+            ordersChartNegaraMeninggal.update();
+        });
+        $("#btn2NegaraMeninggal").on("click", function() {
+
+            if(window.ordersChartNegaraMeninggal && window.ordersChartNegaraMeninggal !== null){
+                window.ordersChartNegaraMeninggal.destroy();
+            }
+            var label = {!! json_encode($meninggalDateNegaraDiff) !!}
+            var data = {!! json_encode($dataMeninggalNegaraDiff) !!}
+
+            window.ordersChartNegaraMeninggal = new Chart(ctxNegaraMeninggal, {
+                type: 'bar',
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                callback: function(value) {
+                                    // if (!(value % 10)) {
+                                    //     //return '$' + value + 'k'
+                                    //     return value
+                                    // }
+
+                                    if(parseInt(value) >= 1000){
+                                        return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                    }else if(value == 0){
+                                        return value = "0";
+                                    } else{
+                                        return value;
+                                    }
+                                }
+                            }
+                        }]
+                    },
+                    tooltips: {
+                        callbacks: {
+                            label: function(item, data) {
+                                // var label = data.datasets[item.datasetIndex].label || '';
+                                // var yLabel = item.yLabel;
+                                // var content = '';
+
+                                // if (data.datasets.length > 1) {
+                                //     content += '<span class="popover-body-label mr-auto">' + label + '</span>';
+                                // }
+
+                                // content += '<span class="popover-body-value">' + yLabel + '</span>';
+                                
+                                // return content;
+
+                                var value = data.datasets[item.datasetIndex].data[item.index];
+
+                                if(parseInt(value) >= 1000){
+                                    return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                }else if(value == 0){
+                                    return value = "0";
+                                } else{
+                                    return value;
+                                }
+                            }
+                        }
+                    }
+                },
+                data: {
+                    labels: label,
+                    datasets: [{
+                        label: 'performance',
+                        data: data
+                    }]
+                }
+            });
+            ordersChartNegaraMeninggal.update();
+        });
+            $chartNegaraMeninggal.data('chartNegaraMeninggal', ordersChartNegaraMeninggal);
+            
+        }
+        
+        // Init chart
+        if ($chartNegaraMeninggal.length) {
+            initChart($chartNegaraMeninggal);
+        }
+        })();
+
+    </script>
+
+    <script>
+        var OrdersChartNegaraDirawat = (function() {
+
+        var $chartNegaraDirawat = $('#chart-orderss-negara-dirawat');
+        var $ordersSelectNegaraDirawat = $('[name="ordersSelect"]');
+
+
+        //
+        // Methods
+        //
+
+        // Init chart
+        function initChart($chartNegaraDirawat) {
+
+            // Create chart
+            var ctxNegaraDirawat = document.getElementById('chart-orderss-negara-dirawat').getContext('2d');
+
+            window.ordersChartNegaraDirawat = new Chart(ctxNegaraDirawat, {
+                type: 'bar',
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                callback: function(value) {
+                                    // if (!(value % 10)) {
+                                    //     //return '$' + value + 'k'
+                                    //     return value
+                                    // }
+
+                                    if(parseInt(value) >= 1000){
+                                        return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                    }else if(value == 0){
+                                        return value = "0";
+                                    } else{
+                                        return value;
+                                    }
+                                }
+                            }
+                        }]
+                    },
+                    tooltips: {
+                        callbacks: {
+                            label: function(item, data) {
+                                // var label = data.datasets[item.datasetIndex].label || '';
+                                // var yLabel = item.yLabel;
+                                // var content = '';
+
+                                // if (data.datasets.length > 1) {
+                                //     content += '<span class="popover-body-label mr-auto">' + label + '</span>';
+                                // }
+
+                                // content += '<span class="popover-body-value">' + yLabel + '</span>';
+                                
+                                // return content;
+
+                                var value = data.datasets[item.datasetIndex].data[item.index];
+
+                                if(parseInt(value) >= 1000){
+                                    return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                }else if(value == 0){
+                                    return value = "0";
+                                } else{
+                                    return value;
+                                }
+                            }
+                        }
+                    }
+                },
+                data: {
+                    labels: {!! json_encode($dirawatDateNegara) !!},
+                    datasets: [{
+                        label: 'performance',
+                        data: {!! json_encode($dataDirawatNegara) !!}
+                    }]
+                }
+            });
+           
+                // Save to jQuery object
+            function removeData(chartNegaraDirawat) {
+                chartNegaraDirawat.destroy();
+            }
+
+            function addData(chartNegaraDirawat, label, data) {
+                
+            }
+        $("#btn1NegaraDirawat").on("click", function() {
+            // var chart = ordersChart
+            // var label = {!! json_encode($positifDateProv) !!}
+            // var data = {!! json_encode($dataPositifProv) !!}
+
+            // chart.data.labels.pop();
+            // chart.data.datasets.forEach((dataset) => {
+            //     dataset.data.pop();
+            // });
+            // chart.update();
+
+            if(window.ordersChartNegaraDirawat && window.ordersChartNegaraDirawat !== null){
+                window.ordersChartNegaraDirawat.destroy();
+            }
+
+            var label = {!! json_encode($dirawatDateNegara) !!}
+            var data = {!! json_encode($dataDirawatNegara) !!}
+
+            window.ordersChartNegaraDirawat = new Chart(ctxNegaraDirawat, {
+                type: 'bar',
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                callback: function(value) {
+                                    // if (!(value % 10)) {
+                                    //     //return '$' + value + 'k'
+                                    //     return value
+                                    // }
+
+                                    if(parseInt(value) >= 1000){
+                                        return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                    }else if(value == 0){
+                                        return value = "0";
+                                    } else{
+                                        return value;
+                                    }
+                                }
+                            }
+                        }]
+                    },
+                    tooltips: {
+                        callbacks: {
+                            label: function(item, data) {
+                                // var label = data.datasets[item.datasetIndex].label || '';
+                                // var yLabel = item.yLabel;
+                                // var content = '';
+
+                                // if (data.datasets.length > 1) {
+                                //     content += '<span class="popover-body-label mr-auto">' + label + '</span>';
+                                // }
+
+                                // content += '<span class="popover-body-value">' + yLabel + '</span>';
+                                
+                                // return content;
+
+                                var value = data.datasets[item.datasetIndex].data[item.index];
+
+                                if(parseInt(value) >= 1000){
+                                    return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                }else if(value == 0){
+                                    return value = "0";
+                                } else{
+                                    return value;
+                                }
+                            }
+                        }
+                    }
+                },
+                data: {
+                    labels: label,
+                    datasets: [{
+                        label: 'performance',
+                        data: data
+                    }]
+                }
+            });
+            ordersChartNegaraDirawat.update();
+        });
+        $("#btn2NegaraDirawat").on("click", function() {
+
+            if(window.ordersChartNegaraDirawat && window.ordersChartNegaraDirawat !== null){
+                window.ordersChartNegaraDirawat.destroy();
+            }
+
+            var label = {!! json_encode($dirawatDateNegaraDiff) !!}
+            var data = {!! json_encode($dataDirawatNegaraDiff) !!}
+
+            window.ordersChartNegaraDirawat = new Chart(ctxNegaraDirawat, {
+                type: 'bar',
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                callback: function(value) {
+                                    // if (!(value % 10)) {
+                                    //     //return '$' + value + 'k'
+                                    //     return value
+                                    // }
+
+                                    if(parseInt(value) >= 1000){
+                                        return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                    }else if(value == 0){
+                                        return value = "0";
+                                    } else{
+                                        return value;
+                                    }
+                                }
+                            }
+                        }]
+                    },
+                    tooltips: {
+                        callbacks: {
+                            label: function(item, data) {
+                                // var label = data.datasets[item.datasetIndex].label || '';
+                                // var yLabel = item.yLabel;
+                                // var content = '';
+
+                                // if (data.datasets.length > 1) {
+                                //     content += '<span class="popover-body-label mr-auto">' + label + '</span>';
+                                // }
+
+                                // content += '<span class="popover-body-value">' + yLabel + '</span>';
+                                
+                                // return content;
+
+                                var value = data.datasets[item.datasetIndex].data[item.index];
+
+                                if(parseInt(value) >= 1000){
+                                    return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                }else if(value == 0){
+                                    return value = "0";
+                                } else{
+                                    return value;
+                                }
+                            }
+                        }
+                    }
+                },
+                data: {
+                    labels: label,
+                    datasets: [{
+                        label: 'performance',
+                        data: data
+                    }]
+                }
+            });
+            ordersChartNegaraDirawat.update();
+        });
+            $chartNegaraDirawat.data('chartNegaraDirawat', ordersChartNegaraDirawat);
+            
+        }
+        
+        // Init chart
+        if ($chartNegaraDirawat.length) {
+            initChart($chartNegaraDirawat);
+        }
+        })();
+
     </script>
 
     <script>
