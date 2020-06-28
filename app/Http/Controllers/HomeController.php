@@ -360,10 +360,10 @@ class HomeController extends Controller
         $diffMeninggalProv = $data3Prov[0] - $data3Prov[1];
         $diffDirawatProv = ($data1Prov[0]-$data2Prov[0]-$data3Prov[0])-($data1Prov[1]-$data2Prov[1]-$data3Prov[1]);
 
-        $dataNegara = GlobalData::where('OBJECTID','United States of America')->orderBy('created_at', 'asc')->get();   
-        $positifNegara = GlobalData::orderBy('created_at', 'desc')->where('OBJECTID','United States of America')->take(1)->value('Confirmed');
-        $sembuhNegara = GlobalData::orderBy('created_at', 'desc')->where('OBJECTID','United States of America')->take(1)->value('Recovered');
-        $meninggalNegara = GlobalData::orderBy('created_at', 'desc')->where('OBJECTID','United States of America')->take(1)->value('Deaths');
+        $dataNegara = GlobalData::where('Province', NULL)->where('OBJECTID','United States of America')->orderBy('created_at', 'asc')->get();   
+        $positifNegara = GlobalData::orderBy('created_at', 'desc')->where('OBJECTID','United States of America')->where('Province', NULL)->take(1)->value('Confirmed');
+        $sembuhNegara = GlobalData::orderBy('created_at', 'desc')->where('OBJECTID','United States of America')->where('Province', NULL)->take(1)->value('Recovered');
+        $meninggalNegara = GlobalData::orderBy('created_at', 'desc')->where('OBJECTID','United States of America')->where('Province', NULL)->take(1)->value('Deaths');
         $dirawatNegara = $positifNegara-$sembuhNegara-$meninggalNegara;
         if($sembuhNegara == 0 || $positifNegara == 0 || $meninggalNegara == 0 || $dirawatNegara <=0 ){
             $persenSembuhNegara = number_format((0),2);
@@ -381,7 +381,7 @@ class HomeController extends Controller
         $dirawatNegara = number_format($dirawatNegara);
         $namaNegara = "United States of America";
 
-        $DiffNegara = GlobalData::where('OBJECTID','United States of America')->orderBy('created_at', 'desc')->take(2)->get();
+        $DiffNegara = GlobalData::where('OBJECTID','United States of America')->where('Province', NULL)->orderBy('created_at', 'desc')->take(2)->get();
 
         $dataPositifNegara = array();
         $dataSembuhNegara = array();
@@ -617,10 +617,10 @@ class HomeController extends Controller
         //     }
         //     array_push($arrayPositif, $sumPositif);    
         // }
-        $dataNegara = GlobalData::where('OBJECTID','United States of America')->orderBy('created_at', 'asc')->get();   
-        $positifNegara = GlobalData::orderBy('created_at', 'desc')->where('OBJECTID','United States of America')->take(1)->value('Confirmed');
-        $sembuhNegara = GlobalData::orderBy('created_at', 'desc')->where('OBJECTID','United States of America')->take(1)->value('Recovered');
-        $meninggalNegara = GlobalData::orderBy('created_at', 'desc')->where('OBJECTID','United States of America')->take(1)->value('Deaths');
+        $dataNegara = GlobalData::where('OBJECTID','United States of America')->where('Province', NULL)->orderBy('created_at', 'asc')->get();   
+        $positifNegara = GlobalData::orderBy('created_at', 'desc')->where('OBJECTID','United States of America')->where('Province', NULL)->take(1)->value('Confirmed');
+        $sembuhNegara = GlobalData::orderBy('created_at', 'desc')->where('OBJECTID','United States of America')->where('Province', NULL)->take(1)->value('Recovered');
+        $meninggalNegara = GlobalData::orderBy('created_at', 'desc')->where('OBJECTID','United States of America')->where('Province', NULL)->take(1)->value('Deaths');
         $dirawatNegara = $positifNegara-$sembuhNegara-$meninggalNegara;
         if($sembuhNegara == 0 || $positifNegara == 0 || $meninggalNegara == 0 || $dirawatNegara <=0 ){
             $persenSembuhNegara = number_format((0),2);
@@ -638,7 +638,7 @@ class HomeController extends Controller
         $dirawatNegara = number_format($dirawatNegara);
         $namaNegara = "United States of America";
 
-        $DiffNegara = GlobalData::where('OBJECTID','United States of America')->orderBy('created_at', 'desc')->take(2)->get();
+        $DiffNegara = GlobalData::where('OBJECTID','United States of America')->where('Province', NULL)->orderBy('created_at', 'desc')->take(2)->get();
 
         $dataPositifNegara = array();
         $dataSembuhNegara = array();
@@ -661,15 +661,12 @@ class HomeController extends Controller
         $dirawatDateNegaraDiff = array();
 
         for ($i=1; $i < count($dataNegara); $i++) {
-            $selisih = (($dataNegara[$i]->Confirmed)-($dataNegara[$i-1]->Confirmed));
-            if ($selisih < 0){
-                $selisih = 0;
-            }
+            $selisih = (($dataNegara[$i]->Deaths)-($dataNegara[$i-1]->Deaths));
             array_push($positifDateNegaraDiff, date('d-F', strtotime($dataNegara[$i]->created_at)));
-            array_push($dataPositifProvDiff, $selisih);
+            array_push($dataPositifNegaraDiff, $selisih);
         }
         for ($i=1; $i < count($dataNegara); $i++) {
-            $selisih = (($dataNegara[$i]->Confirmed)-($dataNegara[$i-1]->Confirmed));
+            $selisih = (($dataNegara[$i]->Recovered)-($dataNegara[$i-1]->Recovered));
             if ($selisih < 0){
                 $selisih = 0;
             }
@@ -1653,13 +1650,13 @@ class HomeController extends Controller
         // $diffMeninggalProv = $data3Prov[0] - $data3Prov[1];
         // $diffDirawatProv = ($data1Prov[0]-$data2Prov[0]-$data3Prov[0])-($data1Prov[1]-$data2Prov[1]-$data3Prov[1]);
         
-        $namaNegara = $request->namaNegara;
-        $dataGlobal = GlobalData::where('OBJECTID',$namaGlob)->orderBy('created_at', 'asc')->get();   
-        $positifNegara = GlobalData::orderBy('created_at', 'desc')->where('FID',$namaGlob)->take(1)->value('Confirmed');
-        $sembuhNegara = GlobalData::orderBy('created_at', 'desc')->where('FID',$namaGlob)->take(1)->value('Recovered');
-        $meninggalNegara = GlobalData::orderBy('created_at', 'desc')->where('FID',$namaGlob)->take(1)->value('Deaths');
+        $namaGlob = $request->namaNegara;
+        $dataGlobal = GlobalData::where('OBJECTID',$namaGlob)->orderBy('created_at', 'asc')->where('Province', NULL)->get();   
+        $positifNegara = GlobalData::orderBy('created_at', 'desc')->where('OBJECTID',$namaGlob)->where('Province', NULL)->take(1)->value('Confirmed');
+        $sembuhNegara = GlobalData::orderBy('created_at', 'desc')->where('OBJECTID',$namaGlob)->where('Province', NULL)->take(1)->value('Recovered');
+        $meninggalNegara = GlobalData::orderBy('created_at', 'desc')->where('OBJECTID',$namaGlob)->where('Province', NULL)->take(1)->value('Deaths');
         $dirawatNegara = $positifNegara-$sembuhNegara-$meninggalNegara;
-        $persenSembuhNegara = number_format(($sembuhGNegara/$positifNegara*100),2);
+        $persenSembuhNegara = number_format(($sembuhNegara/$positifNegara*100),2);
         $persenMeninggalNegara = number_format(($meninggalNegara/$positifNegara*100),2);
         $persenDirawatNegara = number_format(($dirawatNegara/$positifNegara*100), 2);
         $positifNegara = number_format($positifNegara);
@@ -1667,7 +1664,7 @@ class HomeController extends Controller
         $meninggalNegara = number_format($meninggalNegara);
         $dirawatNegara = number_format($dirawatNegara);
 
-        $DiffNegara = GlobalData::where('FID',$namaGlob)->orderBy('created_at', 'desc')->take(2)->get();
+        $DiffNegara = GlobalData::where('OBJECTID',$namaGlob)->where('Province', NULL)->orderBy('created_at', 'desc')->take(2)->get();
         $dataPositifNegara = array();
         $dataSembuhNegara = array();
         $dataMeninggalNegara = array();
@@ -1745,7 +1742,7 @@ class HomeController extends Controller
             $data3Negara[$i] = $DiffNegara[$i]->Deaths;
         }
 
-        return view('dashboard', compact('diffMeninggal','diffPositif','diffSembuh','provinsi','baliData',
+        return view('dashboard', compact('diffMeninggal','diffPositif','diffSembuh','provinsi','baliData','namaGlob',
         'global', 'dataRekapIndo', 'dataPositif','positifDate','dataPositifDiff','positifDateDiff','diffMeninggalGlobal','diffPositifGlobal',
         'diffSembuhGlobal','dataRekapIndo','dataPositifBali','positifDateBali', 'dataPositifBaliDiff','positifDateBaliDiff','dataPositifGlobal','positifDateGlobal', 'dataPositifGlobalDiff','positifDateGlobalDiff', 'dataPositifProvDiff','positifDateProvDiff',
         'positif','sembuh','meninggal', 'positifGlobal','sembuhGlobal','meninggalGlobal','tanggal','arrayPositif','dataPositifProv','positifDateProv', 'diffMeninggalProv','diffPositifProv',
