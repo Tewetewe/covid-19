@@ -314,13 +314,13 @@
                             </div>
                             <p class="mt-5 mb-0 text-white text-sm">
                                 <span class="text-white mr-2">
-                                    @if($dataPositifNegaraDiff >= 0)
+                                    @if($diffPositifNegara >= 0)
                                     <i class="fa fa-arrow-up">
                                     @else
                                     <i class="fa fa-arrow-down">
                                     @endif
-                                    </i> 
-                                     <!-- {{ $dataPositifNegaraDiff }} -->
+                                </i> {{ $diffPositifNegara }}</span>
+
                                 </span>
                                 <span class="text-white">Dari Kemarin</span>
                             </p>
@@ -344,13 +344,12 @@
                             </div>
                             <p class="mt-4 mb-0 text-white text-sm">
                                 <span class="text-white mr-2">
-                                    @if($dataSembuhNegaraDiff >= 0)
+                                    @if($diffSembuhNegara >= 0)
                                     <i class="fa fa-arrow-up">
                                     @else
                                     <i class="fa fa-arrow-down">
                                     @endif
-                                    </i> 
-                                    <!-- {{ $dataSembuhNegaraDiff }} -->
+                                </i> {{ $diffSembuhNegara }}</span>
                                     
                                     </span>
                                 <span class="text-white">Dari Kemarin</span>
@@ -375,13 +374,12 @@
                             </div>
                             <p class="mt-4 mb-0 text-white text-sm">
                                 <span class="text-white mr-2">
-                                    @if($dataMeninggalNegaraDiff >= 0)
+                                    @if($diffMeninggalNegara >= 0)
                                     <i class="fa fa-arrow-up">
                                     @else
                                     <i class="fa fa-arrow-down">
                                     @endif
-                                    </i> 
-                                    <!-- {{ $dataMeninggalNegaraDiff }} -->
+                                </i> {{ $diffMeninggalNegara }}</span>
                                     </span>
                                 <span class="text-white">Dari kemarin</span>
                             </p>
@@ -405,13 +403,12 @@
                             </div>
                             <p class="mt-4 mb-0 text-white text-sm">
                                 <span class="text-white mr-2">
-                                    @if($dataDirawatNegaraDiff >= 0)
+                                    @if($diffDirawatNegara >= 0)
                                     <i class="fa fa-arrow-up">
                                     @else
                                     <i class="fa fa-arrow-down">
                                     @endif
-                                    </i> 
-                                    <!-- {{ $dataDirawatNegaraDiff }} -->
+                                </i> {{ $diffDirawatNegara }}</span>
                                     </span>
                                 <span class="text-white">Dari kemarin</span>
                             </p>
@@ -453,22 +450,7 @@
                                 </div>
                               
                         </div>
-                        <!-- <form action="/ProvGraph/filter" method="GET">
-                            <div class="form-group">
-                                <div class="input-group">
-                                    <select class="form-control" id="drop" name="nama">
-                                    <option value="">{{$nama}}</option>
-                                        @foreach ($namaProvinsi as $item)
-                                            <option value="{{$item->FID}}">{{ucfirst($item->FID)}}</option>      
-                                        @endforeach
-                                    </select>
-                                    <button class="btn btn-icon btn-success" type="submit">
-                                        <span class="btn-inner--icon"><i class="ni ni-send"></i></span>
-                                    </button>
-                                </div>
-                            </div>
-                            
-                        </form> -->
+                    
                         
                     </div>
                     <div class="card-body">
@@ -512,22 +494,7 @@
                                 </div>
                               
                         </div>
-                        <!-- <form action="/ProvGraph/filter" method="GET">
-                            <div class="form-group">
-                                <div class="input-group">
-                                    <select class="form-control" id="drop" name="nama">
-                                    <option value="">{{$nama}}</option>
-                                        @foreach ($namaProvinsi as $item)
-                                            <option value="{{$item->FID}}">{{ucfirst($item->FID)}}</option>      
-                                        @endforeach
-                                    </select>
-                                    <button class="btn btn-icon btn-success" type="submit">
-                                        <span class="btn-inner--icon"><i class="ni ni-send"></i></span>
-                                    </button>
-                                </div>
-                            </div>
-                            
-                        </form> -->
+                       
                         
                     </div>
                     <div class="card-body">
@@ -573,22 +540,7 @@
                                 </div>
                               
                         </div>
-                        <!-- <form action="/ProvGraph/filter" method="GET">
-                            <div class="form-group">
-                                <div class="input-group">
-                                    <select class="form-control" id="drop" name="nama">
-                                    <option value="">{{$nama}}</option>
-                                        @foreach ($namaProvinsi as $item)
-                                            <option value="{{$item->FID}}">{{ucfirst($item->FID)}}</option>      
-                                        @endforeach
-                                    </select>
-                                    <button class="btn btn-icon btn-success" type="submit">
-                                        <span class="btn-inner--icon"><i class="ni ni-send"></i></span>
-                                    </button>
-                                </div>
-                            </div>
-                            
-                        </form> -->
+                     
                         
                     </div>
                     <div class="card-body">
@@ -632,22 +584,7 @@
                                 </div>
                               
                         </div>
-                        <!-- <form action="/ProvGraph/filter" method="GET">
-                            <div class="form-group">
-                                <div class="input-group">
-                                    <select class="form-control" id="drop" name="nama">
-                                    <option value="">{{$nama}}</option>
-                                        @foreach ($namaProvinsi as $item)
-                                            <option value="{{$item->FID}}">{{ucfirst($item->FID)}}</option>      
-                                        @endforeach
-                                    </select>
-                                    <button class="btn btn-icon btn-success" type="submit">
-                                        <span class="btn-inner--icon"><i class="ni ni-send"></i></span>
-                                    </button>
-                                </div>
-                            </div>
-                            
-                        </form> -->
+                      
                         
                     </div>
                     <div class="card-body">

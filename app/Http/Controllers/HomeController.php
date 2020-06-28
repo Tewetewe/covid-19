@@ -454,15 +454,15 @@ class HomeController extends Controller
             array_push($dataDirawatNegara, $dataNegara[$i]->Confirmed - $dataNegara[$i]->Recovered - $dataNegara[$i]->Deaths);
         }
         
-        // for ($i=0; $i < count($DiffNegara); $i++) {
-        //     $data1Negara[$i] = $DiffNegara[$i]->Confirmed;
-        //     $data2Negara[$i] = $DiffNegara[$i]->Recovered;
-        //     $data3Negara[$i] = $DiffNegara[$i]->Deaths;
-        // }
-        // $diffPositifNegara = $data1Negara[0] - $data1Negara[1];
-        // $diffSembuhNegara = $data2Negara[0] - $data2Negara[1];
-        // $diffMeninggalNegara = $data3Negara[0] - $data3Negara[1];
-        // $diffDirawatNegara = ($data1Negara[0]-$data2Negara[0]-$data3Negara[0])-($data1Negara[1]-$data2Negara[1]-$data3Negara[1]);
+        for ($i=0; $i < count($DiffNegara); $i++) {
+            $data1Negara[$i] = $DiffNegara[$i]->Confirmed;
+            $data2Negara[$i] = $DiffNegara[$i]->Recovered;
+            $data3Negara[$i] = $DiffNegara[$i]->Deaths;
+        }
+        $diffPositifNegara = $data1Negara[0] - $data1Negara[1];
+        $diffSembuhNegara = $data2Negara[0] - $data2Negara[1];
+        $diffMeninggalNegara = $data3Negara[0] - $data3Negara[1];
+        $diffDirawatNegara = ($data1Negara[0]-$data2Negara[0]-$data3Negara[0])-($data1Negara[1]-$data2Negara[1]-$data3Negara[1]);
 
 
         $dataBali = ProvinsiData::where('FID','Bali')->orderBy('created_at', 'asc')->get();   
@@ -661,12 +661,15 @@ class HomeController extends Controller
         $dirawatDateNegaraDiff = array();
 
         for ($i=1; $i < count($dataNegara); $i++) {
-            $selisih = (($dataNegara[$i]->Deaths)-($dataNegara[$i-1]->Confirmed));
+            $selisih = (($dataNegara[$i]->Confirmed)-($dataNegara[$i-1]->Confirmed));
+            if ($selisih < 0){
+                $selisih = 0;
+            }
             array_push($positifDateNegaraDiff, date('d-F', strtotime($dataNegara[$i]->created_at)));
             array_push($dataPositifNegaraDiff, $selisih);
         }
         for ($i=1; $i < count($dataNegara); $i++) {
-            $selisih = (($dataNegara[$i]->Recovered)-($dataNegara[$i-1]->Recovered));
+            $selisih = (($dataNegara[$i]->Confirmed)-($dataNegara[$i-1]->Confirmed));
             if ($selisih < 0){
                 $selisih = 0;
             }
@@ -708,15 +711,16 @@ class HomeController extends Controller
             array_push($dataDirawatNegara, $dataNegara[$i]->Confirmed - $dataNegara[$i]->Recovered - $dataNegara[$i]->Deaths);
         }
         
-        // for ($i=0; $i < count($DiffNegara); $i++) {
-        //     $data1Negara[$i] = $DiffNegara[$i]->Confirmed;
-        //     $data2Negara[$i] = $DiffNegara[$i]->Recovered;
-        //     $data3Negara[$i] = $DiffNegara[$i]->Deaths;
-        // }
-        // $diffPositifNegara = $data1Negara[0] - $data1Negara[1];
-        // $diffSembuhNegara = $data2Negara[0] - $data2Negara[1];
-        // $diffMeninggalNegara = $data3Negara[0] - $data3Negara[1];
-        // $diffDirawatNegara = ($data1Negara[0]-$data2Negara[0]-$data3Negara[0])-($data1Negara[1]-$data2Negara[1]-$data3Negara[1]);
+        
+        for ($i=0; $i < count($DiffNegara); $i++) {
+            $data1Negara[$i] = $DiffNegara[$i]->Confirmed;
+            $data2Negara[$i] = $DiffNegara[$i]->Recovered;
+            $data3Negara[$i] = $DiffNegara[$i]->Deaths;
+        }
+        $diffPositifNegara = $data1Negara[0] - $data1Negara[1];
+        $diffSembuhNegara = $data2Negara[0] - $data2Negara[1];
+        $diffMeninggalNegara = $data3Negara[0] - $data3Negara[1];
+        $diffDirawatNegara = ($data1Negara[0]-$data2Negara[0]-$data3Negara[0])-($data1Negara[1]-$data2Negara[1]-$data3Negara[1]);
 
 
         $dataRekapIndo = RekapIndo::orderBy('created_at', 'asc')->get();   
@@ -1703,7 +1707,7 @@ class HomeController extends Controller
                 $selisih = 0;
             }
             array_push($positifDateNegaraDiff, date('d-F', strtotime($dataNegara[$i]->created_at)));
-            array_push($dataPositifProvDiff, $selisih);
+            array_push($dataPositifNegaraDiff, $selisih);
         }
         for ($i=1; $i < count($dataNegara); $i++) {
             $selisih = (($dataNegara[$i]->Confirmed)-($dataNegara[$i-1]->Confirmed));
@@ -1753,6 +1757,10 @@ class HomeController extends Controller
             $data2Negara[$i] = $DiffNegara[$i]->Recovered;
             $data3Negara[$i] = $DiffNegara[$i]->Deaths;
         }
+        $diffPositifNegara = $data1Negara[0] - $data1Negara[1];
+        $diffSembuhNegara = $data2Negara[0] - $data2Negara[1];
+        $diffMeninggalNegara = $data3Negara[0] - $data3Negara[1];
+        $diffDirawatNegara = ($data1Negara[0]-$data2Negara[0]-$data3Negara[0])-($data1Negara[1]-$data2Negara[1]-$data3Negara[1]);
 
         return view('dashboard', compact('diffMeninggal','diffPositif','diffSembuh','provinsi','baliData','namaNegara','nama',
         'global', 'dataRekapIndo', 'dataPositif','positifDate','dataPositifDiff','positifDateDiff','diffMeninggalGlobal','diffPositifGlobal',
