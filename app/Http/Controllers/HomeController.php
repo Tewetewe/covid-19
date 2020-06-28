@@ -409,7 +409,7 @@ class HomeController extends Controller
                 $selisih = 0;
             }
             array_push($positifDateNegaraDiff, date('d-F', strtotime($dataNegara[$i]->created_at)));
-            array_push($dataPositifProvDiff, $selisih);
+            array_push($dataPositifNegaraDiff, $selisih);
         }
         for ($i=1; $i < count($dataNegara); $i++) {
             $selisih = (($dataNegara[$i]->Confirmed)-($dataNegara[$i-1]->Confirmed));
@@ -661,7 +661,7 @@ class HomeController extends Controller
         $dirawatDateNegaraDiff = array();
 
         for ($i=1; $i < count($dataNegara); $i++) {
-            $selisih = (($dataNegara[$i]->Deaths)-($dataNegara[$i-1]->Deaths));
+            $selisih = (($dataNegara[$i]->Recovered)-($dataNegara[$i-1]->Recovered));
             array_push($positifDateNegaraDiff, date('d-F', strtotime($dataNegara[$i]->created_at)));
             array_push($dataPositifNegaraDiff, $selisih);
         }
