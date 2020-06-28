@@ -281,7 +281,7 @@
             <form action="/GlobalGraph/filter" method="GET">
                 <div class="form-group">
                         <div class="input-group">
-                            <select class="form-control" id="drop" name="nama">
+                            <select class="form-control" id="drop" name="namaNegara">
                             <option value="">{{$namaNegara}}</option>
                                  @foreach ($namaNegaraData  as $item)
                                     <option value="{{$item->OBJECTID}}">{{ucfirst($item->OBJECTID)}}</option>      
