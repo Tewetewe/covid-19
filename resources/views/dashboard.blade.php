@@ -320,7 +320,7 @@
                                     <i class="fa fa-arrow-down">
                                     @endif
                                     </i> 
-                                    
+                                     <!-- {{ $dataPositifNegaraDiff }} -->
                                 </span>
                                 <span class="text-white">Dari Kemarin</span>
                             </p>
@@ -350,7 +350,7 @@
                                     <i class="fa fa-arrow-down">
                                     @endif
                                     </i> 
-                                    
+                                    <!-- {{ $dataSembuhNegaraDiff }} -->
                                     
                                     </span>
                                 <span class="text-white">Dari Kemarin</span>
@@ -381,7 +381,7 @@
                                     <i class="fa fa-arrow-down">
                                     @endif
                                     </i> 
-                                    
+                                    <!-- {{ $dataMeninggalNegaraDiff }} -->
                                     </span>
                                 <span class="text-white">Dari kemarin</span>
                             </p>
@@ -411,7 +411,7 @@
                                     <i class="fa fa-arrow-down">
                                     @endif
                                     </i> 
-                                    
+                                    <!-- {{ $dataDirawatNegaraDiff }} -->
                                     </span>
                                 <span class="text-white">Dari kemarin</span>
                             </p>
