@@ -412,7 +412,7 @@ class HomeController extends Controller
             array_push($dataPositifNegaraDiff, $selisih);
         }
         for ($i=1; $i < count($dataNegara); $i++) {
-            $selisih = (($dataNegara[$i]->Confirmed)-($dataNegara[$i-1]->Confirmed));
+            $selisih = (($dataNegara[$i]->Recovered)-($dataNegara[$i-1]->Recovered));
             if ($selisih < 0){
                 $selisih = 0;
             }
@@ -669,7 +669,7 @@ class HomeController extends Controller
             array_push($dataPositifNegaraDiff, $selisih);
         }
         for ($i=1; $i < count($dataNegara); $i++) {
-            $selisih = (($dataNegara[$i]->Confirmed)-($dataNegara[$i-1]->Confirmed));
+            $selisih = (($dataNegara[$i]->Recovered)-($dataNegara[$i-1]->Recovered));
             if ($selisih < 0){
                 $selisih = 0;
             }
@@ -1710,7 +1710,7 @@ class HomeController extends Controller
             array_push($dataPositifNegaraDiff, $selisih);
         }
         for ($i=1; $i < count($dataNegara); $i++) {
-            $selisih = (($dataNegara[$i]->Confirmed)-($dataNegara[$i-1]->Confirmed));
+            $selisih = (($dataNegara[$i]->Recovered)-($dataNegara[$i-1]->Recovered));
             if ($selisih < 0){
                 $selisih = 0;
             }

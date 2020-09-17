@@ -1526,9 +1526,9 @@
                                             <td align="right">{{ number_format($global[$i-1 + (sizeof($global)-186)]->Confirmed,0,",",",") }}</td>
                                             <td align="right">{{ number_format((($global[$i-1 + (sizeof($global)-186)]->Confirmed)-($global[$i-1]->Confirmed))/(sizeof($global)/186),0,",",",") }}</td>
                                             <td align="right">{{ number_format($global[$i-1 + (sizeof($global)-186)]->Recovered,0,",",",") }}</td>
-                                            <td align="right"> {{($global[$i-1 + (sizeof($global)-186)]->Confirmed != 0 || $global[$i-1 + (sizeof($global)-186)]->Confirmed != NULL) ? number_format(($global[$i-1 + (sizeof($global)-186)]->Recovered/($global[$i-1 + (sizeof($global)-186)]->Confirmed)*100),2) : 0 }}</td>
+                                            <td align="right">{{ number_format(($global[$i-1 + (sizeof($global)-186)]->Recovered/($global[$i-1 + (sizeof($global)-186)]->Confirmed)*100),2) }}</td>
                                             <td align="right">{{ number_format($global[$i-1 + (sizeof($global)-186)]->Deaths,0,",",",") }}</td>
-                                            <td align="right">{{($global[$i-1 + (sizeof($global)-186)]->Confirmed != 0 || $global[$i-1 + (sizeof($global)-186)]->Confirmed != NULL) ? number_format(($global[$i-1 + (sizeof($global)-186)]->Deaths/($global[$i-1 + (sizeof($global)-186)]->Confirmed)*100),2) : 0 }}</td>
+                                            <td align="right">{{ number_format(($global[$i-1 + (sizeof($global)-186)]->Deaths/($global[$i-1 + (sizeof($global)-186)]->Confirmed)*100),2) }}</td>
                                         </tr>
                                     @endfor
                                 </tbody>
