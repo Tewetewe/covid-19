@@ -78,9 +78,9 @@ class HomeController extends Controller
         $sembuh = RekapIndo::orderBy('created_at', 'desc')->take(1)->value('sembuh');
         $meninggal = RekapIndo::orderBy('created_at', 'desc')->take(1)->value('meninggal');
         $dirawat = $positif-$sembuh-$meninggal;
-        $persenSembuh = number_format(($sembuh/$positif*100),2);
-        $persenMeninggal = number_format(($meninggal/$positif*100),2);
-        $persenDirawat = number_format(($dirawat/$positif*100), 2);
+        $persenSembuh = number_format(($sembuh/$positif*100),0);
+        $persenMeninggal = number_format(($meninggal/$positif*100),0);
+        $persenDirawat = number_format(($dirawat/$positif*100), 0);
         $positif = number_format($positif);
         $sembuh = number_format($sembuh);
         $meninggal = number_format($meninggal);
@@ -173,9 +173,9 @@ class HomeController extends Controller
         $sembuhGlobal = RekapGlobal::orderBy('created_at', 'desc')->take(1)->value('sembuh');
         $meninggalGlobal = RekapGlobal::orderBy('created_at', 'desc')->take(1)->value('meninggal');
         $dirawatGlobal = $positifGlobal-$sembuhGlobal-$meninggalGlobal;
-        $persenSembuhGlobal = number_format(($sembuhGlobal/$positifGlobal*100),2);
-        $persenMeninggalGlobal = number_format(($meninggalGlobal/$positifGlobal*100),2);
-        $persenDirawatGlobal = number_format(($dirawatGlobal/$positifGlobal*100), 2);
+        $persenSembuhGlobal = number_format(($sembuhGlobal/$positifGlobal*100),0);
+        $persenMeninggalGlobal = number_format(($meninggalGlobal/$positifGlobal*100),0);
+        $persenDirawatGlobal = number_format(($dirawatGlobal/$positifGlobal*100), 0);
         $positifGlobal = number_format($positifGlobal);
         $sembuhGlobal = number_format($sembuhGlobal);
         $meninggalGlobal = number_format($meninggalGlobal);
@@ -269,9 +269,9 @@ class HomeController extends Controller
         $sembuhProv = ProvinsiData::orderBy('created_at', 'desc')->where('FID','DKI Jakarta')->take(1)->value('Kasus_Semb');
         $meninggalProv = ProvinsiData::orderBy('created_at', 'desc')->where('FID','DKI Jakarta')->take(1)->value('Kasus_Meni');
         $dirawatProv = $positifProv-$sembuhProv-$meninggalProv;
-        $persenSembuhProv = number_format(($sembuhProv/$positifProv*100),2);
-        $persenMeninggalProv = number_format(($meninggalProv/$positifProv*100),2);
-        $persenDirawatProv = number_format(($dirawatProv/$positifProv*100), 2);
+        $persenSembuhProv = number_format(($sembuhProv/$positifProv*100),0);
+        $persenMeninggalProv = number_format(($meninggalProv/$positifProv*100),0);
+        $persenDirawatProv = number_format(($dirawatProv/$positifProv*100), 0);
         $positifProv = number_format($positifProv);
         $sembuhProv = number_format($sembuhProv);
         $meninggalProv = number_format($meninggalProv);
@@ -366,13 +366,13 @@ class HomeController extends Controller
         $meninggalNegara = GlobalData::orderBy('created_at', 'desc')->where('OBJECTID','United States of America')->where('Province', NULL)->take(1)->value('Deaths');
         $dirawatNegara = $positifNegara-$sembuhNegara-$meninggalNegara;
         if($sembuhNegara == 0 || $positifNegara == 0 || $meninggalNegara == 0 || $dirawatNegara <=0 ){
-            $persenSembuhNegara = number_format((0),2);
-            $persenMeninggalNegara = number_format((0),2);
-            $persenDirawatNegara = number_format((0), 2);
+            $persenSembuhNegara = number_format((0),0);
+            $persenMeninggalNegara = number_format((0),0);
+            $persenDirawatNegara = number_format((0), 0);
         }else{
-            $persenSembuhNegara = number_format(($sembuhNegara/$positifNegara*100),2);
-            $persenMeninggalNegara = number_format(($meninggalNegara/$positifNegara*100),2);
-            $persenDirawatNegara = number_format(($dirawatNegara/$positifNegara*100), 2);
+            $persenSembuhNegara = number_format(($sembuhNegara/$positifNegara*100),0);
+            $persenMeninggalNegara = number_format(($meninggalNegara/$positifNegara*100),0);
+            $persenDirawatNegara = number_format(($dirawatNegara/$positifNegara*100), 0);
         }
         
         $positifNegara = number_format($positifNegara);
@@ -482,9 +482,9 @@ class HomeController extends Controller
         $dirawatDateBali = array();
 
         $dirawatBali = $positifBali-$sembuhBali-$meninggalBali;
-        $persenSembuhBali = number_format(($sembuhBali/$positifBali*100),2);
-        $persenMeninggalBali = number_format(($meninggalBali/$positifBali*100),2);
-        $persenDirawatBali = number_format(($dirawatBali/$positifBali*100), 2);
+        $persenSembuhBali = number_format(($sembuhBali/$positifBali*100),0);
+        $persenMeninggalBali = number_format(($meninggalBali/$positifBali*100),0);
+        $persenDirawatBali = number_format(($dirawatBali/$positifBali*100), 0);
         $positifBali = number_format($positifBali);
         $sembuhBali = number_format($sembuhBali);
         $meninggalBali = number_format($meninggalBali);
@@ -623,13 +623,13 @@ class HomeController extends Controller
         $meninggalNegara = GlobalData::orderBy('created_at', 'desc')->where('OBJECTID','United States of America')->where('Province', NULL)->take(1)->value('Deaths');
         $dirawatNegara = $positifNegara-$sembuhNegara-$meninggalNegara;
         if($sembuhNegara == 0 || $positifNegara == 0 || $meninggalNegara == 0 || $dirawatNegara <=0 ){
-            $persenSembuhNegara = number_format((0),2);
-            $persenMeninggalNegara = number_format((0),2);
-            $persenDirawatNegara = number_format((0), 2);
+            $persenSembuhNegara = number_format((0),0);
+            $persenMeninggalNegara = number_format((0),0);
+            $persenDirawatNegara = number_format((0), 0);
         }else{
-            $persenSembuhNegara = number_format(($sembuhNegara/$positifNegara*100),2);
-            $persenMeninggalNegara = number_format(($meninggalNegara/$positifNegara*100),2);
-            $persenDirawatNegara = number_format(($dirawatNegara/$positifNegara*100), 2);
+            $persenSembuhNegara = number_format(($sembuhNegara/$positifNegara*100),0);
+            $persenMeninggalNegara = number_format(($meninggalNegara/$positifNegara*100),0);
+            $persenDirawatNegara = number_format(($dirawatNegara/$positifNegara*100), 0);
         }
         
         $positifNegara = number_format($positifNegara);
@@ -728,9 +728,9 @@ class HomeController extends Controller
         $sembuh = RekapIndo::orderBy('created_at', 'desc')->take(1)->value('sembuh');
         $meninggal = RekapIndo::orderBy('created_at', 'desc')->take(1)->value('meninggal');
         $dirawat = $positif-$sembuh-$meninggal;
-        $persenSembuh = number_format(($sembuh/$positif*100),2);
-        $persenMeninggal = number_format(($meninggal/$positif*100),2);
-        $persenDirawat = number_format(($dirawat/$positif*100), 2);
+        $persenSembuh = number_format(($sembuh/$positif*100),0);
+        $persenMeninggal = number_format(($meninggal/$positif*100),0);
+        $persenDirawat = number_format(($dirawat/$positif*100), 0);
         $positif = number_format($positif);
         $sembuh = number_format($sembuh);
         $meninggal = number_format($meninggal);
@@ -823,9 +823,9 @@ class HomeController extends Controller
         $sembuhGlobal = RekapGlobal::orderBy('created_at', 'desc')->take(1)->value('sembuh');
         $meninggalGlobal = RekapGlobal::orderBy('created_at', 'desc')->take(1)->value('meninggal');
         $dirawatGlobal = $positifGlobal-$sembuhGlobal-$meninggalGlobal;
-        $persenSembuhGlobal = number_format(($sembuhGlobal/$positifGlobal*100),2);
-        $persenMeninggalGlobal = number_format(($meninggalGlobal/$positifGlobal*100),2);
-        $persenDirawatGlobal = number_format(($dirawatGlobal/$positifGlobal*100), 2);
+        $persenSembuhGlobal = number_format(($sembuhGlobal/$positifGlobal*100),0);
+        $persenMeninggalGlobal = number_format(($meninggalGlobal/$positifGlobal*100),0);
+        $persenDirawatGlobal = number_format(($dirawatGlobal/$positifGlobal*100), 0);
         $positifGlobal = number_format($positifGlobal);
         $sembuhGlobal = number_format($sembuhGlobal);
         $meninggalGlobal = number_format($meninggalGlobal);
@@ -932,9 +932,9 @@ class HomeController extends Controller
         $dirawatDateBali = array();
 
         $dirawatBali = $positifBali-$sembuhBali-$meninggalBali;
-        $persenSembuhBali = number_format(($sembuhBali/$positifBali*100),2);
-        $persenMeninggalBali = number_format(($meninggalBali/$positifBali*100),2);
-        $persenDirawatBali = number_format(($dirawatBali/$positifBali*100), 2);
+        $persenSembuhBali = number_format(($sembuhBali/$positifBali*100),0);
+        $persenMeninggalBali = number_format(($meninggalBali/$positifBali*100),0);
+        $persenDirawatBali = number_format(($dirawatBali/$positifBali*100), 0);
         $positifBali = number_format($positifBali);
         $sembuhBali = number_format($sembuhBali);
         $meninggalBali = number_format($meninggalBali);
@@ -1018,9 +1018,9 @@ class HomeController extends Controller
         $sembuhProv = ProvinsiData::orderBy('created_at', 'desc')->where('FID',$nama)->take(1)->value('Kasus_Semb');
         $meninggalProv = ProvinsiData::orderBy('created_at', 'desc')->where('FID',$nama)->take(1)->value('Kasus_Meni');
         $dirawatProv = $positifProv-$sembuhProv-$meninggalProv;
-        $persenSembuhProv = number_format(($sembuhProv/$positifProv*100),2);
-        $persenMeninggalProv = number_format(($meninggalProv/$positifProv*100),2);
-        $persenDirawatProv = number_format(($dirawatProv/$positifProv*100), 2);
+        $persenSembuhProv = number_format(($sembuhProv/$positifProv*100),0);
+        $persenMeninggalProv = number_format(($meninggalProv/$positifProv*100),0);
+        $persenDirawatProv = number_format(($dirawatProv/$positifProv*100), 0);
         $positifProv = number_format($positifProv);
         $sembuhProv = number_format($sembuhProv);
         $meninggalProv = number_format($meninggalProv);
@@ -1177,9 +1177,9 @@ class HomeController extends Controller
         $sembuh = RekapIndo::orderBy('created_at', 'desc')->take(1)->value('sembuh');
         $meninggal = RekapIndo::orderBy('created_at', 'desc')->take(1)->value('meninggal');
         $dirawat = $positif-$sembuh-$meninggal;
-        $persenSembuh = number_format(($sembuh/$positif*100),2);
-        $persenMeninggal = number_format(($meninggal/$positif*100),2);
-        $persenDirawat = number_format(($dirawat/$positif*100), 2);
+        $persenSembuh = number_format(($sembuh/$positif*100),0);
+        $persenMeninggal = number_format(($meninggal/$positif*100),0);
+        $persenDirawat = number_format(($dirawat/$positif*100), 0);
         $positif = number_format($positif);
         $sembuh = number_format($sembuh);
         $meninggal = number_format($meninggal);
@@ -1272,9 +1272,9 @@ class HomeController extends Controller
         $sembuhGlobal = RekapGlobal::orderBy('created_at', 'desc')->take(1)->value('sembuh');
         $meninggalGlobal = RekapGlobal::orderBy('created_at', 'desc')->take(1)->value('meninggal');
         $dirawatGlobal = $positifGlobal-$sembuhGlobal-$meninggalGlobal;
-        $persenSembuhGlobal = number_format(($sembuhGlobal/$positifGlobal*100),2);
-        $persenMeninggalGlobal = number_format(($meninggalGlobal/$positifGlobal*100),2);
-        $persenDirawatGlobal = number_format(($dirawatGlobal/$positifGlobal*100), 2);
+        $persenSembuhGlobal = number_format(($sembuhGlobal/$positifGlobal*100),0);
+        $persenMeninggalGlobal = number_format(($meninggalGlobal/$positifGlobal*100),0);
+        $persenDirawatGlobal = number_format(($dirawatGlobal/$positifGlobal*100), 0);
         $positifGlobal = number_format($positifGlobal);
         $sembuhGlobal = number_format($sembuhGlobal);
         $meninggalGlobal = number_format($meninggalGlobal);
@@ -1476,9 +1476,9 @@ class HomeController extends Controller
         $dirawatDateBali = array();
 
         $dirawatBali = $positifBali-$sembuhBali-$meninggalBali;
-        $persenSembuhBali = number_format(($sembuhBali/$positifBali*100),2);
-        $persenMeninggalBali = number_format(($meninggalBali/$positifBali*100),2);
-        $persenDirawatBali = number_format(($dirawatBali/$positifBali*100), 2);
+        $persenSembuhBali = number_format(($sembuhBali/$positifBali*100),0);
+        $persenMeninggalBali = number_format(($meninggalBali/$positifBali*100),0);
+        $persenDirawatBali = number_format(($dirawatBali/$positifBali*100), 0);
         $positifBali = number_format($positifBali);
         $sembuhBali = number_format($sembuhBali);
         $meninggalBali = number_format($meninggalBali);
@@ -1661,15 +1661,15 @@ class HomeController extends Controller
         $meninggalNegara = GlobalData::orderBy('created_at', 'desc')->where('OBJECTID',$namaNegara)->where('Province', NULL)->take(1)->value('Deaths');
         $dirawatNegara = $positifNegara-$sembuhNegara-$meninggalNegara;
         if($sembuhNegara == 0 || $positifNegara == 0 || $meninggalNegara == 0 || $dirawatNegara <=0 ){
-            $persenSembuhNegara = number_format((0),2);
-            $persenMeninggalNegara = number_format((0),2);
-            $persenDirawatNegara = number_format((0), 2);
+            $persenSembuhNegara = number_format((0),0);
+            $persenMeninggalNegara = number_format((0),0);
+            $persenDirawatNegara = number_format((0), 0);
             $dirawatNegara = number_format($dirawatNegara);
 
         }else{
-            $persenSembuhNegara = number_format(($sembuhNegara/$positifNegara*100),2);
-            $persenMeninggalNegara = number_format(($meninggalNegara/$positifNegara*100),2);
-            $persenDirawatNegara = number_format(($dirawatNegara/$positifNegara*100), 2);
+            $persenSembuhNegara = number_format(($sembuhNegara/$positifNegara*100),0);
+            $persenMeninggalNegara = number_format(($meninggalNegara/$positifNegara*100),0);
+            $persenDirawatNegara = number_format(($dirawatNegara/$positifNegara*100), 0);
             $dirawatNegara = number_format($dirawatNegara);
 
         }
