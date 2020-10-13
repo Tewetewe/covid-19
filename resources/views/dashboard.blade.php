@@ -46,7 +46,7 @@
                                 <div class="col">
                                     <h5 class="card-title text-uppercase text-white mb-0">Sembuh</h5>
                                     <span class="h2 font-weight-bold text-white mb-0">{{ $sembuhGlobal }} Orang</span>
-                                    <h6><span class="h2 font-weight-bold text-white mb-0 ">{{ $persenSembuhGlobal}}% </span></h6>
+                                    <h6><span class="h2 font-weight-bold text-white mb-0 ">{{ number_format(($persenSembuhGlobal),0)}}% </span></h6>
                                 </div>
                                 <div class="col-auto">
                                     <!-- <div class="icon icon-shape bg-green text-white rounded-circle shadow"> -->
@@ -74,7 +74,7 @@
                                 <div class="col">
                                     <h5 class="card-title text-uppercase text-white mb-0">Meninggal</h5>
                                     <span class="h2 font-weight-bold text-white mb-0">{{ $meninggalGlobal }} Orang</span>
-                                    <h6><span class="h2 font-weight-bold text-white mb-0">{{ $persenMeninggalGlobal}}% </span></h6>
+                                    <h6><span class="h2 font-weight-bold text-white mb-0">{{ number_format(($persenMeninggalGlobal),0)}}% </span></h6>
                                 </div>
                                 <div class="col-auto">
 
@@ -103,7 +103,7 @@
                                 <div class="col">
                                     <h5 class="card-title text-uppercase text-white mb-0">Dirawat</h5>
                                     <span class="h2 font-weight-bold text-white mb-0">{{ $dirawatGlobal }} Orang</span>
-                                    <h6><span class="h2 font-weight-bold text-white mb-0">{{ $persenDirawatGlobal}}% </span></h6>
+                                    <h6><span class="h2 font-weight-bold text-white mb-0">{{ number_format(($persenDirawatGlobal),0)}}% </span></h6>
                                 </div>
                                 <div class="col-auto">
 
@@ -636,7 +636,7 @@
                                 <div class="col">
                                     <h5 class="card-title text-uppercase text-white mb-0">Sembuh</h5>
                                     <span class="h2 font-weight-bold text-white mb-0">{{ $sembuh }} Orang </span>
-                                    <h6><span class="h2 font-weight-bold text-white mb-0">{{ $persenSembuh }}% </span></h6>
+                                    <h6><span class="h2 font-weight-bold text-white mb-0">{{ number_format(($persenSembuh),0) }}% </span></h6>
                                 </div>
                                 <div class="col-auto">
                                      <!-- <div class="icon icon-shape bg-green text-white rounded-circle shadow"> -->
@@ -664,7 +664,7 @@
                                 <div class="col">
                                     <h5 class="card-title text-uppercase text-white mb-0">Meninggal</h5>
                                     <span class="h2 font-weight-bold text-white mb-0">{{ $meninggal }} Orang</span>
-                                    <h6><span class="h2 font-weight-bold text-white mb-0">{{ $persenMeninggal }}% </span></h6>
+                                    <h6><span class="h2 font-weight-bold text-white mb-0">{{ number_format(($persenMeninggal),0) }}% </span></h6>
                                 </div>
                                 <div class="col-auto">
                                     <!-- <div class="icon icon-shape bg-black text-white rounded-circle shadow"> -->
@@ -692,7 +692,7 @@
                                 <div class="col">
                                     <h5 class="card-title text-uppercase text-white mb-0">Dirawat</h5>
                                     <span class="h2 font-weight-bold text-white mb-0">{{ $dirawat }} Orang</span>
-                                    <h6><span class="h2 font-weight-bold text-white mb-0">{{ $persenDirawat }}% </span></h6>
+                                    <h6><span class="h2 font-weight-bold text-white mb-0">{{ number_format(($persenDirawat),0) }}% </span></h6>
                                 </div>
                                 <div class="col-auto">
                                     <!-- <div class="icon icon-shape bg-blue text-white rounded-circle shadow"> -->
@@ -1536,7 +1536,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-xl-12 mb-5 mb-xl-0">
+                <div class="col-xl-12 mb-5 mb-xl-5">
                     <div class="card shadow">
                         <div class="card-header border-0">
                             <div class="row align-items-center">
@@ -1580,6 +1580,60 @@
                         </div>
                     </div>
                 </div>
+                <div class="col-xl-12 mb-5 mb-xl-0">
+                    <div class="card shadow">
+                        <div class="card-header border-0">
+                            <div class="row align-items-center">
+                                <div class="col">
+                                    <h3 class="mb-0">Data Summary</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="table-responsive" style="padding-right: 25px;padding-left: 25px;">
+                            <!-- Projects table -->
+                            <table id="table_summary" class="table align-items-center table-flush table-striped" cellspacing="0" width="100%">
+                                <thead class="thead-light">
+                                        <tr>
+                                            <th style="text-align: center" rowspan="2" data-valign="middle" data-formatter="runningFormatter">NO</th>
+                                            <th style="text-align: center" rowspan="2" data-valign="middle">TINGKAT</th>
+                                            <th style="text-align: center" rowspan="2" data-valign="middle">POSITIF</th>
+                                            <th style="text-align: center" colspan="2">SEMBUH</th>
+                                            <th style="text-align: center" colspan="2">MENINGGAL</th>
+
+                                        </tr>
+                                        <tr>
+                                          <th style="text-align: center">JUMLAH</th>
+                                          <th style="text-align: center">PERSENTASE</th>
+                                          <th style="text-align: center">JUMLAH</th>
+                                          <th style="text-align: center">PERSENTASE</th>
+                                        </tr>
+                                   
+                                </thead>
+                                <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>Nasional</td>
+                                            <td align="right">{{ $positif }}</td>
+                                            <td align="right">{{ $sembuh }}</td>
+                                            <td align="right">{{ $persenSembuh }}</td>
+                                            <td align="right">{{ $meninggal }}</td>
+                                            <td align="right">{{ $persenMeninggal }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>Global</td>
+                                            <td align="right">{{ $positifGlobal }}</td>
+                                            <td align="right">{{ $sembuhGlobal }}</td>
+                                            <td align="right">{{ $persenSembuhGlobal }}</td>
+                                            <td align="right">{{ $meninggalGlobal }}</td>
+                                            <td align="right">{{ $persenMeninggalGlobal }}</td>
+                                        </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                
             </div>
             @include('layouts.footers.auth')
             
@@ -7090,6 +7144,26 @@
                 } );
             } ).draw();
             var td= $('#table_dunia').DataTable({
+                "lengthMenu": [[10, 20, 25, 50, 100, -1], [10, 20, 25, 50, 100, "All"]],
+                language: {
+                    paginate: {
+                    next: '>', // or '→'
+                    previous: '<' // or '←' 
+                    }
+                },
+                "aaSorting": [],
+                columnDefs: [{
+                    orderable: false,
+                    targets: 0
+                }]
+
+            });
+            td.on( 'order.dt search.dt', function () {
+                td.column(0, {search:'applied', order:'applied'}).nodes().each( function (cell, i) {
+                    cell.innerHTML = i+1;
+                } );
+            } ).draw();
+            var td= $('#table_summary').DataTable({
                 "lengthMenu": [[10, 20, 25, 50, 100, -1], [10, 20, 25, 50, 100, "All"]],
                 language: {
                     paginate: {
